@@ -1,18 +1,26 @@
 import org.gicentre.geomap.*;
-//super neat library called GeoMap lets you read shape files in Processing
-//need the .shp and .dbf files in the data folder of the sketch 
  
-GeoMap geoMap;                // Declare the geoMap object.
+GeoMap geoMap;
  
 void setup()
 {
-  size(1000, 1000);
-  
-  geoMap = new GeoMap(this);  // Create the geoMap object.
-  geoMap.readFile("JE Land Use");   // Reads shapefile.
+  size(750, 750);
+ 
+  geoMap = new GeoMap(this);
+  geoMap.readFile("JE Land Use");
+   
+  // Set up text appearance.
+  textAlign(LEFT, BOTTOM);
+  textSize(12);
+
 }
  
 void draw()
-{ 
+{
+  background(255);  
+  stroke(#996633);              
+  fill(#99ff99);          // Land colour
   geoMap.draw();              // Draw the entire map.
+ 
+   hover();
 }
