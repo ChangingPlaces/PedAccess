@@ -15,7 +15,13 @@ void hover(){
       fill( #cc99cc);
     }
     if(geoMap.getAttributes().getString(loc, 2).equals("ROAD")){
-      fill(0);
+      fill(255);
+    }
+    if(geoMap.getAttributes().getString(loc, 2).equals("UTILITY")){
+      fill(#cc6633);
+    }
+    if(geoMap.getAttributes().getString(loc, 2).equals("RESERVE SITE")){
+       fill(#009966);
     }
     geoMap.draw(loc);
    

@@ -6,7 +6,7 @@ GeoMap geoMap2;
  
 void setup()
 {
-  size(500, 500);
+  size(800, 800);
  
   geoMap = new GeoMap(this);
   geoMap1 = new GeoMap(this);

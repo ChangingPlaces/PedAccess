@@ -23,3 +23,14 @@ After you declare the geoMap object you can draw it simply with geoMap.draw()
 You can also draw at a certain coordinate and certain size, but this also scales to given proportions
   geoMap = new GeoMap(10,10,250,250,this); 
 */
+
+/*****
+Lots of other things
+*****/
+/*
+You can also pull a lot of things from the visual map itself and the Attribute table
+
+Simple Instructions and Exampls: http://www.gicentre.net/geomap/using
+Full API: http://www.staff.city.ac.uk/~jwo/giCentre/geomap/reference/
+
+*/
