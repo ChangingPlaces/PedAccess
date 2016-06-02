@@ -29,7 +29,7 @@ void draw()
   stroke(#6633ff);        //lines      
   fill(#99ff99);          // Land colour
   geoMap.draw();          
-  stroke(255);              //roadnetwork color
+  stroke(255, 0, 0);              //roadnetwork color
   strokeWeight(1);
   geoMap1.draw();
   hover();
