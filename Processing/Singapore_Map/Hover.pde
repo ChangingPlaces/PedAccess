@@ -23,6 +23,12 @@ void hover(){
     if(geoMap.getAttributes().getString(loc, 2).equals("RESERVE SITE")){
        fill(#009966);
     }
+    if(geoMap.getAttributes().getString(loc, 2).equals("HOTEL")){
+       fill(#3399ff);
+    }
+     if(geoMap.getAttributes().getString(loc, 2).equals("BUSINESS 1")){
+       fill(#00ffff);
+    }
     geoMap.draw(loc);
    
     //print attribute
