@@ -6,6 +6,17 @@ void hover(){
   {
     //give it a different fill
     fill(#ffff66);
+    
+    //assign specific fills given different attributes
+    if(geoMap.getAttributes().getString(loc, 2).equals("WATERBODY")){
+      fill( #99ccff);
+    }
+    if(geoMap.getAttributes().getString(loc, 2).equals("RESIDENTIAL")){
+      fill( #cc99cc);
+    }
+    if(geoMap.getAttributes().getString(loc, 2).equals("ROAD")){
+      fill(0);
+    }
     geoMap.draw(loc);
    
     //print attribute
