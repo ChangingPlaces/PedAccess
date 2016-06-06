@@ -11,4 +11,11 @@ I converted some of the shape files to .json and .csv for easier reading in Proc
 \
 I did this using an online tool called mapshaper.org, which also has the ability to simplify the shape file before export\
 \
-}
+\
+\
+I used QGIS to convert the old coordinate system to lat/lon for use with our mercator, because that\'92s the projection we usually use. \
+\
+To do so I\'85\
+	1. added a new Vector layer from the shape file\
+	2. Saved this new layer as a new shape file with the WGS 84 coordinate system (4326) \
+	3. Opened this and used the MMQGIS pluggin to export the vertices }
