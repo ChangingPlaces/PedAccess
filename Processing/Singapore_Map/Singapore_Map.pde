@@ -1,4 +1,15 @@
 import org.gicentre.geomap.*;
+
+import java.util.List;
+import com.vividsolutions.jts.geom.Geometry;
+import com.vividsolutions.jts.geom.MultiPolygon;
+import com.vividsolutions.jts.geom.Polygon;
+import com.vividsolutions.jts.geom.Point;
+import com.vividsolutions.jts.geom.Envelope;
+import com.vividsolutions.jts.geom.GeometryFactory;
+import com.vividsolutions.jts.index.strtree.STRtree;
+
+import com.vividsolutions.jts.geom.GeometryFactory;
  
 GeoMap geoMap;
 GeoMap geoMap1;
@@ -19,6 +30,8 @@ void setup()
   geoMap.readFile("JE Land Use");
   geoMap1.readFile("JE Road Network");
   geoMap2.readFile("JE pedestrian network v2");
+  //also want amenities 
+  
   // Set up text appearance.
   textAlign(LEFT, BOTTOM);
   textSize(12);
