@@ -30,6 +30,7 @@ boolean drawGrid = true;
 
 void drawMinimap(){
         stroke(#00ff00);
+        noFill();
         strokeWeight(2.5);
         rect(width*2/3, height/3, width/4, width/4);
         float x = width*2/3;

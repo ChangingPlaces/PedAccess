@@ -17,8 +17,7 @@ int xsize = 700; //this is the x of my map
 float cellwidth = 90;
 
 ArrayList<PVector> thing = new ArrayList<PVector>();
-float[] xcorn = new float[thing.size()];
-float[] ycorn = new float[thing.size()];
+
 
 String shapefile_name, shapefile_filesuffix, shapefile_filename, property_name;
 
@@ -54,14 +53,13 @@ void draw() {
       println("framerate is", frameRate);
       background(255);
       
+      drawRenderedArea();
       drawMinimap();
-     
       
       scaleToBounds();
     
       drawPolygons();
       drawGrid();
-      MiniBox();
       
       noLoop(); //loop once through and stop
 }
