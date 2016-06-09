@@ -18,6 +18,7 @@ void drawGrid() {
           endShape(CLOSE);
         }
       }
+      
    
 //      println("---");
 //      println("Area of each Cell   = " + sq(cellwidth) + " square meters.");

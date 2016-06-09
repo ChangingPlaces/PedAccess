@@ -10,13 +10,15 @@ import com.vividsolutions.jts.index.strtree.STRtree;
 
 import com.vividsolutions.jts.geom.GeometryFactory;
 
-int nrows = 18;
-int ncols = 18;
+int nrows = 2;
+int ncols = nrows;
 int ysize = 700; //this is the y of my map
 int xsize = 700; //this is the x of my map
 float cellwidth = 90;
 
 ArrayList<PVector> thing = new ArrayList<PVector>();
+float[] xcorn = new float[thing.size()];
+float[] ycorn = new float[thing.size()];
 
 String shapefile_name, shapefile_filesuffix, shapefile_filename, property_name;
 
@@ -43,6 +45,7 @@ void setup() {
       setScale();  
       makeGridAndResample(true);
       smooth();
+      
 }
 
 
@@ -52,15 +55,14 @@ void draw() {
       background(255);
       
       drawMinimap();
+     
       
       scaleToBounds();
     
       drawPolygons();
-      if (drawGrid) {
-        drawGrid();
-      }
+      drawGrid();
+      MiniBox();
       
-    
       noLoop(); //loop once through and stop
 }
 
