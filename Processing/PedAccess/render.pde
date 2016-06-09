@@ -89,6 +89,11 @@ void renderTable() {
   // Draws Cursor
   renderCursor(c);
   table.image(c, 0, 0);
+  
+//  // Draws Mock Dock
+//  table.fill(0);
+//  table.noStroke();
+//  table.rect(0*gridWidth, 18*4*gridHeight, 18*4*gridWidth, 4*4*gridHeight);
 
   table.endDraw();
 }
@@ -889,7 +894,7 @@ void renderBasemap(PGraphics graphic) {
     //float mapRatio = 0.3;
     
     void loadMiniBaseMap() {
-      miniBaseMap = loadImage("data/" + mapColor + "/" + fileName + "_2000.png");
+      miniBaseMap = loadImage("data/" + mapColor + "/" + fileName + ".png");
       miniBaseMap.resize(4*displayU, 4*displayV);
     }
 

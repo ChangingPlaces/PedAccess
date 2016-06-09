@@ -20,7 +20,6 @@
 // length of one pixel [km]
 float gridSize = 2.0; // toggle to 2.0, 1.0, and 0.5
 float MAX_GRID_SIZE = 2.0;
-float MIN_GRID_SIZE = 0.5;
 
 // Lat-Lon and rotation to center the grid
 float centerLatitude;
@@ -73,6 +72,7 @@ void denverMode() {
   centerLongitude = -104.9903;
   azimuth =  0; // 0 = North
   fileName = "denver";
+  gridSize = 2.0;
 }
 
 // Sets Default Paramters for San Jose Area
@@ -81,6 +81,17 @@ void sanjoseMode() {
   centerLongitude = -121.979507;
   azimuth =  0; // 0 = North
   fileName = "sanjose";
+  gridSize = 2.0;
+}
+
+// Sets Default Paramters for San Jose Area
+void singaporeMode() {
+  centerLatitude = 1.3342;
+  centerLongitude = 103.74234;
+  azimuth =  0; // 0 = North
+  fileName = "singapore";
+  gridSize = 0.04;
+  popMode = "POP10";
 }
 
 // 

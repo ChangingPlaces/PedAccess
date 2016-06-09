@@ -9177,7 +9177,7 @@
     "v": 33,
     "u": 17,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 34,
@@ -9195,7 +9195,7 @@
     "v": 36,
     "u": 17,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 37,
@@ -9207,13 +9207,13 @@
     "v": 38,
     "u": 17,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 17,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 40,
@@ -9705,13 +9705,13 @@
     "v": 33,
     "u": 18,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 18,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 35,
@@ -9723,19 +9723,19 @@
     "v": 36,
     "u": 18,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 18,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 18,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 39,
@@ -9759,7 +9759,7 @@
     "v": 42,
     "u": 18,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 43,
@@ -10221,31 +10221,31 @@
     "v": 31,
     "u": 19,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 32,
     "u": 19,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 19,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 19,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 19,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 36,
@@ -10257,19 +10257,19 @@
     "v": 37,
     "u": 19,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 19,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 19,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 40,
@@ -10755,31 +10755,31 @@
     "v": 32,
     "u": 20,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 20,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 20,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 20,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 20,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 37,
@@ -10797,7 +10797,7 @@
     "v": 39,
     "u": 20,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 40,
@@ -11277,37 +11277,37 @@
     "v": 31,
     "u": 21,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 32,
     "u": 21,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 21,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 21,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 21,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 21,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 37,
@@ -11319,7 +11319,7 @@
     "v": 38,
     "u": 21,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 39,
@@ -11331,7 +11331,7 @@
     "v": 40,
     "u": 21,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 41,
@@ -11805,67 +11805,67 @@
     "v": 31,
     "u": 22,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 32,
     "u": 22,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 22,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 22,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 22,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 22,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 22,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 22,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 22,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 22,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 22,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 42,
@@ -11877,7 +11877,7 @@
     "v": 43,
     "u": 22,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 44,
@@ -11901,7 +11901,7 @@
     "v": 47,
     "u": 22,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 48,
@@ -12339,13 +12339,13 @@
     "v": 32,
     "u": 23,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 23,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 34,
@@ -12357,37 +12357,37 @@
     "v": 35,
     "u": 23,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 23,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 23,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 23,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 23,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 23,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 41,
@@ -12399,7 +12399,7 @@
     "v": 42,
     "u": 23,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 43,
@@ -12411,7 +12411,7 @@
     "v": 44,
     "u": 23,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 45,
@@ -12435,7 +12435,7 @@
     "v": 48,
     "u": 23,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 49,
@@ -12855,7 +12855,7 @@
     "v": 30,
     "u": 24,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 31,
@@ -12867,85 +12867,85 @@
     "v": 32,
     "u": 24,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 24,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 24,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 24,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 24,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 24,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 24,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 24,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 24,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 24,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 24,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 24,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 24,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 24,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 46,
@@ -13401,73 +13401,73 @@
     "v": 33,
     "u": 25,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 25,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 25,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 25,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 25,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 25,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 25,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 25,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 25,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 25,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 25,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 25,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 45,
@@ -13491,7 +13491,7 @@
     "v": 48,
     "u": 25,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 49,
@@ -13911,7 +13911,7 @@
     "v": 30,
     "u": 26,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 31,
@@ -13923,13 +13923,13 @@
     "v": 32,
     "u": 26,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 26,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 34,
@@ -13959,49 +13959,49 @@
     "v": 38,
     "u": 26,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 26,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 26,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 26,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 26,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 26,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 26,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 26,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 46,
@@ -14019,7 +14019,7 @@
     "v": 48,
     "u": 26,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 49,
@@ -14457,7 +14457,7 @@
     "v": 33,
     "u": 27,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 34,
@@ -14469,19 +14469,19 @@
     "v": 35,
     "u": 27,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 27,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 27,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 38,
@@ -14493,37 +14493,37 @@
     "v": 39,
     "u": 27,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 27,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 27,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 27,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 27,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 27,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 45,
@@ -14535,13 +14535,13 @@
     "v": 46,
     "u": 27,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 27,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 48,
@@ -14967,7 +14967,7 @@
     "v": 30,
     "u": 28,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 31,
@@ -14979,7 +14979,7 @@
     "v": 32,
     "u": 28,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 33,
@@ -14991,7 +14991,7 @@
     "v": 34,
     "u": 28,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 35,
@@ -15009,31 +15009,31 @@
     "v": 37,
     "u": 28,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 28,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 28,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 28,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 28,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 42,
@@ -15045,37 +15045,37 @@
     "v": 43,
     "u": 28,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 28,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 28,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 28,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 28,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 28,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 49,
@@ -15513,97 +15513,97 @@
     "v": 33,
     "u": 29,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 29,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 29,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 29,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 29,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 29,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 29,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 29,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 29,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 29,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 29,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 29,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 29,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 29,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 29,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 29,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 49,
@@ -15615,13 +15615,13 @@
     "v": 50,
     "u": 29,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 29,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 52,
@@ -16023,25 +16023,25 @@
     "v": 30,
     "u": 30,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 31,
     "u": 30,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 32,
     "u": 30,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 30,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 34,
@@ -16053,25 +16053,25 @@
     "v": 35,
     "u": 30,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 30,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 30,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 30,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 39,
@@ -16083,79 +16083,79 @@
     "v": 40,
     "u": 30,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 30,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 30,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 30,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 30,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 30,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 30,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 30,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 30,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 30,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 30,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 30,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 30,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 53,
@@ -16545,7 +16545,7 @@
     "v": 29,
     "u": 31,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 30,
@@ -16563,7 +16563,7 @@
     "v": 32,
     "u": 31,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 33,
@@ -16575,7 +16575,7 @@
     "v": 34,
     "u": 31,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 35,
@@ -16587,85 +16587,85 @@
     "v": 36,
     "u": 31,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 31,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 31,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 31,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 31,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 31,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 31,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 31,
     "store": 0,
-    "deliveries": 23
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 31,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 31,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 31,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 31,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 31,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 31,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 50,
@@ -16677,7 +16677,7 @@
     "v": 51,
     "u": 31,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 52,
@@ -16689,13 +16689,13 @@
     "v": 53,
     "u": 31,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 31,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 55,
@@ -17073,61 +17073,61 @@
     "v": 29,
     "u": 32,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 30,
     "u": 32,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 31,
     "u": 32,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 32,
     "u": 32,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 32,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 32,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 32,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 32,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 32,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 32,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 39,
@@ -17139,73 +17139,73 @@
     "v": 40,
     "u": 32,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 32,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 32,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 32,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 32,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 32,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 32,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 32,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 32,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 32,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 32,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 32,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 52,
@@ -17601,7 +17601,7 @@
     "v": 29,
     "u": 33,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 30,
@@ -17613,25 +17613,25 @@
     "v": 31,
     "u": 33,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 32,
     "u": 33,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 33,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 33,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 35,
@@ -17643,109 +17643,109 @@
     "v": 36,
     "u": 33,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 33,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 33,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 33,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 33,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 33,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 33,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 33,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 33,
     "store": 0,
-    "deliveries": 19
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 33,
     "store": 0,
-    "deliveries": 15
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 33,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 33,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 33,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 33,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 33,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 33,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 33,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 33,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 54,
@@ -18135,157 +18135,157 @@
     "v": 30,
     "u": 34,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 31,
     "u": 34,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 32,
     "u": 34,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 34,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 34,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 34,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 34,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 34,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 34,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 34,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 34,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 34,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 34,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 34,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 34,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 34,
     "store": 0,
-    "deliveries": 14
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 34,
     "store": 0,
-    "deliveries": 19
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 34,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 34,
     "store": 0,
-    "deliveries": 14
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 34,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 34,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 34,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 34,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 34,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 34,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 34,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 56,
@@ -18663,19 +18663,19 @@
     "v": 30,
     "u": 35,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 31,
     "u": 35,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 32,
     "u": 35,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 33,
@@ -18687,121 +18687,121 @@
     "v": 34,
     "u": 35,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 35,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 35,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 35,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 35,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 35,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 35,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 35,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 35,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 35,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 35,
     "store": 0,
-    "deliveries": 18
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 35,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 35,
     "store": 0,
-    "deliveries": 15
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 35,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 35,
     "store": 0,
-    "deliveries": 18
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 35,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 35,
     "store": 0,
-    "deliveries": 12
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 35,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 35,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 35,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 54,
@@ -18813,13 +18813,13 @@
     "v": 55,
     "u": 35,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 56,
     "u": 35,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 57,
@@ -19191,157 +19191,157 @@
     "v": 30,
     "u": 36,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 31,
     "u": 36,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 32,
     "u": 36,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 36,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 36,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 36,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 36,
     "u": 36,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 37,
     "u": 36,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 36,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 36,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 36,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 36,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 36,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 36,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 36,
     "store": 0,
-    "deliveries": 20
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 36,
     "store": 0,
-    "deliveries": 18
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 36,
     "store": 0,
-    "deliveries": 19
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 36,
     "store": 0,
-    "deliveries": 18
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 36,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 36,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 36,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 36,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 36,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 36,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 36,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 36,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 56,
@@ -19719,7 +19719,7 @@
     "v": 30,
     "u": 37,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 31,
@@ -19731,25 +19731,25 @@
     "v": 32,
     "u": 37,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 37,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 34,
     "u": 37,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 35,
     "u": 37,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 36,
@@ -19761,121 +19761,121 @@
     "v": 37,
     "u": 37,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 37,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 37,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 37,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 37,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 37,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 37,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 37,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 37,
     "store": 0,
-    "deliveries": 23
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 37,
     "store": 0,
-    "deliveries": 17
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 37,
     "store": 0,
-    "deliveries": 15
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 37,
     "store": 0,
-    "deliveries": 20
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 37,
     "store": 0,
-    "deliveries": 21
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 37,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 37,
     "store": 0,
-    "deliveries": 12
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 37,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 37,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 37,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 37,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 56,
     "u": 37,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 57,
@@ -20253,19 +20253,19 @@
     "v": 31,
     "u": 38,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 32,
     "u": 38,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 33,
     "u": 38,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 34,
@@ -20277,7 +20277,7 @@
     "v": 35,
     "u": 38,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 36,
@@ -20295,109 +20295,109 @@
     "v": 38,
     "u": 38,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 38,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 38,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 38,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 38,
     "store": 0,
-    "deliveries": 14
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 38,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 38,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 38,
     "store": 0,
-    "deliveries": 20
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 38,
     "store": 0,
-    "deliveries": 19
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 38,
     "store": 0,
-    "deliveries": 19
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 38,
     "store": 0,
-    "deliveries": 12
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 38,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 38,
     "store": 0,
-    "deliveries": 19
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 38,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 38,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 38,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 38,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 38,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 56,
@@ -20769,7 +20769,7 @@
     "v": 29,
     "u": 39,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 30,
@@ -20817,7 +20817,7 @@
     "v": 37,
     "u": 39,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 38,
@@ -20829,109 +20829,109 @@
     "v": 39,
     "u": 39,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 39,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 39,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 39,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 39,
     "store": 0,
-    "deliveries": 15
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 39,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 39,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 39,
     "store": 0,
-    "deliveries": 28
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 39,
     "store": 0,
-    "deliveries": 19
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 39,
     "store": 0,
-    "deliveries": 15
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 39,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 39,
     "store": 0,
-    "deliveries": 20
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 39,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 39,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 39,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 39,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 39,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 56,
     "u": 39,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 57,
@@ -21333,7 +21333,7 @@
     "v": 35,
     "u": 40,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 36,
@@ -21345,115 +21345,115 @@
     "v": 37,
     "u": 40,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 38,
     "u": 40,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 39,
     "u": 40,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 40,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 40,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 40,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 40,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 40,
     "store": 0,
-    "deliveries": 15
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 40,
     "store": 0,
-    "deliveries": 21
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 40,
     "store": 0,
-    "deliveries": 18
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 40,
     "store": 0,
-    "deliveries": 14
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 40,
     "store": 0,
-    "deliveries": 27
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 40,
     "store": 0,
-    "deliveries": 12
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 40,
     "store": 0,
-    "deliveries": 19
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 40,
     "store": 0,
-    "deliveries": 14
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 40,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 40,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 40,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 40,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 56,
@@ -21873,7 +21873,7 @@
     "v": 37,
     "u": 41,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 38,
@@ -21885,109 +21885,109 @@
     "v": 39,
     "u": 41,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 40,
     "u": 41,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 41,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 41,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 41,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 41,
     "store": 0,
-    "deliveries": 12
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 41,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 41,
     "store": 0,
-    "deliveries": 18
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 41,
     "store": 0,
-    "deliveries": 15
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 41,
     "store": 0,
-    "deliveries": 15
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 41,
     "store": 0,
-    "deliveries": 17
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 41,
     "store": 0,
-    "deliveries": 17
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 41,
     "store": 0,
-    "deliveries": 23
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 41,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 41,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 41,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 41,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 56,
     "u": 41,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 57,
@@ -22401,7 +22401,7 @@
     "v": 37,
     "u": 42,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 38,
@@ -22419,103 +22419,103 @@
     "v": 40,
     "u": 42,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 42,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 42,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 42,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 42,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 42,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 42,
     "store": 0,
-    "deliveries": 13
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 42,
     "store": 0,
-    "deliveries": 23
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 42,
     "store": 0,
-    "deliveries": 18
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 42,
     "store": 0,
-    "deliveries": 16
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 42,
     "store": 0,
-    "deliveries": 15
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 42,
     "store": 0,
-    "deliveries": 18
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 42,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 42,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 42,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 42,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 56,
     "u": 42,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 57,
@@ -22947,103 +22947,103 @@
     "v": 40,
     "u": 43,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 43,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 43,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 43,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 43,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 43,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 43,
     "store": 0,
-    "deliveries": 15
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 43,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 43,
     "store": 0,
-    "deliveries": 6
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 43,
     "store": 0,
-    "deliveries": 12
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 43,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 43,
-    "store": 5884,
-    "deliveries": 8
+    "store": 0,
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 43,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 43,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 43,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 43,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 56,
     "u": 43,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 57,
@@ -23475,97 +23475,97 @@
     "v": 40,
     "u": 44,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 41,
     "u": 44,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 44,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 44,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 44,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 44,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 44,
     "store": 0,
-    "deliveries": 9
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 44,
-    "store": 5435,
-    "deliveries": 7
+    "store": 0,
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 44,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 44,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 44,
     "store": 0,
-    "deliveries": 11
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 44,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 44,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 44,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 44,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 44,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 56,
@@ -24009,13 +24009,13 @@
     "v": 41,
     "u": 45,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 42,
     "u": 45,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 43,
@@ -24027,79 +24027,79 @@
     "v": 44,
     "u": 45,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 45,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 45,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 45,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 45,
     "store": 0,
-    "deliveries": 10
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 45,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 45,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 45,
     "store": 0,
-    "deliveries": 7
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 45,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 45,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 45,
     "store": 0,
-    "deliveries": 8
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 45,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 56,
     "u": 45,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 57,
@@ -24117,7 +24117,7 @@
     "v": 59,
     "u": 45,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 60,
@@ -24531,7 +24531,7 @@
     "v": 40,
     "u": 46,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 41,
@@ -24543,85 +24543,85 @@
     "v": 42,
     "u": 46,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 43,
     "u": 46,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 46,
     "store": 0,
-    "deliveries": 5
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 46,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 46,
     "u": 46,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 47,
     "u": 46,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 46,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 46,
     "store": 0,
-    "deliveries": 4
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 46,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 46,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 46,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 46,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 54,
     "u": 46,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 55,
     "u": 46,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 56,
@@ -25047,7 +25047,7 @@
     "v": 38,
     "u": 47,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 39,
@@ -25077,19 +25077,19 @@
     "v": 43,
     "u": 47,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 44,
     "u": 47,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 45,
     "u": 47,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 46,
@@ -25101,43 +25101,43 @@
     "v": 47,
     "u": 47,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 47,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 47,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 47,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 47,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 47,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 47,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 54,
@@ -25149,7 +25149,7 @@
     "v": 55,
     "u": 47,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 56,
@@ -25629,43 +25629,43 @@
     "v": 47,
     "u": 48,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 48,
     "u": 48,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 49,
     "u": 48,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 50,
     "u": 48,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 51,
     "u": 48,
     "store": 0,
-    "deliveries": 2
+    "deliveries": 0
   },
   {
     "v": 52,
     "u": 48,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 53,
     "u": 48,
     "store": 0,
-    "deliveries": 3
+    "deliveries": 0
   },
   {
     "v": 54,
@@ -26151,7 +26151,7 @@
     "v": 46,
     "u": 49,
     "store": 0,
-    "deliveries": 1
+    "deliveries": 0
   },
   {
     "v": 47,

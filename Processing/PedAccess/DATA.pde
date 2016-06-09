@@ -47,7 +47,7 @@
     
     // Loads one giant map object
     void initializeBaseMap() {
-      wholeMap = loadImage("data/" + mapColor + "/" + fileName + "_2000.png");
+      wholeMap = loadImage("data/" + mapColor + "/" + fileName + ".png");
     }
     
     // Loads subset of wholemap onto basemap
@@ -72,6 +72,9 @@
           break;
         case 1:
           sanjoseMode();
+          break;
+        case 2:
+          singaporeMode();
           break;
       }
       
