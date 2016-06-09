@@ -6,9 +6,9 @@ String[] menuOrder =
   "Next City (n)",
   "Randomize Pieces (z)",
   "VOID",
-  "2km per pixel (3)",
-  "1km per pixel (2)",
-  "500m per pixel (1)",
+  "Zoom 3 (3)",
+  "Zoom 2 (2)",
+  "Zoom 1 (1)",
   "Recenter Grid (R)",
   "VOID",
   "Show Input Data (I)",
@@ -54,9 +54,9 @@ String[] buttonNames =
   "Align Right (r)",         // 8
   "Align Center (c)",        // 9
   "Invert Colors (i)",       // 10
-  "2km per pixel (3)",       // 11
-  "1km per pixel (2)",       // 12
-  "500m per pixel (1)",      // 13
+  "Zoom 3 (3)",       // 11
+  "Zoom 2 (2)",       // 12
+  "Zoom 1 (1)",      // 13
   "Show Basemap (m)",        // 14
   "Show Framerate (f)",      // 15
   "2015 Delivery Data (D)",  // 16
@@ -236,17 +236,17 @@ void mouseClicked() {
 
   //function11
   if(mainMenu.buttons[getButtonIndex(buttonNames[11])].over()){
-    setGridSize(2.0, getButtonIndex(buttonNames[11]));
+    setGridSize(MAX_GRID_SIZE);
   }
 
   //function12
   if(mainMenu.buttons[getButtonIndex(buttonNames[12])].over()){
-    setGridSize(1.0, getButtonIndex(buttonNames[12]));
+    setGridSize(MAX_GRID_SIZE/2);
   }
 
   //function13
   if(mainMenu.buttons[getButtonIndex(buttonNames[13])].over()){
-    setGridSize(0.5, getButtonIndex(buttonNames[13]));
+    setGridSize(MAX_GRID_SIZE/4);
   }
 
   //function14
@@ -396,15 +396,15 @@ void keyPressed() {
       break;
 
     case '3': // "2km per pixel",         // 11
-      setGridSize(2.0, getButtonIndex(buttonNames[11]));
+      setGridSize(MAX_GRID_SIZE);
       switched = true;
       break;
     case '2': // "1km per pixel",         // 12
-      setGridSize(1.0, getButtonIndex(buttonNames[12]));
+      setGridSize(MAX_GRID_SIZE/2);
       switched = true;
       break;
     case '1': // "500m per pixel",        // 13
-      setGridSize(0.5, getButtonIndex(buttonNames[13]));
+      setGridSize(MAX_GRID_SIZE/4);
       switched = true;
       break;
 
@@ -619,7 +619,7 @@ void toggleMainMenu() {
 
 // Loads Next Data Set
 void nextModeIndex() {
-  modeIndex = next(modeIndex, 1);
+  modeIndex = next(modeIndex, 2);
   reloadData(gridU, gridV, modeIndex);
   reRenderMiniMap(miniMap);
   fauxPieces(randomType, tablePieceInput, IDMax);
@@ -746,7 +746,7 @@ void setVehicle() {
   reRenderMiniMap(miniMap);
 }
 
-void setGridSize(float size, int button) {
+void setGridSize(float size) {
   gridSize = size;
   resetGridParameters();
   depressZoomButtons(size);
@@ -966,11 +966,11 @@ void depressZoomButtons(float size) {
   int max = getButtonIndex(buttonNames[13]);
 
   int button = min;
-  if (size == 2) {
+  if (size == MAX_GRID_SIZE) {
     button += 0;
-  } else if (size == 1) {
+  } else if (size == MAX_GRID_SIZE/2) {
     button += 1;
-  } else if (size == 0.5) {
+  } else if (size == MAX_GRID_SIZE/4) {
     button += 2;
   }
 
