@@ -1,3 +1,5 @@
+/* PedAccess is a derivative of Pixelizer.  It's purpose it to render geospatial urban data and run analysis an simulation of pedestrain networks
+
 /* Pixelizer is a script that transforms a cloud of weighted latitude-longitude points
  * into a discrete, pixelized aggregation data set.  Input is a TSV file
  * of weighted lat-lon and output is a JSON.

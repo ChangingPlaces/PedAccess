@@ -1,9 +1,9 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
 <qgis projectname="" version="2.14.0-Essen">
   <title></title>
-  <layer-tree-group expanded="1" checked="Qt::Checked" name="">
+  <layer-tree-group expanded="1" checked="Qt::PartiallyChecked" name="">
     <customproperties/>
-    <layer-tree-layer expanded="1" checked="Qt::Checked" id="Building_Footprint20160603151041988" name="Building Footprint">
+    <layer-tree-layer expanded="1" checked="Qt::Unchecked" id="Building_Footprint20160603151041988" name="Building Footprint">
       <customproperties/>
     </layer-tree-layer>
     <layer-tree-layer expanded="1" checked="Qt::Checked" id="Bulding_Footprint_polygons20160603145434409" name="Bulding Footprint_polygons">
@@ -14,10 +14,10 @@
   <mapcanvas>
     <units>degrees</units>
     <extent>
-      <xmin>103.72875531335998289</xmin>
-      <ymin>1.31716561628000006</ymin>
-      <xmax>103.76174258387999316</xmax>
-      <ymax>1.34858919799999999</ymax>
+      <xmin>103.73844743199012441</xmin>
+      <ymin>1.32801012656376516</ymin>
+      <xmax>103.74524212636512743</xmax>
+      <ymax>1.33448273343876522</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>0</projections>
@@ -43,9 +43,9 @@
     </custom-order>
   </layer-tree-canvas>
   <legend updateDrawingOrder="true">
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Building Footprint" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked" name="Building Footprint" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="Building_Footprint20160603151041988" visible="1"/>
+        <legendlayerfile isInOverview="0" layerid="Building_Footprint20160603151041988" visible="0"/>
       </filegroup>
     </legendlayer>
     <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Bulding Footprint_polygons" showFeatureCount="0">
@@ -138,14 +138,14 @@
         <multilineenabled fieldname="" on=""/>
         <selectedonly on=""/>
       </labelattributes>
-      <annotationform></annotationform>
+      <annotationform>.</annotationform>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions/>
-      <editform></editform>
+      <editform>.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>.</editforminitfilepath>
       <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
@@ -484,14 +484,14 @@
         <multilineenabled fieldname="" on=""/>
         <selectedonly on=""/>
       </labelattributes>
-      <annotationform></annotationform>
+      <annotationform>.</annotationform>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions/>
-      <editform></editform>
+      <editform>.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>.</editforminitfilepath>
       <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
