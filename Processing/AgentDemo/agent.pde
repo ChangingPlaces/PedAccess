@@ -431,7 +431,7 @@ class Swarm {
   }
   
   void displayPath(PGraphics p) {
-    p.strokeWeight(0);
+    p.strokeWeight(2);
     
 //    // Draw Path Nodes
 //    for (int i=0; i<testPath.size(); i++) {

@@ -4,12 +4,14 @@
 
 //int canvasWidth = 1920;
 //int canvasHeight = 1200;
-int canvasWidth = 1200;
-int canvasHeight = 700;
+int canvasWidth = 2158;
+int canvasHeight = 1154;
 
 boolean bw = true;
 
 boolean enableProjectionMapping = false;
+
+//PImage = img;
 
 // Key Commands:
 //
@@ -73,9 +75,13 @@ boolean initialized = false;
 // allows you to draw a loading screen
 int drawDelay = 10;
 
+PImage img;
+
 void setup() {
   size(canvasWidth, canvasHeight, P3D);
   initCanvas();
+  
+   img = loadImage("map.jpg");
   
   setupKeyStone();
 //  //Call this method if data folder ever needs to be selected by a user
@@ -98,6 +104,7 @@ void mainDraw() {
   renderTableCanvas();
 
 }
+
 
 void draw() {
   // If certain key commands are pressed, it causes a <0 delay which counts down in this section
