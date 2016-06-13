@@ -62,7 +62,7 @@ void drawTableCanvas(PGraphics p) {
       
       // Displays demoMap
       if(showDemoMap) {
-        p.image(img, 0, 0);
+        p.image(img, 0, 0, canvasWidth, canvasHeight);
       }
       
       // Displays Heatmap

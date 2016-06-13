@@ -26,7 +26,7 @@ class Agent {
   int pathIndex, pathLength;
   
   Agent(float x, float y, int rad, float maxS, int pLength) {
-    r = rad;
+    r = 4;
     tolerance *= r;
     location = new PVector(x + random(-tolerance, tolerance), y + random(-tolerance, tolerance));
     maxspeed = maxS;

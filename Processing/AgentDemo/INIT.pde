@@ -87,7 +87,7 @@ void initAgents(PGraphics p) {
       testNetwork_Random(p, 0);
       break;
     case 1:
-      testNetwork_Random(p, 16);
+      testNetwork_Random(p, 20);
       break;
     case 2: 
       testNetwork_Random(p, 16);
@@ -156,7 +156,7 @@ void testNetwork_Random(PGraphics p, int _numNodes) {
 
   
   for (int i=0; i<numNodes; i++) {
-    nodes[i] = new PVector(random(10, p.width-10), random(10, p.height-10));
+    nodes[i] = new PVector(random(200, p.width-200), random(10, p.height-10));
   }
   
   for (int i=0; i<numNodes; i++) {

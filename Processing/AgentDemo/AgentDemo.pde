@@ -4,8 +4,11 @@
 
 //int canvasWidth = 1920;
 //int canvasHeight = 1200;
-int canvasWidth = 2158;
-int canvasHeight = 1154;
+//int canvasWidth = 2158;
+//int canvasHeight = 1154;
+
+int canvasWidth = 1000;
+int canvasHeight = 600;
 
 boolean bw = true;
 
@@ -81,7 +84,7 @@ void setup() {
   size(canvasWidth, canvasHeight, P3D);
   initCanvas();
   
-   img = loadImage("map.jpg");
+   img = loadImage("maps.jpg");
   
   setupKeyStone();
 //  //Call this method if data folder ever needs to be selected by a user
