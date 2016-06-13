@@ -200,7 +200,6 @@ class Graph {
     U = int(w/scale);
     V = int(h/scale);
     SCALE = scale;
-    SCALE = 70;
     
     nodes = new ArrayList<Node>();
     
