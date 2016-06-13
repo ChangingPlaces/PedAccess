@@ -388,12 +388,12 @@ class Swarm {
     p.stroke(textColor, 100);
     
     //Draw Source
-    p.strokeWeight(2);
+    p.noStroke();
     p.line(origin.x - 5, origin.y - 5, origin.x + 5, origin.y + 5);
     p.line(origin.x - 5, origin.y + 5, origin.x + 5, origin.y - 5);
     
     //Draw Sink
-    p.strokeWeight(3);
+    p.noStroke();
     p.ellipse(destination.x, destination.y, 30, 30);
   }
   
@@ -431,7 +431,7 @@ class Swarm {
   }
   
   void displayPath(PGraphics p) {
-    p.strokeWeight(2);
+    p.strokeWeight(0);
     
 //    // Draw Path Nodes
 //    for (int i=0; i<testPath.size(); i++) {
@@ -447,10 +447,12 @@ class Swarm {
     
     //Draw Origin
     p.stroke(#FF0000);
+    p.noFill();
     p.ellipse(origin.x, origin.y, finderResolution, finderResolution);
     
     //Draw Destination
     p.stroke(#0000FF);
+    p.noFill();
     p.ellipse(destination.x, destination.y, finderResolution, finderResolution);
   }
   
@@ -574,6 +576,7 @@ class Horde {
       cullRandomAgent();
       rateScaler /= 0.9;
     } else {
+      
       rateScaler *= 0.99;
     }
   }

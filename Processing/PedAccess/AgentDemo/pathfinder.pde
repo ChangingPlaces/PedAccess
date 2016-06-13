@@ -200,6 +200,7 @@ class Graph {
     U = int(w/scale);
     V = int(h/scale);
     SCALE = scale;
+    SCALE = 70;
     
     nodes = new ArrayList<Node>();
     
@@ -324,6 +325,7 @@ class Graph {
       for (int j=0; j<nodes.get(i).neighbors.size(); j++) {
         neighbor = nodes.get(i).neighbors.get(j);
         //println(neighbor);
+        p.stroke(#9494b8);
         p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
       }
     }
