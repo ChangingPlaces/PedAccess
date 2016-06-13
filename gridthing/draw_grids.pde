@@ -35,7 +35,6 @@ void drawMinimap(){
         rect(width*2/3, height/3, width/4, width/4);
         float x = width*2/3;
         float y = height/3;
-        
         //draw mirror grid
             for(int i =0; i<nrows; i++){
               line(x, height/3, x, height/3+width/4);
@@ -54,8 +53,8 @@ void drawMinimap(){
         
        text("Dim: " + nrows + "x" + ncols, width*2/3, height/3 + width/4 + 20);  
        text("Rotation: " + degrees(theta) + " degrees", width*2/3, height/3 + width/4 + 40);  
-       text("Area of each Cell   = " + sq(cellwidth) + " square meters", width*2/3, height/3 + width/4 + 60);
-       text("Total Area of Cells = " + nrows*ncols*sq(cellwidth) + " square meters", width*2/3, height/3 + width/4 + 80);
+       text("Area of each Cell   = " + " square meters", width*2/3, height/3 + width/4 + 60);
+       text("Total Area of Cells = " + " square meters", width*2/3, height/3 + width/4 + 80);
        
 }
 
