@@ -26,6 +26,33 @@
  *                 |
  *               screen <-  (i)nfo <-  minimap, legendH, legendP
  */
+ 
+ // This is the staging script for the Pathfinding for agent-based modeling
+// Ira Winder, MIT Media Lab, jiw@mit.edu, Fall 2015
+
+
+//int canvasWidth = 1920;
+//int canvasHeight = 1200;
+int canvasWidth = 1200;
+int canvasHeight = 700;
+
+boolean bw = true;
+
+boolean enableProjectionMapping = false;
+
+
+float version = 1.1;
+String loadText = "AgentDemo | Version " + version;
+
+boolean printFrames = false;
+
+
+// Number of frames for draw function to run before
+// running setup functions. Setting to greater than 0 
+// allows you to draw a loading screen
+int drawDelay = 10;
+
+ 
 
 String systemOS;
 
@@ -63,7 +90,7 @@ boolean showBasemap = true;
 boolean showInputData = true;
 boolean showFacilities = false;
 boolean showMarket = false;
-boolean showObstacles = false;
+//boolean showObstacles = false;
 boolean showForm = true;
 
 boolean showOutputData = true;
@@ -71,6 +98,9 @@ boolean showDeliveryCost = true;
 boolean showTotalCost = false;
 boolean showAllocation = false;
 boolean showVehicle = false;
+
+boolean initialized = false;
+
 
 //Walmart Logo
 PImage wmt_logo;
@@ -80,6 +110,8 @@ Menu mainMenu, hideMenu;
 
 void setup() {
   size(screenWidth, screenHeight, P3D);
+  
+   initCanvas();
 
   // Frame Options
 
@@ -144,7 +176,20 @@ void setup() {
       println(systemOS);
 }
 
+void mainDraw() {
+  // Draw Functions Located here should exclusively be drawn onto 'tableCanvas',
+  // a PGraphics set up to hold all information that will eventually be 
+  // projection-mapped onto a big giant table:
+  drawTableCanvas(tableCanvas);
+  
+  
+  // Renders the finished tableCanvas onto main canvas as a projection map or screen
+  renderTableCanvas();
+
+}
+
 void draw() {
+ 
 
   if (flagResize) {
     initScreenOffsets();
@@ -211,4 +256,68 @@ void draw() {
     }
   }
 
+  // If certain key commands are pressed, it causes a <0 delay which counts down in this section
+  if (drawDelay > 0) {
+    
+    if (initialized) {
+      mainDraw();
+    } else {
+      // Draws loading screen
+      loading(tableCanvas, loadText);
+      renderTableCanvas();
+    }
+    
+    drawDelay--;
+  }
+  
+  // These are usually run in setup() but we put them here so that 
+  // the 'loading' screen successfully runs for the user
+  else if (!initialized) {
+    initContent(tableCanvas);
+    initialized = true;
+  }
+  
+  // Methods run every frame (i.e. 'draw()' functions) go here
+  else {
+    
+    mainDraw();
+    // Print Framerate of animation to console
+    if (showFrameRate) {
+      println(frameRate);
+    }
+    
+    // If true, saves every frame of the main canvas to a PNG
+    if (printFrames) {
+      //tableCanvas.save("videoFrames/" + millis() + ".png");
+      save("videoFrames/" + millis() + ".png");
+    }
+  }
+
 }
+
+void renderTableCanvas() {
+  // most likely, you'll want a black background
+  background(0);
+  
+  // Renders the tableCanvas as either a projection map or on-screen 
+  if (!enableProjectionMapping) {
+    image(tableCanvas, 0, 0, tableCanvas.width, tableCanvas.height);
+  } else {
+//    drawKeyStone();
+  }
+}  
+
+// Method that opens a folder
+String folderPath;
+void folderSelected(File selection) {
+  if (selection == null) { // Notifies console and closes program
+    println("User did not select a folder");
+    exit();
+  } else { // intitates the rest of the software
+    println("User selected " + selection.getAbsolutePath());
+    folderPath = selection.getAbsolutePath() + "/";
+    // some other startup function
+  }
+}
+
+
