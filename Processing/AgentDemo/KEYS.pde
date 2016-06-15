@@ -58,10 +58,6 @@ void keyPressed() {
         boundaries.saveCourse("data/course.tsv");
       }
       break;
-    case 'D': //Toggles various data and visualization modes
-      setLoader("Data Mode " + nextMode(dataMode, 3));
-      // runs key_D() next frame
-      break;
     case 'E': // shows or hides obsticale editor 
       setLoader("Obstacles Editor");
       // runs key_E() next frame
@@ -138,10 +134,6 @@ void keyPressed() {
       break;
     case 'T': // Turns demo background image on or off
       showDemoMap = toggle(showDemoMap);
-      break;
-    case '`': // Toggle Projection Mapping on/off
-      enableProjectionMapping = !enableProjectionMapping;
-      println(enableProjectionMapping);
       break;
     case 'C':
       // enter/leave calibration mode, where surfaces can be warped 
@@ -261,9 +253,9 @@ void keyInit() {
     case '0':
       key_0();
       break;
-    case 'D':
-      key_D();
-      break;
+//    case 'D':
+//      key_D();
+//      break;
     case '>':
       key_RightCarrot();
       break;
@@ -297,11 +289,6 @@ void key_0() {
   tableCanvas.endDraw();
 }
 
-void key_D() {
-  //Toggles various data and visualization modes
-  dataMode = nextMode(dataMode, 1);
-  initContent(tableCanvas);
-}
 
 void key_RightCarrot() {
   // Toggle network for pathfinding

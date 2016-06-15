@@ -3,10 +3,6 @@ PGraphics tableCanvas;
 
 PImage demoMap;
 
-int dataMode = 1;
-// dataMode = 1 for random network
-// dataMode = 0 for empty network and Pathfinder Test OD
-
 void initCanvas() {
   
   println("Initializing Canvas Objects ... ");
@@ -24,24 +20,12 @@ void initCanvas() {
 
 void initContent(PGraphics p) {
   
-  switch(dataMode) {
-    case 0: // Pathfinder Demo
-      showGrid = true;
-      finderMode = 0;
-      showEdges = false;
-      showSource = false;
-      showPaths = false;
-      showTraces = false;
-      showInfo = false;
-      break;
-    case 1: // Random Demo
+  
       showGrid = true;
       finderMode = 0;
       showEdges = false;
       showSource = true;
       showPaths = true;
-      break;
-  }
   
   initObstacles(p);
   initPathfinder(p, p.width/100);
@@ -77,18 +61,7 @@ void initAgents(PGraphics p) {
   swarmHorde = new Horde(2000);
   sources_Viz = createGraphics(p.width, p.height);
   edges_Viz = createGraphics(p.width, p.height);
-  
-  switch(dataMode) {
-    case 0:
-      testNetwork_Random(p, 0);
-      break;
-    case 1:
-      testNetwork_Random(p, xy_amenities.size());
-      break;
-    case 2: 
-      testNetwork_Random(p, 4);
-      break;
-  }
+  testNetwork_Random(p, xy_amenities.size());
   
   swarmPaths(p, enablePathfinding);
   sources_Viz(p);
@@ -133,7 +106,6 @@ void hurrySwarms(int frames) {
   //speed = 1.5;
 }
 
-// dataMode for random network
 void testNetwork_Random(PGraphics p, int _numNodes) {
   
   int numNodes, numEdges, numSwarm;
@@ -285,12 +257,12 @@ void initPathfinder(PGraphics p, int res) {
 }
 
 void initCustomFinder(PGraphics p, int res) {
-  finderCustom = new Pathfinder(p.width - 100, p.height - 100, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderCustom = new Pathfinder(p.width - 100, p.height - 100, res, 0.5); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderCustom.applyObstacleCourse(boundaries);
 }
 
 void initGridFinder(PGraphics p, int res) {
-  finderGrid = new Pathfinder(p.width-100, p.height-100, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderGrid = new Pathfinder(p.width-100, p.height-100, res, 0.5); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderGrid.applyObstacleCourse(grid);  
 }
 
@@ -354,15 +326,10 @@ void pFinderPaths_Viz(PGraphics p, boolean enable) {
 }
 
 void pFinderGrid_Viz(PGraphics p) {
-  
   // Write Network Results to PGraphics
   pFinderGrid = createGraphics(p.width, p.height);
   pFinderGrid.beginDraw();
-  if (dataMode == 0) {
-    drawTestFinder(pFinderGrid, pFinder, testPath, testVisited);
-  } else {
-    pFinder.display(pFinderGrid);
-  }
+  pFinder.display(pFinderGrid);
   pFinderGrid.endDraw();
 }
 
@@ -370,7 +337,7 @@ void pFinderGrid_Viz(PGraphics p) {
 void forcePath(PGraphics p) {
   int counter = 0;
   while (testPath.size() < 2) {
-    println("Generating new origin-destination pair ...");
+//    println("Generating new origin-destination pair ...");
     initOD(p);
     initPath(pFinder, A, B);
     

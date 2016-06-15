@@ -27,15 +27,13 @@ void drawTableCanvas(PGraphics p) {
   if (showSwarm) {
     swarmHorde.update();
   }
-  
-  
+
   // holds time from last frame
   time_0 = millis();
   
   // Begin Draw Functions
   p.beginDraw();
- 
-  
+
       // Instead of solid background draws a translucent overlay every frame.
       // Provides the effect of giving animated elements "tails"
       p.noStroke();
@@ -49,7 +47,6 @@ void drawTableCanvas(PGraphics p) {
       
       // Displays ObstacleCourses
       if (showObstacles) {
-        
         if (finderMode == 1) { 
           // Obstacles for gridded Pathfinder Network
           grid.display(p, textColor, 100);
@@ -87,114 +84,17 @@ void drawTableCanvas(PGraphics p) {
         swarmHorde.display(p, showTraces);
       }
       
-      if (dataMode != 0) {
         swarmHorde.displaySummary(p);
-      }
       
       if (showInfo) {
         swarmHorde.displaySwarmList(p);
       }
       
-      drawCredit(p);
-    if (showPathInfo && dataMode != 0) {
-    //Draw Background Rectangle
-    p.fill(abs(textColor-25), 200);
-    p.noStroke();
-    p.rect(10, 40, 0.3*p.width, 10*10+10-20, 12, 12, 12, 12);
+    drawCredit(p);
     
-    //Draw Directions
-    p.fill(abs(textColor-225), 255);
-    p.textSize(12);
-    p.text("Explanation:", 20, 60);
-    p.text("Agent based modeling.", 20, 80);
-    }
+
       
   p.endDraw();
-}
-
-void drawTestFinder(PGraphics p, Pathfinder f, ArrayList<PVector> path, ArrayList<PVector> visited) {
-  
-  // Draw Base Network
-  f.display(p);
-  
-  // Draw Nodes Visited in order to find path solution
-  p.strokeWeight(1);
-  int base = 255;
-  p.stroke(abs( background - base*schemeScaler));
-  for (int i=0; i<visited.size(); i++) {
-    p.ellipse(visited.get(i).x, visited.get(i).y, f.getResolution(), f.getResolution());
-  }
-  
-  // Draws Edges that Connect Nodes Visited to Parent Nodes
-  int neighbor;
-  for (int i=0; i<f.allVisited.size(); i++) {
-    for (int j=0; j<f.network.nodes.get(f.allVisited.get(i)).neighbors.size(); j++) {
-      neighbor = f.network.nodes.get(f.allVisited.get(i)).neighbors.get(j);
-      //println(neighbor);
-      p.line(f.network.nodes.get(f.allVisited.get(i)).node.x, f.network.nodes.get(f.allVisited.get(i)).node.y, f.network.nodes.get(neighbor).node.x, f.network.nodes.get(neighbor).node.y);
-    }
-  }
-  
-  // Draw Path Edges
-  p.strokeWeight(2);
-  p.stroke(#007D00);
-  for (int i=0; i<path.size()-1; i++) {
-    p.line(path.get(i).x, path.get(i).y, path.get(i+1).x, path.get(i+1).y);
-  }
-  
-  p.endDraw();
-  p.beginDraw();
-  
-  //Draw Origin
-  p.strokeWeight(2);
-  p.stroke(#FF0000);
-  p.noFill();
-  p.ellipse(A.x, A.y, f.getResolution(), f.getResolution());
-  
-  p.fill(textColor);
-  p.text("origin", A.x + f.getResolution(), A.y);
-  
-  //Draw Destination
-  p.strokeWeight(2);
-  p.stroke(#FF00FF);
-  p.noFill();
-  p.ellipse(B.x, B.y, f.getResolution(), f.getResolution());
-  
-//  p.fill(textColor);
-//  p.text("destination", B.x +finderTest f.getResolution(), B.y);
-  
-  //Draw Path not Found Message
-  if (path.size() < 2) {
-    p.textAlign(CENTER);
-    p.fill(textColor);
-    p.text("Path not found. Try a new origin and destination", p.width/2, p.height/2);
-    p.textAlign(LEFT);
-  }
-  
-  if (showPathInfo) {
-    p.pushMatrix();
-    p.translate(0, 10);
-    
-    //Draw Background Rectangle
-    p.fill(abs(textColor-25), 200);
-    p.noStroke();
-    p.rect(10, 4, 0.4*p.width, 10*10+10-20, 12, 12, 12, 12);
-    
-    //Draw Directions
-    p.fill(abs(textColor-225), 255);
-    if(dataMode == 0){
-    p.text("Explanation:", 20, 20);
-    p.text("A network, origin, and destination has been randomly generated.", 20, 40);
-    p.text("A green line represents the shortest path.", 20, 60);
-    p.text("Nodes are highlighted when visited by the pathfinding algorithm.", 20, 80);
-    }
-    
-    
-    p.popMatrix();
-  }
-  
-  p.endDraw();
-  p.beginDraw();
 }
 
 void drawCredit(PGraphics p) {

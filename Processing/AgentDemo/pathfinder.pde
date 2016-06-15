@@ -208,6 +208,7 @@ class Graph {
     for (int i=0; i<U; i++) {
       for (int j=0; j<V; j++) {
         nodes.add(new Node(i*SCALE + scale/2, j*SCALE + scale/2));
+//        nodes.add(new Node(xy_peds.get(i).x, xy_peds.get(i).y));
       }
     }
     

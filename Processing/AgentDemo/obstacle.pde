@@ -498,7 +498,7 @@ class ObstacleCourse {
     
   }
   
-  // filename = "data/course.tsv"
+  //filename = "data/course.tsv"
   void loadCourse(String filename) {
     
     Table courseTSV;

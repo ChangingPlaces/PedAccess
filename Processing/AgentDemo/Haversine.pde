@@ -6,7 +6,6 @@ Table bus_stops;
 Table second_ped;
 Table bridges;  
 
-
 float R = 6371000; //in meters
 
 float longitude, latitude;

@@ -310,13 +310,11 @@ class Swarm {
 //    if (path.size() == 1) {
 //      sink = hitBox(origin, hitbox, true);
 //    }
-    
-    if (dataMode == 1) {
-      // Generates only 10 agents
+
+    //generates only 10
       if (path.size() == 1) {
         immortal = true;
       }
-    }
   }
   
   void update(float _rateScaler) {
@@ -388,13 +386,11 @@ class Swarm {
     p.stroke(textColor, 100);
     
     //Draw Source
-    p.noStroke();
     p.line(origin.x - 5, origin.y - 5, origin.x + 5, origin.y + 5);
     p.line(origin.x - 5, origin.y + 5, origin.x + 5, origin.y - 5);
     
     //Draw Sink
-    p.noStroke();
-    p.ellipse(destination.x, destination.y, 30, 30);
+    p.ellipse(destination.x, destination.y, 10, 10);
   }
   
   
