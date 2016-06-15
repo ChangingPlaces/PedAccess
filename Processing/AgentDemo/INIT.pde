@@ -46,7 +46,6 @@ void initContent(PGraphics p) {
   initObstacles(p);
   initPathfinder(p, p.width/100);
   initAgents(p);
-  //initButtons(p);
   
   demoMap = loadImage("data/demoMap.png");
   
@@ -68,8 +67,6 @@ float[] weight;
 int textSize = 8;
 
 boolean enablePathfinding = true;
-
-HeatMap traces;
 
 PGraphics sources_Viz, edges_Viz;
 
@@ -96,7 +93,6 @@ void initAgents(PGraphics p) {
   swarmPaths(p, enablePathfinding);
   sources_Viz(p);
   edges_Viz(p);
-  traces = new HeatMap(p.width/5, p.height/5, p.width, p.height);
   
   println("Agents initialized.");
 }
@@ -242,11 +238,6 @@ void setObstacleGrid(PGraphics p, int u, int v) {
   }
 }
 
-//-------Initialize Buttons
-/*void initButtons(PGraphics p){
-  button = new Button(70, 70, "refresh");
-}
-*/
 
 //------------- Initialize Pathfinding Objects
 

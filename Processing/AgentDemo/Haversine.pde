@@ -125,7 +125,10 @@ void Haversine(){
                      float degrees = bearing*180/PI;
                     
                      PVector xy_coord = new PVector(d*cos(degrees - 180), d*sin(degrees - 180));
+                     
+                     if(xy_coord.x > 0 && xy_coord.x < width && xy_coord.y > 0 && xy_coord.y < height){
                      xy_peds.add(xy_coord); 
+                     }
                 }
 
 //Ped Network second story

@@ -1,24 +1,12 @@
 boolean showPaths = false;
 boolean showGrid = false;
+boolean showTraces = false;
 boolean showPathInfo = false;
 boolean showSource = true;
 boolean showEdges = false;
 boolean showSwarm = true;
 boolean showInfo = false;
-boolean showTraces = false;
 boolean showDemoMap = false;
-boolean showVoronoi = true;
-
-boolean button3_down = false;
-boolean button4_down = false;
-boolean button7_down = false;
-boolean button11_down = false;
-boolean button12_down = false;
-boolean button13_down = false;
-boolean button14_down = false;
-boolean button15_down = false;
-boolean button30_down = false;
-boolean button31_down = false;
 
 // Makes darker colors more visible when projecting
 int masterAlpha = 15;
@@ -40,12 +28,6 @@ void drawTableCanvas(PGraphics p) {
     swarmHorde.update();
   }
   
-  //Updates Heatmap Data to Display
-  if (showTraces) {
-    traces.update(swarmHorde);
-    traces.decay();
-  }
-  
   
   // holds time from last frame
   time_0 = millis();
@@ -65,11 +47,6 @@ void drawTableCanvas(PGraphics p) {
         p.image(img, 0, 0, canvasWidth, canvasHeight);
       }
       
-      // Displays Heatmap
-      if(showTraces) {
-        traces.display(p);
-      }
-  
       // Displays ObstacleCourses
       if (showObstacles) {
         
@@ -105,7 +82,7 @@ void drawTableCanvas(PGraphics p) {
         p.image(edges_Viz, 0, 0);
       }
     
-      // Renders Agent 'dots' and corresponding obstacles and heatmaps
+      // Renders Agent 'dots' and corresponding obstacles
       if (showSwarm) {
         swarmHorde.display(p, showTraces);
       }

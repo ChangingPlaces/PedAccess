@@ -38,7 +38,6 @@ boolean enableProjectionMapping = false;
 //      case 'e': Toggle display of network edges
 //      case 'i': Toggle Information Menu
 //      case 'p': Toggle Obstacles On/Off
-//      case 't': Toggle HeatMap Visualization
 //      case 'F': Toggle Frame-based or Time-based acceleration
 //      case '+': Increase Agent Speed
 //      case '-': Decrease Agent Speed
@@ -88,7 +87,7 @@ void setup() {
   
    img = loadImage("map.jpg");
   
-  setupKeyStone();
+//  setupKeyStone();
 //  //Call this method if data folder ever needs to be selected by a user
 //  selectFolder("Please select the a folder and click 'Open'", "folderSelected");
 }
@@ -168,9 +167,10 @@ void renderTableCanvas() {
   // Renders the tableCanvas as either a projection map or on-screen 
   if (!enableProjectionMapping) {
     image(tableCanvas, 0, 0, tableCanvas.width, tableCanvas.height);
-  } else {
-    drawKeyStone();
   }
+//  } else {
+//    drawKeyStone();
+//  }
 }  
 
 // Method that opens a folder

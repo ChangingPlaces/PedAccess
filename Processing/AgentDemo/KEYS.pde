@@ -1,14 +1,9 @@
 boolean keyLoaded = true;
 char initKey;
 boolean show_directions = false;
-boolean show_voronoi = false;
 
 void keyPressed() {
   switch (key) {
-    case 'v':
-      show_voronoi = toggle(show_voronoi);
-      println(show_voronoi);
-      break;
     case '0': //ReBoots App
       setLoader("Andorra Player | Version " + version);
       // runs key_0() next frame
@@ -42,9 +37,6 @@ void keyPressed() {
     case 'p': //makes a grid of obstacles
       setLoader("Gridded Obstacles");
       // runs key_p() next frame
-      break;
-    case 't': //shows thermal/traces of where agents have been 
-      showTraces = toggle(showTraces);
       break;
     case 'F': //toggles frameStep
       frameStep = toggle(frameStep);
@@ -154,17 +146,17 @@ void keyPressed() {
     case 'C':
       // enter/leave calibration mode, where surfaces can be warped 
       // and moved
-      ks.toggleCalibration();
+//      ks.toggleCalibration();
       break;
   
     case 'L':
       // loads the saved layout
-      ks.load();
+//      ks.load();
       break;
   
     case 'Q':
       // saves the layout
-      ks.save();
+//      ks.save();
       break;
   }
   

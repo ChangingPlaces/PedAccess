@@ -21,6 +21,8 @@ class Pathfinder {
   
   Pathfinder(int w, int h, float res, float cullRatio) {
     network = new Graph(w, h, res);
+    //w and h come from obstacles
+    //res effects the node sizes 
     network.cullRandom(cullRatio);
     refresh();
   }
@@ -210,6 +212,7 @@ class Graph {
     }
     
   }
+ 
   
   // Removes Nodes that intersect with set of obstacles
   void applyObstacleCourse(ObstacleCourse c) {
@@ -347,7 +350,7 @@ class Node {
   }
   
   void addNeighbor(int n, float d) {
-    neighbors.add(n);
+    neighbors.add(n);;
     distance.add(d);
   }
   
