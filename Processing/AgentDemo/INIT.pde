@@ -1,7 +1,6 @@
 // Graphics object in memory that holds visualization
 PGraphics tableCanvas;
 
-
 PImage demoMap;
 
 int dataMode = 1;
@@ -87,10 +86,10 @@ void initAgents(PGraphics p) {
       testNetwork_Random(p, 0);
       break;
     case 1:
-      testNetwork_Random(p, 20);
+      testNetwork_Random(p, xy_amenities.size());
       break;
     case 2: 
-      testNetwork_Random(p, 16);
+      testNetwork_Random(p, 4);
       break;
   }
   
@@ -153,11 +152,8 @@ void testNetwork_Random(PGraphics p, int _numNodes) {
   weight = new float[numSwarm];
   swarmHorde.clearHorde();
   
-
-  
   for (int i=0; i<numNodes; i++) {
-    nodes[i] = new PVector(random(200, p.width-200), random(10, p.height-10));
-  }
+    nodes[i] = xy_amenities.get(i);;  }
   
   for (int i=0; i<numNodes; i++) {
     for (int j=0; j<numNodes-1; j++) {
@@ -173,11 +169,11 @@ void testNetwork_Random(PGraphics p, int _numNodes) {
   }
   
     // rate, life, origin, destination
-  colorMode(HSB);
+  colorMode(RGB);
   for (int i=0; i<numSwarm; i++) {
     
     // delay, origin, destination, speed, color
-    swarmHorde.addSwarm(weight[i], origin[i], destination[i], 1, color(255.0*i/numSwarm, 255, 255));
+    swarmHorde.addSwarm(weight[i], origin[i], destination[i], 1, 200);
     
     // Makes sure that agents 'staying put' eventually die
     swarmHorde.getSwarm(i).temperStandingAgents();
@@ -298,17 +294,17 @@ void initPathfinder(PGraphics p, int res) {
 }
 
 void initCustomFinder(PGraphics p, int res) {
-  finderCustom = new Pathfinder(p.width, p.height, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderCustom = new Pathfinder(p.width - 100, p.height - 100, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderCustom.applyObstacleCourse(boundaries);
 }
 
 void initGridFinder(PGraphics p, int res) {
-  finderGrid = new Pathfinder(p.width, p.height, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderGrid = new Pathfinder(p.width-100, p.height-100, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderGrid.applyObstacleCourse(grid);  
 }
 
 void initRandomFinder(PGraphics p, int res) {
-  finderRandom = new Pathfinder(p.width, p.height, res, 0.5);
+  finderRandom = new Pathfinder(p.width-100, p.height-100, res, 0.5);
 }
 
 // Refresh Paths and visualization; Use for key commands and dynamic changes

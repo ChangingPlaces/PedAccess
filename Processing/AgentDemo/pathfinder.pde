@@ -324,7 +324,7 @@ class Graph {
       for (int j=0; j<nodes.get(i).neighbors.size(); j++) {
         neighbor = nodes.get(i).neighbors.get(j);
         //println(neighbor);
-        p.stroke(#f1ff00);
+        //p.stroke(#f1ff00);
         p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
       }
     }

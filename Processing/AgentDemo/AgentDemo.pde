@@ -7,8 +7,8 @@
 //int canvasWidth = 2158;
 //int canvasHeight = 1154;
 
-int canvasWidth = 1000;
-int canvasHeight = 600;
+int canvasWidth = 1200;
+int canvasHeight = 900;
 
 boolean bw = true;
 
@@ -82,9 +82,11 @@ PImage img;
 
 void setup() {
   size(canvasWidth, canvasHeight, P3D);
+  initData();
+  Haversine();
   initCanvas();
   
-   img = loadImage("maps.jpg");
+   img = loadImage("map.jpg");
   
   setupKeyStone();
 //  //Call this method if data folder ever needs to be selected by a user
@@ -153,6 +155,7 @@ void draw() {
       save("videoFrames/" + millis() + ".png");
     }
   }
+
   
   
 

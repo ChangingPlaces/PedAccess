@@ -255,10 +255,12 @@ int[] LatLontoGrid(float lat, float lon, float centerLat, float centerLon, float
   float theta = (float)Math.PI/180*(azm+180);
   xR = + x*cos(theta) + y*sin(theta);
   yR = - x*sin(theta) + y*cos(theta);
+ 
   
   //Translate from center of grid to top left corner
   xR -= 0.5*gw;
   yR += 0.5*gh;
+
   // x and y are now on the grid, truncating to int will give us its location
   
   int[] xy;
