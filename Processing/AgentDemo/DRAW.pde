@@ -100,7 +100,7 @@ void drawTableCanvas(PGraphics p) {
 void drawCredit(PGraphics p) {
   p.fill(textColor);
   p.textAlign(LEFT);
-  p.textSize(24);
+  p.textSize(16);
   p.text("Pathfinder v1.1", 20, p.height - 60);
   p.text("Ira Winder, MIT Media Lab", 20, p.height - 20);
 }

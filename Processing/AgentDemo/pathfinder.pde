@@ -204,14 +204,15 @@ class Graph {
     SCALE = scale;
     
     nodes = new ArrayList<Node>();
-//    
+    
 //    for (int i=0; i<U; i++) {
 //      for (int j=0; j<V; j++) {
 //        nodes.add(new Node(i*SCALE + scale/2, j*SCALE + scale/2));
+////         nodes.add(new Node(xy_peds.get(i).x, xy_peds.get(i).y));
 //      }
 //    }
-  
-    for(int i = 0; i<25000; i++){
+//  
+    for(int i = 0; i<10000; i++){
       nodes.add(new Node(xy_peds.get(i).x, xy_peds.get(i).y));
     }
     
@@ -245,12 +246,20 @@ class Graph {
       for (int j=0; j<nodes.size(); j++) {
         dist = sqrt(sq(nodes.get(i).node.x - nodes.get(j).node.x) + sq(nodes.get(i).node.y - nodes.get(j).node.y));
         
-        if (dist < 2*SCALE && dist != 0) {
+        if (dist < SCALE*3.5 && dist != 0) {
           nodes.get(i).addNeighbor(j, dist);
         }
       }
     }
-    
+
+//    for(int i = 0; i<nodes.size(); i++){
+//       nodes.get(i).clearNeighbors();
+//        dist = sqrt(sq(nodes.get(i).node.x - nodes.get(i).node.x) + sq(nodes.get(i).node.y - nodes.get(i).node.y));
+//            if (dist < 4*SCALE && dist != 0) {
+//              nodes.get(i).addNeighbor(i, dist);
+//              println("neighbor found!");
+//            }
+//    }
   }
   
   int getNeighborCount(int i) {
