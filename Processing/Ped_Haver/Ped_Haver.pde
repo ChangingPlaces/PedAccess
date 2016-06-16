@@ -20,6 +20,8 @@ PImage img;
 
 PVector Upper_left  = new PVector(1.343234, 103.73601);
 
+//PVector Upper_left = new PVector(1.34197, 103.74440);
+
 Table amenities; 
 Table ped_nodes;
 Table bus_stops;
