@@ -5,6 +5,7 @@ Table ped_nodes;
 Table bus_stops;
 Table second_ped;
 Table bridges;  
+Table buildings;
 
 float R = 6371000; //in meters
 
@@ -26,9 +27,19 @@ ArrayList<PVector> xy_peds = new ArrayList<PVector>();
 ArrayList<PVector> latlon_peds2nd = new ArrayList<PVector>();
 ArrayList<PVector> xy_peds2nd = new ArrayList<PVector>();
 
+ArrayList<PVector> latlon_buildings = new ArrayList<PVector>();
+ArrayList<PVector> xy_buildings = new ArrayList<PVector>();
+int[] building_id;
+
+Table merp = new Table();
 
 
 void Haversine(){ 
+ 
+    merp.addColumn("obstacle");
+    merp.addColumn("vertX");
+    merp.addColumn("vertY");
+    
  //Amenities
              for(int i = 0; i<amenities.getRowCount(); i++){
              //get longitude in radians
@@ -166,7 +177,39 @@ void Haversine(){
                      PVector xy_coord = new PVector(d*cos(degrees - 180), d*sin(degrees - 180));
                      xy_peds2nd.add(xy_coord); 
                 }  
-      
+
+//BUILDING FOOTPRINT 
+    for(int i = 0; i<buildings.getRowCount(); i++){
+         //get longitude in radians
+                      longitude = buildings.getFloat(i, "x") * PI/180;
+         //get latitude in radians      
+                      latitude = buildings.getFloat(i, "y") * PI/180;
+               //add them to the arraylist
+               latlon_buildings.add(new PVector(latitude, longitude)); 
+         
+   
+        //now iterate through the arraylist to calculate distance and bearing from upper left corner so I can plot them
+                     float lat2 = latlon_buildings.get(i).x;
+                     float lon2 = latlon_buildings.get(i).y;
+                     float delta_lat = lat2-lat1;
+                     float delta_lon = lon2-lon1;
+                     
+                     float a = sin(delta_lat/2)*sin(delta_lat/2) + cos(lat1)*cos(lat2)*(sin(delta_lon/2)*sin(delta_lon/2));
+                     float c = 2*(atan2(sqrt(a), sqrt(1-a)));
+                     float d = c*R;
+                     
+                     float bearing = atan2(sin(delta_lon)*cos(lat2), cos(lat1)*sin(lat2) - sin(lat1)*cos(lat2)*cos(delta_lon));
+                     float degrees = bearing*180/PI;
+                    
+                     PVector xy_coord = new PVector(d*cos(degrees - 180), d*sin(degrees - 180));
+                     if(xy_coord.x > 0 && xy_coord.x < width && xy_coord.y > 0 && xy_coord.y < height){
+                     xy_buildings.add(xy_coord);  
+                              TableRow newRow = merp.addRow();
+                              newRow.setInt("obstacle", buildings.getInt(i, "shapeid"));
+                              newRow.setFloat("vertX", xy_coord.x);
+                              newRow.setFloat("vertY", xy_coord.y);
+                     }
+                }        
               
-                
+        saveTable(merp, "data/merp.csv");        
 }

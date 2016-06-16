@@ -19,12 +19,7 @@ for(int i = 0; i<xy_bus.size(); i++){
 for(int i = 0; i<xy_peds.size(); i++){
          stroke(#ffff00);
          noFill();
-         ellipse(xy_peds.get(i).x, xy_peds.get(i).y, 10, 10);
+         ellipse(xy_peds.get(i).x, xy_peds.get(i).y, 5, 5);
          }    
-for(int i = 0; i<xy_peds2nd.size(); i++){
-         stroke(#00ff00);
-         noFill();
-         ellipse(xy_peds2nd.get(i).x, xy_peds2nd.get(i).y, 10, 10);
-         }            
-   
+
 }

@@ -26,16 +26,12 @@ PVector Upper_left  = new PVector(1.343234, 103.73601);
 Table amenities; 
 Table ped_nodes;
 Table bus_stops;
-Table second_ped;
-Table bridges;
 
 void setup(){
   size(Width, Height, P3D);
   amenities = loadTable("data/temp-nodes.csv", "header");
   ped_nodes = loadTable("data/pednetv2nodes.csv", "header");
   bus_stops = loadTable("data/EZ-nodes.csv", "header");
-  second_ped = loadTable("data/2ndmerc.csv", "header");
-  bridges = loadTable("data/bridges_links.csv", "header");
     //Calculation of region --> rectangular canvas done only once
   Haversine();
 
@@ -44,6 +40,6 @@ void setup(){
 
 void draw(){
  background(0); 
-// image(img, 0, 0);
+ image(img, 0, 0);
  drawPOI();
 }

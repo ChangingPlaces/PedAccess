@@ -257,17 +257,17 @@ void initPathfinder(PGraphics p, int res) {
 }
 
 void initCustomFinder(PGraphics p, int res) {
-  finderCustom = new Pathfinder(p.width - 100, p.height - 100, res, 0.5); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderCustom = new Pathfinder(p.width, p.height, res, 0.5); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderCustom.applyObstacleCourse(boundaries);
 }
 
 void initGridFinder(PGraphics p, int res) {
-  finderGrid = new Pathfinder(p.width-100, p.height-100, res, 0.5); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderGrid = new Pathfinder(p.width, p.height, res, 0.5); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderGrid.applyObstacleCourse(grid);  
 }
 
 void initRandomFinder(PGraphics p, int res) {
-  finderRandom = new Pathfinder(p.width-100, p.height-100, res, 0.5);
+  finderRandom = new Pathfinder(p.width, p.height, res, 0.5);
 }
 
 // Refresh Paths and visualization; Use for key commands and dynamic changes
