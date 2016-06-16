@@ -12,7 +12,7 @@ http://www.movable-type.co.uk/scripts/latlong.html
 */ 
 
 int  Width = 1200;
-int  Height = 700;
+int  Height = 600;
 
 //upper left corner for region
 PVector Upper_left  = new PVector(1.343234, 103.73601);
@@ -32,7 +32,7 @@ void draw(){
      background(0); 
      
      //draws Google map capture of Upper_left at 1.343234, 103.73601 for 1200 by 900 meters
-            // image(img, 0, 0);
+    image(img, 0, 0);
      
      //draws ped network mesh
      drawMesh();
