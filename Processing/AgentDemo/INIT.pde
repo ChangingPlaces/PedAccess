@@ -128,7 +128,8 @@ void testNetwork_Random(PGraphics p, int _numNodes) {
       
       origin[i*(numNodes-1)+j] = new PVector(nodes[i].x, nodes[i].y);
       
-      destination[i*(numNodes-1)+j] = new PVector(nodes[(i+j+1)%(numNodes)].x, nodes[(i+j+1)%(numNodes)].y);
+      int h = int(random(0, xy_amenities.size()));
+      destination[i*(numNodes-1)+j] = new PVector(nodes[h].x, nodes[h].y);
       
       weight[i*(numNodes-1)+j] = random(0.1, 2.0);
       
