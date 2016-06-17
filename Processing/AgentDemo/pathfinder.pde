@@ -205,15 +205,10 @@ class Graph {
     
     nodes = new ArrayList<Node>();
     
-//    for (int i=0; i<U; i++) {
-//      for (int j=0; j<V; j++) {
-//        nodes.add(new Node(i*SCALE + scale/2, j*SCALE + scale/2));
-////         nodes.add(new Node(xy_peds.get(i).x, xy_peds.get(i).y));
-//      }
-//    }
-//  
-    for(int i = 0; i<10000; i++){
-      nodes.add(new Node(xy_peds.get(i).x, xy_peds.get(i).y));
+    for (int i=0; i<U; i++) {
+      for (int j=0; j<V; j++) {
+        nodes.add(new Node(i*SCALE + scale/2, j*SCALE + scale/2));
+      }
     }
     
   }
@@ -245,8 +240,7 @@ class Graph {
       nodes.get(i).clearNeighbors();
       for (int j=0; j<nodes.size(); j++) {
         dist = sqrt(sq(nodes.get(i).node.x - nodes.get(j).node.x) + sq(nodes.get(i).node.y - nodes.get(j).node.y));
-        
-        if (dist < SCALE*3.5 && dist != 0) {
+        if (dist < SCALE*2 && dist != 0) {
           nodes.get(i).addNeighbor(j, dist);
         }
       }

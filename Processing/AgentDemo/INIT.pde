@@ -219,9 +219,10 @@ int finderMode = 2;
 // 0 = Random Noise Test
 // 1 = Grid Test
 // 2 = Custom
+// 3 = shapefile
 
 // Pathfinder test and debugging Objects
-Pathfinder finderRandom, finderGrid, finderCustom;
+Pathfinder finderRandom, finderGrid, finderCustom, finderCity;
 PVector A, B;
 ArrayList<PVector> testPath, testVisited;
 
@@ -241,6 +242,9 @@ void initPathfinder(PGraphics p, int res) {
   // Initializes a Pathfinding network Based off of Random Noise
   initRandomFinder(p, res);
   
+  // Initializes a Pathfinding network Based off of shapefile nodes
+  initCityFinder(p, res);
+  
   // Initializes an origin-destination coordinate for testing
   initOD(p);
   
@@ -258,17 +262,21 @@ void initPathfinder(PGraphics p, int res) {
 }
 
 void initCustomFinder(PGraphics p, int res) {
-  finderCustom = new Pathfinder(p.width, p.height, res, 0.7); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderCustom = new Pathfinder(p.width, p.height, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderCustom.applyObstacleCourse(boundaries);
 }
 
 void initGridFinder(PGraphics p, int res) {
-  finderGrid = new Pathfinder(p.width, p.height, res, 0.7); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderGrid = new Pathfinder(p.width, p.height, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderGrid.applyObstacleCourse(grid);  
 }
 
 void initRandomFinder(PGraphics p, int res) {
-  finderRandom = new Pathfinder(p.width, p.height, res, 0.8);
+  finderRandom = new Pathfinder(p.width, p.height, res, 0.5);
+}
+
+void initCityFinder(PGraphics p, int res){
+  finderCity = new Pathfinder(p.width-20, p.height-20, res, 0.0);
 }
 
 // Refresh Paths and visualization; Use for key commands and dynamic changes
@@ -292,7 +300,7 @@ void resetFinder(PGraphics p, int res, int _finderMode) {
       initCustomFinder(p, res);
       break;
     case 3: 
-      initGridFinder(p, res);
+      initCityFinder(p, res);
       break;
   }
   setFinder(p, _finderMode);
@@ -310,7 +318,7 @@ void setFinder(PGraphics p, int _finderMode) {
       pFinder = finderCustom;
       break;
     case 3: 
-      pFinder = finderGrid;
+      pFinder = finderCity;
       break;
   }
 }

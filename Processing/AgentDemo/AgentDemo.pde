@@ -1,3 +1,7 @@
+import org.gicentre.geomap.io.*;
+import org.gicentre.geomap.*;
+GeoMap geoMap2;
+
 // This is the staging script for the Pathfinding for agent-based modeling
 // Ira Winder, MIT Media Lab, jiw@mit.edu, Fall 2015
 
@@ -27,8 +31,11 @@ void setup() {
   initData();
   Haversine();
   initCanvas();
+  geoMap2 = new GeoMap(this);
   
-  img = loadImage("map.jpg");
+    geoMap2.readFile("JE pedestrian network v2");
+  
+//  img = loadImage("map.jpg");
 }
 
 
@@ -37,6 +44,7 @@ void mainDraw() {
   // a PGraphics set up to hold all information that will eventually be 
   // projection-mapped onto a big giant table:
   drawTableCanvas(tableCanvas);
+  
   
   if (!keyLoaded) {
     // Draws loading screen on top of last drawn content if keypressed while drawing
@@ -93,6 +101,8 @@ void draw() {
       save("videoFrames/" + millis() + ".png");
     }
   }
+  geoMap2.draw();    
+  stroke(255, 0, 0);  //roadnetwork color
 }
 
 void renderTableCanvas() {
