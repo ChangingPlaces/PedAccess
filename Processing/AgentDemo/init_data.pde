@@ -1,3 +1,6 @@
+JSONObject pednetwork;
+JSONArray lines;
+
 void initData(){ 
           amenities = loadTable("data/temp-nodes.csv", "header");
           ped_nodes = loadTable("data/pednetv2nodes.csv", "header");
@@ -5,4 +8,10 @@ void initData(){
           second_ped = loadTable("data/2ndmerc.csv", "header");
           bridges = loadTable("data/bridges_links.csv", "header");
           buildings = loadTable("data/building_nodes.csv", "header");
+          
+           pednetwork = loadJSONObject("pednetworkgeolinestrings.json");
+           String type = pednetwork.getString("type");
+           JSONArray coordinates = pednetwork.getJSONArray("geometries");
+           println("data initialized...");
+          
 }

@@ -11,38 +11,41 @@ I used an online tool developed by Chris Veness for some of the math and to chec
 http://www.movable-type.co.uk/scripts/latlong.html
 */ 
 
-int  Width = 1200;
-int  Height = 600;
+//int  Width = 1200;
+//int  Height = 600;
+
+Network PedNetwork;
 
 //upper left corner for region
 PVector Upper_left  = new PVector(1.343234, 103.73601);
 //PVector Upper_left = new PVector(1.34197, 103.74440);
 
 void setup(){
-        size(Width, Height, P3D);
+        size(1200, 600, P3D);
         
         //initializes data
         initData();
         
         //does haversine calculation to go from lat, lon to Cartesian
         Haversine();
+        
+        PedNetwork = new Network("miniplease.geojson");
 }
 
 void draw(){
      background(0); 
      
      //draws Google map capture of Upper_left at 1.343234, 103.73601 for 1200 by 900 meters
-    image(img, 0, 0);
+//    image(img, 0, 0);
      
      //draws ped network mesh
-     drawMesh();
+//     drawMesh();
      
      //draws POI data    
-     drawPOI();
+      drawPOI();
      
      //draws a legend at bottom with info on what's on canvas
      drawLegend();
  
  
 }
-

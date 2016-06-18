@@ -101,7 +101,7 @@ void draw() {
       save("videoFrames/" + millis() + ".png");
     }
   }
-  geoMap2.draw();    
+//  geoMap2.draw();    
   stroke(255, 0, 0);  //roadnetwork color
 }
 
