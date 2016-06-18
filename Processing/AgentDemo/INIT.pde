@@ -1,6 +1,8 @@
 // Graphics object in memory that holds visualization
 PGraphics tableCanvas;
 
+boolean city;
+
 PImage demoMap;
 
 void initCanvas() {
@@ -215,7 +217,7 @@ void setObstacleGrid(PGraphics p, int u, int v) {
 //------------- Initialize Pathfinding Objects
 
 Pathfinder pFinder;
-int finderMode = 2;
+int finderMode = 3;
 // 0 = Random Noise Test
 // 1 = Grid Test
 // 2 = Custom
@@ -262,21 +264,29 @@ void initPathfinder(PGraphics p, int res) {
 }
 
 void initCustomFinder(PGraphics p, int res) {
-  finderCustom = new Pathfinder(p.width, p.height, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  city = false;
+  finderCustom = new Pathfinder(p.width, p.height, res, 0.5); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderCustom.applyObstacleCourse(boundaries);
+  finderCustom.generateEdges();
 }
 
 void initGridFinder(PGraphics p, int res) {
-  finderGrid = new Pathfinder(p.width, p.height, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  city = false;
+  finderGrid = new Pathfinder(p.width, p.height, res, 0.5); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderGrid.applyObstacleCourse(grid);  
+  finderGrid.generateEdges();
 }
 
 void initRandomFinder(PGraphics p, int res) {
+  city = false;
   finderRandom = new Pathfinder(p.width, p.height, res, 0.5);
+  finderRandom.generateEdges();
 }
 
 void initCityFinder(PGraphics p, int res){
-  finderCity = new Pathfinder(p.width-20, p.height-20, res, 0.0);
+  city = true;
+  finderCity = new Pathfinder(p.width, p.height, res, 0.5);
+  finderCity.generateSnap();
 }
 
 // Refresh Paths and visualization; Use for key commands and dynamic changes

@@ -11,6 +11,7 @@ ArrayList<PVector> xy_bus = new ArrayList<PVector>();
 ArrayList<PVector> xy_peds = new ArrayList<PVector>();
 ArrayList<PVector> xy_bridges = new ArrayList<PVector>();
 ArrayList<PVector> xy_second = new ArrayList<PVector>();
+ArrayList<PVector> xy_network = new ArrayList<PVector>();
 
 
 void Haversine(){ 

@@ -17,7 +17,11 @@ http://www.movable-type.co.uk/scripts/latlong.html
 Network PedNetwork;
 
 //upper left corner for region
-PVector Upper_left  = new PVector(1.343234, 103.73601);
+PVector Upper_left  = new PVector(1.3258, 103.733);
+
+//103.736862818997537,1.322835158689293
+//1.343234, 103.73601
+//(1.322835158689293, 103.736862818997537)
 //PVector Upper_left = new PVector(1.34197, 103.74440);
 
 void setup(){
@@ -29,7 +33,7 @@ void setup(){
         //does haversine calculation to go from lat, lon to Cartesian
         Haversine();
         
-        PedNetwork = new Network("miniplease.geojson");
+        PedNetwork = new Network("miniplz.geojson");
 }
 
 void draw(){
@@ -39,7 +43,7 @@ void draw(){
 //    image(img, 0, 0);
      
      //draws ped network mesh
-//     drawMesh();
+     drawMesh();
      
      //draws POI data    
       drawPOI();

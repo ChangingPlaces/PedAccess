@@ -27,6 +27,7 @@ int drawDelay = 5;
 PImage img;
 
 void setup() {
+  
   size(canvasWidth, canvasHeight, P3D);
   initData();
   Haversine();

@@ -1,5 +1,3 @@
-JSONObject pednetwork;
-JSONArray lines;
 PImage img;
 Table amenities; 
 Table ped_nodes;

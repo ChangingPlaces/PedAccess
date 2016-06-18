@@ -25,6 +25,12 @@ class Pathfinder {
     //res effects the node sizes 
     network.cullRandom(cullRatio);
     refresh();
+//    if(city == false){
+//    network.generateEdges();
+//    }
+//    if(city == true){
+//      network.generateSnap();
+//    }
   }
   
   void applyObstacleCourse(ObstacleCourse c) {
@@ -32,8 +38,17 @@ class Pathfinder {
     refresh();
   }
   
-  void refresh() {
+  void generateEdges() {
     network.generateEdges();
+    refresh();
+  }
+  
+ void generateSnap() {
+    network.generateSnap();
+    refresh();
+  }
+  
+  void refresh() {
     networkSize = network.nodes.size();
     totalDist = new float[networkSize];
     parentNode = new int[networkSize];
@@ -245,16 +260,8 @@ class Graph {
         }
       }
     }
-
-//    for(int i = 0; i<nodes.size(); i++){
-//       nodes.get(i).clearNeighbors();
-//        dist = sqrt(sq(nodes.get(i).node.x - nodes.get(i).node.x) + sq(nodes.get(i).node.y - nodes.get(i).node.y));
-//            if (dist < 4*SCALE && dist != 0) {
-//              nodes.get(i).addNeighbor(i, dist);
-//              println("neighbor found!");
-//            }
-//    }
   }
+  
   
   int getNeighborCount(int i) {
     if (i < nodes.size()) {
@@ -315,6 +322,19 @@ class Graph {
     return dist;
   }
   
+  void generateSnap(){
+    float dist;
+    for (int i=0; i<nodes.size(); i++) {
+      nodes.get(i).clearNeighbors();
+      for (int j=0; j<nodes.size(); j++) {
+        dist = sqrt(sq(nodes.get(i).node.x - nodes.get(j).node.x) + sq(nodes.get(i).node.y - nodes.get(j).node.y));
+        if (dist < SCALE*3 && dist != 0) {
+          nodes.get(i).addNeighbor(j, dist);
+        }
+      }
+    }
+  }
+  
   void display(PGraphics p) {
     
     // Formatting
@@ -357,7 +377,7 @@ class Node {
   }
   
   void addNeighbor(int n, float d) {
-    neighbors.add(n);;
+    neighbors.add(n);
     distance.add(d);
   }
   
