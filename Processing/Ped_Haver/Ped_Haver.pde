@@ -15,6 +15,7 @@ http://www.movable-type.co.uk/scripts/latlong.html
 //int  Height = 600;
 
 Network PedNetwork;
+MultiNetwork MultiPedNetwork;
 
 //upper left corner for region
 PVector Upper_left = new PVector(1.34229, 103.73598);
@@ -28,8 +29,8 @@ void setup(){
         //does haversine calculation to go from lat, lon to Cartesian
         Haversine();
         
-//        PedNetwork = new Network("miniplz.geojson");
         PedNetwork = new Network("pednetworkgeolinestrings.json");
+        MultiPedNetwork = new MultiNetwork("multilines.json");
 }
 
 void draw(){
