@@ -27,6 +27,8 @@ class Network {
                 }
             }
         }
+        
+        
 }
 
 class MultiNetwork {
@@ -40,7 +42,6 @@ class MultiNetwork {
                coords = points.getJSONArray(j);
              for(int p = 0; p<coords.size(); p++){
                PVector coordinate = new PVector(coords.getJSONArray(p).getFloat(1), coords.getJSONArray(p).getFloat(0));
-                println(coords.getJSONArray(0).getFloat(1));
                 //get longitude in radians
                           longitude = coordinate.y* PI/180;
                        //get latitude in radians      
