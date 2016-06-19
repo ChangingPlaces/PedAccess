@@ -17,12 +17,7 @@ http://www.movable-type.co.uk/scripts/latlong.html
 Network PedNetwork;
 
 //upper left corner for region
-PVector Upper_left  = new PVector(1.3258, 103.733);
-
-//103.736862818997537,1.322835158689293
-//1.343234, 103.73601
-//(1.322835158689293, 103.736862818997537)
-//PVector Upper_left = new PVector(1.34197, 103.74440);
+PVector Upper_left = new PVector(1.34229, 103.73598);
 
 void setup(){
         size(1200, 600, P3D);
