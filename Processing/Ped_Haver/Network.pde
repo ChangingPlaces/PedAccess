@@ -5,6 +5,7 @@ class Network {
          JSONArray points;
             for(int i = 0 ; i <lines.size(); i++){
                 points = lines.getJSONObject(i).getJSONArray("coordinates");
+                int p = 0;
               for(int j = 0; j<points.size(); j++){
                 PVector coord = new PVector(points.getJSONArray(j).getFloat(1), points.getJSONArray(j).getFloat(0));
                 //get longitude in radians
@@ -24,10 +25,10 @@ class Network {
                              //convert to polar and put in array
                              PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
                              xy_network.add(xy_coord); 
+                            
                 }
-            }
+           }
         }
-        
         
 }
 
@@ -62,5 +63,5 @@ class MultiNetwork {
              }
             }              
           }
-        }
+        }     
 }

@@ -18,9 +18,10 @@ Network PedNetwork;
 MultiNetwork MultiPedNetwork;
 
 //upper left corner for region
-//PVector Upper_left = new PVector(1.34229, 103.73598);
+//PVector Upper_left = new PVector(1.33043, 103.74836);
+PVector Upper_left = new PVector(1.34229, 103.73598);
 //PVector Upper_left = new PVector(1.34366, 103.74997);
-PVector Upper_left = new PVector(1.339963, 103.745826);
+//PVector Upper_left = new PVector(1.339963, 103.745826);
 
 void setup(){
         size(1200, 600, P3D);
@@ -42,15 +43,17 @@ void draw(){
      
      //draws Google map capture of Upper_left at 1.343234, 103.73601 for 1200 by 900 meters
 //    image(img, 0, 0);
-
-     
-     //draws ped network mesh
-     drawMesh();
-     
+  
      //draws POI data    
       drawPOI();
      
      //draws a legend at bottom with info on what's on canvas
      drawLegend();
- 
+     
+     PedNetwork = new Network("pednetworkgeolinestrings.json");
+     
+     //draws ped network mesh
+     drawMesh();
+     
+
 }

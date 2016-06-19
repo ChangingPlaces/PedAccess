@@ -64,6 +64,8 @@ void Haversine(){
                           longitude = ped_nodes.getFloat(i, "x") * PI/180;
                        //get latitude in radians      
                           latitude =  ped_nodes.getFloat(i, "y") * PI/180;
+                          
+                          
                      
                      //use the Haversine formula
                      float delta_lat = latitude-lat1;
@@ -76,7 +78,8 @@ void Haversine(){
                              
                              //convert to polar and put in array
                              PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
-                             xy_peds.add(xy_coord); 
+                             xy_peds.add(xy_coord);                            
+                             
                 }
 
 
