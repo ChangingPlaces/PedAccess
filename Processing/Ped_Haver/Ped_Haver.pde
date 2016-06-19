@@ -33,7 +33,8 @@ void setup(){
         //does haversine calculation to go from lat, lon to Cartesian
         Haversine();
         
-        PedNetwork = new Network("miniplz.geojson");
+//        PedNetwork = new Network("miniplz.geojson");
+        PedNetwork = new Network("pednetworkgeolinestrings.json");
 }
 
 void draw(){
