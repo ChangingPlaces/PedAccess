@@ -54,29 +54,29 @@ void Haversine(){
                 }
 
 
-//Bus Stops
-         for(int i = 0; i<bus_stops.getRowCount(); i++){
-         //get longitude in radians
-                      longitude = bus_stops.getFloat(i, "x") * PI/180;
-         //get latitude in radians      
-                      latitude = bus_stops.getFloat(i, "y") * PI/180; 
-                      
-                     float delta_lat = latitude-lat1;
-                     float delta_lon = longitude-lon1;
-                     
-                     float a = sin(delta_lat/2)*sin(delta_lat/2) + cos(lat1)*cos(latitude)*(sin(delta_lon/2)*sin(delta_lon/2));
-                     
-                     float c = 2*(atan2(sqrt(a), sqrt(1-a)));
-                     
-                     float d = c*R;
-                     
-                     float bearing = atan2(sin(delta_lon)*cos(latitude), cos(lat1)*sin(latitude) - sin(lat1)*cos(latitude)*cos(delta_lon));
-                     
-                     PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
-                      if(xy_coord.x > 0 && xy_coord.x < width  && xy_coord.y < height && xy_coord.y > 0){
-                     xy_bus.add(xy_coord); 
-                      }
-                }
+////Bus Stops
+//         for(int i = 0; i<bus_stops.getRowCount(); i++){
+//         //get longitude in radians
+//                      longitude = bus_stops.getFloat(i, "x") * PI/180;
+//         //get latitude in radians      
+//                      latitude = bus_stops.getFloat(i, "y") * PI/180; 
+//                      
+//                     float delta_lat = latitude-lat1;
+//                     float delta_lon = longitude-lon1;
+//                     
+//                     float a = sin(delta_lat/2)*sin(delta_lat/2) + cos(lat1)*cos(latitude)*(sin(delta_lon/2)*sin(delta_lon/2));
+//                     
+//                     float c = 2*(atan2(sqrt(a), sqrt(1-a)));
+//                     
+//                     float d = c*R;
+//                     
+//                     float bearing = atan2(sin(delta_lon)*cos(latitude), cos(lat1)*sin(latitude) - sin(lat1)*cos(latitude)*cos(delta_lon));
+//                     
+//                     PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
+//                      if(xy_coord.x > 0 && xy_coord.x < width  && xy_coord.y < height && xy_coord.y > 0){
+//                     xy_bus.add(xy_coord); 
+//                      }
+//                }
 
 //Ped Network ground
    for(int i = 0; i<ped_nodes.getRowCount(); i++){
@@ -98,9 +98,8 @@ void Haversine(){
                      
                      PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
                      
-                     if(xy_coord.x > 0 && xy_coord.x < width && xy_coord.y > 0 && xy_coord.y < height){
+
                      xy_peds.add(xy_coord); 
-                     }
                 }
      
 }
