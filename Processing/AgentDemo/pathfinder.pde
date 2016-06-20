@@ -209,6 +209,7 @@ class Pathfinder {
 class Graph {
   
   ArrayList<Node> nodes;
+  ArrayList<Node> plines;
   int U, V;
   float SCALE;
   
@@ -219,11 +220,12 @@ class Graph {
     SCALE = scale;
     
     nodes = new ArrayList<Node>();
+    plines = new ArrayList<Node>();
     
     for (int i=0; i<U; i++) {
       for (int j=0; j<V; j++) {
         nodes.add(new Node(i*SCALE + scale/2, j*SCALE + scale/2));
-      }
+    }
     }
     
   }
@@ -250,7 +252,6 @@ class Graph {
   // Generates network of edges that connect adjacent nodes (including diagonals)
   void generateEdges() {
     float dist;
-    
     for (int i=0; i<nodes.size(); i++) {
       nodes.get(i).clearNeighbors();
       for (int j=0; j<nodes.size(); j++) {
@@ -323,16 +324,7 @@ class Graph {
   }
   
   void generateSnap(){
-    float dist;
-    for (int i=0; i<nodes.size(); i++) {
-      nodes.get(i).clearNeighbors();
-      for (int j=0; j<nodes.size(); j++) {
-        dist = sqrt(sq(nodes.get(i).node.x - nodes.get(j).node.x) + sq(nodes.get(i).node.y - nodes.get(j).node.y));
-        if (dist < SCALE*3 && dist != 0) {
-          nodes.get(i).addNeighbor(j, dist);
-        }
-      }
-    }
+    
   }
   
   void display(PGraphics p) {
@@ -358,7 +350,15 @@ class Graph {
         p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
       }
     }
-  }
+                   
+      for(int i = 0; i<ped_nodes.getRowCount()-1; i++){ 
+       if(ped_nodes.getInt(i, "shapeid") == ped_nodes.getInt(i+1, "shapeid")){
+              p.stroke(#0073e6);
+              p.noFill();
+              p.line(xy_peds.get(i).x, xy_peds.get(i).y, xy_peds.get(i+1).x, (xy_peds.get(i+1).y));
+                  }  
+             }
+      }
   
 }
 

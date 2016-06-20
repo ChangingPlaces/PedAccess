@@ -1,4 +1,6 @@
 PVector Upper_left  = new PVector(1.343234, 103.73601);
+//PVector Upper_left  = new PVector(1.335843, 103.737601);
+//PVector Upper_left  = new PVector(1.336983, 103.746332);
 
 Table amenities; 
 Table ped_nodes;
@@ -23,6 +25,7 @@ ArrayList<PVector> xy_bus = new ArrayList<PVector>();
 
 ArrayList<PVector> latlon_peds = new ArrayList<PVector>();
 ArrayList<PVector> xy_peds = new ArrayList<PVector>();
+ArrayList<PVector> xy_peds_canvas = new ArrayList<PVector>();
 
 
 void Haversine(){ 
@@ -97,9 +100,12 @@ void Haversine(){
                      float bearing = atan2(sin(delta_lon)*cos(latitude), cos(lat1)*sin(latitude) - sin(lat1)*cos(latitude)*cos(delta_lon));
                      
                      PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
-                     
-
+                      
                      xy_peds.add(xy_coord); 
+                     
+                      if(xy_coord.x > 0 && xy_coord.x < width  && xy_coord.y < height && xy_coord.y > 0){
+                      xy_peds_canvas.add(xy_coord);
+                      }
                 }
      
 }
