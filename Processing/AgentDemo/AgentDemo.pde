@@ -1,7 +1,3 @@
-import org.gicentre.geomap.io.*;
-import org.gicentre.geomap.*;
-GeoMap geoMap2;
-
 // This is the staging script for the Pathfinding for agent-based modeling
 // Ira Winder, MIT Media Lab, jiw@mit.edu, Fall 2015
 
@@ -32,9 +28,6 @@ void setup() {
   initData();
   Haversine();
   initCanvas();
-  geoMap2 = new GeoMap(this);
-  
-    geoMap2.readFile("JE pedestrian network v2");
   
 //  img = loadImage("map.jpg");
 }
@@ -102,8 +95,7 @@ void draw() {
       save("videoFrames/" + millis() + ".png");
     }
   }
-//  geoMap2.draw();    
-  stroke(255, 0, 0);  //roadnetwork color
+
 }
 
 void renderTableCanvas() {

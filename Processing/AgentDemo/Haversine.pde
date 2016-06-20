@@ -24,22 +24,10 @@ ArrayList<PVector> xy_bus = new ArrayList<PVector>();
 ArrayList<PVector> latlon_peds = new ArrayList<PVector>();
 ArrayList<PVector> xy_peds = new ArrayList<PVector>();
 
-ArrayList<PVector> latlon_peds2nd = new ArrayList<PVector>();
-ArrayList<PVector> xy_peds2nd = new ArrayList<PVector>();
-
-ArrayList<PVector> latlon_buildings = new ArrayList<PVector>();
-ArrayList<PVector> xy_buildings = new ArrayList<PVector>();
-int[] building_id;
-
-Table merp = new Table();
-
 
 void Haversine(){ 
  
-    merp.addColumn("obstacle");
-    merp.addColumn("vertX");
-    merp.addColumn("vertY");
-    
+   
  //Amenities
              for(int i = 0; i<amenities.getRowCount(); i++){
              //get longitude in radians
@@ -114,35 +102,5 @@ void Haversine(){
                      xy_peds.add(xy_coord); 
                      }
                 }
-
-////BUILDING FOOTPRINT 
-//    for(int i = 0; i<buildings.getRowCount(); i++){
-//         //get longitude in radians
-//                      longitude = buildings.getFloat(i, "x") * PI/180;
-//         //get latitude in radians      
-//                      latitude = buildings.getFloat(i, "y") * PI/180;
-//
-//                     float delta_lat = latitude-lat1;
-//                     float delta_lon = longitude-lon1;
-//                     
-//                     float a = sin(delta_lat/2)*sin(delta_lat/2) + cos(lat1)*cos(latitude)*(sin(delta_lon/2)*sin(delta_lon/2));
-//                     
-//                     float c = 2*(atan2(sqrt(a), sqrt(1-a)));
-//                     
-//                     float d = c*R;
-//                     
-//                     float bearing = atan2(sin(delta_lon)*cos(latitude), cos(lat1)*sin(latitude) - sin(lat1)*cos(latitude)*cos(delta_lon));
-//                     
-//                     PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
-//                    
-//                     if(xy_coord.x > 0 && xy_coord.x < width && xy_coord.y > 0 && xy_coord.y < height){
-//                     xy_buildings.add(xy_coord);  
-//                              TableRow newRow = merp.addRow();
-//                              newRow.setInt("obstacle", buildings.getInt(i, "shapeid"));
-//                              newRow.setFloat("vertX", xy_coord.x);
-//                              newRow.setFloat("vertY", xy_coord.y);
-//                     }
-//                }        
-//              
-//        saveTable(merp, "data/merp.csv");        
+     
 }
