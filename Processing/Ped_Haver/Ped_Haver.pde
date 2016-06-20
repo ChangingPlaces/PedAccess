@@ -38,6 +38,9 @@ void draw(){
      //draws Google map capture of Upper_left at 1.343234, 103.73601 for 1200 by 900 meters
 //    image(img, 0, 0);
   
+     //draws ped network mesh
+     drawMesh();
+      
      //draws POI data    
       drawPOI();
      
@@ -45,8 +48,6 @@ void draw(){
      drawLegend();
     
      
-     //draws ped network mesh
-     drawMesh();
      
 
 }
