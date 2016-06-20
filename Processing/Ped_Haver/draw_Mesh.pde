@@ -20,9 +20,9 @@ void drawMesh(){
                ellipse(xy_network.get(i).x, xy_network.get(i).y, 5, 5);
                }    
                
-           for(int i = 0; i<ped_nodes.getRowCount()-1; i++){ 
+      for(int i = 0; i<ped_nodes.getRowCount()-1; i++){ 
        if(ped_nodes.getInt(i, "shapeid") == ped_nodes.getInt(i+1, "shapeid")){
-              stroke(#00FFFF);
+              stroke(100);
                line(xy_peds.get(i).x, xy_peds.get(i).y, xy_peds.get(i+1).x, (xy_peds.get(i+1).y));
           } 
              }         

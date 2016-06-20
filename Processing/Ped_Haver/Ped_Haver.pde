@@ -14,8 +14,6 @@ http://www.movable-type.co.uk/scripts/latlong.html
 //int  Width = 1200;
 //int  Height = 600;
 
-Network PedNetwork;
-MultiNetwork MultiPedNetwork;
 
 //upper left corner for region
 //PVector Upper_left = new PVector(1.33043, 103.74836);
@@ -31,11 +29,7 @@ void setup(){
         
         //does haversine calculation to go from lat, lon to Cartesian
         Haversine();
-        
-             
-      PedNetwork = new Network("pednetworkgeolinestrings.json");
-      MultiPedNetwork = new MultiNetwork("multilines.json");
-        
+
 }
 
 void draw(){
@@ -49,8 +43,7 @@ void draw(){
      
      //draws a legend at bottom with info on what's on canvas
      drawLegend();
-     
-     PedNetwork = new Network("pednetworkgeolinestrings.json");
+    
      
      //draws ped network mesh
      drawMesh();
