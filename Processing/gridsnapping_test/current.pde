@@ -26,8 +26,15 @@
 //        float y1 = table.getFloat(i, "y");
 //        float y2 = table.getFloat(i+1, "y");
         
-//          float dx = x2-x1;
-//          float dy = y2-y1;
+//        if(x2 < x1 && y2 < y1){
+//               x2 = table.getFloat(i, "x");
+//               x1 = table.getFloat(i+1, "x");
+//               y2 = table.getFloat(i, "y");
+//               y1 = table.getFloat(i+1, "y");
+//        }
+        
+//          float dx = abs(x2-x1);
+//          float dy = abs(y2-y1);
           
 //              if(dx > dy){
 //                Steps = dx;
@@ -43,20 +50,25 @@
 //          y = y1;
           
 //          for(int v = 0; v< (int)Steps; v++){
-//              x = x + xInc;
-//              y = y + yInc;
-              
-//              if(x2 < x1 || y2 < y1){
-//                 x = x2;
-//                 y = y2;
-//                 x = x - xInc;
+//              if(y2 < y1){
+//                 x = x + xInc;
 //                 y = y - yInc;
 //              }
               
+//             else if(x2 < x1){
+//                 x = x - xInc;
+//                 y = y + yInc;
+//              }
+  
+//             else{ 
+//              x = x + xInc;
+//              y = y + yInc;
+//             }
+              
 //              noFill();
-//              //if(x <= x2 && y<= y2){
+//              if(x <= max(x1, x2) && y<= max(y1, y2)){
 //              Coordinates.add(new PVector(x, y));
-//              //}
+//              }
 //    }
 //  }
   
