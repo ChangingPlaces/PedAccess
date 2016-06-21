@@ -32,20 +32,51 @@ void draw(){
     }
     
     //render a line with Bresenham's Algorithm
+    //x2 < x1; y2<y1
+    //float x2 = 100;
+    //float x1 = 200;
+    //float y2 = 40;
+    //float y1 = 200;
+    
+    //x2>x1; y1<y2
+    //float x2 = 100;
+    //float x1 = 200;
+    //float y2 = 40;
+    //float y1 = 20;
+    
+    //x2 > x1; y2>y1
+    //float x2 = 200;
+    //float x1 = 100;
+    //float y2 = 400;
+    //float y1 = 20;
+    
+     //x2 < x1; y2>y1
+    float x2 = 100;
     float x1 = 200;
-    float x2 = 500;
-    float y1 = 0;
-    float y2 = 20;
+    float y2 = 400;
+    float y1 = 20;
+    
+    if(y2 < y1){
+      y1 = y2;
+    }
+    
+    if(x2 < x1){
+      x1 = x2;
+    }
+    
+   PVector start = new PVector(x1, y1);
+   PVector end = new PVector(x2, y2);
     
     stroke(#00ff99);
     line(x1, y1, x2, y2);
     
     stroke(#ff0000);
     ellipse(x1, y1, 15, 15);
+    stroke(#0000ff);
     ellipse(x2, y2, 15, 15);
     
-    float dx = x2-x1;
-    float dy = y2-y1;
+    float dx = end.x - start.x;
+    float dy = end.y - start.y;
     
         if(dx > dy){
           Steps = abs(dx);
@@ -57,14 +88,14 @@ void draw(){
     float xInc =  dx/(Steps);
     float yInc = dy/(Steps);
     
-    float x = x1;
-    float y = y1;
+    float x = start.x;
+    float y = start.y;
     
     for(int v = 0; v< (int)Steps; v++){
         x = x + xInc;
         y = y + yInc;
         noFill();
-        if(x < x2 && y<y2){
+        if(x <= end.x && y<= end.y){
         coords.add(new PVector(x, y));
         }
     }
