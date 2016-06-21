@@ -32,24 +32,6 @@ void draw(){
     }
     
     //render a line with Bresenham's Algorithm
-    //x2 < x1; y2<y1
-    //float x2 = 100;
-    //float x1 = 200;
-    //float y2 = 40;
-    //float y1 = 200;
-    
-    //x2>x1; y1<y2
-    //float x2 = 100;
-    //float x1 = 200;
-    //float y2 = 40;
-    //float y1 = 20;
-    
-    //x2 > x1; y2>y1
-    //float x2 = 200;
-    //float x1 = 100;
-    //float y2 = 400;
-    //float y1 = 20;
-    
      //x2 < x1; y2>y1
     float x2 = 100;
     float x1 = 200;
