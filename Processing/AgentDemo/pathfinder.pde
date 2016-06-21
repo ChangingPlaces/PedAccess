@@ -324,7 +324,16 @@ class Graph {
   }
   
   void generateSnap(){
-    
+        float dist;
+    for (int i=0; i<nodes.size(); i++) {
+      nodes.get(i).clearNeighbors();
+      for (int j=0; j<nodes.size(); j++) {
+        dist = sqrt(sq(nodes.get(i).node.x - nodes.get(j).node.x) + sq(nodes.get(i).node.y - nodes.get(j).node.y));
+        if (dist < SCALE*2 && dist != 0) {
+          nodes.get(i).addNeighbor(j, dist);
+        }
+      }
+    }
   }
   
   void display(PGraphics p) {

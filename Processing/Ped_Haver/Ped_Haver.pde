@@ -48,7 +48,7 @@ void draw(){
       drawPOI();
      
      //draws a legend at bottom with info on what's on canvas
-     drawLegend();
+     //drawLegend();
     
      
      

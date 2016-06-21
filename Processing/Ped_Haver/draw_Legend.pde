@@ -1,5 +1,5 @@
 void drawLegend(){
-      fill(50, 50);
+      fill(90);
       rect(width-316, height-140, 310, 130, 5);
   //draw a legend at the bottom of the screen for my own sanity
       fill(#ff00ff);       

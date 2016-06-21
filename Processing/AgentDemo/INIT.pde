@@ -286,7 +286,7 @@ void initRandomFinder(PGraphics p, int res) {
 void initCityFinder(PGraphics p, int res){
   city = true;
   finderCity = new Pathfinder(p.width, p.height, res, 0.5);
-  finderCity.generateSnap();
+//  finderCity.generateSnap();
 }
 
 // Refresh Paths and visualization; Use for key commands and dynamic changes
