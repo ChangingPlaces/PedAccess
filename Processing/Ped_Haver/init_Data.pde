@@ -12,4 +12,6 @@ void initData(){
   bridges = loadTable("data/bridges_links.csv", "header");
   second = loadTable("data/2ndmerc.csv", "header");
   img = loadImage("map.jpg");
+  
+  println("data loaded");
 }

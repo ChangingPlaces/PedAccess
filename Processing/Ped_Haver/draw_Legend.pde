@@ -16,4 +16,6 @@ void drawLegend(){
       fill(#ff0000);
       text("300 meters, max ped path length", width-310, height-125);
       line(width-10, height-120,  width-310, height-120);
+      
+      println("legend drawn");
 }

@@ -29,6 +29,9 @@ void setup(){
         
         //does haversine calculation to go from lat, lon to Cartesian
         Haversine();
+        
+        //runs a version of breseham's algorithm 
+        bresenham();
 
 }
 
@@ -36,7 +39,7 @@ void draw(){
      background(0); 
      
      //draws Google map capture of Upper_left at 1.343234, 103.73601 for 1200 by 900 meters
-//    image(img, 0, 0);
+     //image(img, 0, 0);
   
      //draws ped network mesh
      drawMesh();

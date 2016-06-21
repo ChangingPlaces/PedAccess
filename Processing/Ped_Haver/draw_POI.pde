@@ -11,5 +11,7 @@ void drawPOI(){
                fill(#ff00ff);
                ellipse(xy_bus.get(i).x, xy_bus.get(i).y, 5, 5);
                }  
+               
+      println("draw POI");
 
 }

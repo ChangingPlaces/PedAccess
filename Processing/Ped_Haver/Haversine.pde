@@ -124,5 +124,5 @@ void Haversine(){
                              PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
                              xy_second.add(xy_coord); 
                 }   
-                
+      println("haversine done");          
 }
