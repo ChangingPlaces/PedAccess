@@ -68,7 +68,7 @@ void draw(){
              }
              
             noFill();
-              if(x <= max(x1, x2) && y<= max(y1, y2) && x >= min(x1, x2) && y >= min(y1, y2)){
+              if(x <= max(x1, x2) && y<= max(y1, y2) && x >= min(x1, x2) && y >= min(y1, y2) && table.getInt(i, "id") == table.getInt(i+1, "id")){
               Coordinates.add(new PVector(x, y));
               }
     }
@@ -93,14 +93,18 @@ void draw(){
                 noFill();
                 strokeWeight(.5);
                 ellipse(a, b, 12, 12);
-                
+               
                  for(int p = 0; p<Coordinates.size(); p++){
                   if(abs(a - Coordinates.get(p).x) <= scale*2/3 && abs(b - Coordinates.get(p).y) <= scale*2/3){
                   strokeWeight(.5);
                   stroke(#ffd633);
-                  ellipse(a, b, 12, 12);
+                          ellipse(a, b, 12, 12);
+                   
                   }
+                  
                 }
+                
+               
               }
             }
 }
