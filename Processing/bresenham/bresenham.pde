@@ -34,7 +34,7 @@ void draw(){
         background(0);
         ArrayList<PVector> Coordinates = new ArrayList<PVector>();
         float Steps, x, y;
-
+   
   for(int i = 0; i<table.getRowCount()-1; i++){
         float x1 = table.getFloat(i, "x");
         float x2 = table.getFloat(i+1, "x");
@@ -95,10 +95,12 @@ void draw(){
               stroke(#1a53ff);
               line(table.getFloat(i, "x"), table.getFloat(i, "y"), table.getFloat(i+1, "x"), table.getFloat(i+1, "y"));
            }
+           
+           
           
   }
   
-          ////draw grid
+          //draw grid
            int U = int(width/scale);
            int V = int(height/scale);
            int SCALE = scale;
@@ -127,3 +129,96 @@ void draw(){
             }
             println(Coordinates.size() + " nodes on or tangent to line");
 }
+
+
+/*
+Table table;
+  int scale = 12;
+  float Steps;
+  ArrayList<PVector> coords = new ArrayList<PVector>();
+
+void setup(){
+  size(500, 500);
+  table = loadTable("data/lines.csv", "header");
+}
+
+
+void draw(){
+  
+   background(0);
+  
+   int U = int(width/scale);
+   int V = int(height/scale);
+   int SCALE = scale;
+    //draw grid
+    for (int i=0; i<U; i++) {
+      for (int j=0; j<V; j++) {
+        float a = (i*SCALE + scale/2);
+        float b = (j*SCALE + scale/2);
+        
+        stroke(100);
+        noFill();
+        ellipse(a, b, 12, 12);
+        for(int p = 0; p<coords.size(); p++){
+          if(abs(a - coords.get(p).x) <= scale/2 && abs(b - coords.get(p).y) <= scale/2){
+          stroke(#ffff00);
+          ellipse(a, b, 12, 12);
+          }
+        }
+      }
+    }
+    
+    //render a line with Bresenham's Algorithm
+     for(int i = 0; i<table.getRowCount()-1; i++){
+       if(table.getInt(i, "id") == table.getInt(i+1, "id")){
+       float x1 = table.getFloat(i, "x");
+        float x2 = table.getFloat(i+1, "x");
+        float y1 = table.getFloat(i, "y");
+        float y2 = table.getFloat(i+1, "y");
+       
+    
+    if(y2 < y1){
+      y1 = y2;
+      x1 = x2;
+    }
+    
+    if(x2 < x1){
+      x1 = x2;
+      y1 = y2;
+    }
+    
+   PVector start = new PVector(x1, y1);
+   PVector end = new PVector(x2, y2);
+    
+    stroke(#00ff99);
+    line(x1, y1, x2, y2);
+    
+    float dx = end.x - start.x;
+    float dy = end.y - start.y;
+    
+        if(dx > dy){
+          Steps = abs(dx);
+        }
+        else{
+          Steps = abs(dy);        
+        }
+        
+    float xInc =  dx/(Steps);
+    float yInc = dy/(Steps);
+    
+    float x = start.x;
+    float y = start.y;
+    
+    for(int v = 0; v< (int)Steps; v++){
+        x = x + xInc;
+        y = y + yInc;
+        noFill();
+        if(x <= end.x && y<= end.y){
+        coords.add(new PVector(x, y));
+        }
+    }
+     }
+     println(mouseX, mouseY);
+     }
+}
+*/
