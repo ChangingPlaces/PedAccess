@@ -17,12 +17,17 @@ I chose to draw a grid of ellipses, becuase I use this alogirthm in a path findi
 //lines should have an ID, I call it "shapeid" because this matches most GeoSpatial data structures from programs like QGIS 
 Table table;
 
+float x, y, x1, x2, y1, y2, dx, dy;
+
 //set a scale for your grid; this is the weight of each raster cell
  int scale = 12;
 //these variables will be used to draw the grid
  int U = int(width/scale);
  int V = int(height/scale);
  int SCALE = scale;
+ 
+ 
+PVector start, end;
 
 void setup(){
       //loading the table
@@ -33,6 +38,7 @@ void setup(){
 void draw(){
         background(0);
         ArrayList<PVector> Coordinates = new ArrayList<PVector>();
+        ArrayList<PVector> coords = new ArrayList<PVector>();
         float Steps, x, y;
    
   for(int i = 0; i<table.getRowCount()-1; i++){
@@ -40,6 +46,53 @@ void draw(){
         float x2 = table.getFloat(i+1, "x");
         float y1 = table.getFloat(i, "y");
         float y2 = table.getFloat(i+1, "y");
+        
+        if(x1 == x2 || y1 == y2){
+               if (y2 < y1 || x2 < x1) {
+                  start = new PVector(x2, y2);
+                  end = new PVector(x1, y1);
+                }
+                
+                
+                else{
+                  start = new PVector(x1, y1);
+                  end = new PVector(x2, y2);
+                }
+                
+              
+              
+                dx = end.x - start.x;
+                dy = end.y - start.y;
+              
+              
+                if (dx > dy) {
+                  Steps = abs(dx);
+                } else {
+                  Steps = abs(dy);
+                }
+              
+                float xInc =  dx/(Steps);
+                float yInc = dy/(Steps);
+              
+                x = start.x;
+                y = start.y;
+              
+                for (int v = 0; v< (int)Steps; v++) {          
+                  x = x + xInc;
+                  y = y + yInc;
+                  noFill();
+                   if(table.getInt(i, "id") == table.getInt(i+1, "id")){
+                  if (x <= end.x && y<= end.y) {
+                    coords.add(new PVector(x, y));
+                  }
+                   }
+                }
+        }
+
+        
+                
+        x = x1;
+        y = y1;
         
         //calculating the change in x and y across the line
         float dx = abs(x2-x1);
@@ -58,15 +111,17 @@ void draw(){
           float xInc = (dx)/(Steps);
           float yInc = (dy)/(Steps);
 
-          x = x1;
-          y = y1;
         
         //focuses on drawing the lines
           for(int v = 0; v< (int)Steps; v++){
+
+            
             if(x2 < x1 && y2 < y1){
                  x = x - xInc;
                  y = y - yInc;
-            }
+              }
+              
+            
             else if(y2 < y1){
                  x = x + xInc;
                  y = y - yInc;
@@ -74,7 +129,7 @@ void draw(){
            else if(x2 < x1){
                  x = x - xInc;
                  y = y + yInc;
-              }
+              }    
             else{ 
               x = x + xInc;
               y = y + yInc;
@@ -88,6 +143,7 @@ void draw(){
                     Coordinates.add(new PVector(x, y));
                     }
                 }
+                
                 
     }
            if(table.getInt(i, "id") == table.getInt(i+1, "id")){
@@ -121,10 +177,15 @@ void draw(){
                   stroke(#ffd633);
                           ellipse(a, b, 12, 12);
                   }
-                  
                 }
                 
-               
+                    for(int i = 0; i<coords.size(); i++){
+                    if(abs(a - coords.get(i).x) <= scale/2 && abs(b - coords.get(i).y) <= scale/2){
+                      strokeWeight(.5);
+                      stroke(#ffd633);
+                              ellipse(a, b, 12, 12);
+                      }
+                    }
               }
             }
             println(Coordinates.size() + " nodes on or tangent to line");
