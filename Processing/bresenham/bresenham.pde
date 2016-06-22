@@ -1,6 +1,6 @@
 /*
 Bresenham Algorithm Demo 
-  by Nina Lutz, nlutz@mit.edu               MIT Media Lab, Changing Places Group, Summer 2016
+  by Nina Lutz, nlutz@mit.edu               MIT Media Lab, Summer 2016
   Supervisor: Ira Winder, jiw@mit.edu       MIT Media Lab
 
 NOTE: This code may still be condensed 
@@ -158,5 +158,5 @@ void draw(){
                     }
               }
             }
-            println(Coordinates.size() + " possible nodes on or tangent to line");
+            println(Coordinates.size() + " possible nodes on or tangent to line" + "framerate: " + frameRate);
 }
