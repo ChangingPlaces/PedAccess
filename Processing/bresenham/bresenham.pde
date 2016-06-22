@@ -103,21 +103,18 @@ void draw(){
           for(int v = 0; v< (int)Steps; v++){       
                 //there are four main cases that need to be handled
                       if(end.x < start.x && end.y < start.y){
-                           x = x - xInc;
-                           y = y - yInc;
+                           x = x - xInc;    y = y - yInc;
                                 }
                       else if(end.y < start.y){
-                           x = x + xInc;
-                           y = y - yInc;
+                           x = x + xInc;    y = y - yInc;
                                 }  
                       else if(end.x < start.x){
-                           x = x - xInc;
-                           y = y + yInc;
+                           x = x - xInc;    y = y + yInc;
                                 }    
                       else{ 
-                        x = x + xInc;
-                        y = y + yInc;
+                           x = x + xInc;    y = y + yInc;
                              }
+                             
                     //this add the values to the array if they're in different lines  
                     if(table.getInt(i, "id") == table.getInt(i+1, "id")){    
                         if(x <= max(x1, x2) && y<= max(y1, y2) && x >= min(x1, x2) && y >= min(y1, y2)){
