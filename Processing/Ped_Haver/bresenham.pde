@@ -23,6 +23,7 @@ I chose to draw a grid of ellipses, becuase I use this alogirthm in a path findi
 PVector start, end;
 float x, y, x1, x2, y1, y2, dx, dy, Steps, xInc, yInc;
 ArrayList<PVector> Coordinates = new ArrayList<PVector>();
+ArrayList<PVector> SnapGrid = new ArrayList<PVector>();
 
 class bresenham{
 void bresenham(){
@@ -116,7 +117,7 @@ void bresenham(){
                     }           
               }
   }
-   println(Coordinates.size() + " possible nodes on or tangent to line" + "framerate: " + frameRate);
+   println(Coordinates.size() + " possible nodes on or tangent to line" + "   framerate: " + frameRate);
 }
   
   void draw_grid(){
@@ -125,6 +126,7 @@ void bresenham(){
    int V = int(height/scale);
    //this is based off the scale int that is initialized at the top of this sketch 
    int SCALE = scale;
+   println("rendering grid");
            
        //iterates through and draws the grid
         for (int d=0; d<U; d++) {
@@ -138,21 +140,18 @@ void bresenham(){
                 strokeWeight(.5);
                 ellipse(a, b, scale, scale);
                 
+                
                 //compare grid values to Coordinates and color the grid cells that correspond to the lines 
                  for(int p = 0; p<Coordinates.size()-1; p++){
                       if(abs(a - Coordinates.get(p).x) <= scale/2 && abs(b - Coordinates.get(p).y) <= scale/2){
                             strokeWeight(.5);
                             stroke(#FFE066);
                             ellipse(a, b, scale, scale);
+                            SnapGrid.add(Coordinates.get(p));
                       }
                     }
               }
             }
-  }
-  
-  void test(){
-    fill(#00ff00);
-    rect(50, 50, 50, 50); 
   }
   
 

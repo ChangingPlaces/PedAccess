@@ -1,5 +1,6 @@
 void drawPOI(){          
       //draws amenities data
+      println("rendering POI data");
       for(int i = 0; i<xy_amenities.size(); i++){
                noStroke();
                fill(#ffff00);

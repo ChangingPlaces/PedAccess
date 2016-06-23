@@ -1,18 +1,21 @@
-boolean showlines, showPOI, showGrid;
+boolean showPOI; 
+
+boolean showGrid = true;
+boolean showlines = true;
 
 void keyPressed() {
      //draws lines
       if (key=='l') {
          showlines = toggle(showlines);
       }
-     
-      else if (key=='p') {
-          showPOI = toggle(showPOI);
-      } 
-      
-      else if (key == 'g'){
-        showGrid = toggle(showGrid);
+      //draws POI
+      else if(key=='p') {
+         showPOI = toggle(showPOI);
+      }   
+      else if(key == 'g'){
+         showGrid = toggle(showGrid);
       }
+
 }
 
 boolean toggle(boolean bool) {

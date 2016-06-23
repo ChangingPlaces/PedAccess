@@ -1,5 +1,5 @@
-void drawNetwork(){ 
-  
+void drawLines(){ 
+    println("rendering lines");
       //bridges        
       for(int i = 0; i<bridges.getRowCount()-1; i++){ 
          if(bridges.getInt(i, "shapeid") == bridges.getInt(i+1, "shapeid")){
@@ -24,5 +24,5 @@ void drawNetwork(){
              }
              
        
-       println("mesh drawn"); 
+       println("lines drawn"); 
 }
