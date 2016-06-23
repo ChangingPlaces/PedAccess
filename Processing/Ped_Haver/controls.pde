@@ -1,6 +1,6 @@
 boolean showPOI; 
 
-boolean showGrid = true;
+boolean showMesh = true;
 boolean showlines = true;
 
 void keyPressed() {
@@ -13,7 +13,7 @@ void keyPressed() {
          showPOI = toggle(showPOI);
       }   
       else if(key == 'g'){
-         showGrid = toggle(showGrid);
+         showMesh = toggle(showMesh);
       }
 
 }

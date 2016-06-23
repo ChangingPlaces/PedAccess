@@ -22,7 +22,5 @@ void drawLines(){
                line(xy_peds.get(i).x, xy_peds.get(i).y, xy_peds.get(i+1).x, (xy_peds.get(i+1).y));
           }      
              }
-             
-       
        println("lines drawn"); 
 }

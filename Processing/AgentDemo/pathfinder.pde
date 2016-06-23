@@ -21,16 +21,8 @@ class Pathfinder {
   
   Pathfinder(int w, int h, float res, float cullRatio) {
     network = new Graph(w, h, res);
-    //w and h come from obstacles
-    //res effects the node sizes 
     network.cullRandom(cullRatio);
     refresh();
-//    if(city == false){
-//    network.generateEdges();
-//    }
-//    if(city == true){
-//      network.generateSnap();
-//    }
   }
   
   void applyObstacleCourse(ObstacleCourse c) {
@@ -38,17 +30,8 @@ class Pathfinder {
     refresh();
   }
   
-  void generateEdges() {
-    network.generateEdges();
-    refresh();
-  }
-  
- void generateSnap() {
-    network.generateSnap();
-    refresh();
-  }
-  
   void refresh() {
+    network.generateEdges();
     networkSize = network.nodes.size();
     totalDist = new float[networkSize];
     parentNode = new int[networkSize];
@@ -209,7 +192,6 @@ class Pathfinder {
 class Graph {
   
   ArrayList<Node> nodes;
-  ArrayList<Node> plines;
   int U, V;
   float SCALE;
   
@@ -220,16 +202,14 @@ class Graph {
     SCALE = scale;
     
     nodes = new ArrayList<Node>();
-    plines = new ArrayList<Node>();
     
     for (int i=0; i<U; i++) {
       for (int j=0; j<V; j++) {
         nodes.add(new Node(i*SCALE + scale/2, j*SCALE + scale/2));
-    }
+      }
     }
     
   }
- 
   
   // Removes Nodes that intersect with set of obstacles
   void applyObstacleCourse(ObstacleCourse c) {
@@ -252,17 +232,19 @@ class Graph {
   // Generates network of edges that connect adjacent nodes (including diagonals)
   void generateEdges() {
     float dist;
+    
     for (int i=0; i<nodes.size(); i++) {
       nodes.get(i).clearNeighbors();
       for (int j=0; j<nodes.size(); j++) {
         dist = sqrt(sq(nodes.get(i).node.x - nodes.get(j).node.x) + sq(nodes.get(i).node.y - nodes.get(j).node.y));
-        if (dist < SCALE*2 && dist != 0) {
+        
+        if (dist < 2*SCALE && dist != 0) {
           nodes.get(i).addNeighbor(j, dist);
         }
       }
     }
+    
   }
-  
   
   int getNeighborCount(int i) {
     if (i < nodes.size()) {
@@ -323,19 +305,6 @@ class Graph {
     return dist;
   }
   
-  void generateSnap(){
-        float dist;
-    for (int i=0; i<nodes.size(); i++) {
-      nodes.get(i).clearNeighbors();
-      for (int j=0; j<nodes.size(); j++) {
-        dist = sqrt(sq(nodes.get(i).node.x - nodes.get(j).node.x) + sq(nodes.get(i).node.y - nodes.get(j).node.y));
-        if (dist < SCALE*2 && dist != 0) {
-          nodes.get(i).addNeighbor(j, dist);
-        }
-      }
-    }
-  }
-  
   void display(PGraphics p) {
     
     // Formatting
@@ -355,19 +324,10 @@ class Graph {
       for (int j=0; j<nodes.get(i).neighbors.size(); j++) {
         neighbor = nodes.get(i).neighbors.get(j);
         //println(neighbor);
-        //p.stroke(#f1ff00);
         p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
       }
     }
-                   
-      for(int i = 0; i<ped_nodes.getRowCount()-1; i++){ 
-       if(ped_nodes.getInt(i, "shapeid") == ped_nodes.getInt(i+1, "shapeid")){
-              p.stroke(#0073e6);
-              p.noFill();
-              p.line(xy_peds.get(i).x, xy_peds.get(i).y, xy_peds.get(i+1).x, (xy_peds.get(i+1).y));
-                  }  
-             }
-      }
+  }
   
 }
 

@@ -78,7 +78,7 @@ void Haversine(){
                              
                              //convert to polar and put in array
                              PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
-                             xy_peds.add(xy_coord);                            
+                             xy_peds.add(xy_coord);                     
                              
                 }
 

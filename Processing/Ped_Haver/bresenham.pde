@@ -131,8 +131,8 @@ void bresenham(){
        //iterates through and draws the grid
         for (int d=0; d<U; d++) {
             for (int j=0; j<V; j++) {
-                float a = (d*SCALE + scale/2);
-                float b = (j*SCALE + scale/2);
+                float a = (d*SCALE + scale);
+                float b = (j*SCALE + scale);
                 
                 //this is where I chose to render the grid as ellipses
                 stroke(90);
@@ -152,7 +152,8 @@ void bresenham(){
                     }
               }
             }
+            
+
   }
-  
 
 }

@@ -26,7 +26,7 @@ class Agent {
   int pathIndex, pathLength;
   
   Agent(float x, float y, int rad, float maxS, int pLength) {
-    r = 4;
+    r = rad;
     tolerance *= r;
     location = new PVector(x + random(-tolerance, tolerance), y + random(-tolerance, tolerance));
     maxspeed = maxS;
@@ -310,11 +310,13 @@ class Swarm {
 //    if (path.size() == 1) {
 //      sink = hitBox(origin, hitbox, true);
 //    }
-
-    //generates only 10
+    
+    if (dataMode == 1) {
+      // Generates only 10 agents
       if (path.size() == 1) {
         immortal = true;
       }
+    }
   }
   
   void update(float _rateScaler) {
@@ -386,11 +388,13 @@ class Swarm {
     p.stroke(textColor, 100);
     
     //Draw Source
+    p.strokeWeight(2);
     p.line(origin.x - 5, origin.y - 5, origin.x + 5, origin.y + 5);
     p.line(origin.x - 5, origin.y + 5, origin.x + 5, origin.y - 5);
     
     //Draw Sink
-    p.ellipse(destination.x, destination.y, 10, 10);
+    p.strokeWeight(3);
+    p.ellipse(destination.x, destination.y, 30, 30);
   }
   
   
@@ -443,12 +447,10 @@ class Swarm {
     
     //Draw Origin
     p.stroke(#FF0000);
-    p.noFill();
     p.ellipse(origin.x, origin.y, finderResolution, finderResolution);
     
     //Draw Destination
     p.stroke(#0000FF);
-    p.noFill();
     p.ellipse(destination.x, destination.y, finderResolution, finderResolution);
   }
   
@@ -572,7 +574,6 @@ class Horde {
       cullRandomAgent();
       rateScaler /= 0.9;
     } else {
-      
       rateScaler *= 0.99;
     }
   }

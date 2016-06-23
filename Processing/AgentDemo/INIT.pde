@@ -1,9 +1,12 @@
 // Graphics object in memory that holds visualization
 PGraphics tableCanvas;
 
-boolean city;
 
 PImage demoMap;
+
+int dataMode = 1;
+// dataMode = 1 for random network
+// dataMode = 0 for empty network and Pathfinder Test OD
 
 void initCanvas() {
   
@@ -22,16 +25,29 @@ void initCanvas() {
 
 void initContent(PGraphics p) {
   
-  
+  switch(dataMode) {
+    case 0: // Pathfinder Demo
+      showGrid = true;
+      finderMode = 0;
+      showEdges = false;
+      showSource = false;
+      showPaths = false;
+      showTraces = false;
+      showInfo = false;
+      break;
+    case 1: // Random Demo
       showGrid = true;
       finderMode = 0;
       showEdges = false;
       showSource = true;
       showPaths = true;
+      break;
+  }
   
   initObstacles(p);
   initPathfinder(p, p.width/100);
   initAgents(p);
+  //initButtons(p);
   
   demoMap = loadImage("data/demoMap.png");
   
@@ -54,6 +70,8 @@ int textSize = 8;
 
 boolean enablePathfinding = true;
 
+HeatMap traces;
+
 PGraphics sources_Viz, edges_Viz;
 
 void initAgents(PGraphics p) {
@@ -63,11 +81,23 @@ void initAgents(PGraphics p) {
   swarmHorde = new Horde(2000);
   sources_Viz = createGraphics(p.width, p.height);
   edges_Viz = createGraphics(p.width, p.height);
-  testNetwork_Random(p, xy_amenities.size());
+  
+  switch(dataMode) {
+    case 0:
+      testNetwork_Random(p, 0);
+      break;
+    case 1:
+      testNetwork_Random(p, 16);
+      break;
+    case 2: 
+      testNetwork_Random(p, 16);
+      break;
+  }
   
   swarmPaths(p, enablePathfinding);
   sources_Viz(p);
   edges_Viz(p);
+  traces = new HeatMap(p.width/5, p.height/5, p.width, p.height);
   
   println("Agents initialized.");
 }
@@ -108,6 +138,7 @@ void hurrySwarms(int frames) {
   //speed = 1.5;
 }
 
+// dataMode for random network
 void testNetwork_Random(PGraphics p, int _numNodes) {
   
   int numNodes, numEdges, numSwarm;
@@ -122,16 +153,18 @@ void testNetwork_Random(PGraphics p, int _numNodes) {
   weight = new float[numSwarm];
   swarmHorde.clearHorde();
   
+
+  
   for (int i=0; i<numNodes; i++) {
-    nodes[i] = xy_amenities.get(i);;  }
+    nodes[i] = new PVector(random(10, p.width-10), random(10, p.height-10));
+  }
   
   for (int i=0; i<numNodes; i++) {
     for (int j=0; j<numNodes-1; j++) {
       
       origin[i*(numNodes-1)+j] = new PVector(nodes[i].x, nodes[i].y);
       
-      int h = int(random(0, xy_amenities.size()));
-      destination[i*(numNodes-1)+j] = new PVector(nodes[h].x, nodes[h].y);
+      destination[i*(numNodes-1)+j] = new PVector(nodes[(i+j+1)%(numNodes)].x, nodes[(i+j+1)%(numNodes)].y);
       
       weight[i*(numNodes-1)+j] = random(0.1, 2.0);
       
@@ -140,11 +173,11 @@ void testNetwork_Random(PGraphics p, int _numNodes) {
   }
   
     // rate, life, origin, destination
-  colorMode(RGB);
+  colorMode(HSB);
   for (int i=0; i<numSwarm; i++) {
     
     // delay, origin, destination, speed, color
-    swarmHorde.addSwarm(weight[i], origin[i], destination[i], 1, 200);
+    swarmHorde.addSwarm(weight[i], origin[i], destination[i], 1, color(255.0*i/numSwarm, 255, 255));
     
     // Makes sure that agents 'staying put' eventually die
     swarmHorde.getSwarm(i).temperStandingAgents();
@@ -213,18 +246,22 @@ void setObstacleGrid(PGraphics p, int u, int v) {
   }
 }
 
+//-------Initialize Buttons
+/*void initButtons(PGraphics p){
+  button = new Button(70, 70, "refresh");
+}
+*/
 
 //------------- Initialize Pathfinding Objects
 
 Pathfinder pFinder;
-int finderMode = 3;
+int finderMode = 2;
 // 0 = Random Noise Test
 // 1 = Grid Test
 // 2 = Custom
-// 3 = shapefile
 
 // Pathfinder test and debugging Objects
-Pathfinder finderRandom, finderGrid, finderCustom, finderCity;
+Pathfinder finderRandom, finderGrid, finderCustom;
 PVector A, B;
 ArrayList<PVector> testPath, testVisited;
 
@@ -244,9 +281,6 @@ void initPathfinder(PGraphics p, int res) {
   // Initializes a Pathfinding network Based off of Random Noise
   initRandomFinder(p, res);
   
-  // Initializes a Pathfinding network Based off of shapefile nodes
-  initCityFinder(p, res);
-  
   // Initializes an origin-destination coordinate for testing
   initOD(p);
   
@@ -264,29 +298,17 @@ void initPathfinder(PGraphics p, int res) {
 }
 
 void initCustomFinder(PGraphics p, int res) {
-  city = false;
-  finderCustom = new Pathfinder(p.width, p.height, res, 0.5); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderCustom = new Pathfinder(p.width, p.height, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderCustom.applyObstacleCourse(boundaries);
-  finderCustom.generateEdges();
 }
 
 void initGridFinder(PGraphics p, int res) {
-  city = false;
-  finderGrid = new Pathfinder(p.width, p.height, res, 0.5); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderGrid = new Pathfinder(p.width, p.height, res, 0.0); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   finderGrid.applyObstacleCourse(grid);  
-  finderGrid.generateEdges();
 }
 
 void initRandomFinder(PGraphics p, int res) {
-  city = false;
   finderRandom = new Pathfinder(p.width, p.height, res, 0.5);
-  finderRandom.generateEdges();
-}
-
-void initCityFinder(PGraphics p, int res){
-  city = true;
-  finderCity = new Pathfinder(p.width, p.height, res, 0.5);
-//  finderCity.generateSnap();
 }
 
 // Refresh Paths and visualization; Use for key commands and dynamic changes
@@ -310,7 +332,7 @@ void resetFinder(PGraphics p, int res, int _finderMode) {
       initCustomFinder(p, res);
       break;
     case 3: 
-      initCityFinder(p, res);
+      initGridFinder(p, res);
       break;
   }
   setFinder(p, _finderMode);
@@ -328,7 +350,7 @@ void setFinder(PGraphics p, int _finderMode) {
       pFinder = finderCustom;
       break;
     case 3: 
-      pFinder = finderCity;
+      pFinder = finderGrid;
       break;
   }
 }
@@ -345,10 +367,15 @@ void pFinderPaths_Viz(PGraphics p, boolean enable) {
 }
 
 void pFinderGrid_Viz(PGraphics p) {
+  
   // Write Network Results to PGraphics
   pFinderGrid = createGraphics(p.width, p.height);
   pFinderGrid.beginDraw();
-  pFinder.display(pFinderGrid);
+  if (dataMode == 0) {
+    drawTestFinder(pFinderGrid, pFinder, testPath, testVisited);
+  } else {
+    pFinder.display(pFinderGrid);
+  }
   pFinderGrid.endDraw();
 }
 
@@ -356,7 +383,7 @@ void pFinderGrid_Viz(PGraphics p) {
 void forcePath(PGraphics p) {
   int counter = 0;
   while (testPath.size() < 2) {
-//    println("Generating new origin-destination pair ...");
+    println("Generating new origin-destination pair ...");
     initOD(p);
     initPath(pFinder, A, B);
     

@@ -478,12 +478,10 @@ class ObstacleCourse {
   }
   
   void saveCourse(String filename) {
-    println("saving..");
     Table courseTSV = new Table();
     courseTSV.addColumn("obstacle");
     courseTSV.addColumn("vertX");
     courseTSV.addColumn("vertY");
-    println("gonna save");
   
     for (int i=0; i<course.size(); i++) {
       for (int j=0; j<course.get(i).polyCorners; j++) {
@@ -493,7 +491,6 @@ class ObstacleCourse {
         newRow.setFloat("vertY", course.get(i).v.get(j).y);
       }
     }
-
     
     saveTable(courseTSV, filename);
     
@@ -501,7 +498,7 @@ class ObstacleCourse {
     
   }
   
-  //filename = "data/course.tsv"
+  // filename = "data/course.tsv"
   void loadCourse(String filename) {
     
     Table courseTSV;
@@ -531,8 +528,7 @@ class ObstacleCourse {
         }
         addVertex(new PVector(courseTSV.getFloat(i, "vertX"), courseTSV.getFloat(i, "vertY")));
       }
-
-
+      
     }
   }
 }
