@@ -231,7 +231,7 @@ void initPathfinder(PGraphics p, int res) {
   
   println("Initializing Pathfinder Objects ... ");
   
-  // Initializes a Custom Pathfinding network Based off of user-drawn Obstacle Course
+  // Initializes a pathfinding mode based off nodes from preset paths
   initSnapFinder(p, res);
   
   // Initializes an origin-destination coordinate for testing
