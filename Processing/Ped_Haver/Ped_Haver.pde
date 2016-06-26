@@ -55,6 +55,7 @@ void setup(){
         
         size(800, 500, P3D);
         
+        //runs haversine calculation on any csv file to get xy coords from lat lon
         hav.calc("data/temp-nodes.csv", xy_amenities);
         hav.calc("data/EZ-nodes.csv", xy_bus);
         hav.calc("data/pednetv2nodes.csv", xy_peds);
@@ -64,8 +65,8 @@ void setup(){
         //initializes data
         initData();
         
-        //runs a version of breseham's algorithm 
-        brez.bresenham();
+        //runs a version of breseham's algorithm on chosen network
+        brez.bresenham("data/pednetv2nodes.csv", xy_peds);
        
 
 }

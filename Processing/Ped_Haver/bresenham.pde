@@ -27,10 +27,11 @@ ArrayList<PVector> SnapGrid = new ArrayList<PVector>();
 
 class bresenham{
   
-void bresenham(){
+void bresenham(String filename, ArrayList<PVector> xylist){
         background(0);
+        Table network = loadTable(filename, "header");
 
-  for(int i = 0; i<ped_nodes.getRowCount()-1; i++){
+  for(int i = 0; i<network.getRowCount()-1; i++){
        //initialize start and end points and put them into PVectors
         x1 = xy_peds.get(i).x;
         x2 = xy_peds.get(i+1).x;
@@ -110,7 +111,7 @@ void bresenham(){
                              }
                              
                     //this add the values to the array if they're in different lines  
-                    if(ped_nodes.getInt(i, "shapeid") == ped_nodes.getInt(i+1, "shapeid")){    
+                    if(network.getInt(i, "shapeid") == network.getInt(i+1, "shapeid")){    
                         if(x <= max(x1, x2) && y<= max(y1, y2) && x >= min(x1, x2) && y >= min(y1, y2) 
                         && x >= 0 && x <= width && y >= 0 && y<= height){
                         Coordinates.add(new PVector(x, y));
