@@ -23,20 +23,20 @@ PVector[] line = new PVector[2];
 
 void drawTableCanvas(PGraphics p) {
   
-  //Updates Agent Data to Display
-  if (showSwarm) {
-    swarmHorde.update();
-  }
+//  //Updates Agent Data to Display
+//  if (showSwarm) {
+//    swarmHorde.update();
+//  }
+//  
+//  //Updates Heatmap Data to Display
+//  if (showTraces) {
+//    traces.update(swarmHorde);
+//    traces.decay();
+//  }
   
-  //Updates Heatmap Data to Display
-  if (showTraces) {
-    traces.update(swarmHorde);
-    traces.decay();
-  }
   
-  
-  // holds time from last frame
-  time_0 = millis();
+//  // holds time from last frame
+//  time_0 = millis();
   
   // Begin Draw Functions
   p.beginDraw();
@@ -45,58 +45,11 @@ void drawTableCanvas(PGraphics p) {
       // Instead of solid background draws a translucent overlay every frame.
       // Provides the effect of giving animated elements "tails"
       p.noStroke();
-      p.fill(background, 75);
+      p.fill(0, 75);
       p.rect(0,0,p.width,p.height);
       
-      // Displays demoMap
-      if(showDemoMap) {
-        p.image(demoMap, 0, 0, width, height);
-      }
-      
-      // Displays Heatmap
-      if(showTraces) {
-        traces.display(p);
-      }
-  
-      // Displays ObstacleCourses
-      if (showObstacles) {
-        
-        if (finderMode == 1) { 
-          // Obstacles for gridded Pathfinder Network
-          grid.display(p, textColor, 100);
-        } else if (finderMode == 2) { 
-          // Obstacles for custom Pathfinder Network
-          boundaries.display(p, textColor, 100);
-        }
-          else if (finderMode == 3) {
-          grid.display(p, textColor, 100);
-        }
-      }
-      
-      // Draws pathfinding nodes onto Canvas
-      if (showGrid) {
-        p.image(pFinderGrid, 0, 0);
-      }
-      
-      // Draws shortest paths for OD nodes
-      if (showPaths) {
-        p.image(pFinderPaths, 0, 0);
-      }
-      
-      // Show Markers for Sources and Sinks of Angents
-      if (showSource) {
-        p.image(sources_Viz, 0, 0);
-      }
-      
-      // Show OD Network for Agents
-      if (showEdges) {
-        p.image(edges_Viz, 0, 0);
-      }
-    
-      // Renders Agent 'dots' and corresponding obstacles and heatmaps
-      if (showSwarm) {
-        swarmHorde.display(p, showTraces);
-      }
+   
+   println("This worked");
       
       drawCredit(p);
       

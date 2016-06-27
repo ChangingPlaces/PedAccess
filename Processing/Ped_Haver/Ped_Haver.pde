@@ -38,16 +38,26 @@ PVector Upper_left = new PVector(1.34229, 103.73598);
 //PVector Upper_left = new PVector(1.339963, 103.745826);
 
 bresenham brez = new bresenham();
+Haver hav = new Haver();
 
+
+//carried over from agent demo 
 // used to initialize objects when application is first run or reInitialized
-boolean initialized = false;
+boolean initialized = true;
+boolean bw = true;
+
+float version = 1.1;
+String loadText = "AgentDemo | Version " + version;
+
+boolean showFrameRate = false;
+boolean printFrames = false;
+
 
 // Number of frames for draw function to run before
 // running setup functions. Setting to greater than 0 
 // allows you to draw a loading screen
 int drawDelay = 10;
 
-Haver hav = new Haver();
 
 void setup(){
   
@@ -67,12 +77,29 @@ void setup(){
         
         //runs a version of breseham's algorithm on chosen network
         brez.bresenham("data/pednetv2nodes.csv", xy_peds);
-       
+//       
+        initCanvas();
 
 }
 
+
+void mainDraw() {
+  // Draw Functions Located here should exclusively be drawn onto 'tableCanvas',
+  // a PGraphics set up to hold all information that will eventually be 
+  // projection-mapped onto a big giant table:
+  drawTableCanvas(tableCanvas);
+
+  // Renders the finished tableCanvas onto main canvas as a projection map or screen
+  renderTableCanvas();
+  
+}
+
+
 void draw(){
      background(0); 
+     
+     mainDraw();
+     
      
      //draws Google map capture of Upper_left at 1.343234, 103.73601 for 1200 by 900 meters
      //image(img, 0, 0);
@@ -87,4 +114,15 @@ void draw(){
           if(showMesh){
             brez.draw_grid();
           }
+
 }
+
+void renderTableCanvas() {
+  // most likely, you'll want a black background
+  background(0);
+  
+  // Renders the tableCanvas as either a projection map or on-screen 
+  
+    image(tableCanvas, 0, 0, tableCanvas.width, tableCanvas.height);
+  
+}  
