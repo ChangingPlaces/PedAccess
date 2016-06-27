@@ -33,10 +33,10 @@ void bresenham(String filename, ArrayList<PVector> xylist){
 
   for(int i = 0; i<network.getRowCount()-1; i++){
        //initialize start and end points and put them into PVectors
-        x1 = xy_peds.get(i).x;
-        x2 = xy_peds.get(i+1).x;
-        y1 = xy_peds.get(i).y;
-        y2 = xy_peds.get(i+1).y;
+        x1 = xylist.get(i).x;
+        x2 = xylist.get(i+1).x;
+        y1 = xylist.get(i).y;
+        y2 = xylist.get(i+1).y;
         
         start = new PVector(x1, y1);
         end = new PVector(x2, y2);
@@ -131,30 +131,28 @@ void bresenham(String filename, ArrayList<PVector> xylist){
    println("rendering grid");
            
        //iterates through and draws the grid
-        for (int d=0; d<U; d++) {
+        for (int i=0; i<U; i++) {
             for (int j=0; j<V; j++) {
-                float a = (d*SCALE + scale);
+                float a = (i*SCALE + scale);
                 float b = (j*SCALE + scale);
                 
                 //this is where I chose to render the grid as ellipses
                 stroke(90);
                 noFill();
                 strokeWeight(.5);
-                ellipse(a, b, scale, scale);
-                
-                
+                ellipse(a, b, scale, scale);  
+
                 //compare grid values to Coordinates and color the grid cells that correspond to the lines 
-                 for(int p = 0; p<Coordinates.size()-1; p++){
-                      if(abs(a - Coordinates.get(p).x) <= scale/2 && abs(b - Coordinates.get(p).y) <= scale/2){
+                 for(int k = 0; k<Coordinates.size()-1; k++){
+                      if(abs(a - Coordinates.get(k).x) <= scale/2 && abs(b - Coordinates.get(k).y) <= scale/2){
                             strokeWeight(.5);
                             stroke(#FFE066);
                             ellipse(a, b, scale, scale);
-                            SnapGrid.add(Coordinates.get(p));
+                            SnapGrid.add(Coordinates.get(k));
                       }
                     }
               }
-            }
-            
+            }    
 
   }
 

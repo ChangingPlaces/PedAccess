@@ -22,7 +22,6 @@ The brensenham algorithm is used to create a smart snap mesh for the agents to n
 
 /*
 To Do
-1. Clean code and put things into classes and all that
 2. Clean Haversine calculation to be from center and scalable
 3. Export Snap nodes and render the grids differently (SOOOOO SLOW)
       quicker to add stuff to other arraylists and compare? 
@@ -33,9 +32,9 @@ To Do
 
 //upper left corner for region
 //PVector Upper_left = new PVector(1.33043, 103.74836);
-PVector Upper_left = new PVector(1.34229, 103.73598);
+//PVector Upper_left = new PVector(1.34229, 103.73598);
 //PVector Upper_left = new PVector(1.34366, 103.74997);
-//PVector Upper_left = new PVector(1.339963, 103.745826);
+PVector Upper_left = new PVector(1.339963, 103.745826);
 
 bresenham brez = new bresenham();
 Haver hav = new Haver();
@@ -75,10 +74,12 @@ void setup(){
         //initializes data
         initData();
         
-        //runs a version of breseham's algorithm on chosen network
+        //runs a version of breseham's algorithm on chosen network(s)
         brez.bresenham("data/pednetv2nodes.csv", xy_peds);
+        brez.bresenham("data/bridges_links.csv", xy_bridges);
+        brez.bresenham("data/2ndmerc.csv", xy_second);
 //       
-        initCanvas();
+        //initCanvas();
 
 }
 
@@ -98,7 +99,7 @@ void mainDraw() {
 void draw(){
      background(0); 
      
-     mainDraw();
+     //mainDraw();
      
      
      //draws Google map capture of Upper_left at 1.343234, 103.73601 for 1200 by 900 meters
