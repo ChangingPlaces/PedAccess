@@ -1,13 +1,15 @@
 // This is the staging script for the Pathfinding for agent-based modeling
 // Ira Winder, MIT Media Lab, jiw@mit.edu, Fall 2015
-int canvasWidth = 1920;
-int canvasHeight = 1200;
+
+
+int canvasWidth = 1000;
+int canvasHeight = 700;
 String refresh; 
 String editor;
 boolean show_menu = false;
 boolean bw = true;
 
-boolean enableProjectionMapping = true;
+boolean enableProjectionMapping = false;
 
 // Key Commands:
 //
