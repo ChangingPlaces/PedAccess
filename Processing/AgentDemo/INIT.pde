@@ -42,7 +42,7 @@ void initContent(PGraphics p) {
 
 Horde swarmHorde;
 
-PVector[] origin, destination, nodes;
+PVector[] origin, destination, nodes, amens, bus;
 float[] weight;
 
 int textSize = 8;
@@ -57,9 +57,13 @@ void initAgents(PGraphics p) {
   println("Initializing Agent Objects ... ");
   
   swarmHorde = new Horde(2000);
+  println("horde created");
   sources_Viz = createGraphics(p.width, p.height);
+  println("source graphics rendered");
   edges_Viz = createGraphics(p.width, p.height);
+  println("edges rendered");
   testNetwork_Random(p, xy_amenities.size());
+  println("test network rendered");
   
   swarmPaths(p, enablePathfinding);
   sources_Viz(p);
@@ -112,6 +116,8 @@ void testNetwork_Random(PGraphics p, int _numNodes) {
   numSwarm = numEdges;
   
   nodes = new PVector[numNodes];
+  amens = new PVector[numNodes];
+  bus = new PVector[numNodes];
   origin = new PVector[numSwarm];
   destination = new PVector[numSwarm];
   weight = new float[numSwarm];
@@ -124,22 +130,35 @@ void testNetwork_Random(PGraphics p, int _numNodes) {
 
 
 for (int i=0; i<numNodes; i++) {
-  nodes[i] = xy_amenities.get(i);
+  amens[i] = xy_amenities.get(i);
+}
+
+for (int i=0; i<numNodes; i++) {
+  bus[i] = xy_bus.get(i);
 }
   
   for (int i=0; i<numNodes; i++) {
     for (int j=0; j<numNodes-1; j++) {
       
-      origin[i*(numNodes-1)+j] = new PVector(nodes[i].x, nodes[i].y);
+      origin[i*(numNodes-1)+j] = new PVector(amens[i].x, amens[i].y);
       
-      destination[i*(numNodes-1)+j] = new PVector(nodes[(i+j+1)%(numNodes)].x, nodes[(i+j+1)%(numNodes)].y);
+      destination[i*(numNodes-1)+j] = new PVector(amens[(i+j+1)%(numNodes)].x, amens[(i+j+1)%(numNodes)].y);
       
-      weight[i*(numNodes-1)+j] = random(0.1, 2.0);
+      PVector v3 = PVector.sub(origin[i*(numNodes-1)+j], destination[i*(numNodes-1)+j]);
+      
+      if(abs(v3.mag()) >= 300){
+          destination[i*(numNodes-1)+j] = new PVector(bus[(i+j+1)%(numNodes)].x, bus[(i+j+1)%(numNodes)].y);
+      }
+      
+      else{
+      destination[i*(numNodes-1)+j] = new PVector(amens[(i+j+1)%(numNodes)].x, amens[(i+j+1)%(numNodes)].y);
+      }
+      
+      weight[i*(numNodes-1)+j] = random(0.1, .5);
       
       //println("swarm:" + (i*(numNodes-1)+j) + "; (" + i + ", " + (i+j+1)%(numNodes) + ")");
     }
   }
-
   
     // rate, life, origin, destination
   colorMode(HSB);
@@ -281,10 +300,6 @@ void initRandomFinder(PGraphics p, int res) {
 
 void initSnapFinder(PGraphics p, int res) {
   finderSnap = new Pathfinder(p.width, p.height, res, 0.3);
-}
-
-void test(){
-  println("test function");
 }
 
 // Refresh Paths and visualization; Use for key commands and dynamic changes

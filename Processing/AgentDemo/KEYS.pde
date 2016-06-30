@@ -29,10 +29,10 @@ void keyPressed() {
     case 'i': //shows info about swarms like weight and agent numbers
       showInfo = toggle(showInfo);
       break;
-    case 'p': //makes a grid of obstacles
-      setLoader("Gridded Obstacles");
-      // runs key_p() next frame
-      break;
+//    case 'p': //makes a grid of obstacles
+//      setLoader("Gridded Obstacles");
+//      // runs key_p() next frame
+//      break;
     case 'F': //toggles frameStep
       frameStep = toggle(frameStep);
       println("FrameStep = " + frameStep);

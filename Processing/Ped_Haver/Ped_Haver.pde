@@ -48,7 +48,6 @@ import java.util.HashSet;
 boolean initialized = false;
 
 void setup() {
-
       size(1000, 700, P3D);
     
       //runs haversine calculation on any csv file to get xy coords from lat lon
@@ -75,10 +74,12 @@ void draw() {
               drawLines();
               drawPOI();
               brez.clean(Coordinates);
-              //brez.draw_grid();
+              brez.draw_grid();
               println("Initialized");
               initialized = true;
           }
+          
+          
 
     
       //these run multiple times

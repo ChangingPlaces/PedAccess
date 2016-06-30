@@ -2,7 +2,7 @@
 /// CONTROLS 
 ///////////////
 boolean showPOI = true;
-boolean showMesh = true;
+boolean showGrid = true;
 boolean showlines = true;
 boolean showFrameRate = false;
 
@@ -10,14 +10,13 @@ void keyPressed() {
      //draws lines
       if (key=='l') {
          showlines = toggle(showlines);
-         println(showlines);
       }
       //draws POI
       else if(key=='p') {
          showPOI = toggle(showPOI);
       }   
       else if(key == 'g'){
-         showMesh = toggle(showMesh);
+         showGrid = toggle(showGrid);
       }
       else if(key == 'f'){
         showFrameRate = toggle(showFrameRate);
