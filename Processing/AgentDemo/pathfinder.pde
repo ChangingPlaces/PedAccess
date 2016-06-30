@@ -197,18 +197,26 @@ class Graph {
   
   // Using the canvas width and height in pixels, a gridded graph is generated with a pixel spacing of 'scale'
   Graph (int w, int h, float scale) {
-    U = int(w/scale);
-    V = int(h/scale);
     SCALE = scale;
+    U = int(w/SCALE);
+    V = int(h/SCALE);
     
     nodes = new ArrayList<Node>();
     
-    for (int i=0; i<U; i++) {
-      for (int j=0; j<V; j++) {
-        nodes.add(new Node(i*SCALE + scale/2, j*SCALE + scale/2));
-      }
-    }
+    //if(snap){
+             for(int i = 0; i<SnapGrid.size(); i++){
+                nodes.add(new Node(SnapGrid.get(i).x, SnapGrid.get(i).y));
+             }
+    //}
     
+//    else{
+//    for (int i=0; i<U; i++) {
+//      for (int j=0; j<V; j++) {
+//         nodes.add(new Node(i*SCALE + scale/2, j*SCALE + scale/2));
+//      }
+//    }
+    //}
+  
   }
   
   // Removes Nodes that intersect with set of obstacles
@@ -238,7 +246,7 @@ class Graph {
       for (int j=0; j<nodes.size(); j++) {
         dist = sqrt(sq(nodes.get(i).node.x - nodes.get(j).node.x) + sq(nodes.get(i).node.y - nodes.get(j).node.y));
         
-        if (dist < 2*SCALE && dist != 0) {
+        if (dist < SCALE*2 && dist != 0) {
           nodes.get(i).addNeighbor(j, dist);
         }
       }
@@ -324,7 +332,7 @@ class Graph {
       for (int j=0; j<nodes.get(i).neighbors.size(); j++) {
         neighbor = nodes.get(i).neighbors.get(j);
         //println(neighbor);
-        p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
+        //p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
       }
     }
   }

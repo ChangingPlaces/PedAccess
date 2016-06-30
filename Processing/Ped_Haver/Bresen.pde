@@ -121,6 +121,12 @@ void bresenham(String filename, ArrayList<PVector> xylist){
   }
    println(Coordinates.size() + " possible nodes on or tangent to line" + "   framerate: " + frameRate);
 }
+
+void clean(ArrayList list){
+            HashSet set = new HashSet(list);
+            list.clear();
+            list.addAll(set);
+}
   
   void draw_grid(){
   //intialize grid variables, with U as x and V as y renderers
@@ -154,6 +160,7 @@ void bresenham(String filename, ArrayList<PVector> xylist){
               }
             }    
 
+  println(SnapGrid.size());
   }
 
 }

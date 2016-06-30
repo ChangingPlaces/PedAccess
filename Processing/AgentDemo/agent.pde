@@ -311,12 +311,10 @@ class Swarm {
 //      sink = hitBox(origin, hitbox, true);
 //    }
     
-    if (dataMode == 1) {
       // Generates only 10 agents
       if (path.size() == 1) {
         immortal = true;
       }
-    }
   }
   
   void update(float _rateScaler) {
@@ -578,13 +576,9 @@ class Horde {
     }
   }
   
-  void display(PGraphics p, boolean _grayscale) {
+  void display(PGraphics p) {
     for (int i=0; i<horde.size(); i++) {
-      if (_grayscale) {
-        horde.get(i).display(p, "grayscale");
-      } else {
         horde.get(i).display(p, "color");
-      }
     }
   }
   

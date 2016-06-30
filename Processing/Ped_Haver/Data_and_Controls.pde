@@ -2,14 +2,15 @@
 /// CONTROLS 
 ///////////////
 boolean showPOI = true;
-
 boolean showMesh = true;
 boolean showlines = true;
+boolean showFrameRate = false;
 
 void keyPressed() {
      //draws lines
       if (key=='l') {
          showlines = toggle(showlines);
+         println(showlines);
       }
       //draws POI
       else if(key=='p') {
@@ -17,6 +18,9 @@ void keyPressed() {
       }   
       else if(key == 'g'){
          showMesh = toggle(showMesh);
+      }
+      else if(key == 'f'){
+        showFrameRate = toggle(showFrameRate);
       }
 
 }
@@ -30,12 +34,9 @@ boolean toggle(boolean bool) {
 }
 
 
-
 ////////////////////////
 //DATA LOAD 
 ///////////////////////
-
-
 PImage img;
 Table amenities; 
 Table ped_nodes;
