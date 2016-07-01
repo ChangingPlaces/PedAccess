@@ -349,8 +349,8 @@ class Node {
   
   Node (float x, float y) {
     node = new PVector(x,y);
-    neighbors = new ArrayList<Integer>();
-    distance = new ArrayList<Float>();
+    neighbors = new ArrayList<Integer>(); 
+    distance = new ArrayList<Float>(); 
   }
   
   void addNeighbor(int n, float d) {

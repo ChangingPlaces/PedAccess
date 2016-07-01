@@ -8,6 +8,7 @@ float lon1 = Upper_left.y * PI/180;
 
 //the arraylists this function will output
 ArrayList<PVector> xy_amenities = new ArrayList<PVector>();
+ArrayList<PVector> xy_amencenter = new ArrayList<PVector>();
 ArrayList<PVector> xy_bus = new ArrayList<PVector>();
 ArrayList<PVector> xy_peds = new ArrayList<PVector>();
 ArrayList<PVector> xy_bridges = new ArrayList<PVector>();
@@ -33,13 +34,31 @@ class Haver{
                              
                              //convert to polar and put in array
                              PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
-                             
+
                              //determine what arraylist to put thing in
                              name.add(xy_coord);
-  
                 }
                   println("Haversine run on " + filename, "framerate: " + frameRate);
   }
   
+  void center(String filename, ArrayList<PVector> name){
+    float eq_m_per_londeg = 2*PI*6378100.0/360;
+    float m_per_londeg;
+    float m_per_latdeg = 2*PI*6356800.0/360;
+    
+    Table values = loadTable(filename, "header");
+    
+    for(int i = 0; i<values.getRowCount(); i++){
+                       //get longitude in radians
+                          latitude = values.getFloat(i, "y")*PI/180;
+                       //get latitude in radians      
+                          longitude = values.getFloat(i, "x");
+                       PVector xy_test = new PVector(latitude * m_per_latdeg, latitude * m_per_latdeg);
+                       
+                        name.add(xy_test);
+      
+    }
+  
+  }
       
 }

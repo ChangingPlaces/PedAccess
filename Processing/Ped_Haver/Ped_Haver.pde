@@ -40,6 +40,7 @@ PVector Upper_left = new PVector(1.34229, 103.73598);
 
 bresenham brez = new bresenham();
 Haver hav = new Haver();
+Grid grid = new Grid();
 
 import java.util.Set;
 import java.util.HashSet;
@@ -48,24 +49,35 @@ import java.util.HashSet;
 boolean initialized = false;
 
 void setup() {
-      size(1000, 700, P3D);
+  
+      int Canvaswidth = 500; 
+      float Canvasheight = Canvaswidth*(22.0/18.0);
+      size(Canvaswidth, int(Canvasheight), P3D);
+      
+        //initData();
     
       //runs haversine calculation on any csv file to get xy coords from lat lon
       hav.calc("data/temp-nodes.csv", xy_amenities);
+      //hav.center("data/temp-nodes.csv", xy_amencenter);
       hav.calc("data/EZ-nodes.csv", xy_bus);
       hav.calc("data/pednetv2nodes.csv", xy_peds);
       hav.calc("data/bridges_links.csv", xy_bridges);
       hav.calc("data/2ndmerc.csv", xy_second);
     
-      //initializes data
-      initData();
+//      //initializes data
+    initData();
     
       //runs a version of breseham's algorithm on chosen network(s)
       brez.bresenham("data/pednetv2nodes.csv", xy_peds);
       brez.bresenham("data/bridges_links.csv", xy_bridges);
       brez.bresenham("data/2ndmerc.csv", xy_second);
-}
+      
+      grid.scale1();
+      grid.scale2();
+      grid.scale3();
+      grid.scale(2, 40);
 
+}
 
 void draw() {
       //these only run once
@@ -78,9 +90,6 @@ void draw() {
               println("Initialized");
               initialized = true;
           }
-          
-          
-
     
       //these run multiple times
           if (showFrameRate) {
@@ -88,4 +97,3 @@ void draw() {
           }
             
 }
-
