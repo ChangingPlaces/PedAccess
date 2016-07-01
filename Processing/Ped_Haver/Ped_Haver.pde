@@ -48,10 +48,11 @@ import java.util.HashSet;
 // used to initialize objects when application is first run or reInitialized
 boolean initialized = false;
 
+ int Canvaswidth = 500; 
+ float Canvasheight = Canvaswidth*(22.0/18.0);
+
 void setup() {
   
-      int Canvaswidth = 500; 
-      float Canvasheight = Canvaswidth*(22.0/18.0);
       size(Canvaswidth, int(Canvasheight), P3D);
       
         //initData();
@@ -71,11 +72,11 @@ void setup() {
       brez.bresenham("data/pednetv2nodes.csv", xy_peds);
       brez.bresenham("data/bridges_links.csv", xy_bridges);
       brez.bresenham("data/2ndmerc.csv", xy_second);
-      
-      grid.scale1();
-      grid.scale2();
-      grid.scale3();
-      grid.scale(2, 40);
+      brez.clean(Coordinates);
+
+      //grid scale given by user with dimensions and cell width 
+      //grid.render(2, 40);
+
 
 }
 
@@ -84,9 +85,9 @@ void draw() {
           if (!initialized) {
               background(0);
               drawLines();
-              drawPOI();
-              brez.clean(Coordinates);
-              brez.draw_grid();
+              //drawPOI();
+              //brez.draw_grid();
+              grid.render(4, 40);
               println("Initialized");
               initialized = true;
           }
