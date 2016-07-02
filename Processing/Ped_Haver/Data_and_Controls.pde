@@ -25,11 +25,11 @@ void keyPressed() {
 }
 
 boolean toggle(boolean bool) {
-  if (bool) {
-    return false;
-  } else {
-    return true;
-  }
+      if (bool) {
+        return false;
+      } else {
+        return true;
+      }
 }
 
 
@@ -44,12 +44,12 @@ Table bridges;
 Table second;
 
 void initData(){
-  amenities = loadTable("data/temp-nodes.csv", "header");
-  ped_nodes = loadTable("data/pednetv2nodes.csv", "header");
-  bus_stops = loadTable("data/EZ-nodes.csv", "header");
-  bridges = loadTable("data/bridges_links.csv", "header");
-  second = loadTable("data/2ndmerc.csv", "header");
-  img = loadImage("map.jpg");
-  
-  println("data loaded");
+      amenities = loadTable("data/temp-nodes.csv", "header");
+      ped_nodes = loadTable("data/pednetv2nodes.csv", "header");
+      bus_stops = loadTable("data/EZ-nodes.csv", "header");
+      bridges = loadTable("data/bridges_links.csv", "header");
+      second = loadTable("data/2ndmerc.csv", "header");
+      img = loadImage("map.jpg");
+      
+      println("data loaded");
 }

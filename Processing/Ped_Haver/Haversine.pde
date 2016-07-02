@@ -40,25 +40,5 @@ class Haver{
                 }
                   println("Haversine run on " + filename, "framerate: " + frameRate);
   }
-  
-  void center(String filename, ArrayList<PVector> name){
-    float eq_m_per_londeg = 2*PI*6378100.0/360;
-    float m_per_londeg;
-    float m_per_latdeg = 2*PI*6356800.0/360;
-    
-    Table values = loadTable(filename, "header");
-    
-    for(int i = 0; i<values.getRowCount(); i++){
-                       //get longitude in radians
-                          latitude = values.getFloat(i, "y")*PI/180;
-                       //get latitude in radians      
-                          longitude = values.getFloat(i, "x");
-                       PVector xy_test = new PVector(latitude * m_per_latdeg, latitude * m_per_latdeg);
-                       
-                        name.add(xy_test);
-      
-    }
-  
-  }
       
 }

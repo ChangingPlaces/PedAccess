@@ -54,8 +54,6 @@ boolean initialized = false;
 void setup() {
   
       size(Canvaswidth, int(Canvasheight), P3D);
-      
-        //initData();
     
       //runs haversine calculation on any csv file to get xy coords from lat lon
       hav.calc("data/temp-nodes.csv", xy_amenities);
@@ -65,8 +63,8 @@ void setup() {
       hav.calc("data/bridges_links.csv", xy_bridges);
       hav.calc("data/2ndmerc.csv", xy_second);
     
-//      //initializes data
-    initData();
+      //initializes data
+      initData();
     
       //runs a version of breseham's algorithm on chosen network(s)
       brez.bresenham("data/pednetv2nodes.csv", xy_peds);
@@ -74,9 +72,9 @@ void setup() {
       brez.bresenham("data/2ndmerc.csv", xy_second);
       brez.clean(Coordinates);
 
-      //grid scale given by user with dimensions and cell width 
-      //grid.render(2, 40);
-
+      //renders different scales of network nodes
+      //grid.render(
+      grid.render(
 
 }
 
@@ -85,9 +83,9 @@ void draw() {
           if (!initialized) {
               background(0);
               drawLines();
-              //drawPOI();
-              //brez.draw_grid();
-              grid.render(4, 40);
+              drawPOI();
+              brez.draw_grid();
+              //grid.render(4, 20);
               println("Initialized");
               initialized = true;
           }

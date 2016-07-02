@@ -17,7 +17,7 @@ I chose to draw a grid of ellipses, becuase I use this alogirthm in a path findi
 //lines should have an ID, I call it "shapeid" because this matches most GeoSpatial data structures from programs like QGIS 
 
 //set a scale for your grid; this is the weight of each raster cell
- int scale = 10;
+ int scale = 50;
  
 //global variables for rendering lines
 PVector start, end;
