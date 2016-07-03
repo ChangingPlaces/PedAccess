@@ -9,8 +9,8 @@ int tableWidth = 800;
 int tableHeight = int(tableWidth * float(displayV)/displayU);
 
 //Global Text and Background Color
-color textColor = 255;
-color background = 0;
+//color textColor = 255;
+//color background = 0;
 String align = "RIGHT";
 boolean waiting_blink = true;
 
@@ -400,13 +400,13 @@ void renderBasemap(PGraphics graphic) {
               }
             }
 
-            if (showObstacles) {
-              ID = obstacles[u+gridPanU][v+gridPanV];
-              input.fill(0);
-              if (ID == 1) {
-                input.rect(u*gridWidth, v*gridHeight, gridWidth, gridHeight);
-              }
-            }
+//            if (showObstacles) {
+//              ID = obstacles[u+gridPanU][v+gridPanV];
+//              input.fill(0);
+//              if (ID == 1) {
+//                input.rect(u*gridWidth, v*gridHeight, gridWidth, gridHeight);
+//              }
+//            }
 
             if (showForm) {
               findFormFill(input, form[u+gridPanU][v+gridPanV]);

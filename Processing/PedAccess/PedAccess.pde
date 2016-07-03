@@ -64,7 +64,7 @@ boolean showBasemap = true;
 boolean showInputData = true;
 boolean showFacilities = false;
 boolean showMarket = false;
-boolean showObstacles = false;
+// boolean showObstacles = false;
 boolean showForm = true;
 
 boolean showOutputData = true;
