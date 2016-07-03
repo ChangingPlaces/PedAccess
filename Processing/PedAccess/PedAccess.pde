@@ -44,16 +44,17 @@ int randomType = 2;
 
 int projectorWidth = 1920;
 int projectorHeight = 1200;
-int projectorOffset = 1842;
+int projectorOffset = 1920;
 
-int screenWidth = 1842;
-int screenHeight = 1026;
+int screenWidth = 1920;
+int screenHeight = 1200;
 
 boolean hideWallyWorld = true;
+boolean implementMenu = false;
 
 // Set this to true to display the main menu upon start
 boolean showMainMenu = true;
-boolean showFrameRate = false;
+boolean showFrameRate = true;
 
 boolean showStores = false;
 boolean showDeliveryData = false;
@@ -145,7 +146,7 @@ void setup() {
 }
 
 void draw() {
-
+      
   if (flagResize) {
     initScreenOffsets();
     if (applet != null) applet.reset(); // Resets Projection Graphics

@@ -1,3 +1,7 @@
+// Button are deactivated for "PedAccess" Singapore demo to increase framerate ... To re-activate:
+// 1. Set boolean implementMenu to true
+// 2. Uncomment many functions in void keyPressed()
+
 // Define the ORDER of the buttons by changing this array
 // May only be a subset of buttonNames[]
 // May include "VOID" if you which to leave a gap between menu buttons
@@ -92,73 +96,77 @@ String[] show = {"Show Main Menu (h)"};
 
 // creates all the menu objects
 void loadMenu(int screenWidth, int screenHeight) {
-  // Initializes Menu Items (screenWidth, screenHeight, button width[pix], button height[pix],
-  // number of buttons to offset downward, String[] names of buttons)
-  hideMenu = new Menu(screenWidth, screenHeight, 170, 20, 0, hide, align);
-  mainMenu = new Menu(screenWidth, screenHeight, 170, 20, 2, menuOrder, align);
-  // Selects one of the mutually exclusive heatmps
-  depressHeatmapButtons();
-  // Selects one of the mutually exclusive population maps
-  depressPopulationButtons();
-  // Selects one of the mutually exclusive pixel scales
-  depressZoomButtons(gridSize);
-  // Selects one of the mutually exclusive Input Data Types
-  depressInputButtons();
-  // Selects one of the mutually exclusive Output Data Types
-  depressOutputButtons();
-  // Checks whether these true/false button should be pressed
-  pressButton(showStores, getButtonIndex(buttonNames[6]));
-  pressButton(showBasemap, getButtonIndex(buttonNames[14]));
-  pressButton(showFrameRate, getButtonIndex(buttonNames[15]));
-  pressButton(showDeliveryData, getButtonIndex(buttonNames[16]));
-  pressButton(showPopulationData, getButtonIndex(buttonNames[17]));
-  pressButton(displayProjection2D, getButtonIndex(buttonNames[21]));
-
-  if (!showPopulationData) {
-    for (int i=18; i<=19; i++) {
-      mainMenu.buttons[getButtonIndex(buttonNames[i])].show = false;
+  if (implementMenu) {
+    
+    // Initializes Menu Items (screenWidth, screenHeight, button width[pix], button height[pix],
+    // number of buttons to offset downward, String[] names of buttons)
+    hideMenu = new Menu(screenWidth, screenHeight, 170, 20, 0, hide, align);
+    mainMenu = new Menu(screenWidth, screenHeight, 170, 20, 2, menuOrder, align);
+    // Selects one of the mutually exclusive heatmps
+    depressHeatmapButtons();
+    // Selects one of the mutually exclusive population maps
+    depressPopulationButtons();
+    // Selects one of the mutually exclusive pixel scales
+    depressZoomButtons(gridSize);
+    // Selects one of the mutually exclusive Input Data Types
+    depressInputButtons();
+    // Selects one of the mutually exclusive Output Data Types
+    depressOutputButtons();
+    // Checks whether these true/false button should be pressed
+    pressButton(showStores, getButtonIndex(buttonNames[6]));
+    pressButton(showBasemap, getButtonIndex(buttonNames[14]));
+    pressButton(showFrameRate, getButtonIndex(buttonNames[15]));
+    pressButton(showDeliveryData, getButtonIndex(buttonNames[16]));
+    pressButton(showPopulationData, getButtonIndex(buttonNames[17]));
+    pressButton(displayProjection2D, getButtonIndex(buttonNames[21]));
+  
+    if (!showPopulationData) {
+      for (int i=18; i<=19; i++) {
+        mainMenu.buttons[getButtonIndex(buttonNames[i])].show = false;
+      }
+    } else {
+      for (int i=18; i<=19; i++) {
+        mainMenu.buttons[getButtonIndex(buttonNames[i])].show = true;
+      }
     }
-  } else {
-    for (int i=18; i<=19; i++) {
-      mainMenu.buttons[getButtonIndex(buttonNames[i])].show = true;
+  
+    if (!showDeliveryData) {
+      for (int i=2; i<=5; i++) {
+        mainMenu.buttons[getButtonIndex(buttonNames[i])].show = false;
+      }
+    } else {
+      for (int i=2; i<=5; i++) {
+        mainMenu.buttons[getButtonIndex(buttonNames[i])].show = true;
+      }
     }
+  
+    if (!showInputData) {
+      for (int i=24; i<=25; i++) {
+        mainMenu.buttons[getButtonIndex(buttonNames[i])].show = false;
+      }
+    } else {
+      for (int i=24; i<=25; i++) {
+        mainMenu.buttons[getButtonIndex(buttonNames[i])].show = true;
+      }
+    }
+  
+    if (!showOutputData) {
+      for (int i=27; i<=30; i++) {
+        mainMenu.buttons[getButtonIndex(buttonNames[i])].show = false;
+      }
+    } else {
+      for (int i=27; i<=30; i++) {
+        mainMenu.buttons[getButtonIndex(buttonNames[i])].show = true;
+      }
+    }
+  
+    mainMenu.buttons[getButtonIndex(buttonNames[0])].isPressed = true;
+    mainMenu.buttons[getButtonIndex(buttonNames[1])].isPressed = true;
+    mainMenu.buttons[getButtonIndex(buttonNames[10])].isPressed = true;
+    mainMenu.buttons[getButtonIndex(buttonNames[20])].isPressed = true;
+    mainMenu.buttons[getButtonIndex(buttonNames[22])].isPressed = true;
+    
   }
-
-  if (!showDeliveryData) {
-    for (int i=2; i<=5; i++) {
-      mainMenu.buttons[getButtonIndex(buttonNames[i])].show = false;
-    }
-  } else {
-    for (int i=2; i<=5; i++) {
-      mainMenu.buttons[getButtonIndex(buttonNames[i])].show = true;
-    }
-  }
-
-  if (!showInputData) {
-    for (int i=24; i<=25; i++) {
-      mainMenu.buttons[getButtonIndex(buttonNames[i])].show = false;
-    }
-  } else {
-    for (int i=24; i<=25; i++) {
-      mainMenu.buttons[getButtonIndex(buttonNames[i])].show = true;
-    }
-  }
-
-  if (!showOutputData) {
-    for (int i=27; i<=30; i++) {
-      mainMenu.buttons[getButtonIndex(buttonNames[i])].show = false;
-    }
-  } else {
-    for (int i=27; i<=30; i++) {
-      mainMenu.buttons[getButtonIndex(buttonNames[i])].show = true;
-    }
-  }
-
-  mainMenu.buttons[getButtonIndex(buttonNames[0])].isPressed = true;
-  mainMenu.buttons[getButtonIndex(buttonNames[1])].isPressed = true;
-  mainMenu.buttons[getButtonIndex(buttonNames[10])].isPressed = true;
-  mainMenu.buttons[getButtonIndex(buttonNames[20])].isPressed = true;
-  mainMenu.buttons[getButtonIndex(buttonNames[22])].isPressed = true;
 }
 
 // The result of each button click is defined here
@@ -172,169 +180,173 @@ void mouseClicked() {
 //    println("facility set at " + selectionU, selectionV + " to " + facilities[selectionU][selectionV]);
   }
 
-  //Hide/Show Menu
-  if(hideMenu.buttons[0].over()){
-    toggleMainMenu();
+  if (implementMenu) {
+
+    //Hide/Show Menu
+    if(hideMenu.buttons[0].over()){
+      toggleMainMenu();
+    }
+  
+    // Main Menu Functions:
+  
+    //function0
+    if(mainMenu.buttons[getButtonIndex(buttonNames[0])].over()){
+      nextModeIndex();
+    }
+  
+    //function1
+    if(mainMenu.buttons[getButtonIndex(buttonNames[1])].over()){
+      printScreen();
+    }
+  
+    //function2
+    if(mainMenu.buttons[getButtonIndex(buttonNames[2])].over()){
+      setDeliveries(getButtonIndex(buttonNames[2]));
+    }
+  
+    //function3
+    if(mainMenu.buttons[getButtonIndex(buttonNames[3])].over()){
+      setTotes(getButtonIndex(buttonNames[3]));
+    }
+  
+    //function4
+    if(mainMenu.buttons[getButtonIndex(buttonNames[4])].over()){
+      setSource(getButtonIndex(buttonNames[4]));
+    }
+  
+    //function5
+    if(mainMenu.buttons[getButtonIndex(buttonNames[5])].over()){
+      setDoorstep(getButtonIndex(buttonNames[5]));
+    }
+  
+    //function6
+    if(mainMenu.buttons[getButtonIndex(buttonNames[6])].over()){
+      setStores(getButtonIndex(buttonNames[6]));
+    }
+  
+  //    //function7
+  //    if(mainMenu.buttons[getButtonIndex(buttonNames[7])].over()){
+  //      alignLeft();
+  //    }
+  //
+  //    //function8
+  //    if(mainMenu.buttons[getButtonIndex(buttonNames[8])].over()){
+  //      alignRight();
+  //    }
+  //
+  //    //function9
+  //    if(mainMenu.buttons[getButtonIndex(buttonNames[9])].over()){
+  //      alignCenter();
+  //    }
+  
+    //function10
+    if(mainMenu.buttons[getButtonIndex(buttonNames[10])].over()){
+      invertColors();
+    }
+  
+    //function11
+    if(mainMenu.buttons[getButtonIndex(buttonNames[11])].over()){
+      setGridSize(MAX_GRID_SIZE);
+    }
+  
+    //function12
+    if(mainMenu.buttons[getButtonIndex(buttonNames[12])].over()){
+      setGridSize(MAX_GRID_SIZE/2);
+    }
+  
+    //function13
+    if(mainMenu.buttons[getButtonIndex(buttonNames[13])].over()){
+      setGridSize(MAX_GRID_SIZE/4);
+    }
+  
+    //function14
+    if(mainMenu.buttons[getButtonIndex(buttonNames[14])].over()){
+      toggleBaseMap(getButtonIndex(buttonNames[14]));
+    }
+  
+    //function15
+    if(mainMenu.buttons[getButtonIndex(buttonNames[15])].over()){
+      toggleFramerate(getButtonIndex(buttonNames[15]));
+    }
+  
+    //function16
+    if(mainMenu.buttons[getButtonIndex(buttonNames[16])].over()){
+      toggleDeliveryData(getButtonIndex(buttonNames[16]));
+    }
+  
+    //function17
+    if(mainMenu.buttons[getButtonIndex(buttonNames[17])].over()){
+      togglePopulationData(getButtonIndex(buttonNames[17]));
+    }
+  
+    //function18
+    if(mainMenu.buttons[getButtonIndex(buttonNames[18])].over()){
+      setPop(getButtonIndex(buttonNames[18]));
+    }
+  
+    //function19
+    if(mainMenu.buttons[getButtonIndex(buttonNames[19])].over()){
+      setHousing(getButtonIndex(buttonNames[19]));
+    }
+  
+    //function20
+    if(mainMenu.buttons[getButtonIndex(buttonNames[20])].over()){
+      resetGridParameters();
+    }
+  
+    //function21
+    if(mainMenu.buttons[getButtonIndex(buttonNames[21])].over()){
+      toggleProjection(21);
+    }
+  
+    //function22
+    if(mainMenu.buttons[getButtonIndex(buttonNames[22])].over()){
+      toggleRandomPieces();
+    }
+  
+    //function23
+    if(mainMenu.buttons[getButtonIndex(buttonNames[23])].over()){
+      toggleInputData(getButtonIndex(buttonNames[23]));
+    }
+  
+    //function24
+    if(mainMenu.buttons[getButtonIndex(buttonNames[24])].over()){
+      setPieceForm();
+    }
+  
+    //function25
+    if(mainMenu.buttons[getButtonIndex(buttonNames[25])].over()){
+      setPieceData();
+    }
+  
+    //function26
+    if(mainMenu.buttons[getButtonIndex(buttonNames[26])].over()){
+      toggleOutputData(getButtonIndex(buttonNames[26]));
+    }
+  
+    //function27
+    if(mainMenu.buttons[getButtonIndex(buttonNames[27])].over()){
+      setDeliveryCost();
+    }
+  
+    //function28
+    if(mainMenu.buttons[getButtonIndex(buttonNames[28])].over()){
+      setTotalCost();
+    }
+  
+    //function29
+    if(mainMenu.buttons[getButtonIndex(buttonNames[29])].over()){
+      setAllocation();
+    }
+  
+    //function30
+    if(mainMenu.buttons[getButtonIndex(buttonNames[30])].over()){
+      setVehicle();
+    }
+  
+    reRender();
+  
   }
-
-  // Main Menu Functions:
-
-  //function0
-  if(mainMenu.buttons[getButtonIndex(buttonNames[0])].over()){
-    nextModeIndex();
-  }
-
-  //function1
-  if(mainMenu.buttons[getButtonIndex(buttonNames[1])].over()){
-    printScreen();
-  }
-
-  //function2
-  if(mainMenu.buttons[getButtonIndex(buttonNames[2])].over()){
-    setDeliveries(getButtonIndex(buttonNames[2]));
-  }
-
-  //function3
-  if(mainMenu.buttons[getButtonIndex(buttonNames[3])].over()){
-    setTotes(getButtonIndex(buttonNames[3]));
-  }
-
-  //function4
-  if(mainMenu.buttons[getButtonIndex(buttonNames[4])].over()){
-    setSource(getButtonIndex(buttonNames[4]));
-  }
-
-  //function5
-  if(mainMenu.buttons[getButtonIndex(buttonNames[5])].over()){
-    setDoorstep(getButtonIndex(buttonNames[5]));
-  }
-
-  //function6
-  if(mainMenu.buttons[getButtonIndex(buttonNames[6])].over()){
-    setStores(getButtonIndex(buttonNames[6]));
-  }
-
-//    //function7
-//    if(mainMenu.buttons[getButtonIndex(buttonNames[7])].over()){
-//      alignLeft();
-//    }
-//
-//    //function8
-//    if(mainMenu.buttons[getButtonIndex(buttonNames[8])].over()){
-//      alignRight();
-//    }
-//
-//    //function9
-//    if(mainMenu.buttons[getButtonIndex(buttonNames[9])].over()){
-//      alignCenter();
-//    }
-
-  //function10
-  if(mainMenu.buttons[getButtonIndex(buttonNames[10])].over()){
-    invertColors();
-  }
-
-  //function11
-  if(mainMenu.buttons[getButtonIndex(buttonNames[11])].over()){
-    setGridSize(MAX_GRID_SIZE);
-  }
-
-  //function12
-  if(mainMenu.buttons[getButtonIndex(buttonNames[12])].over()){
-    setGridSize(MAX_GRID_SIZE/2);
-  }
-
-  //function13
-  if(mainMenu.buttons[getButtonIndex(buttonNames[13])].over()){
-    setGridSize(MAX_GRID_SIZE/4);
-  }
-
-  //function14
-  if(mainMenu.buttons[getButtonIndex(buttonNames[14])].over()){
-    toggleBaseMap(getButtonIndex(buttonNames[14]));
-  }
-
-  //function15
-  if(mainMenu.buttons[getButtonIndex(buttonNames[15])].over()){
-    toggleFramerate(getButtonIndex(buttonNames[15]));
-  }
-
-  //function16
-  if(mainMenu.buttons[getButtonIndex(buttonNames[16])].over()){
-    toggleDeliveryData(getButtonIndex(buttonNames[16]));
-  }
-
-  //function17
-  if(mainMenu.buttons[getButtonIndex(buttonNames[17])].over()){
-    togglePopulationData(getButtonIndex(buttonNames[17]));
-  }
-
-  //function18
-  if(mainMenu.buttons[getButtonIndex(buttonNames[18])].over()){
-    setPop(getButtonIndex(buttonNames[18]));
-  }
-
-  //function19
-  if(mainMenu.buttons[getButtonIndex(buttonNames[19])].over()){
-    setHousing(getButtonIndex(buttonNames[19]));
-  }
-
-  //function20
-  if(mainMenu.buttons[getButtonIndex(buttonNames[20])].over()){
-    resetGridParameters();
-  }
-
-  //function21
-  if(mainMenu.buttons[getButtonIndex(buttonNames[21])].over()){
-    toggleProjection(21);
-  }
-
-  //function22
-  if(mainMenu.buttons[getButtonIndex(buttonNames[22])].over()){
-    toggleRandomPieces();
-  }
-
-  //function23
-  if(mainMenu.buttons[getButtonIndex(buttonNames[23])].over()){
-    toggleInputData(getButtonIndex(buttonNames[23]));
-  }
-
-  //function24
-  if(mainMenu.buttons[getButtonIndex(buttonNames[24])].over()){
-    setPieceForm();
-  }
-
-  //function25
-  if(mainMenu.buttons[getButtonIndex(buttonNames[25])].over()){
-    setPieceData();
-  }
-
-  //function26
-  if(mainMenu.buttons[getButtonIndex(buttonNames[26])].over()){
-    toggleOutputData(getButtonIndex(buttonNames[26]));
-  }
-
-  //function27
-  if(mainMenu.buttons[getButtonIndex(buttonNames[27])].over()){
-    setDeliveryCost();
-  }
-
-  //function28
-  if(mainMenu.buttons[getButtonIndex(buttonNames[28])].over()){
-    setTotalCost();
-  }
-
-  //function29
-  if(mainMenu.buttons[getButtonIndex(buttonNames[29])].over()){
-    setAllocation();
-  }
-
-  //function30
-  if(mainMenu.buttons[getButtonIndex(buttonNames[30])].over()){
-    setVehicle();
-  }
-
-  reRender();
 }
 
 void keyPressed() {
@@ -354,28 +366,6 @@ void keyPressed() {
       break;
     case 'p': // "Print Screenshot (p)"   // 1
       printScreen();
-      switched = true;
-      break;
-
-    case 'd': // "Delivery Counts (d)",   // 2
-      setDeliveries(getButtonIndex(buttonNames[2]));
-      switched = true;
-      break;
-    case 't': // "Tote Counts (t)",       // 3
-      setTotes(getButtonIndex(buttonNames[3]));
-      switched = true;
-      break;
-    case 'o': // "Store Source (o)",      // 4
-      setSource(getButtonIndex(buttonNames[4]));
-      switched = true;
-      break;
-    case 'a': // "Avg Doorstep Time (a)"  // 5
-      setDoorstep(getButtonIndex(buttonNames[5]));
-      switched = true;
-      break;
-
-    case 's': // "Store Locations (s)"    // 6
-      setStores(getButtonIndex(buttonNames[6]));
       switched = true;
       break;
 
@@ -408,43 +398,12 @@ void keyPressed() {
       switched = true;
       break;
 
-    case 'm': // "Show Map (m)",          // 14
-      toggleBaseMap(getButtonIndex(buttonNames[14]));
-      switched = true;
-      break;
-    case 'f': // "Show Framerate" (f)",   // 15
-      toggleFramerate(getButtonIndex(buttonNames[15]));
-      switched = true;
-      break;
-    case 'D': // "Show Delivery Data (D)",  // 16
-      toggleDeliveryData(getButtonIndex(buttonNames[16]));
-      break;
-    case 'P': // "Show Population Data (P)",  // 17
-      togglePopulationData(getButtonIndex(buttonNames[17]));
-      switched = true;
-      break;
-    case 'u': // "Population Counts (u)",   // 18
-      setPop(getButtonIndex(buttonNames[18]));
-      switched = true;
-      break;
-    case 'e': // "Household Counts (e)",    // 19
-      setHousing(getButtonIndex(buttonNames[19]));
-      switched = true;
-      break;
     case 'R': //  "Recenter Grid (R)",      // 20
       resetGridParameters();
       switched = true;
       break;
-    case '`': //  "Enable Projection (`)"   // 21
-      toggleProjection(getButtonIndex(buttonNames[21]));
-      switched = true;
-      break;
     case 'z': //  "Randomize Pieces (z)"    // 22
       toggleRandomPieces();
-      switched = true;
-      break;
-    case 'I': //  "Show Input Data (I)",    // 23
-      toggleInputData(getButtonIndex(buttonNames[23]));
       switched = true;
       break;
     case 'F': //  "Piece Forms (F)",        // 24
@@ -453,10 +412,6 @@ void keyPressed() {
       break;
     case 'A': //  "Piece Data (A)"          // 25
       setPieceData();
-      switched = true;
-      break;
-    case 'O': //  "Show Output Data (O)"    // 26
-      toggleOutputData(getButtonIndex(buttonNames[26]));
       switched = true;
       break;
     case 'C': //  "Delivery Cost (C)",          // 27
@@ -492,6 +447,67 @@ void keyPressed() {
       saveProjectorLocation();
       projectorMoved = true;
       break;
+  }
+  
+  if(implementMenu) {
+    switch (key){
+      case 'O': //  "Show Output Data (O)"    // 26
+        toggleOutputData(getButtonIndex(buttonNames[26]));
+        switched = true;
+        break;
+      case 'I': //  "Show Input Data (I)",    // 23
+        toggleInputData(getButtonIndex(buttonNames[23]));
+        switched = true;
+        break;
+      case '`': //  "Enable Projection (`)"   // 21
+        toggleProjection(getButtonIndex(buttonNames[21]));
+        switched = true;
+        break;
+      case 'm': // "Show Map (m)",          // 14
+        toggleBaseMap(getButtonIndex(buttonNames[14]));
+        switched = true;
+        break;
+      case 'f': // "Show Framerate" (f)",   // 15
+        toggleFramerate(getButtonIndex(buttonNames[15]));
+        switched = true;
+        break;
+      case 'D': // "Show Delivery Data (D)",  // 16
+        toggleDeliveryData(getButtonIndex(buttonNames[16]));
+        break;
+      case 'P': // "Show Population Data (P)",  // 17
+        togglePopulationData(getButtonIndex(buttonNames[17]));
+        switched = true;
+        break;
+      case 'u': // "Population Counts (u)",   // 18
+        setPop(getButtonIndex(buttonNames[18]));
+        switched = true;
+        break;
+      case 'e': // "Household Counts (e)",    // 19
+        setHousing(getButtonIndex(buttonNames[19]));
+        switched = true;
+        break;
+      case 'd': // "Delivery Counts (d)",   // 2
+        setDeliveries(getButtonIndex(buttonNames[2]));
+        switched = true;
+        break;
+      case 't': // "Tote Counts (t)",       // 3
+        setTotes(getButtonIndex(buttonNames[3]));
+        switched = true;
+        break;
+      case 'o': // "Store Source (o)",      // 4
+        setSource(getButtonIndex(buttonNames[4]));
+        switched = true;
+        break;
+      case 'a': // "Avg Doorstep Time (a)"  // 5
+        setDoorstep(getButtonIndex(buttonNames[5]));
+        switched = true;
+        break;
+  
+      case 's': // "Store Locations (s)"    // 6
+        setStores(getButtonIndex(buttonNames[6]));
+        switched = true;
+        break;
+    }
   }
   
   if (switched) {

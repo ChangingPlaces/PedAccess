@@ -104,12 +104,15 @@ void renderScreen() {
   renderInfo(i, 2*TABLE_IMAGE_OFFSET + TABLE_IMAGE_WIDTH, STANDARD_MARGIN, mapRatio*TABLE_IMAGE_WIDTH, mapRatio*TABLE_IMAGE_HEIGHT);
   screen.image(i, 0, 0);
 
-  // Draws Menu
-  buttonHovering = false;
-  hideMenu.draw(screen);
-  if (showMainMenu) {
-    mainMenu.draw(screen);
+  if (implementMenu) {
+    // Draws Menu
+    buttonHovering = false;
+    hideMenu.draw(screen);
+    if (showMainMenu) {
+      mainMenu.draw(screen);
+    }
   }
+  
   screen.endDraw();
 }
 
