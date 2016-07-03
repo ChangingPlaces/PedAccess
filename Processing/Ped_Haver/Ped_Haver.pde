@@ -29,11 +29,14 @@ To Do
 3. Get 10 resolution to work
  */
 
+//PVector Central = new PVector(1.32748, 103.74461);
+//PVector Central = new PVector(1.33342, 103.74234);
+PVector Central = new PVector(1.34718, 103.72825);
 
-PVector Central = new PVector(1.33342, 103.74234);
+PVector Upper_left;
 
 //upper left corner for region
-PVector Upper_left = new PVector(1.34718, 103.72825);
+//PVector Upper_left = new PVector(1.34718, 103.72825);
 //PVector Upper_left = new PVector(1.33043, 103.74836);
 //PVector Upper_left = new PVector(1.34229, 103.73598);
 //PVector Upper_left = new PVector(1.34366, 103.74997);
@@ -59,7 +62,7 @@ void setup() {
       size(Canvaswidth, int(Canvasheight), P3D);
     
       //finds left corner given a center point
-      //hav.left(Central);
+     hav.left(Central);
     
       //runs haversine calculation on any csv file to get xy coords from lat lon
       hav.calc("data/temp-nodes.csv", "amens", xy_amenities);
