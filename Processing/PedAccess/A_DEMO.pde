@@ -2,9 +2,6 @@
 // Ira Winder, MIT Media Lab, jiw@mit.edu, Fall 2015
 //Bresenham smart mesh implementation by Nina Lutz, MIT Media Lab, Summer 2016
 
-int canvasWidth = 1000;
-int canvasHeight = 700;
-
 boolean bw = true;
 
 // Key Commands:
@@ -66,7 +63,6 @@ boolean initialized = false;
 int drawDelay = 10;
 
 void setup_Agents() {
-  //size(canvasWidth, canvasHeight, P3D);
   initCanvas();
   
 }
@@ -143,7 +139,7 @@ void renderTableCanvas() {
   // most likely, you'll want a black background
   //background(0);
   // Renders the tableCanvas as either a projection map or on-screen 
-    image(tableCanvas, 0, 0, tableCanvas.width, tableCanvas.height);
+  image(tableCanvas, TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
 }  
 
 // Method that opens a folder

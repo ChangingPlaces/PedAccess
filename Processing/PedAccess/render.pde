@@ -5,7 +5,7 @@ float MAX_TOTAL_COST_RENDER = 90.0;
 float POP_RENDER_MIN = 10.0; // per 1 SQ KM
 
 // How big your table is, in pixels
-int tableWidth = 800;
+int tableWidth = 792;
 int tableHeight = int(tableWidth * float(displayV)/displayU);
 
 //Global Text and Background Color

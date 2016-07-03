@@ -201,6 +201,8 @@ class Graph {
     V = int(h/scale);
     SCALE = scale;
     
+    println("Graph Dimension: " + U + ", " + V);
+    
     nodes = new ArrayList<Node>();
     
     for (int i=0; i<U; i++) {

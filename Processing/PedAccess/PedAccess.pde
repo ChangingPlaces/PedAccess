@@ -181,10 +181,15 @@ void draw() {
   // Render Table Surface Graphic
   renderTable();
   image(table, TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
+  
+  if (implementAgents) draw_Agents();
+  
 
 //  // Renders everything else drawn to Screen
 //  renderScreen();
 //  image(screen, 0, 0);
+  
+  
   
   // Exports table Graphic to Projector
   projector = get(TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
@@ -198,6 +203,9 @@ void draw() {
     image(projector, margin.width, 0);
   }
 
+
+
+  // CTL Stuff
   fill(textColor, 80);
   text("CTL Optimization = " + enableCTL, 20, 35);
   text("(Press Spacebar to Toggle)", 20, 50);
@@ -215,6 +223,5 @@ void draw() {
     }
   }
   
-  if (implementAgents) draw_Agents();
 
 }

@@ -39,8 +39,10 @@ void drawTableCanvas(PGraphics p) {
       // Provides the effect of giving animated elements "tails"
       //p.fill(background, 75);
       
-      p.fill(background);
-      p.rect(0,0,p.width,p.height);
+      //p.fill(background);
+      //p.rect(0,0,p.width,p.height);
+      
+      p.clear();
       
       // Displays demoMap
       if(showDemoMap) {
@@ -104,8 +106,8 @@ void drawTableCanvas(PGraphics p) {
 void drawCredit(PGraphics p) {
   p.fill(textColor);
   p.textAlign(LEFT);
-  p.textSize(24);
-  p.text("Pathfinder v1.1", 20, p.height - 60);
+  p.textSize(12);
+  p.text("Pathfinder v1.1", 20, p.height - 40);
   p.text("Ira Winder, MIT Media Lab", 20, p.height - 20);
 }
 

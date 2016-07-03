@@ -10,7 +10,7 @@ void initCanvas() {
   
   // Largest Canvas that holds unchopped parent graphic.
   
-  tableCanvas = createGraphics(canvasWidth, canvasHeight, P3D);
+  tableCanvas = createGraphics(tableWidth, tableHeight, P3D);
   
   // Adjusts Colors and Transparency depending on whether visualization is on screen or projected
   setScheme();
@@ -27,7 +27,8 @@ void initContent(PGraphics p) {
       showPaths = true;
   
   initObstacles(p);
-  initPathfinder(p, p.width/100);
+  initPathfinder(p, p.width/(18*4));
+  //initPathfinder(p, p.width/100);
   initAgents(p);
   //initButtons(p);
   
