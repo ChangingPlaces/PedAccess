@@ -20,11 +20,7 @@ void initCanvas() {
 }
 
 void initContent(PGraphics p) {
-      showGrid = true;
-      finderMode = 0;
-      showEdges = false;
-      showSource = true;
-      showPaths = true;
+  finderMode = 0;
   
   initObstacles(p);
   initPathfinder(p, p.width/(18*4));

@@ -312,13 +312,13 @@ class Graph {
     // Formatting
     p.noFill();
     int base = 155;
-    p.stroke(abs( background - base*schemeScaler ));
+    p.stroke(abs( background - base*schemeScaler ), 255);
     p.strokeWeight(1);
     
-    // Draws Tangent Circles Centered at pathfinding nodes
-    for (int i=0; i<nodes.size(); i++) {
-      p.ellipse(nodes.get(i).node.x, nodes.get(i).node.y, SCALE, SCALE);
-    }
+//    // Draws Tangent Circles Centered at pathfinding nodes
+//    for (int i=0; i<nodes.size(); i++) {
+//      p.ellipse(nodes.get(i).node.x, nodes.get(i).node.y, SCALE, SCALE);
+//    }
     
     // Draws Edges that Connect Nodes
     int neighbor;

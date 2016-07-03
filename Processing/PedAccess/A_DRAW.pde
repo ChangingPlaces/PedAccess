@@ -1,14 +1,14 @@
 boolean showPaths = false;
-boolean showGrid = false;
-boolean showSource = true;
+boolean showGrid = true;
+boolean showSource = false;
 boolean showEdges = false;
 boolean showSwarm = true;
 boolean showInfo = false;
 boolean showDemoMap = false;
 
 // Makes darker colors more visible when projecting
-int masterAlpha = 15;
-float schemeScaler = 0.5;
+int masterAlpha;
+float schemeScaler;
 int background = 0;
 int textColor = 255;
 int grayColor = int(abs(background - (255.0/2)*schemeScaler));
@@ -157,8 +157,8 @@ void loading(PGraphics p, String item) {
 
 void setScheme() {
   // Adjusts Colors and Transparency 
-  masterAlpha = 25;
-  schemeScaler = 0.4;
+  masterAlpha = 0;
+  schemeScaler = 0.0;
   grayColor = int(abs(background - (255.0/2)*schemeScaler));
 }
 

@@ -369,7 +369,8 @@ class Swarm {
       for (Agent v : swarm){
         if(colorMode.equals("color")) {
           // Draws colored agents
-          v.display(p, fill, 150);
+          //v.display(p, fill, 150);
+          v.display(p, fill, 255);
         } else if(colorMode.equals("grayscale")) {
           // Draws grayscaled agents
           v.display(p, #333333, 100);
