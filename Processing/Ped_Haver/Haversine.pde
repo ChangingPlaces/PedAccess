@@ -2,6 +2,8 @@ float R = 6371000; //in meters
 
 float longitude, latitude;
 
+float cell = Canvaswidth/areawidth;
+
 //always from origin (upperleft), these are the radian values
 float lat1 = Upper_left.x * PI/180;
 float lon1 = Upper_left.y * PI/180;
@@ -33,12 +35,17 @@ class Haver{
                      float bearing = atan2(sin(delta_lon)*cos(latitude), cos(lat1)*sin(latitude) - sin(lat1)*cos(latitude)*cos(delta_lon));
                              
                              //convert to polar and put in array
-                             PVector xy_coord = new PVector(d*cos(radians(abs(90-degrees(bearing)))), d*sin(radians(abs(90-degrees(bearing)))));
+                             PVector xy_coord = new PVector(cell*d*cos(radians(abs(90-degrees(bearing)))), cell*d*sin(radians(abs(90-degrees(bearing)))));
 
                              //determine what arraylist to put thing in
                              name.add(xy_coord);
                 }
                   println("Haversine run on " + filename, "framerate: " + frameRate);
+  }
+  
+ void center(PVector center){
+   
+
   }
       
 }

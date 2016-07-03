@@ -32,9 +32,11 @@ To Do
  6. Handle elevated pedestrian paths with z coords 
  */
 
+
 //upper left corner for region
+PVector Upper_left = new PVector(1.34718, 103.72825);
 //PVector Upper_left = new PVector(1.33043, 103.74836);
-PVector Upper_left = new PVector(1.34229, 103.73598);
+//PVector Upper_left = new PVector(1.34229, 103.73598);
 //PVector Upper_left = new PVector(1.34366, 103.74997);
 //PVector Upper_left = new PVector(1.339963, 103.745826);
 
@@ -48,13 +50,18 @@ import java.util.HashSet;
 // used to initialize objects when application is first run or reInitialized
 boolean initialized = false;
 
- int Canvaswidth = 500; 
+ int Canvaswidth = 800; 
  float Canvasheight = Canvaswidth*(22.0/18.0);
+ 
+ float areawidth = 2880;
 
 void setup() {
   
       size(Canvaswidth, int(Canvasheight), P3D);
     
+      hav.center(Upper_left);
+    
+      //println(Center);
       //runs haversine calculation on any csv file to get xy coords from lat lon
       hav.calc("data/temp-nodes.csv", xy_amenities);
       //hav.center("data/temp-nodes.csv", xy_amencenter);
@@ -65,6 +72,12 @@ void setup() {
     
       //initializes data
       initData();
+      
+            //renders different scales of network nodes
+      //grid.render(float cellwidth, int dimx, int dimy)
+        //grid.render(40, 72, 88);
+        grid.render(20, 144, 176);
+//      grid.render(10, 288, 352);
     
       //runs a version of breseham's algorithm on chosen network(s)
       brez.bresenham("data/pednetv2nodes.csv", xy_peds);
@@ -72,9 +85,6 @@ void setup() {
       brez.bresenham("data/2ndmerc.csv", xy_second);
       brez.clean(Coordinates);
 
-      //renders different scales of network nodes
-      //grid.render(
-      grid.render(
 
 }
 
@@ -82,10 +92,9 @@ void draw() {
       //these only run once
           if (!initialized) {
               background(0);
+              brez.draw_grid();
               drawLines();
               drawPOI();
-              brez.draw_grid();
-              //grid.render(4, 20);
               println("Initialized");
               initialized = true;
           }
