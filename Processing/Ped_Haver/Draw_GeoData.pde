@@ -16,6 +16,8 @@ void drawLines(){
                  line(xy_second.get(i).x, xy_second.get(i).y, xy_second.get(i+1).x, (xy_second.get(i+1).y));
             }      
                } 
+            
+               
       //ped network  
       for(int i = 0; i<ped_nodes.getRowCount()-1; i++){ 
        if(ped_nodes.getInt(i, "shapeid") == ped_nodes.getInt(i+1, "shapeid")){
@@ -24,6 +26,16 @@ void drawLines(){
                line(xy_peds.get(i).x, xy_peds.get(i).y, xy_peds.get(i+1).x, (xy_peds.get(i+1).y));
           }      
              }
+             
+            //crossings   
+      for(int i = 0; i<Intersect.getRowCount()-1; i++){ 
+         if(Intersect.getInt(i, "shapeid") == Intersect.getInt(i+1, "shapeid")){
+                stroke(255);
+                strokeWeight(5);
+                 line(crossings.get(i).x, crossings.get(i).y, crossings.get(i+1).x, (crossings.get(i+1).y));
+            }      
+               }  
+               
        println("lines drawn"); 
 }
 

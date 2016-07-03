@@ -113,10 +113,10 @@ void bresenham(String filename, ArrayList<PVector> xylist){
                     //this add the values to the array if they're in different lines  
                     if(network.getInt(i, "shapeid") == network.getInt(i+1, "shapeid")){    
                         if(x <= max(x1, x2) && y<= max(y1, y2) && x >= min(x1, x2) && y >= min(y1, y2) 
-                        && x >= 0 && x <= width && y >= 0 && y<= height){
+                        && x >= 0 && x <= Canvaswidth && y >= 0 && y<= Canvasheight){
                           
                           if(filename == "data/pednetv2nodes.csv"){
-                        Coordinates.add(new PVector(x, y));
+                        Coordinates.add(new PVector(x, y, 0));
                           }
                           else{
                             Coordinates.add(new PVector(x, y, 1));

@@ -42,6 +42,7 @@ Table ped_nodes;
 Table bus_stops;
 Table bridges;
 Table second;
+Table Intersect;
 
 void initData(){
       amenities = loadTable("data/temp-nodes.csv", "header");
@@ -50,6 +51,7 @@ void initData(){
       bridges = loadTable("data/bridges_links.csv", "header");
       second = loadTable("data/2ndmerc.csv", "header");
       img = loadImage("map.jpg");
+      Intersect = loadTable("data/crossings.csv", "header");
       
       println("data loaded");
 }

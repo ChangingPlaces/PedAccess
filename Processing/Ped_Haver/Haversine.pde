@@ -41,10 +41,10 @@ class Haver{
                              //determine what arraylist to put thing in
                              name.add(xy_coord);
                 }
-                  println("Haversine run on " + filename, "framerate: " + frameRate);
+                  println("Haversine run on " + filename);
   }
   
- void center(PVector center){
+ void left(PVector center){
    
    float dist = 2274.02;
    

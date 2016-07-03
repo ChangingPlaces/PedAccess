@@ -24,12 +24,9 @@
 
 /*
 To Do
- 2. Clean Haversine calculation to be from center and scalable
- 3. Export Snap nodes and render the grids differently (SOOOOO SLOW)
- quicker to add stuff to other arraylists and compare? 
- 4. Add agents going from POIs and using the Snap grid as nodes
- 5. Make swarms on different demographics with different values based on population
- 6. Handle elevated pedestrian paths with z coords 
+1. User Center as Input for stuff
+2. Get neighbor index
+3. Get 10 resolution to work
  */
 
 
@@ -61,9 +58,9 @@ void setup() {
   
       size(Canvaswidth, int(Canvasheight), P3D);
     
-      //hav.center(Central);
+      //finds left corner given a center point
+      //hav.left(Central);
     
-      //println(Center);
       //runs haversine calculation on any csv file to get xy coords from lat lon
       hav.calc("data/temp-nodes.csv", xy_amenities);
       hav.calc("data/EZ-nodes.csv", xy_bus);
@@ -77,8 +74,8 @@ void setup() {
       
             //renders different scales of network nodes
       //grid.render(float cellwidth, int dimx, int dimy)
-        //grid.render(40, 72, 88);
-        grid.render(20, 144, 176);
+        grid.render(40, 72, 88);
+        //grid.render(20, 144, 176);
         //grid.render(10, 288, 352);
     
       //runs a version of breseham's algorithm on chosen network(s)
@@ -86,7 +83,6 @@ void setup() {
       brez.bresenham("data/bridges_links.csv", xy_bridges);
       brez.bresenham("data/2ndmerc.csv", xy_second);
       brez.clean(Coordinates);
-
 
 }
 
@@ -97,7 +93,12 @@ void draw() {
               brez.draw_grid();
               drawLines();
               drawPOI();
-              //grid.export();
+              
+                  //float cellwidth, int dimx, int dimy
+                  grid.export(40, 72, 88);
+                  //grid.export(20, 144, 176);
+                  //grid.export(10, 288, 352);
+      
               println("Initialized");      
               initialized = true;
           }
