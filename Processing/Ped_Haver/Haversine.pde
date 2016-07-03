@@ -15,6 +15,7 @@ ArrayList<PVector> xy_bus = new ArrayList<PVector>();
 ArrayList<PVector> xy_peds = new ArrayList<PVector>();
 ArrayList<PVector> xy_bridges = new ArrayList<PVector>();
 ArrayList<PVector> xy_second = new ArrayList<PVector>();
+ArrayList<PVector> crossings = new ArrayList<PVector>();
 
 class Haver{
   void calc(String filename, ArrayList<PVector> name){

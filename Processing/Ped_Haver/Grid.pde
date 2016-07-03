@@ -10,7 +10,7 @@ class Grid{
   }
   
   void export(float cellwidth, int dimx, int dimy){
-      //for(int i = 0; i<SnapGrid.size(); 
+      for(int i = 0; i<SnapGrid.size(); 
       
   }
 }

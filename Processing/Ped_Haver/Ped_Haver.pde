@@ -70,6 +70,7 @@ void setup() {
       hav.calc("data/pednetv2nodes.csv", xy_peds);
       hav.calc("data/bridges_links.csv", xy_bridges);
       hav.calc("data/2ndmerc.csv", xy_second);
+      hav.calc("data/crossings.csv", crossings);
     
       //initializes data
       initData();

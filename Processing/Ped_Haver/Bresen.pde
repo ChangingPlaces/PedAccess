@@ -163,12 +163,8 @@ void clean(ArrayList list){
                             stroke(#FFE066);
                             ellipse(a, b, scale, scale);
                             SnapGrid.add(Coordinates.get(k));
-                            if(Coordinates.get(k).z == 0){
-                              println(Coordinates.get(k));
-                            }
                       }
                     }   
-                    
               }
             }    
 
