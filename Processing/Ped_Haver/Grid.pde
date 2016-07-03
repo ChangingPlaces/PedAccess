@@ -32,7 +32,7 @@ class Grid{
                   nodevals.setJSONObject(i, nodes);
                       }
     
-             saveJSONArray(nodevals, "data/nodes" + cellwidth + "_meters_" + dimx + "_by_" + dimy + ".json"); 
+             saveJSONArray(nodevals, "exports/nodes" + cellwidth + "_meters_" + dimx + "_by_" + dimy + ".json"); 
              println("nodes exported");
     }
       

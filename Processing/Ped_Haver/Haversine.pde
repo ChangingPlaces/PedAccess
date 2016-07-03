@@ -58,7 +58,7 @@ class Haver{
               thing.setJSONObject(i, vals);
      
           }
-           saveJSONArray(thing, "data/" + tag + ".json"); 
+           saveJSONArray(thing, "exports/" + tag + ".json"); 
                    println("haversine data exported");
           }
   }

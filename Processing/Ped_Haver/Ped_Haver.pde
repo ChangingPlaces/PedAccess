@@ -74,8 +74,8 @@ void setup() {
       
             //renders different scales of network nodes
       //grid.render(float cellwidth, int dimx, int dimy)
-        //grid.render(40, 72, 88);
-        grid.render(20, 144, 176);
+        grid.render(40, 72, 88);
+        //grid.render(20, 144, 176);
         //grid.render(10, 288, 352);
     
       //runs a version of breseham's algorithm on chosen network(s)
@@ -95,8 +95,8 @@ void draw() {
               drawPOI();
               
                   //float cellwidth, int dimx, int dimy
-                  //grid.export(40, 72, 88);
-                  grid.export(20, 144, 176);
+                  grid.export(40, 72, 88);
+                  //grid.export(20, 144, 176);
                   //grid.export(10, 288, 352);
       
               println("Initialized");      
@@ -107,8 +107,6 @@ void draw() {
           if (showFrameRate) {
             println(frameRate);
           }
-          
-          println(mouseX, mouseY);
           
             
 }
