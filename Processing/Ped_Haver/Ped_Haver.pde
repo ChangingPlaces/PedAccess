@@ -33,6 +33,8 @@ To Do
  */
 
 
+PVector Central = new PVector(1.33342, 103.74234);
+
 //upper left corner for region
 PVector Upper_left = new PVector(1.34718, 103.72825);
 //PVector Upper_left = new PVector(1.33043, 103.74836);
@@ -59,12 +61,11 @@ void setup() {
   
       size(Canvaswidth, int(Canvasheight), P3D);
     
-      hav.center(Upper_left);
+      //hav.center(Central);
     
       //println(Center);
       //runs haversine calculation on any csv file to get xy coords from lat lon
       hav.calc("data/temp-nodes.csv", xy_amenities);
-      //hav.center("data/temp-nodes.csv", xy_amencenter);
       hav.calc("data/EZ-nodes.csv", xy_bus);
       hav.calc("data/pednetv2nodes.csv", xy_peds);
       hav.calc("data/bridges_links.csv", xy_bridges);
@@ -77,7 +78,7 @@ void setup() {
       //grid.render(float cellwidth, int dimx, int dimy)
         //grid.render(40, 72, 88);
         grid.render(20, 144, 176);
-//      grid.render(10, 288, 352);
+        //grid.render(10, 288, 352);
     
       //runs a version of breseham's algorithm on chosen network(s)
       brez.bresenham("data/pednetv2nodes.csv", xy_peds);
@@ -96,6 +97,7 @@ void draw() {
               drawLines();
               drawPOI();
               println("Initialized");
+              println(SnapGridRaised.get(5));
               initialized = true;
           }
     
@@ -103,5 +105,6 @@ void draw() {
           if (showFrameRate) {
             println(frameRate);
           }
+          
             
 }

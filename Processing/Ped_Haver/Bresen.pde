@@ -23,7 +23,9 @@ float scale;
 PVector start, end;
 float x, y, x1, x2, y1, y2, dx, dy, Steps, xInc, yInc;
 ArrayList<PVector> Coordinates = new ArrayList<PVector>();
+ArrayList<PVector> CoordinatesRaised = new ArrayList<PVector>();
 ArrayList<PVector> SnapGrid = new ArrayList<PVector>();
+ArrayList<PVector> SnapGridRaised = new ArrayList<PVector>();
 
 class bresenham{
   
@@ -114,7 +116,13 @@ void bresenham(String filename, ArrayList<PVector> xylist){
                     if(network.getInt(i, "shapeid") == network.getInt(i+1, "shapeid")){    
                         if(x <= max(x1, x2) && y<= max(y1, y2) && x >= min(x1, x2) && y >= min(y1, y2) 
                         && x >= 0 && x <= width && y >= 0 && y<= height){
+                          
+                          if(filename == "data/pednetv2nodes.csv"){
                         Coordinates.add(new PVector(x, y));
+                          }
+                          else{
+                            CoordinatesRaised.add(new PVector(x, y, 1));
+                            }
                         }
                     }           
               }
@@ -126,6 +134,8 @@ void clean(ArrayList list){
             HashSet set = new HashSet(list);
             list.clear();
             list.addAll(set);
+            
+            println(Coordinates.size() + " possible nodes after cleaning");
 }
   
   void draw_grid(){
@@ -157,6 +167,15 @@ void clean(ArrayList list){
                             SnapGrid.add(Coordinates.get(k));
                       }
                     }
+                 for(int k = 0; k<CoordinatesRaised.size()-1; k++){
+                      if(abs(a - CoordinatesRaised.get(k).x) <= scale/2 && abs(b - CoordinatesRaised.get(k).y) <= scale/2){
+                            strokeWeight(.5);
+                            stroke(#00ff00);
+                            ellipse(a, b, scale, scale);
+                            SnapGridRaised.add(CoordinatesRaised.get(k));
+                      }
+                    }    
+                    
               }
             }    
 

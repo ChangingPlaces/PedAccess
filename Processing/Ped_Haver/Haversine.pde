@@ -45,6 +45,12 @@ class Haver{
   
  void center(PVector center){
    
+   float dist = 2274.02;
+   
+   float left = asin(sin(center.x)*cos(dist/R) + cos(center.x)*sin(dist/R)*cos(radians(abs(90+45))));
+   
+   println(left);
+   
 
   }
       
