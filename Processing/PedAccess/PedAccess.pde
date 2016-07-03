@@ -50,7 +50,8 @@ int screenWidth = 1800;
 int screenHeight = 1000;
 
 boolean hideWallyWorld = true;
-boolean implementMenu = false;
+boolean implementMenu = true;
+boolean implementAgents = true;
 
 // Set this to true to display the main menu upon start
 boolean showMainMenu = true;
@@ -144,7 +145,7 @@ void setup() {
       systemOS = System.getProperty("os.name").substring(0,3);
       println(systemOS);
       
-      setup_Agents();
+      if (implementAgents) setup_Agents();
 }
 
 void draw() {
@@ -185,7 +186,6 @@ void draw() {
 //  renderScreen();
 //  image(screen, 0, 0);
   
-  println(frameRate);
   // Exports table Graphic to Projector
   projector = get(TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
   margin = get(TABLE_IMAGE_OFFSET - STANDARD_MARGIN - int(mapRatio*TABLE_IMAGE_HEIGHT), STANDARD_MARGIN, int(mapRatio*TABLE_IMAGE_HEIGHT) + STANDARD_MARGIN, TABLE_IMAGE_HEIGHT);
@@ -215,6 +215,6 @@ void draw() {
     }
   }
   
-  draw_Agents();
+  if (implementAgents) draw_Agents();
 
 }

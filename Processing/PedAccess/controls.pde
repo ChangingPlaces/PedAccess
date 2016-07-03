@@ -1,6 +1,5 @@
 // click-based menu buttons are deactivated for "PedAccess" Singapore demo to increase framerate ... To re-activate:
 // 1. Set boolean implementMenu to true
-// 2. Uncomment many functions in void keyPressed()
 
 String layerSelected = "agents";
 // Options:
@@ -358,6 +357,13 @@ void keyPressed() {
   
   boolean switched = false;
   boolean projectorMoved = false;
+  
+  switch (key) {
+    case 'x':
+      if (layerSelected.equals("agents")) layerSelected = "pixelizer";
+      else if (layerSelected.equals("pixelizer")) layerSelected = "agents";
+      break;
+  }
   
   if (layerSelected.equals("agents")) {
     switch (key) {

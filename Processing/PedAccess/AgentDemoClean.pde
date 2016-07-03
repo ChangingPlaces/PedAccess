@@ -66,7 +66,7 @@ boolean initialized = false;
 int drawDelay = 10;
 
 void setup_Agents() {
-  size(canvasWidth, canvasHeight, P3D);
+  //size(canvasWidth, canvasHeight, P3D);
   initCanvas();
   
 }
@@ -123,10 +123,10 @@ void draw_Agents() {
 //    
     mainDraw();
 
-    // Print Framerate of animation to console
-    if (showFrameRate) {
-      println(frameRate);
-    }
+//    // Print Framerate of animation to console
+//    if (showFrameRate) {
+//      println(frameRate);
+//    }
     
     // If true, saves every frame of the main canvas to a PNG
     if (printFrames) {
@@ -141,7 +141,7 @@ void draw_Agents() {
 
 void renderTableCanvas() {
   // most likely, you'll want a black background
-  background(0);
+  //background(0);
   // Renders the tableCanvas as either a projection map or on-screen 
     image(tableCanvas, 0, 0, tableCanvas.width, tableCanvas.height);
 }  
