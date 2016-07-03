@@ -83,6 +83,10 @@ void setup() {
       brez.bresenham("data/bridges_links.csv", xy_bridges);
       brez.bresenham("data/2ndmerc.csv", xy_second);
       brez.clean(Coordinates);
+      
+      //exports POI data 
+      hav.exportGeo(xy_bus, "bus");
+      hav.exportGeo(xy_amenities, "amenities");
 
 }
 

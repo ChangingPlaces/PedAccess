@@ -2,6 +2,9 @@ float R = 6371000; //in meters
 
 float longitude, latitude;
 
+  JSONArray json;
+  JSONObject vals;
+
 float cell = Canvaswidth/areawidth;
 
 //always from origin (upperleft), these are the radian values
@@ -54,5 +57,21 @@ class Haver{
    
 
   }
+  
+
+void exportGeo(ArrayList<PVector> xylist, String name){
+       json = new JSONArray();
+                   
+            for(int i = 0; i<SnapGrid.size(); i++){
+                  vals = new JSONObject();
+                  vals.setFloat("u", xylist.get(i).x);
+                  vals.setFloat("v", xylist.get(i).y);
+                  json.setJSONObject(i, vals);
+                      }
+    
+             saveJSONArray(json, "data/" + name + ".json"); 
+             println("POI data exported");
+
+}
       
 }
