@@ -166,7 +166,7 @@ void clean(ArrayList list){
                       }
                     }  
               }
-            }    
+            }
 
   }
 
