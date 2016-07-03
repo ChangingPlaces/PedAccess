@@ -96,8 +96,8 @@ void draw() {
               brez.draw_grid();
               drawLines();
               drawPOI();
-              println("Initialized");
-              println(SnapGridRaised.get(5));
+              //grid.export();
+              println("Initialized");      
               initialized = true;
           }
     

@@ -4,6 +4,7 @@ void drawLines(){
       for(int i = 0; i<bridges.getRowCount()-1; i++){ 
          if(bridges.getInt(i, "shapeid") == bridges.getInt(i+1, "shapeid")){
                 stroke(#70C1B3);
+                strokeWeight(1.5);
                  line(xy_bridges.get(i).x, xy_bridges.get(i).y, xy_bridges.get(i+1).x, (xy_bridges.get(i+1).y));
             }      
                }      
@@ -11,6 +12,7 @@ void drawLines(){
       for(int i = 0; i<second.getRowCount()-1; i++){ 
          if(second.getInt(i, "shapeid") == second.getInt(i+1, "shapeid")){
                 stroke(#247BA0);
+                strokeWeight(1.5);
                  line(xy_second.get(i).x, xy_second.get(i).y, xy_second.get(i+1).x, (xy_second.get(i+1).y));
             }      
                } 
@@ -39,7 +41,6 @@ void drawPOI(){
                fill(#ff00ff);
                ellipse(xy_bus.get(i).x, xy_bus.get(i).y, 5, 5);
                }  
-
                
       println("draw POI");
 

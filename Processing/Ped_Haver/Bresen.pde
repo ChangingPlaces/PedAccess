@@ -23,9 +23,7 @@ float scale;
 PVector start, end;
 float x, y, x1, x2, y1, y2, dx, dy, Steps, xInc, yInc;
 ArrayList<PVector> Coordinates = new ArrayList<PVector>();
-ArrayList<PVector> CoordinatesRaised = new ArrayList<PVector>();
 ArrayList<PVector> SnapGrid = new ArrayList<PVector>();
-ArrayList<PVector> SnapGridRaised = new ArrayList<PVector>();
 
 class bresenham{
   
@@ -121,7 +119,7 @@ void bresenham(String filename, ArrayList<PVector> xylist){
                         Coordinates.add(new PVector(x, y));
                           }
                           else{
-                            CoordinatesRaised.add(new PVector(x, y, 1));
+                            Coordinates.add(new PVector(x, y, 1));
                             }
                         }
                     }           
@@ -165,21 +163,15 @@ void clean(ArrayList list){
                             stroke(#FFE066);
                             ellipse(a, b, scale, scale);
                             SnapGrid.add(Coordinates.get(k));
+                            if(Coordinates.get(k).z == 0){
+                              println(Coordinates.get(k));
+                            }
                       }
-                    }
-                 for(int k = 0; k<CoordinatesRaised.size()-1; k++){
-                      if(abs(a - CoordinatesRaised.get(k).x) <= scale/2 && abs(b - CoordinatesRaised.get(k).y) <= scale/2){
-                            strokeWeight(.5);
-                            stroke(#00ff00);
-                            ellipse(a, b, scale, scale);
-                            SnapGridRaised.add(CoordinatesRaised.get(k));
-                      }
-                    }    
+                    }   
                     
               }
             }    
 
-  println(SnapGrid.size());
   }
 
 }
