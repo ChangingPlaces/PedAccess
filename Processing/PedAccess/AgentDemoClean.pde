@@ -65,8 +65,7 @@ boolean initialized = false;
 // allows you to draw a loading screen
 int drawDelay = 10;
 
-/*
-void setup() {
+void setup_Agents() {
   size(canvasWidth, canvasHeight, P3D);
   initCanvas();
   
@@ -90,7 +89,7 @@ void mainDraw() {
   
 }
 
-void draw() {
+void draw_Agents() {
   // If certain key commands are pressed, it causes a <0 delay which counts down in this section
   if (drawDelay > 0) {
     
@@ -159,6 +158,4 @@ void folderSelected(File selection) {
     // some other startup function
   }
 }
-
-*/
 

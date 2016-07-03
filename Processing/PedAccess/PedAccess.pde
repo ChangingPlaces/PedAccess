@@ -143,6 +143,8 @@ void setup() {
        
       systemOS = System.getProperty("os.name").substring(0,3);
       println(systemOS);
+      
+      setup_Agents();
 }
 
 void draw() {
@@ -179,10 +181,11 @@ void draw() {
   renderTable();
   image(table, TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
 
-  // Renders everything else drawn to Screen
-  renderScreen();
-  image(screen, 0, 0);
-
+//  // Renders everything else drawn to Screen
+//  renderScreen();
+//  image(screen, 0, 0);
+  
+  println(frameRate);
   // Exports table Graphic to Projector
   projector = get(TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
   margin = get(TABLE_IMAGE_OFFSET - STANDARD_MARGIN - int(mapRatio*TABLE_IMAGE_HEIGHT), STANDARD_MARGIN, int(mapRatio*TABLE_IMAGE_HEIGHT) + STANDARD_MARGIN, TABLE_IMAGE_HEIGHT);
@@ -211,5 +214,7 @@ void draw() {
       waiting_blink = true;
     }
   }
+  
+  draw_Agents();
 
 }

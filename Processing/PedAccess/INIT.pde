@@ -59,7 +59,7 @@ void initAgents(PGraphics p) {
   
   println("Initializing Agent Objects ... ");
   
-  swarmHorde = new Horde(2000);
+  swarmHorde = new Horde(1000);
   sources_Viz = createGraphics(p.width, p.height);
   edges_Viz = createGraphics(p.width, p.height);
   testNetwork_Random(p, 16);

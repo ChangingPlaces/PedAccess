@@ -1,6 +1,11 @@
-// Button are deactivated for "PedAccess" Singapore demo to increase framerate ... To re-activate:
+// click-based menu buttons are deactivated for "PedAccess" Singapore demo to increase framerate ... To re-activate:
 // 1. Set boolean implementMenu to true
 // 2. Uncomment many functions in void keyPressed()
+
+String layerSelected = "agents";
+// Options:
+// "agents"
+// "pixelizer"
 
 // Define the ORDER of the buttons by changing this array
 // May only be a subset of buttonNames[]
@@ -348,11 +353,6 @@ void mouseClicked() {
   
   }
 }
-
-String layerSelected = "agents";
-// Options:
-// "agents"
-// "pixelizer"
 
 void keyPressed() {
   
@@ -871,7 +871,7 @@ void setPieceForm() {
   showFacilities = false;
   showMarket = false;
   renderDynamicTableLayers(input);
-  depressInputButtons();
+  if (implementMenu) depressInputButtons();
   reRenderMiniMap(miniMap);
 }
 
@@ -880,7 +880,7 @@ void setPieceData() {
   showFacilities = true;
   showMarket = true;
   renderDynamicTableLayers(input);
-  depressInputButtons();
+  if (implementMenu) depressInputButtons();
   reRenderMiniMap(miniMap);
 }
 
@@ -890,7 +890,7 @@ void setDeliveryCost() {
   showDeliveryCost = true;
   showTotalCost = false;
   renderOutputTableLayers(input);
-  depressOutputButtons();
+  if (implementMenu) depressOutputButtons();
   reRenderMiniMap(miniMap);
 }
 
@@ -900,7 +900,7 @@ void setTotalCost() {
   showDeliveryCost = false;
   showTotalCost = true;
   renderOutputTableLayers(input);
-  depressOutputButtons();
+  if (implementMenu) depressOutputButtons();
   reRenderMiniMap(miniMap);
 }
 
@@ -910,7 +910,7 @@ void setAllocation() {
   showDeliveryCost = false;
   showTotalCost = false;
   renderOutputTableLayers(input);
-  depressOutputButtons();
+  if (implementMenu) depressOutputButtons();
   reRenderMiniMap(miniMap);
 }
 
@@ -920,14 +920,14 @@ void setVehicle() {
   showDeliveryCost = false;
   showTotalCost = false;
   renderOutputTableLayers(input);
-  depressOutputButtons();
+  if (implementMenu) depressOutputButtons();
   reRenderMiniMap(miniMap);
 }
 
 void setGridSize(float size) {
   gridSize = size;
   resetGridParameters();
-  depressZoomButtons(size);
+  if (implementMenu) depressZoomButtons(size);
   reloadData(gridU, gridV, modeIndex);
   reRenderMiniMap(miniMap);
   fauxPieces(randomType, tablePieceInput, IDMax);

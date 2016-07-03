@@ -560,7 +560,7 @@ void renderBasemap(PGraphics graphic) {
     void renderInfo(PGraphics i, int x_0, int y_0, float w, float h) {
       i.beginDraw();
       i.clear();
-
+      
       // Draw Rectangle around main canvas
       i.noFill();
       i.stroke(textColor);
@@ -793,8 +793,8 @@ void renderBasemap(PGraphics graphic) {
       i.image(miniMap, 0, 0, w, h);
       i.noFill();
       i.stroke(textColor);
-      i.rect(w*gridPanU/gridU, h*gridPanV/gridV, w*(0.5*gridSize), h*(0.5*gridSize));
-
+      i.rect(w*gridPanU/gridU, h*gridPanV/gridV, w*(0.5*gridSize), h*(0.5*gridSize));     
+      
       i.endDraw();
     }
 
@@ -922,7 +922,8 @@ void renderBasemap(PGraphics graphic) {
 
       float pixel_per_U = (float)miniMap.width/gridU;
       float pixel_per_V = (float)miniMap.height/gridV;
-
+      
+      
       for (int u=0; u<gridU; u++) {
         for (int v=0; v<gridV; v++) {
 
@@ -964,7 +965,7 @@ void renderBasemap(PGraphics graphic) {
           }
         }
       }
-
+      
       miniMap.endDraw();
       miniMap.beginDraw();
 
@@ -986,7 +987,7 @@ void renderBasemap(PGraphics graphic) {
           }
         }
       }
-
+      
       miniMap.endDraw();
     }
 
