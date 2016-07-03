@@ -62,20 +62,20 @@ void setup() {
       //hav.left(Central);
     
       //runs haversine calculation on any csv file to get xy coords from lat lon
-      hav.calc("data/temp-nodes.csv", xy_amenities);
-      hav.calc("data/EZ-nodes.csv", xy_bus);
-      hav.calc("data/pednetv2nodes.csv", xy_peds);
-      hav.calc("data/bridges_links.csv", xy_bridges);
-      hav.calc("data/2ndmerc.csv", xy_second);
-      hav.calc("data/crossings.csv", crossings);
-    
+      hav.calc("data/temp-nodes.csv", "amens", xy_amenities);
+      hav.calc("data/EZ-nodes.csv", "bus", xy_bus);
+      hav.calc("data/pednetv2nodes.csv", "peds", xy_peds);
+      hav.calc("data/bridges_links.csv", "bridges", xy_bridges);
+      hav.calc("data/2ndmerc.csv", "second", xy_second);
+      hav.calc("data/crossings.csv", "crossings", crossings);
+
       //initializes data
       initData();
       
             //renders different scales of network nodes
       //grid.render(float cellwidth, int dimx, int dimy)
-        grid.render(40, 72, 88);
-        //grid.render(20, 144, 176);
+        //grid.render(40, 72, 88);
+        grid.render(20, 144, 176);
         //grid.render(10, 288, 352);
     
       //runs a version of breseham's algorithm on chosen network(s)
@@ -83,10 +83,6 @@ void setup() {
       brez.bresenham("data/bridges_links.csv", xy_bridges);
       brez.bresenham("data/2ndmerc.csv", xy_second);
       brez.clean(Coordinates);
-      
-      //exports POI data 
-      hav.exportGeo(xy_bus, "bus");
-      hav.exportGeo(xy_amenities, "amenities");
 
 }
 
@@ -99,8 +95,8 @@ void draw() {
               drawPOI();
               
                   //float cellwidth, int dimx, int dimy
-                  grid.export(40, 72, 88);
-                  //grid.export(20, 144, 176);
+                  //grid.export(40, 72, 88);
+                  grid.export(20, 144, 176);
                   //grid.export(10, 288, 352);
       
               println("Initialized");      
@@ -111,6 +107,8 @@ void draw() {
           if (showFrameRate) {
             println(frameRate);
           }
+          
+          println(mouseX, mouseY);
           
             
 }

@@ -2,7 +2,7 @@ float R = 6371000; //in meters
 
 float longitude, latitude;
 
-  JSONArray json;
+  JSONArray thing;
   JSONObject vals;
 
 float cell = Canvaswidth/areawidth;
@@ -21,7 +21,7 @@ ArrayList<PVector> xy_second = new ArrayList<PVector>();
 ArrayList<PVector> crossings = new ArrayList<PVector>();
 
 class Haver{
-  void calc(String filename, ArrayList<PVector> name){
+  void calc(String filename, String tag, ArrayList<PVector> name){
             Table values = loadTable(filename, "header");
      for(int i = 0; i<values.getRowCount(); i++){
                        //get longitude in radians
@@ -43,35 +43,33 @@ class Haver{
 
                              //determine what arraylist to put thing in
                              name.add(xy_coord);
+                                               
                 }
                   println("Haversine run on " + filename);
+          
+          //export data nodes for bus and amens
+          
+          thing = new JSONArray();
+          if(name == xy_bus || name == xy_amenities){
+          for(int i = 0; i<name.size(); i++){
+              vals = new JSONObject();
+              vals.setFloat("u", name.get(i).x);
+              vals.setFloat("v", name.get(i).y);
+              thing.setJSONObject(i, vals);
+     
+          }
+           saveJSONArray(thing, "data/" + tag + ".json"); 
+                   println("haversine data exported");
+          }
   }
   
  void left(PVector center){
-   
    float dist = 2274.02;
    
    float left = asin(sin(center.x)*cos(dist/R) + cos(center.x)*sin(dist/R)*cos(radians(abs(90+45))));
    
    println(left);
-   
-
   }
   
-
-void exportGeo(ArrayList<PVector> xylist, String name){
-       json = new JSONArray();
-                   
-            for(int i = 0; i<SnapGrid.size(); i++){
-                  vals = new JSONObject();
-                  vals.setFloat("u", xylist.get(i).x);
-                  vals.setFloat("v", xylist.get(i).y);
-                  json.setJSONObject(i, vals);
-                      }
-    
-             saveJSONArray(json, "data/" + name + ".json"); 
-             println("POI data exported");
-
-}
       
 }

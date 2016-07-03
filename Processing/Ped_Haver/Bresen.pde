@@ -105,7 +105,7 @@ void bresenham(String filename, ArrayList<PVector> xylist){
                                 }  
                       else if(end.x < start.x){
                            x = x - xInc;    y = y + yInc;
-                                }    
+                                }
                       else{ 
                            x = x + xInc;    y = y + yInc;
                              }
@@ -151,7 +151,7 @@ void clean(ArrayList list){
                 float b = (j*SCALE + scale);
                 
                 //this is where I chose to render the grid as ellipses
-                stroke(90);
+                stroke(50);
                 noFill();
                 strokeWeight(.5);
                 ellipse(a, b, scale, scale);  
@@ -164,7 +164,7 @@ void clean(ArrayList list){
                             ellipse(a, b, scale, scale);
                             SnapGrid.add(Coordinates.get(k));
                       }
-                    }   
+                    }  
               }
             }    
 

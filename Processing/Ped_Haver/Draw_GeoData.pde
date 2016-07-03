@@ -7,7 +7,7 @@ void drawLines(){
          if(bridges.getInt(i, "shapeid") == bridges.getInt(i+1, "shapeid")){
                 stroke(#70C1B3);
                 strokeWeight(1.5);
-                 line(xy_bridges.get(i).x, xy_bridges.get(i).y, xy_bridges.get(i+1).x, (xy_bridges.get(i+1).y));
+                line(xy_bridges.get(i).x, xy_bridges.get(i).y, xy_bridges.get(i+1).x, (xy_bridges.get(i+1).y));
             }      
                }      
       //second story     
@@ -25,15 +25,15 @@ void drawLines(){
        if(ped_nodes.getInt(i, "shapeid") == ped_nodes.getInt(i+1, "shapeid")){
               stroke(#F25F5C);
               strokeWeight(1.5);
-               line(xy_peds.get(i).x, xy_peds.get(i).y, xy_peds.get(i+1).x, (xy_peds.get(i+1).y));
+              line(xy_peds.get(i).x, xy_peds.get(i).y, xy_peds.get(i+1).x, (xy_peds.get(i+1).y));
           }      
              }
              
-            //crossings   
+     //crossings   
       for(int i = 0; i<Intersect.getRowCount()-1; i++){ 
          if(Intersect.getInt(i, "shapeid") == Intersect.getInt(i+1, "shapeid")){
                 stroke(255);
-                strokeWeight(5);
+                strokeWeight(2);
                  line(crossings.get(i).x, crossings.get(i).y, crossings.get(i+1).x, (crossings.get(i+1).y));
             }      
                }  
