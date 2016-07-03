@@ -349,203 +349,365 @@ void mouseClicked() {
   }
 }
 
+String layerSelected = "agents";
+// Options:
+// "agents"
+// "pixelizer"
+
 void keyPressed() {
   
   boolean switched = false;
   boolean projectorMoved = false;
   
-  switch(key) {
-    case 'h': // "Hide Main Menu (h)"     // 0
-      toggleMainMenu();
-      switched = true;
-      break;
-
-    case 'n': // "Next City (n)"          // 0
-      nextModeIndex();
-      switched = true;
-      break;
-    case 'p': // "Print Screenshot (p)"   // 1
-      printScreen();
-      switched = true;
-      break;
-
-    case 'l': // "Align Left (l)",        // 7
-      alignLeft();
-      switched = true;
-      break;
-    case 'r': // "Align Right (r)"        // 8
-      alignRight();
-      switched = true;
-      break;
-//    case 'c': // "Align Center (c)"       // 9
-//      alignCenter();
-//      break;
-    case 'i': // "Invert Colors (i)"      // 10
-      invertColors();
-      switched = true;
-      break;
-
-    case '3': // "2km per pixel",         // 11
-      setGridSize(MAX_GRID_SIZE);
-      switched = true;
-      break;
-    case '2': // "1km per pixel",         // 12
-      setGridSize(MAX_GRID_SIZE/2);
-      switched = true;
-      break;
-    case '1': // "500m per pixel",        // 13
-      setGridSize(MAX_GRID_SIZE/4);
-      switched = true;
-      break;
-
-    case 'R': //  "Recenter Grid (R)",      // 20
-      resetGridParameters();
-      switched = true;
-      break;
-    case 'z': //  "Randomize Pieces (z)"    // 22
-      toggleRandomPieces();
-      switched = true;
-      break;
-    case 'F': //  "Piece Forms (F)",        // 24
-      setPieceForm();
-      switched = true;
-      break;
-    case 'A': //  "Piece Data (A)"          // 25
-      setPieceData();
-      switched = true;
-      break;
-    case 'C': //  "Delivery Cost (C)",          // 27
-      setDeliveryCost();
-      switched = true;
-      break;
-    case 'T': //  "Total Cost (T)"              // 28
-      setTotalCost();
-      switched = true;
-      break;
-    case 'L': //  "Facility Allocation (L)",    // 29
-      setAllocation();
-      switched = true;
-      break;
-    case 'v': //  "Vehicle Allocation (v)"      // 30
-      setVehicle();
-      switched = true;
-      break;
-
-    // No Buttons
-    case ' ': // Send data to CTL
-      enableCTL = !enableCTL;
-      waitingForCTL = false;
-      switched = true;
-      break;
-    case '-':
-      projH--;
-      saveProjectorLocation();
-      projectorMoved = true;
-      break;
-    case '+':
-      projH++;
-      saveProjectorLocation();
-      projectorMoved = true;
-      break;
-  }
-  
-  if(implementMenu) {
-    switch (key){
-      case 'O': //  "Show Output Data (O)"    // 26
-        toggleOutputData(getButtonIndex(buttonNames[26]));
-        switched = true;
+  if (layerSelected.equals("agents")) {
+    switch (key) {
+      case '0': //ReBoots App
+        setLoader("Agent Demo| Version " + version);
+        // runs key_0() next frame
         break;
-      case 'I': //  "Show Input Data (I)",    // 23
-        toggleInputData(getButtonIndex(buttonNames[23]));
-        switched = true;
+      case 'o': //show obstacle outlines
+        showObstacles = toggle(showObstacles);
         break;
-      case '`': //  "Enable Projection (`)"   // 21
-        toggleProjection(getButtonIndex(buttonNames[21]));
-        switched = true;
+      case 'k': //show sources and sinks for agents
+        showSource = toggle(showSource);
         break;
-      case 'm': // "Show Map (m)",          // 14
-        toggleBaseMap(getButtonIndex(buttonNames[14]));
-        switched = true;
+      case 'r': //reset agents and simulation
+        setLoader("New Agents");
+        // runs key_r() next frame
         break;
-      case 'f': // "Show Framerate" (f)",   // 15
-        toggleFramerate(getButtonIndex(buttonNames[15]));
-        switched = true;
+      case 'f': //print framerate to console
+        showFrameRate = toggle(showFrameRate);
         break;
-      case 'D': // "Show Delivery Data (D)",  // 16
-        toggleDeliveryData(getButtonIndex(buttonNames[16]));
+      case 'S': //toggles display of swarms of agents
+        showSwarm = toggle(showSwarm);
         break;
-      case 'P': // "Show Population Data (P)",  // 17
-        togglePopulationData(getButtonIndex(buttonNames[17]));
-        switched = true;
+      case 'e': //shows network edges of motion
+        showEdges = toggle(showEdges);
         break;
-      case 'u': // "Population Counts (u)",   // 18
-        setPop(getButtonIndex(buttonNames[18]));
-        switched = true;
+      case 'i': //shows info about swarms like weight and agent numbers
+        showInfo = toggle(showInfo);
         break;
-      case 'e': // "Household Counts (e)",    // 19
-        setHousing(getButtonIndex(buttonNames[19]));
-        switched = true;
+      case 'p': //makes a grid of obstacles
+        setLoader("Gridded Obstacles");
+        // runs key_p() next frame
         break;
-      case 'd': // "Delivery Counts (d)",   // 2
-        setDeliveries(getButtonIndex(buttonNames[2]));
-        switched = true;
+      case 'F': //toggles frameStep
+        frameStep = toggle(frameStep);
+        println("FrameStep = " + frameStep);
         break;
-      case 't': // "Tote Counts (t)",       // 3
-        setTotes(getButtonIndex(buttonNames[3]));
-        switched = true;
+      case '+': //speed it up
+        updateSpeed(1);
         break;
-      case 'o': // "Store Source (o)",      // 4
-        setSource(getButtonIndex(buttonNames[4]));
-        switched = true;
+      case '-': //slow it down
+        updateSpeed(-1);
         break;
-      case 'a': // "Avg Doorstep Time (a)"  // 5
-        setDoorstep(getButtonIndex(buttonNames[5]));
-        switched = true;
+      case 'l': //loads course
+        if (editObstacles) {
+          boundaries.loadCourse("data/course.tsv");
+        }
         break;
-  
-      case 's': // "Store Locations (s)"    // 6
-        setStores(getButtonIndex(buttonNames[6]));
-        switched = true;
+      case 's'://save course
+        if (editObstacles) {
+          boundaries.saveCourse("data/course.tsv");
+        }
+        break;
+      case 'E': // shows or hides obsticale editor 
+        setLoader("Obstacles Editor");
+        // runs key_E() next frame
+        break;
+      case '': //hit the delete key 
+        if (editObstacles) {
+          boundaries.removeVertex();
+        }
+        break;
+      case 'A': //lets you add obstcles
+        if (editObstacles) {
+          boundaries.addObstacle();
+        }
+        break;
+      case 'R': //lets you remove obstacles 
+        if (editObstacles) {
+          boundaries.removeObstacle();
+        }
+        break;
+      case ' ': //switch between the two obstacles to edit them 
+        if (editObstacles) {
+          boundaries.nextIndex();
+        }
+        break;
+      case 'N': //hops to next vertice 
+        if (editObstacles) {
+          boundaries.nextVert();
+        }
+        break;
+      case 'V': //starts printing frames to file
+        printFrames = toggle(printFrames);
+        break;
+      case 'b': //toggle background between black and white
+        background = toggleBW(background);
+        textColor = toggleBW(textColor);
+        grayColor = int(abs(background - (255.0/2)*schemeScaler));
+        pFinderGrid_Viz(tableCanvas);
+        break;
+      case 'P': //toggle display of shortest paths
+        showPaths = toggle(showPaths);
+        break;
+      case 'G': //toggle display for pathing grip
+        showGrid = toggle(showGrid);
+        break;
+      case 'X': 
+        setLoader("New Origin-Destination Pair");
+        // runs key_X() next frame
+        break;
+      case 'n': // randomize/reset current network for pathfinding
+        setLoader("New Pathfinder Network");
+        // runs key_n() next frame
+        break;
+      case '>': // Toggle network for pathfinding
+        setLoader("Pathfinder Mode " + nextMode(finderMode, 3));
+        // runs key_RightCarrot() next frame
+        break;
+      case '<': // Enable/Disable Pathfinding
+        setLoader("Pathfinder: " + toggle(enablePathfinding));
+        // runs key_LeftCarrot() next frame
+        break;
+      case '{': // Decrease Alpha
+        adjustAlpha(-10);
+        pFinderGrid_Viz(tableCanvas);
+        grayColor = int(abs(background - (255.0/2)*schemeScaler));
+        println("schemeScaler: " + schemeScaler);
+        println("masterAlpha: " + masterAlpha);
+        break;
+      case '}': // Increase Alpha
+        adjustAlpha(+10);
+        pFinderGrid_Viz(tableCanvas);
+        grayColor = int(abs(background - (255.0/2)*schemeScaler));
+        println("schemeScaler: " + schemeScaler);
+        println("masterAlpha: " + masterAlpha);
+        break;
+      case 'T': // Turns demo background image on or off
+        showDemoMap = toggle(showDemoMap);
         break;
     }
-  }
-  
-  if (switched) {
-    reRender();
-    switched = false;
-  }
-
-  //------arrow keys and how to code keys that aren't characters exactly-----
-  if (key == CODED) { 
-    if (keyCode == LEFT) {
-      projU--;
-      saveProjectorLocation();
-      projectorMoved = true;
-    }  
-    if (keyCode == RIGHT) {
-      projU++;
-      saveProjectorLocation();
-      projectorMoved = true;
-    }  
-    if (keyCode == DOWN) {
-      projV++;
-      saveProjectorLocation();
-      projectorMoved = true;
-    }  
-    if (keyCode == UP) {
-      projV--;
-      saveProjectorLocation();
-      projectorMoved = true;
+    
+    //------arrow keys and how to code keys that aren't characters exactly----- 
+    if (key == CODED) { 
+      if (keyCode == LEFT) {
+        if (editObstacles) {
+          boundaries.nudgeVertex(-1, 0);
+        }
+      }  
+      if (keyCode == RIGHT) {
+        if (editObstacles) {
+          boundaries.nudgeVertex(+1, 0);
+        }
+      }  
+      if (keyCode == DOWN) {
+        if (editObstacles) {
+          boundaries.nudgeVertex(0, +1);
+        }
+      }  
+      if (keyCode == UP) {
+        if (editObstacles) {
+          boundaries.nudgeVertex(0, -1);
+        }
+      }
     }
-    println("Projector Location: " + projU, projV, projH);
-  }
+  } else if(layerSelected.equals("pixelizer")) {
   
-  if (projectorMoved) {
-    renderDynamicTableLayers(input);
-    projectorMoved = false;
-  }
+    switch(key) {
+      case 'h': // "Hide Main Menu (h)"     // 0
+        toggleMainMenu();
+        switched = true;
+        break;
   
-  // reRender();
+      case 'n': // "Next City (n)"          // 0
+        nextModeIndex();
+        switched = true;
+        break;
+      case 'p': // "Print Screenshot (p)"   // 1
+        printScreen();
+        switched = true;
+        break;
+  
+      case 'l': // "Align Left (l)",        // 7
+        alignLeft();
+        switched = true;
+        break;
+      case 'r': // "Align Right (r)"        // 8
+        alignRight();
+        switched = true;
+        break;
+  //    case 'c': // "Align Center (c)"       // 9
+  //      alignCenter();
+  //      break;
+      case 'i': // "Invert Colors (i)"      // 10
+        invertColors();
+        switched = true;
+        break;
+  
+      case '3': // "2km per pixel",         // 11
+        setGridSize(MAX_GRID_SIZE);
+        switched = true;
+        break;
+      case '2': // "1km per pixel",         // 12
+        setGridSize(MAX_GRID_SIZE/2);
+        switched = true;
+        break;
+      case '1': // "500m per pixel",        // 13
+        setGridSize(MAX_GRID_SIZE/4);
+        switched = true;
+        break;
+  
+      case 'R': //  "Recenter Grid (R)",      // 20
+        resetGridParameters();
+        switched = true;
+        break;
+      case 'z': //  "Randomize Pieces (z)"    // 22
+        toggleRandomPieces();
+        switched = true;
+        break;
+      case 'F': //  "Piece Forms (F)",        // 24
+        setPieceForm();
+        switched = true;
+        break;
+      case 'A': //  "Piece Data (A)"          // 25
+        setPieceData();
+        switched = true;
+        break;
+      case 'C': //  "Delivery Cost (C)",          // 27
+        setDeliveryCost();
+        switched = true;
+        break;
+      case 'T': //  "Total Cost (T)"              // 28
+        setTotalCost();
+        switched = true;
+        break;
+      case 'L': //  "Facility Allocation (L)",    // 29
+        setAllocation();
+        switched = true;
+        break;
+      case 'v': //  "Vehicle Allocation (v)"      // 30
+        setVehicle();
+        switched = true;
+        break;
+  
+      // No Buttons
+      case ' ': // Send data to CTL
+        enableCTL = !enableCTL;
+        waitingForCTL = false;
+        switched = true;
+        break;
+      case '-':
+        projH--;
+        saveProjectorLocation();
+        projectorMoved = true;
+        break;
+      case '+':
+        projH++;
+        saveProjectorLocation();
+        projectorMoved = true;
+        break;
+    }
+    
+    if(implementMenu) {
+      switch (key){
+        case 'O': //  "Show Output Data (O)"    // 26
+          toggleOutputData(getButtonIndex(buttonNames[26]));
+          switched = true;
+          break;
+        case 'I': //  "Show Input Data (I)",    // 23
+          toggleInputData(getButtonIndex(buttonNames[23]));
+          switched = true;
+          break;
+        case '`': //  "Enable Projection (`)"   // 21
+          toggleProjection(getButtonIndex(buttonNames[21]));
+          switched = true;
+          break;
+        case 'm': // "Show Map (m)",          // 14
+          toggleBaseMap(getButtonIndex(buttonNames[14]));
+          switched = true;
+          break;
+        case 'f': // "Show Framerate" (f)",   // 15
+          toggleFramerate(getButtonIndex(buttonNames[15]));
+          switched = true;
+          break;
+        case 'D': // "Show Delivery Data (D)",  // 16
+          toggleDeliveryData(getButtonIndex(buttonNames[16]));
+          break;
+        case 'P': // "Show Population Data (P)",  // 17
+          togglePopulationData(getButtonIndex(buttonNames[17]));
+          switched = true;
+          break;
+        case 'u': // "Population Counts (u)",   // 18
+          setPop(getButtonIndex(buttonNames[18]));
+          switched = true;
+          break;
+        case 'e': // "Household Counts (e)",    // 19
+          setHousing(getButtonIndex(buttonNames[19]));
+          switched = true;
+          break;
+        case 'd': // "Delivery Counts (d)",   // 2
+          setDeliveries(getButtonIndex(buttonNames[2]));
+          switched = true;
+          break;
+        case 't': // "Tote Counts (t)",       // 3
+          setTotes(getButtonIndex(buttonNames[3]));
+          switched = true;
+          break;
+        case 'o': // "Store Source (o)",      // 4
+          setSource(getButtonIndex(buttonNames[4]));
+          switched = true;
+          break;
+        case 'a': // "Avg Doorstep Time (a)"  // 5
+          setDoorstep(getButtonIndex(buttonNames[5]));
+          switched = true;
+          break;
+    
+        case 's': // "Store Locations (s)"    // 6
+          setStores(getButtonIndex(buttonNames[6]));
+          switched = true;
+          break;
+      }
+    }
+    
+    if (switched) {
+      reRender();
+      switched = false;
+    }
+  
+    //------arrow keys and how to code keys that aren't characters exactly-----
+    if (key == CODED) { 
+      if (keyCode == LEFT) {
+        projU--;
+        saveProjectorLocation();
+        projectorMoved = true;
+      }  
+      if (keyCode == RIGHT) {
+        projU++;
+        saveProjectorLocation();
+        projectorMoved = true;
+      }  
+      if (keyCode == DOWN) {
+        projV++;
+        saveProjectorLocation();
+        projectorMoved = true;
+      }  
+      if (keyCode == UP) {
+        projV--;
+        saveProjectorLocation();
+        projectorMoved = true;
+      }
+      println("Projector Location: " + projU, projV, projH);
+    }
+    
+    if (projectorMoved) {
+      renderDynamicTableLayers(input);
+      projectorMoved = false;
+    }
+    
+    // reRender();
+  }
 }
 
 // variables for Scroll Bar
@@ -1171,3 +1333,166 @@ class Menu{
     graphic.image(canvas, 0, 0);
   }
 }
+
+// Key Functions Carried over from AgentDemoClean's "KEY" tab
+
+boolean keyLoaded = true;
+char initKey;
+
+// Running this method will display a loading screen when 
+// running a method placed in "initKey()".
+// Useful for laggy commands
+void setLoader(String txt) {
+  drawDelay = 2;
+  keyLoaded = false;
+  loadText = txt;
+  initKey = key;
+  println(initKey);
+  loading(tableCanvas, loadText);
+}
+
+void setLoader(String txt, char k) {
+  drawDelay = 2;
+  keyLoaded = false;
+  loadText = txt;
+  initKey = k;
+  println(initKey);
+  loading(tableCanvas, loadText);
+}
+
+int toggleBW(int col) {
+  if (col == 255) {
+    return 0;
+  } else if (col == 0) {
+    return 255;
+  } else {
+    return 0;
+  }
+}
+
+int nextMode(int mode, int maxMode) {
+  if (mode < maxMode) {
+    return mode + 1;
+  } else {
+    return 0;
+  }
+}
+
+//// variables for Scroll Bar
+//int y_0;
+int scroll = 0;
+//int scroll_0 = 0;
+//
+//void mousePressed() {
+//  y_0 = mouseY;
+//}
+//
+//void mouseDragged() {
+//  scroll = scroll_0 + mouseY - y_0;
+//}
+//
+//void mouseReleased() {
+//  scroll_0 = scroll;
+//}
+//
+//void mouseClicked() {
+//  if (editObstacles) {
+//    boundaries.addVertex(new PVector(mouseX, mouseY));
+//  }
+//
+//}
+
+// Runs on a delay
+void keyInit() {
+  switch(initKey) {
+    case '0':
+      key_0();
+      break;
+    case '>':
+      key_RightCarrot();
+      break;
+    case '<':
+      key_LeftCarrot();
+      break;
+    case 'n':
+      key_n();
+      break;
+    case 'E':
+      key_E();
+      break;
+    case 'p':
+      key_p();
+      break;
+    case 'r':
+      key_r();
+      break;
+    case 'X':
+      key_X();
+      break;
+  }
+}
+  
+void key_0() {
+  // Restarts the whole sh'bang
+  initCanvas();
+  initContent(tableCanvas);
+  tableCanvas.beginDraw();
+  tableCanvas.background(background);
+  tableCanvas.endDraw();
+}
+
+
+void key_RightCarrot() {
+  // Toggle network for pathfinding
+  finderMode = nextMode(finderMode, 3);
+  refreshFinder(tableCanvas);
+}
+
+void key_LeftCarrot() {
+  // Enable/Disable Pathfinding
+  enablePathfinding = toggle(enablePathfinding);
+  refreshFinder(tableCanvas);
+}
+
+void key_n() {
+  // randomize/reset current network for pathfinding
+  resetFinder(tableCanvas, 10, finderMode);
+  refreshFinder(tableCanvas);
+}
+
+void key_E() {
+  // shows or hides obstale editor 
+  editObstacles = toggle(editObstacles);
+  println("editObstacles = " + editObstacles);
+  if (!editObstacles) { //if deactivapting editor, reinitializes custom network
+    // Resets the network for custom mode
+    resetFinder(tableCanvas, 10, 2); // '2' for custom mode
+    refreshFinder(tableCanvas);
+  } else { // If activating editor, sets finder mode to custom
+    finderMode = 2;
+    refreshFinder(tableCanvas);
+    showObstacles = true;
+  }
+}
+
+void key_p() {
+  //makes a grid of obstacles
+  testObstacles = toggle(testObstacles);
+  testObstacles(tableCanvas, testObstacles);
+  // Resets the network for gridded mode
+  resetFinder(tableCanvas, 10, finderMode); // '1' for gridded mode
+  refreshFinder(tableCanvas);
+}
+
+void key_r() {
+  //reset agents and simulation
+  initAgents(tableCanvas);
+}
+
+void key_X() {
+  // randomize locations of origin and destination paths
+  initOD(tableCanvas);
+  initPath(pFinder, A, B);
+  pFinderGrid_Viz(tableCanvas);
+}
+
