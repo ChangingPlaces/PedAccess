@@ -77,8 +77,12 @@ void drawNodes(JSONArray nodes, int arrayWidth) {
     v = node.getInt("v");
     
     if (node.getInt("z") == 0) {
+      noFill();
       fill(255, 0, 0);
+    } else if (node.getBoolean("crossing")) {
+      fill(0, 0, 255);
     } else {
+      noFill();
       fill(0, 255, 0);
     }
     noStroke();
