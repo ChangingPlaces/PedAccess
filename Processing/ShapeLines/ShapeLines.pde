@@ -32,6 +32,7 @@ void draw(){
   
     if (!initialized) {
         background(0);
+        //comment and uncomment which layers you want
         drawLines("data/overhead.csv", xy_bridges, #ff00ff);
         drawLines("data/second.csv", xy_second, #ffff00); 
         drawLines("data/road.csv", xy_roads, #0000ff);
@@ -39,6 +40,7 @@ void draw(){
         drawLines("data/cover.csv", xy_covered, #00ff00);
         drawLines("data/pednet.csv", xy_peds, #ff0000);
         
+        //saves the png of the screen
             save("lines.png");
         
         println("Initialized");      
