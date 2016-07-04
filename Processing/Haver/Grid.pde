@@ -5,6 +5,7 @@ Table Neighbors;
 class Grid{
   int dimx, dimy, cellwidth;
   
+  //gives scale for drawing each cell
   void render(int cellwidth, int dimx, int dimy){
        scale = Canvaswidth/dimx;
   }

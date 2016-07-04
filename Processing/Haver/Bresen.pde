@@ -1,3 +1,7 @@
+//////BUGS 
+//WHY DO I HAVE GAPS IN ONE OF THE DATASETS?!?! :( 
+//////
+
 /*
 Bresenham Algorithm Demo 
   by Nina Lutz, nlutz@mit.edu               MIT Media Lab, Summer 2016
@@ -96,7 +100,7 @@ void bresenham(String filename, ArrayList<PVector> xylist){
 
         //focuses on finding coordinates of diagnol lines
           for(int v = 0; v< (int)Steps; v++){       
-                //there are four main cases that need to be handled
+                //there are four main cases that need to be handled to render the points 
                       if(end.x < start.x && end.y < start.y){
                            x = x - xInc;    y = y - yInc;
                                 }
@@ -115,9 +119,10 @@ void bresenham(String filename, ArrayList<PVector> xylist){
                         if(x <= max(x1, x2) && y<= max(y1, y2) && x >= min(x1, x2) && y >= min(y1, y2) 
                         && x >= 0 && x <= Canvaswidth && y >= 0 && y<= Canvasheight){
                           
+                          //differentiates between raised and ground level nodes
                           if(filename == "data/pednetv2nodes.csv"){
-                        Coordinates.add(new PVector(x, y, 0));
-                          }
+                            Coordinates.add(new PVector(x, y, 0));
+                              }
                           else{
                             Coordinates.add(new PVector(x, y, 1));
                             }
@@ -129,6 +134,7 @@ void bresenham(String filename, ArrayList<PVector> xylist){
 }
 
 void clean(ArrayList list){
+  //gets rid of duplicates using a HashSet 
             HashSet set = new HashSet(list);
             list.clear();
             list.addAll(set);

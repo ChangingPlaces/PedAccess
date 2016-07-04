@@ -3,6 +3,11 @@
 //Supervisor: Ira Winder, MIT Media Lab, jiw@mit.edu
 /////////
 
+/* DEBUG HELP 
+1. Center calculation
+2. Holes in the paths for second story network 
+*/ 
+
 /* 
  For this simple demo all that's required is to chose a left corner as an origin 
  Then I use the Haversine formula to take lat lon to Cartesian coordinates
@@ -16,19 +21,10 @@
 ////////
 //Controls: 
 // currently not up and running, need to consolidate with only running once a frame
-//    l = line toggle
-//    g = grid toggle
-//    p = POI toggle
 //    f = print framerate
 ////////
 
-/*
-To Do
-1. User Center as Input for stuff
-2. Get neighbor index
-3. Get 10 resolution to work
- */
-
+//these are the center points 
 //PVector Central = new PVector(1.32748, 103.74461);
 //PVector Central = new PVector(1.33342, 103.74234);
 PVector Central = new PVector(1.34718, 103.72825);
@@ -52,9 +48,11 @@ import java.util.HashSet;
 // used to initialize objects when application is first run or reInitialized
 boolean initialized = false;
 
+ //these are what are rendered
  int Canvaswidth = 800; 
  float Canvasheight = Canvaswidth*(22.0/18.0);
  
+ //this is the actual meter dimensions, used to scale in calculations 
  float areawidth = 2880;
 
 void setup() {
@@ -62,7 +60,7 @@ void setup() {
       size(Canvaswidth, int(Canvasheight), P3D);
     
       //finds left corner given a center point
-     hav.left(Central);
+      hav.left(Central);
     
       //runs haversine calculation on any csv file to get xy coords from lat lon
       hav.calc("data/temp-nodes.csv", "amens", xy_amenities);
@@ -75,11 +73,11 @@ void setup() {
       //initializes data
       initData();
       
-            //renders different scales of network nodes
+      //renders different scales of network nodes
       //grid.render(float cellwidth, int dimx, int dimy)
-        grid.render(40, 72, 88);
-        //grid.render(20, 144, 176);
-        //grid.render(10, 288, 352);
+      grid.render(40, 72, 88);
+      //grid.render(20, 144, 176);
+      //grid.render(10, 288, 352);
     
       //runs a version of breseham's algorithm on chosen network(s)
       brez.bresenham("data/pednetv2nodes.csv", xy_peds);
@@ -97,10 +95,11 @@ void draw() {
               drawLines();
               drawPOI();
               
-                  //float cellwidth, int dimx, int dimy
-                  grid.export(40, 72, 88);
-                  //grid.export(20, 144, 176);
-                  //grid.export(10, 288, 352);
+              //exports the grid data to the "exports" folder of sketch
+              //float cellwidth, int dimx, int dimy
+              grid.export(40, 72, 88);
+              //grid.export(20, 144, 176);
+              //grid.export(10, 288, 352);
       
               println("Initialized");      
               initialized = true;

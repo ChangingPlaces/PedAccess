@@ -5,6 +5,7 @@ float longitude, latitude;
   JSONArray thing;
   JSONObject vals;
 
+//shows how much the cells are scaled in meters
 float cell = Canvaswidth/areawidth;
 
 //always from origin (upperleft), these are the radian values
@@ -22,6 +23,7 @@ ArrayList<PVector> crossings = new ArrayList<PVector>();
 
 class Haver{
   void calc(String filename, String tag, ArrayList<PVector> name){
+    //getting lat and lon in radians 
     float lat1 = Upper_left.x * PI/180;
     float lon1 = Upper_left.y * PI/180;
             Table values = loadTable(filename, "header");
@@ -50,10 +52,8 @@ class Haver{
                   println("Haversine run on " + filename);
          
           
-          
-          
-          //export data nodes for bus and amens
-          
+
+          //export data points for buses and amenities 
           thing = new JSONArray();
           if(name == xy_bus || name == xy_amenities){
           for(int i = 0; i<name.size(); i++){
@@ -69,6 +69,7 @@ class Haver{
   }
   
  void left(PVector center){
+   //trying to calculate the left corner based on a given center point, but doesn't work....jlkafsjklsajdkfskla;jf,asndk;f
    float dist = 2096.95;
    
    float lat = asin(sin(center.x)*cos(dist/R) + cos(center.x)*sin(dist/R)*cos(radians((-45+180)%360)));

@@ -1,4 +1,4 @@
-
+//these two functions just draw the data
 
 void drawLines(){ 
     println("rendering lines");
