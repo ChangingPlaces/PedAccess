@@ -1,8 +1,11 @@
+// A script that translates raster images of networks and converts them into abstract, lower resolution JSON data.  
+// The script has the effect of pixelating the data such that each grid square has metadata associated with it.
+
 PImage map;
 JSONArray nodes;
 
 // Change this number to 5, 10, 20, or 40m per grid unit
-int scale = 5;
+int scale = 20;
 
 int gridU = 40/scale*72;
 int gridV = 40/scale*88;
