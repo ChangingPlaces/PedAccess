@@ -230,8 +230,8 @@ class Graph {
     
     int u, v;
     for (int k=0; k<JSONnetwork.size(); k++) {
-      u = JSONnetwork.getJSONObject(k).getInt("u") - gridPanU;
-      v = JSONnetwork.getJSONObject(k).getInt("v") - gridPanV;
+      u = JSONnetwork.getJSONObject(k).getInt("u") - gridPanU - 72/2;
+      v = JSONnetwork.getJSONObject(k).getInt("v") - gridPanV - 88/2;
       
       if (u > 0 && u < U && 
           v > 0 && v < V) {
