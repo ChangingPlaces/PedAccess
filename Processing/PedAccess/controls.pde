@@ -932,6 +932,12 @@ void setVehicle() {
 
 void setGridSize(float size) {
   gridSize = size;
+  
+//    // Loads in new JSON scale
+//  importPedNetwork();
+//  initJSONFinder(p, p.width/(18*4), pedNetwork);
+//  pFinderGrid_Viz(tableCanvas);
+  
   resetGridParameters();
   if (implementMenu) depressZoomButtons(size);
   reloadData(gridU, gridV, modeIndex);
@@ -1450,7 +1456,7 @@ void key_0() {
 
 void key_RightCarrot() {
   // Toggle network for pathfinding
-  finderMode = nextMode(finderMode, 3);
+  finderMode = nextMode(finderMode, 5);
   refreshFinder(tableCanvas);
 }
 

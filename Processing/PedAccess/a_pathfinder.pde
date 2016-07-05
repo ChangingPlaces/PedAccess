@@ -230,11 +230,11 @@ class Graph {
     
     int u, v;
     for (int k=0; k<JSONnetwork.size(); k++) {
-      u = JSONnetwork.getJSONObject(k).getInt("u") - gridPanU - 72/2;
-      v = JSONnetwork.getJSONObject(k).getInt("v") - gridPanV - 88/2;
+      u = JSONnetwork.getJSONObject(k).getInt("u") - gridPanU - gridU/2;
+      v = JSONnetwork.getJSONObject(k).getInt("v") - gridPanV - gridV/2;
       
-      if (u > 0 && u < U && 
-          v > 0 && v < V) {
+      if (u >= 0 && u < U && 
+          v >= 0 && v < V) {
         nodes.add(new Node(u*SCALE + scale/2, v*SCALE + scale/2));
       }
     }
@@ -343,20 +343,20 @@ class Graph {
     p.stroke(abs( background - base*schemeScaler ), 255);
     p.strokeWeight(1);
     
-//    // Draws Tangent Circles Centered at pathfinding nodes
-//    for (int i=0; i<nodes.size(); i++) {
-//      p.ellipse(nodes.get(i).node.x, nodes.get(i).node.y, SCALE, SCALE);
-//    }
-    
-    // Draws Edges that Connect Nodes
-    int neighbor;
+    // Draws Tangent Circles Centered at pathfinding nodes
     for (int i=0; i<nodes.size(); i++) {
-      for (int j=0; j<nodes.get(i).neighbors.size(); j++) {
-        neighbor = nodes.get(i).neighbors.get(j);
-        //println(neighbor);
-        p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
-      }
+      p.ellipse(nodes.get(i).node.x, nodes.get(i).node.y, SCALE, SCALE);
     }
+    
+//    // Draws Edges that Connect Nodes
+//    int neighbor;
+//    for (int i=0; i<nodes.size(); i++) {
+//      for (int j=0; j<nodes.get(i).neighbors.size(); j++) {
+//        neighbor = nodes.get(i).neighbors.get(j);
+//        //println(neighbor);
+//        p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
+//      }
+//    }
   }
   
 }
