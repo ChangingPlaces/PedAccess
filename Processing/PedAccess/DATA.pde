@@ -307,3 +307,11 @@
         }
       }
     }
+    
+// Initialize Pedestrian Network Data
+    
+    JSONArray pedNetwork_5m;
+    void importPedNetwork() {
+      pedNetwork_5m = loadJSONArray("data/nodes5_meters_576_by_704.json");
+      println("Number of 5m nodes: " + pedNetwork_5m.size());
+    }

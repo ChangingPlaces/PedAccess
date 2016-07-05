@@ -20,10 +20,10 @@ void initCanvas() {
 }
 
 void initContent(PGraphics p) {
-  finderMode = 0;
+  finderMode = 2;
   
   initObstacles(p);
-  initPathfinder(p, p.width/(18*4));
+  initPathfinder(p, p.width/(2*18*4));
   //initPathfinder(p, p.width/100);
   initAgents(p);
   //initButtons(p);
@@ -219,7 +219,7 @@ int finderMode = 2;
 // 2 = Custom
 
 // Pathfinder test and debugging Objects
-Pathfinder finderRandom, finderGrid, finderCustom;
+Pathfinder finderRandom, finderGrid, finderCustom, finderJSON;
 PVector A, B;
 ArrayList<PVector> testPath, testVisited;
 
@@ -229,6 +229,10 @@ PGraphics pFinderPaths, pFinderGrid;
 void initPathfinder(PGraphics p, int res) {
   
   println("Initializing Pathfinder Objects ... ");
+  
+  // Initializes a Custom Pathfinding network Based off of JSON file
+  importPedNetwork();
+  //initJSONFinder(p, res, pedNetwork_5m);
   
   // Initializes a Custom Pathfinding network Based off of user-drawn Obstacle Course
   initCustomFinder(p, res);
@@ -253,6 +257,11 @@ void initPathfinder(PGraphics p, int res) {
   pFinderGrid_Viz(p);
   
   println("Pathfinders initialized.");
+}
+
+void initJSONFinder(PGraphics p, int res, JSONArray network) {
+  finderJSON = new Pathfinder(p.width, p.height, res, 0.0, network); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+  finderCustom.applyObstacleCourse(boundaries);
 }
 
 void initCustomFinder(PGraphics p, int res) {

@@ -1,8 +1,8 @@
 PImage map;
 JSONArray nodes40, nodes20, nodes10, nodes5;
 
-int gridU = 4*72;
-int gridV = 4*88;
+int gridU = 2*4*72;
+int gridV = 2*4*88;
 
 void setup() {
   size(4*gridU, 4*gridV);

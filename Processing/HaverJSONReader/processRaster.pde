@@ -1,5 +1,4 @@
 PImage[] networkRaster;
-
 JSONArray rasterNodes;
 
 void importRaster() {
@@ -20,7 +19,6 @@ void importRaster() {
   networkRaster[4] = loadImage("data/network_bridgeped.png");
   networkRaster[5] = loadImage("data/network_2ndped.png");
   
-  
   rasterNodes = new JSONArray();
 }
 
@@ -28,21 +26,17 @@ void processRaster(PImage raster, int U, int V, int layer) {
   
   // test 1 pixel per grid cell..
   raster.resize(U, V);
-  
   boolean flag;
   float uWidth = float(raster.width)/U;
   float vWidth = float(raster.height)/V;
   float cellPixels = uWidth*vWidth;
-  raster.loadPixels();
   
+  raster.loadPixels();
   for (int u=0; u<U; u++) {
     for (int v=0; v<V; v++) {
-      
       flag = false;
-      
       for (int x=0; x<uWidth; x++) {
         for (int y=0; y<vWidth; y++) {
-          
           int index = int(v*vWidth*raster.width + y*raster.width + u*uWidth + x);
           if (index < raster.width*raster.height) {
             //if (brightness(raster.pixels[index]) < 255) {
@@ -52,10 +46,8 @@ void processRaster(PImage raster, int U, int V, int layer) {
           } else {
             println("index: " + index);
           }
-          
         }
       }
-      
       if (flag) {
         JSONObject node = new JSONObject();
         node.setInt("u", u);
@@ -100,15 +92,11 @@ void processRaster(PImage raster, int U, int V, int layer) {
             node.setString("type", "ped_2nd");
             node.setBoolean("crossing", false);
             break;
-          
         }
-        
         rasterNodes.setJSONObject(rasterNodes.size(), node);
       }
-        
     }
   }
-  
   println(rasterNodes.size() + " " + U + "x" + V + " RasterNodes");
   
 }

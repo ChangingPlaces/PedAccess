@@ -25,6 +25,12 @@ class Pathfinder {
     refresh();
   }
   
+  Pathfinder(int w, int h, float res, float cullRatio, JSONArray JSONnetwork) {
+    network = new Graph(w, h, res);
+    network.cullRandom(cullRatio);
+    refresh();
+  }
+  
   void applyObstacleCourse(ObstacleCourse c) {
     network.applyObstacleCourse(c);
     refresh();
