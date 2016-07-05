@@ -1,11 +1,19 @@
 PImage map;
-JSONArray nodes40, nodes20, nodes10, nodes5;
+JSONArray nodes;
 
-int gridU = 2*4*72;
-int gridV = 2*4*88;
+// Change this number to 5, 10, 20, or 40m per grid unit
+int scale = 5;
+
+int gridU = 40/scale*72;
+int gridV = 40/scale*88;
+
+String data5 = "nodes5_meters_288_by_352.json";
+String data10 = "nodes10_meters_144_by_176.json";
+String data20 = "nodes20_meters_72_by_88.json";
+String data40 = "nodes40_meters_72_by_88.json";
 
 void setup() {
-  size(4*gridU, 4*gridV);
+  size(int(10*gridU*(scale/40.0)), int(10*gridV*(scale/40.0)));
   
   // Loads Raster Images into memory with variable alpha()
   importRaster();
@@ -16,7 +24,20 @@ void setup() {
   }
   
   // saves the JSONArray to file
-  saveJSONArray(rasterNodes, "data/nodes5_meters_576_by_704.json");
+    switch(scale) {
+    case 5:
+      saveJSONArray(rasterNodes, "data/" + data5);
+      break;
+    case 10:
+      saveJSONArray(rasterNodes, "data/" + data10);
+      break;
+    case 20:
+      saveJSONArray(rasterNodes, "data/" + data20);
+      break;
+    case 40:
+      saveJSONArray(rasterNodes, "data/" + data40);
+      break;
+  }
   
   // Loads Node Network from JSON
   importNodes();
@@ -27,7 +48,7 @@ void setup() {
   image(map, 0, 0);
   
   // Draws the Node Network
-  drawNodes(nodes5, gridU);
+  drawNodes(nodes, gridU);
   
 }
 

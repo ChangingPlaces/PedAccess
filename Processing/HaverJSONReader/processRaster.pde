@@ -98,5 +98,4 @@ void processRaster(PImage raster, int U, int V, int layer) {
     }
   }
   println(rasterNodes.size() + " " + U + "x" + V + " RasterNodes");
-  
 }

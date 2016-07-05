@@ -1,7 +1,21 @@
 void importNodes() {
-
-  nodes5 = loadJSONArray("data/nodes5_meters_576_by_704.json");
-  println("Number of 5m nodes: " + nodes5.size());
+  
+  switch(scale) {
+    case 5:
+      nodes = loadJSONArray("data/" + data5);
+      break;
+    case 10:
+      nodes = loadJSONArray("data/" + data10);
+      break;
+    case 20:
+      nodes = loadJSONArray("data/" + data20);
+      break;
+    case 40:
+      nodes = loadJSONArray("data/" + data40);
+      break;
+  }
+  
+  println("Number of nodes: " + nodes.size());
   
 //  // Loads Nina's exported nodes
 //  nodes40 = loadJSONArray("data/nodes40_meters_72_by_88.json");

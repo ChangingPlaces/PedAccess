@@ -126,6 +126,7 @@
         popCSV = loadTable("data/CSV_POPHU/" + fileName + "_" + popMode + "_" + gridV + "_" + gridU + "_" + int(gridSize*1000) + ".csv");
       }  catch(RuntimeException e) {
         popCSV = new Table();
+        println("Loading File at scale " + gridSize + " failed.");
       }
       
       heatmap = new float[gridU][gridV];
@@ -310,8 +311,10 @@
     
 // Initialize Pedestrian Network Data
     
-    JSONArray pedNetwork_5m;
+    JSONArray pedNetwork;
     void importPedNetwork() {
-      pedNetwork_5m = loadJSONArray("data/nodes5_meters_576_by_704.json");
-      println("Number of 5m nodes: " + pedNetwork_5m.size());
+      if (gridSize == 0.005) pedNetwork = loadJSONArray("data/nodes5_meters_576_by_704.json");
+      else if (gridSize == 0.01) pedNetwork = loadJSONArray("data/nodes10_meters_288_by_352.json");
+      else if (gridSize == 0.02) pedNetwork = loadJSONArray("data/nodes20_meters_144_by_176.json");
+      println("Number of nodes: " + pedNetwork.size());
     }

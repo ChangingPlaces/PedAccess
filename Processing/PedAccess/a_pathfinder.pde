@@ -26,8 +26,7 @@ class Pathfinder {
   }
   
   Pathfinder(int w, int h, float res, float cullRatio, JSONArray JSONnetwork) {
-    network = new Graph(w, h, res);
-    network.cullRandom(cullRatio);
+    network = new Graph(w, h, res, JSONnetwork);
     refresh();
   }
   
@@ -214,6 +213,29 @@ class Graph {
     for (int i=0; i<U; i++) {
       for (int j=0; j<V; j++) {
         nodes.add(new Node(i*SCALE + scale/2, j*SCALE + scale/2));
+      }
+    }
+    
+  }
+  
+  // Using the canvas width and height in pixels, a gridded graph is generated with a pixel spacing of 'scale' according to a JSON array.
+  Graph (int w, int h, float scale, JSONArray JSONnetwork) {
+    U = int(w/scale);
+    V = int(h/scale);
+    SCALE = scale;
+    
+    println("Graph Dimension: " + U + ", " + V);
+    
+    nodes = new ArrayList<Node>();
+    
+    int u, v;
+    for (int k=0; k<JSONnetwork.size(); k++) {
+      u = JSONnetwork.getJSONObject(k).getInt("u") - gridPanU;
+      v = JSONnetwork.getJSONObject(k).getInt("v") - gridPanV;
+      
+      if (u > 0 && u < U && 
+          v > 0 && v < V) {
+        nodes.add(new Node(u*SCALE + scale/2, v*SCALE + scale/2));
       }
     }
     
