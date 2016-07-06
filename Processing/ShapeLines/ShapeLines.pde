@@ -79,6 +79,6 @@ void draw(){
         initialized = true;
     }
     
-    //put functions here to run every time
-    text("Nina Lutz, MIT Media Lab", 20, height-20);
+    ////put functions here to run every time
+    //text("Nina Lutz, MIT Media Lab", 20, height-20);
 }
