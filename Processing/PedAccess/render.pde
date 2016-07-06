@@ -5,12 +5,12 @@ float MAX_TOTAL_COST_RENDER = 90.0;
 float POP_RENDER_MIN = 10.0; // per 1 SQ KM
 
 // How big your table is, in pixels
-int tableWidth = 800;
+int tableWidth = 3*4*18*4;
 int tableHeight = int(tableWidth * float(displayV)/displayU);
 
 //Global Text and Background Color
-color textColor = 255;
-color background = 0;
+//color textColor = 255;
+//color background = 0;
 String align = "RIGHT";
 boolean waiting_blink = true;
 
@@ -104,12 +104,15 @@ void renderScreen() {
   renderInfo(i, 2*TABLE_IMAGE_OFFSET + TABLE_IMAGE_WIDTH, STANDARD_MARGIN, mapRatio*TABLE_IMAGE_WIDTH, mapRatio*TABLE_IMAGE_HEIGHT);
   screen.image(i, 0, 0);
 
-  // Draws Menu
-  buttonHovering = false;
-  hideMenu.draw(screen);
-  if (showMainMenu) {
-    mainMenu.draw(screen);
+  if (implementMenu) {
+    // Draws Menu
+    buttonHovering = false;
+    hideMenu.draw(screen);
+    if (showMainMenu) {
+      mainMenu.draw(screen);
+    }
   }
+  
   screen.endDraw();
 }
 
@@ -397,13 +400,13 @@ void renderBasemap(PGraphics graphic) {
               }
             }
 
-            if (showObstacles) {
-              ID = obstacles[u+gridPanU][v+gridPanV];
-              input.fill(0);
-              if (ID == 1) {
-                input.rect(u*gridWidth, v*gridHeight, gridWidth, gridHeight);
-              }
-            }
+//            if (showObstacles) {
+//              ID = obstacles[u+gridPanU][v+gridPanV];
+//              input.fill(0);
+//              if (ID == 1) {
+//                input.rect(u*gridWidth, v*gridHeight, gridWidth, gridHeight);
+//              }
+//            }
 
             if (showForm) {
               findFormFill(input, form[u+gridPanU][v+gridPanV]);
@@ -557,7 +560,7 @@ void renderBasemap(PGraphics graphic) {
     void renderInfo(PGraphics i, int x_0, int y_0, float w, float h) {
       i.beginDraw();
       i.clear();
-
+      
       // Draw Rectangle around main canvas
       i.noFill();
       i.stroke(textColor);
@@ -790,8 +793,8 @@ void renderBasemap(PGraphics graphic) {
       i.image(miniMap, 0, 0, w, h);
       i.noFill();
       i.stroke(textColor);
-      i.rect(w*gridPanU/gridU, h*gridPanV/gridV, w*(0.5*gridSize), h*(0.5*gridSize));
-
+      i.rect(w*gridPanU/gridU, h*gridPanV/gridV, w*(0.5*gridSize), h*(0.5*gridSize));     
+      
       i.endDraw();
     }
 
@@ -919,7 +922,8 @@ void renderBasemap(PGraphics graphic) {
 
       float pixel_per_U = (float)miniMap.width/gridU;
       float pixel_per_V = (float)miniMap.height/gridV;
-
+      
+      
       for (int u=0; u<gridU; u++) {
         for (int v=0; v<gridV; v++) {
 
@@ -961,7 +965,7 @@ void renderBasemap(PGraphics graphic) {
           }
         }
       }
-
+      
       miniMap.endDraw();
       miniMap.beginDraw();
 
@@ -983,7 +987,7 @@ void renderBasemap(PGraphics graphic) {
           }
         }
       }
-
+      
       miniMap.endDraw();
     }
 

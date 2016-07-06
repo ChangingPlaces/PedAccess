@@ -15,7 +15,7 @@
  *
  * Ira Winder (jiw@mit.edu)
  * Mike Winder (mhwinder@gmail.com)
- * Write Date: January, 2015
+ * Write Date: January, 2016
  *
  */
 
@@ -44,16 +44,18 @@ int randomType = 2;
 
 int projectorWidth = 1920;
 int projectorHeight = 1200;
-int projectorOffset = 1842;
+int projectorOffset = 1800;
 
-int screenWidth = 1842;
-int screenHeight = 1026;
+int screenWidth = 1800;
+int screenHeight = 1000;
 
 boolean hideWallyWorld = true;
+boolean implementMenu = true;
+boolean implementAgents = true;
 
 // Set this to true to display the main menu upon start
 boolean showMainMenu = true;
-boolean showFrameRate = false;
+boolean showFrameRate = true;
 
 boolean showStores = false;
 boolean showDeliveryData = false;
@@ -63,7 +65,7 @@ boolean showBasemap = true;
 boolean showInputData = true;
 boolean showFacilities = false;
 boolean showMarket = false;
-boolean showObstacles = false;
+// boolean showObstacles = false;
 boolean showForm = true;
 
 boolean showOutputData = true;
@@ -142,10 +144,12 @@ void setup() {
        
       systemOS = System.getProperty("os.name").substring(0,3);
       println(systemOS);
+      
+      if (implementAgents) setup_Agents();
 }
 
 void draw() {
-
+      
   if (flagResize) {
     initScreenOffsets();
     if (applet != null) applet.reset(); // Resets Projection Graphics
@@ -177,11 +181,16 @@ void draw() {
   // Render Table Surface Graphic
   renderTable();
   image(table, TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
+  
+  if (implementAgents) draw_Agents();
+  
 
-  // Renders everything else drawn to Screen
-  renderScreen();
-  image(screen, 0, 0);
-
+//  // Renders everything else drawn to Screen
+//  renderScreen();
+//  image(screen, 0, 0);
+  
+  
+  
   // Exports table Graphic to Projector
   projector = get(TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
   margin = get(TABLE_IMAGE_OFFSET - STANDARD_MARGIN - int(mapRatio*TABLE_IMAGE_HEIGHT), STANDARD_MARGIN, int(mapRatio*TABLE_IMAGE_HEIGHT) + STANDARD_MARGIN, TABLE_IMAGE_HEIGHT);
@@ -194,6 +203,9 @@ void draw() {
     image(projector, margin.width, 0);
   }
 
+
+
+  // CTL Stuff
   fill(textColor, 80);
   text("CTL Optimization = " + enableCTL, 20, 35);
   text("(Press Spacebar to Toggle)", 20, 50);
@@ -210,5 +222,6 @@ void draw() {
       waiting_blink = true;
     }
   }
+  
 
 }

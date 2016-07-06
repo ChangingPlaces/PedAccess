@@ -18,8 +18,8 @@
  */
 
 // length of one pixel [km]
-float gridSize = 0.04; // toggle to 2.0, 1.0, and 0.5
-float MAX_GRID_SIZE = 0.04;
+float gridSize = 0.005; // toggle to 0.04, 0.02, 0.01, and 0.05
+float MAX_GRID_SIZE = 0.02;
 
 // Lat-Lon and rotation to center the grid
 float centerLatitude;
@@ -90,7 +90,7 @@ void singaporeMode() {
   centerLongitude = 103.74234;
   azimuth =  0; // 0 = North
   fileName = "singapore";
-  MAX_GRID_SIZE = 0.04;
+  MAX_GRID_SIZE = 0.02;
   popMode = "POP10";
 }
 
