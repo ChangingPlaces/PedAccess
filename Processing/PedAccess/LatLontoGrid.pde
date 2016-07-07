@@ -18,7 +18,7 @@
  */
 
 // length of one pixel [km]
-float gridSize = 0.005; // toggle to 0.04, 0.02, 0.01, and 0.05
+float gridSize = 0.02; // toggle to 0.04, 0.02, 0.01, and 0.05
 float MAX_GRID_SIZE = 0.02;
 
 // Lat-Lon and rotation to center the grid

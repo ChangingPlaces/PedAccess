@@ -340,7 +340,8 @@ class Graph {
     // Formatting
     p.noFill();
     int base = 155;
-    p.stroke(abs( background - base*schemeScaler ), 255);
+    //p.stroke(abs( background - base*schemeScaler ), 255);
+    p.stroke(abs( 255 - background - base*schemeScaler ), 255);
     p.strokeWeight(1);
     
     // Draws Tangent Circles Centered at pathfinding nodes

@@ -3,6 +3,7 @@ PGraphics tableCanvas;
 
 PImage demoMap;
 
+int finderResolution;
 
 void initCanvas() {
   
@@ -21,9 +22,9 @@ void initCanvas() {
 
 void initContent(PGraphics p) {
   finderMode = 4;
-  
+  finderResolution = p.width/(18*4);
   initObstacles(p);
-  initPathfinder(p, p.width/(18*4));
+  initPathfinder(p, finderResolution);
   //initPathfinder(p, p.width/100);
   initAgents(p);
   //initButtons(p);
@@ -281,6 +282,11 @@ void initRandomFinder(PGraphics p, int res) {
 
 // Refresh Paths and visualization; Use for key commands and dynamic changes
 void refreshFinder(PGraphics p) {
+  
+  // Initializes a Custom Pathfinding network Based off of JSON file
+  importPedNetwork();
+  initJSONFinder(p, finderResolution, pedNetwork);
+  
   setFinder(p, finderMode);
   initPath(pFinder, A, B);
   swarmPaths(p, enablePathfinding);

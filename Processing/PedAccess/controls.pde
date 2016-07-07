@@ -745,12 +745,19 @@ void mousePressed() {
   } else {
     mapWasOn = false;
   }
+  
+  if (showGrid) {
+    gridWasOn = true;
+  } else {
+    gridWasOn = false;
+  }
 }
 
 boolean dragging = false;
-boolean mapWasOn;
+boolean mapWasOn, gridWasOn;
 void mouseDragged() {
   showBasemap = false;
+  showGrid = false;
   dragging = true;
   scroll_x = scroll_x_0 + mouseX - x_0;
   scroll_y = scroll_y_0 + mouseY - y_0;
@@ -770,23 +777,29 @@ void mouseDragged() {
 
   // On ReRenders if pan direction is changed
   if (panChange) {
-  reRender();
-  panChange = false;
+    reRender();
+    panChange = false;
   }
 
 }
 
 void mouseReleased() {
+  
   if (dragging) {
     if (mapWasOn) {
       showBasemap = true;
     }
+    if (gridWasOn) {
+      showGrid = true;
+    }
     dragging  = false;
+    
     loadBasemap();
   }
   scroll_x_0 = scroll_x;
   scroll_y_0 = scroll_y;
   changeDetected = true;
+  refreshFinder(tableCanvas);
   reRender();
 }
 
@@ -932,13 +945,10 @@ void setVehicle() {
 
 void setGridSize(float size) {
   gridSize = size;
-  
-//    // Loads in new JSON scale
-//  importPedNetwork();
-//  initJSONFinder(p, p.width/(18*4), pedNetwork);
-//  pFinderGrid_Viz(tableCanvas);
-  
   resetGridParameters();
+  
+  refreshFinder(tableCanvas);
+  
   if (implementMenu) depressZoomButtons(size);
   reloadData(gridU, gridV, modeIndex);
   reRenderMiniMap(miniMap);
@@ -1456,7 +1466,8 @@ void key_0() {
 
 void key_RightCarrot() {
   // Toggle network for pathfinding
-  finderMode = nextMode(finderMode, 5);
+  finderMode = nextMode(finderMode, 4);
+  println("finderMode = " + finderMode);
   refreshFinder(tableCanvas);
 }
 
