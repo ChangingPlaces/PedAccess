@@ -326,35 +326,119 @@
     
     void importPointsOfInterest() {
       pointsOfInterest = new Table();
-      pointsOfInterest.addColumn("Lat");
-      pointsOfInterest.addColumn("Lon");
-      pointsOfInterest.addColumn("Type"); // Ammenity or Bus Stop
-      pointsOfInterest.addColumn("SubType"); // Type of Ammenity or Bus Stop
+      pointsOfInterest.addColumn("lat");
+      pointsOfInterest.addColumn("lon");
+      pointsOfInterest.addColumn("type"); // Ammenity or Bus Stop
+      pointsOfInterest.addColumn("subtype"); // Type of Ammenity or Bus Stop
 
       String[] fileNames = {     
-        "JE AquaticSG.csv",
-        "JE Busstop.csv",
-        "JE childcare.csv",
-        "JE clinic.csv",
-        "JE communityclubs.csv",
-        "JE eldercare.csv",
-        "JE hawkercenter.csv",
-        "JE Hospitals.csv",
-        "JE hotels.csv",
-        "JE kindergartens.csv",
-        "JE library.csv",
-        "JE Malls.csv",
-        "JE MRTs.csv",
-        "JE museum.csv",
-        "JE PrivateEducationInstitution.csv",
-        "JE Religious Places.csv",
-        "JE schools.csv"
+        /* 0 */ "JE AquaticSG.csv",
+        /* 1 */ "JE Busstop.csv",
+        /* 2 */ "JE childcare.csv",
+        /* 3 */ "JE clinic.csv",
+        /* 4 */ "JE communityclubs.csv",
+        /* 5 */ "JE eldercare.csv",
+        /* 6 */ "JE hawkercenter.csv",
+        /* 7 */ "JE Hospitals.csv",
+        /* 8 */ "JE hotels.csv",
+        /* 9 */ "JE kindergartens.csv",
+        /* 10 */ "JE library.csv",
+        /* 11 */ "JE Malls.csv",
+        /* 12 */ "JE MRTs.csv",
+        /* 13 */ "JE museum.csv",
+        /* 14 */ "JE PrivateEducationInstitution.csv",
+        /* 15 */ "JE Religious Places.csv",
+        /* 16 */ "JE schools.csv"
       };
       
+      int x, y;
+      String type, subtype;
       for (int i=0; i<fileNames.length; i++) {
-        POI_CSV = loadTable("data/POI/" + fileNames[i]);
+        POI_CSV = loadTable("data/POI/" + fileNames[i], "header");
+        
+        type = "";
+        subtype = "";
+        
+        switch(i) {
+          case 0:
+            type = "ammenity";
+            subtype = "health";
+            break;
+          case 1:
+            type = "transit";
+            subtype = "bus_stop";
+            break;
+          case 2:
+            type = "ammenity";
+            subtype = "child_care";
+            break;
+          case 3:
+            type = "ammenity";
+            subtype = "health";
+            break;
+          case 4:
+            type = "ammenity";
+            subtype = "eldercare";
+            break;
+          case 5:
+            type = "ammenity";
+            subtype = "eldercare";
+            break;
+          case 6:
+            type = "ammenity";
+            subtype = "retail";
+            break;
+          case 7:
+            type = "ammenity";
+            subtype = "health";
+            break;
+          case 8:
+            type = "ammenity";
+            subtype = "retail";
+            break;
+          case 9:
+            type = "ammenity";
+            subtype = "school";
+            break;
+          case 10:
+            type = "ammenity";
+            subtype = "school";
+            break;
+          case 11:
+            type = "ammenity";
+            subtype = "retail";
+            break;
+          case 12:
+            type = "transit";
+            subtype = "mrt";
+            break;
+          case 13:
+            type = "ammenity";
+            subtype = "school";
+            break;
+          case 14:
+            type = "ammenity";
+            subtype = "school";
+            break;
+          case 15:
+            type = "ammenity";
+            subtype = "retail";
+            break;
+          case 16:
+            type = "ammenity";
+            subtype = "school";
+            break;
+        }
+        
+        for (int j=0; j<POI_CSV.getRowCount(); j++) {
+          TableRow entry = pointsOfInterest.addRow();
+          entry.setFloat("lat", POI_CSV.getFloat(j, "Y"));
+          entry.setFloat("lon", POI_CSV.getFloat(j, "X"));
+          entry.setString("type", type);
+          entry.setString("subtype", subtype);
+        }
       }
-      
+      println("Points of Interest Loaded: " + pointsOfInterest.getRowCount());
     }
     
 // Method that opens a folder
