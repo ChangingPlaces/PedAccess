@@ -374,15 +374,16 @@ class Graph {
       p.ellipse(nodes.get(i).node.x, nodes.get(i).node.y, SCALE/2, SCALE/2);
     }
     
-//    // Draws Edges that Connect Nodes
-//    int neighbor;
-//    for (int i=0; i<nodes.size(); i++) {
-//      for (int j=0; j<nodes.get(i).neighbors.size(); j++) {
-//        neighbor = nodes.get(i).neighbors.get(j);
-//        //println(neighbor);
-//        p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
-//      }
-//    }
+    // Draws Edges that Connect Nodes
+    int neighbor;
+    for (int i=0; i<nodes.size(); i++) {
+      for (int j=0; j<nodes.get(i).neighbors.size(); j++) {
+        neighbor = nodes.get(i).neighbors.get(j);
+        //println(neighbor);
+        pedColor(p, nodes.get(i).type);
+        p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
+      }
+    }
   }
   
 }

@@ -430,7 +430,7 @@ class Swarm {
   }
   
   void displayPath(PGraphics p) {
-    p.strokeWeight(2);
+    p.strokeWeight(5);
     
 //    // Draw Path Nodes
 //    for (int i=0; i<testPath.size(); i++) {
@@ -440,7 +440,8 @@ class Swarm {
     
     // Draw Path Edges
     for (int i=0; i<path.size()-1; i++) {
-      p.stroke(#00FF00);
+      p.strokeWeight(2);
+      p.stroke(#0000FF);
       p.line(path.get(i).x, path.get(i).y, path.get(i+1).x, path.get(i+1).y);
     }
     

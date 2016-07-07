@@ -127,8 +127,7 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
     int v = amenity.getJSONObject(i).getInt("v") - gridPanV - gridV/2;
     int x = int( u*(float(p.width )/displayU)  );
     int y = int( v*(float(p.height)/displayV) );
-    
-    nodes[i] = new PVector(x, y);
+    nodes[i] = new PVector(x, y, 0); // z=0 for ammenity
   }
   
   for (int i=0; i<transit.size(); i++) {
@@ -136,8 +135,7 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
     int v = transit.getJSONObject(i).getInt("v") - gridPanV - gridV/2;
     int x = int( u*(float(p.width )/displayU)  );
     int y = int( v*(float(p.height)/displayV) );
-    
-    nodes[amenity.size() + i] = new PVector(x, y);
+    nodes[amenity.size() + i] = new PVector(x, y, 1); // z=1 for transit
   }
   
   for (int i=0; i<newPOIs.size(); i++) {
@@ -145,16 +143,21 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
     int v = newPOIs.getJSONObject(i).getInt("v") - gridPanV - gridV/2;
     int x = int( u*(float(p.width )/displayU)  );
     int y = int( v*(float(p.height)/displayV) );
-    
-    nodes[amenity.size() + transit.size() + i] = new PVector(x, y);
+    int z;
+    if (newPOIs.getJSONObject(i).getString("type").equals("transit")) {
+      z = 1;
+    } else {
+      z = 0;
+    }
+    nodes[amenity.size() + transit.size() + i] = new PVector(x, y, z);
   }
   
   for (int i=0; i<numNodes; i++) {
     for (int j=0; j<numNodes-1; j++) {
       
-      origin[i*(numNodes-1)+j] = new PVector(nodes[i].x, nodes[i].y);
+      origin[i*(numNodes-1)+j] = new PVector(nodes[i].x, nodes[i].y, nodes[i].z);
       
-      destination[i*(numNodes-1)+j] = new PVector(nodes[(i+j+1)%(numNodes)].x, nodes[(i+j+1)%(numNodes)].y);
+      destination[i*(numNodes-1)+j] = new PVector(nodes[(i+j+1)%(numNodes)].x, nodes[(i+j+1)%(numNodes)].y, nodes[(i+j+1)%(numNodes)].z);
       
       weight[i*(numNodes-1)+j] = 1.0;
       
@@ -169,8 +172,9 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
     boolean walkingDist = (abs(origin[i].x - destination[i].x) + abs(origin[i].y - destination[i].y) ) < 0.3/(gridSize/(p.width/displayU)) ;
     boolean origin_tableArea = origin[i].x > 0 && origin[i].x < p.width && origin[i].y > 0 && origin[i].y < p.height;
     boolean destination_tableArea = destination[i].x > 0 && destination[i].x < p.width && destination[i].y > 0 && destination[i].y < p.height;
+    boolean transitTransfer = destination[i].z == 1 && origin[i].z == 1;
     
-    if (walkingDist && (origin_tableArea || destination_tableArea) ) {
+    if (walkingDist && (origin_tableArea || destination_tableArea) && !transitTransfer) {
     
       // delay, origin, destination, speed, color
       swarmHorde.addSwarm(weight[i], origin[i], destination[i], 1, color(255.0*i/numSwarm, 255, 255));

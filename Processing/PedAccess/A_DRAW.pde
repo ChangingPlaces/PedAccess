@@ -1,6 +1,6 @@
 boolean showPaths = true;
 boolean showGrid = true;
-boolean showSource = true;
+boolean showSource = false;
 boolean showEdges = false;
 boolean showSwarm = true;
 boolean showInfo = false;
@@ -21,7 +21,7 @@ color ped_bridge = #FF453B;
 color ped_2nd = #4BCB2F;
 
 void pedColor(PGraphics p, String type) {
-  int pedAlpha = 100;
+  int pedAlpha = 50;
   color stroke = color(255);
   color fill = color(255);
   
@@ -50,7 +50,7 @@ void pedColor(PGraphics p, String type) {
     fill = ped_2nd;
   }
   
-  p.stroke(stroke);
+  p.stroke(stroke, pedAlpha);
   p.fill(fill, pedAlpha);
 }
 
