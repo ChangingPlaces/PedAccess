@@ -363,7 +363,7 @@ class Graph {
     // Draws Tangent Circles Centered at pathfinding nodes
     for (int i=0; i<nodes.size(); i++) {
       pedColor(p, nodes.get(i).type);
-      p.ellipse(nodes.get(i).node.x, nodes.get(i).node.y, SCALE, SCALE);
+      p.ellipse(nodes.get(i).node.x, nodes.get(i).node.y, SCALE/2, SCALE/2);
     }
     
 //    // Draws Edges that Connect Nodes

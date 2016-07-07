@@ -22,8 +22,6 @@ void initCanvas() {
 
 void initContent(PGraphics p) {
   
-  importPointsOfInterest();
-  
   finderMode = 4;
   finderResolution = p.width/(18*4);
   initObstacles(p);
@@ -60,10 +58,13 @@ void initAgents(PGraphics p) {
   
   println("Initializing Agent Objects ... ");
   
-  swarmHorde = new Horde(1000);
+  importPointsOfInterest();
+  
+  swarmHorde = new Horde(int(50*gridSize*1000));
   sources_Viz = createGraphics(p.width, p.height);
   edges_Viz = createGraphics(p.width, p.height);
-  testNetwork_Random(p, 16);
+  //testNetwork_Random(p, 16);
+  amenityNetwork(p, amenity, transit);
   
   swarmPaths(p, enablePathfinding);
   sources_Viz(p);
@@ -105,6 +106,73 @@ void hurrySwarms(int frames) {
   }
   showSwarm = true;
   //speed = 1.5;
+}
+
+void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit) {
+  int numNodes, numEdges, numSwarm;
+  
+  numNodes = amenity.size() + transit.size();
+  numEdges = numNodes*(numNodes-1);
+  numSwarm = numEdges;
+  
+  nodes = new PVector[numNodes];
+  origin = new PVector[numSwarm];
+  destination = new PVector[numSwarm];
+  weight = new float[numSwarm];
+  swarmHorde.clearHorde();
+
+  
+  for (int i=0; i<amenity.size(); i++) {
+    int u = amenity.getJSONObject(i).getInt("u") - gridPanU - gridU/2;
+    int v = amenity.getJSONObject(i).getInt("v") - gridPanV - gridV/2;
+    int x = int( u*(float(p.width )/displayU)  );
+    int y = int( v*(float(p.height)/displayV) );
+    
+    nodes[i] = new PVector(x, y);
+  }
+  
+  for (int i=0; i<transit.size(); i++) {
+    int u = transit.getJSONObject(i).getInt("u") - gridPanU - gridU/2;
+    int v = transit.getJSONObject(i).getInt("v") - gridPanV - gridV/2;
+    int x = int( u*(float(p.width )/displayU)  );
+    int y = int( v*(float(p.height)/displayV) );
+    
+    nodes[amenity.size() + i] = new PVector(x, y);
+  }
+  
+  for (int i=0; i<numNodes; i++) {
+    for (int j=0; j<numNodes-1; j++) {
+      
+      origin[i*(numNodes-1)+j] = new PVector(nodes[i].x, nodes[i].y);
+      
+      destination[i*(numNodes-1)+j] = new PVector(nodes[(i+j+1)%(numNodes)].x, nodes[(i+j+1)%(numNodes)].y);
+      
+      weight[i*(numNodes-1)+j] = 1.0;
+      
+      //println("swarm:" + (i*(numNodes-1)+j) + "; (" + i + ", " + (i+j+1)%(numNodes) + ")");
+    }
+  }
+  
+    // rate, life, origin, destination
+  colorMode(HSB);
+  for (int i=0; i<numSwarm; i++) {
+    
+    boolean walkingDist = (abs(origin[i].x - destination[i].x) + abs(origin[i].y - destination[i].y) ) < 0.3/(gridSize/(p.width/displayU)) ;
+    boolean origin_tableArea = origin[i].x > 0 && origin[i].x < p.width && origin[i].y > 0 && origin[i].y < p.height;
+    boolean destination_tableArea = destination[i].x > 0 && destination[i].x < p.width && destination[i].y > 0 && destination[i].y < p.height;
+    
+    if (walkingDist && (origin_tableArea || destination_tableArea) ) {
+    
+      // delay, origin, destination, speed, color
+      swarmHorde.addSwarm(weight[i], origin[i], destination[i], 1, color(255.0*i/numSwarm, 255, 255));
+      
+      // Makes sure that agents 'staying put' eventually die
+      swarmHorde.getSwarm(i).temperStandingAgents();
+    }
+  }
+  colorMode(RGB);
+  
+  swarmHorde.popScaler(1.0);
 }
 
 void testNetwork_Random(PGraphics p, int _numNodes) {

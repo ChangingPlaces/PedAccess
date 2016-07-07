@@ -751,13 +751,34 @@ void mousePressed() {
   } else {
     gridWasOn = false;
   }
+  
+  if (showPaths) {
+    pathsWasOn = true;
+  } else {
+    pathsWasOn = false;
+  }
+  
+  if (showSource) {
+    sourceWasOn = true;
+  } else {
+    sourceWasOn = false;
+  }
+  
+  if (showSwarm) {
+    swarmWasOn = true;
+  } else {
+    swarmWasOn = false;
+  }
 }
 
 boolean dragging = false;
-boolean mapWasOn, gridWasOn;
+boolean mapWasOn, gridWasOn, pathsWasOn, swarmWasOn, sourceWasOn;
 void mouseDragged() {
   showBasemap = false;
   showGrid = false;
+  showSwarm = false;
+  showPaths = false;
+  showSource = false;
   dragging = true;
   scroll_x = scroll_x_0 + mouseX - x_0;
   scroll_y = scroll_y_0 + mouseY - y_0;
@@ -792,6 +813,15 @@ void mouseReleased() {
     if (gridWasOn) {
       showGrid = true;
     }
+    if (swarmWasOn) {
+      showSwarm = true;
+    }
+    if (sourceWasOn) {
+      showSource = true;
+    }
+    if (pathsWasOn) {
+      showPaths = true;
+    }
     dragging  = false;
     
     loadBasemap();
@@ -800,6 +830,7 @@ void mouseReleased() {
   scroll_y_0 = scroll_y;
   changeDetected = true;
   refreshFinder(tableCanvas);
+  initAgents(tableCanvas);
   reRender();
 }
 
@@ -948,6 +979,7 @@ void setGridSize(float size) {
   resetGridParameters();
   
   refreshFinder(tableCanvas);
+  initAgents(tableCanvas);
   
   if (implementMenu) depressZoomButtons(size);
   reloadData(gridU, gridV, modeIndex);
