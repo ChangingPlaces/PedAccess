@@ -64,7 +64,7 @@ void initAgents(PGraphics p) {
   sources_Viz = createGraphics(p.width, p.height);
   edges_Viz = createGraphics(p.width, p.height);
   //testNetwork_Random(p, 16);
-  amenityNetwork(p, amenity, transit);
+  amenityNetwork(p, amenity, transit, newPOIs);
   
   swarmPaths(p, enablePathfinding);
   sources_Viz(p);
@@ -108,10 +108,10 @@ void hurrySwarms(int frames) {
   //speed = 1.5;
 }
 
-void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit) {
+void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray newPOIs) {
   int numNodes, numEdges, numSwarm;
   
-  numNodes = amenity.size() + transit.size();
+  numNodes = amenity.size() + transit.size() + newPOIs.size();
   numEdges = numNodes*(numNodes-1);
   numSwarm = numEdges;
   
@@ -138,6 +138,15 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit) {
     int y = int( v*(float(p.height)/displayV) );
     
     nodes[amenity.size() + i] = new PVector(x, y);
+  }
+  
+  for (int i=0; i<newPOIs.size(); i++) {
+    int u = newPOIs.getJSONObject(i).getInt("u") - gridPanU - gridU/2;
+    int v = newPOIs.getJSONObject(i).getInt("v") - gridPanV - gridV/2;
+    int x = int( u*(float(p.width )/displayU)  );
+    int y = int( v*(float(p.height)/displayV) );
+    
+    nodes[amenity.size() + transit.size() + i] = new PVector(x, y);
   }
   
   for (int i=0; i<numNodes; i++) {
@@ -305,7 +314,7 @@ void initPathfinder(PGraphics p, int res) {
   
   // Initializes a Custom Pathfinding network Based off of JSON file
   importPedNetwork();
-  initJSONFinder(p, res, pedNetwork);
+  initJSONFinder(p, res, pedNetwork, newNodes);
   
   // Initializes a Custom Pathfinding network Based off of user-drawn Obstacle Course
   initCustomFinder(p, res);
@@ -332,8 +341,8 @@ void initPathfinder(PGraphics p, int res) {
   println("Pathfinders initialized.");
 }
 
-void initJSONFinder(PGraphics p, int res, JSONArray network) {
-  finderJSON = new Pathfinder(p.width, p.height, res, 0.0, network); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
+void initJSONFinder(PGraphics p, int res, JSONArray network, JSONArray newNodes) {
+  finderJSON = new Pathfinder(p.width, p.height, res, 0.0, network, newNodes); // 4th float object is a number 0-1 that represents how much of the network you would like to randomly cull, 0 being none
   //finderJSON.applyObstacleCourse(boundaries);
 }
 
@@ -356,7 +365,7 @@ void refreshFinder(PGraphics p) {
   
   // Initializes a Custom Pathfinding network Based off of JSON file
   importPedNetwork();
-  initJSONFinder(p, finderResolution, pedNetwork);
+  initJSONFinder(p, finderResolution, pedNetwork, newNodes);
   
   setFinder(p, finderMode);
   initPath(pFinder, A, B);
@@ -380,7 +389,7 @@ void resetFinder(PGraphics p, int res, int _finderMode) {
       initGridFinder(p, res);
       break;
     case 4: 
-      initJSONFinder(p, res, pedNetwork);
+      initJSONFinder(p, res, pedNetwork, newNodes);
       break;
   }
   setFinder(p, _finderMode);

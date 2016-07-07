@@ -160,6 +160,9 @@ void draw() {
   // Decode pieces only if there is a change in Colortizer input
   if (changeDetected) {
     decodePieces();
+    println("New Pieces: " + newPOIs.size());
+    refreshFinder(tableCanvas);
+    initAgents(tableCanvas);
     if (!enableCTL) {
       updateFacilitiesList();
       updateOutput();

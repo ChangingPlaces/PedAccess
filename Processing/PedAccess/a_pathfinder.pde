@@ -25,8 +25,8 @@ class Pathfinder {
     refresh();
   }
   
-  Pathfinder(int w, int h, float res, float cullRatio, JSONArray JSONnetwork) {
-    network = new Graph(w, h, res, JSONnetwork);
+  Pathfinder(int w, int h, float res, float cullRatio, JSONArray JSONnetwork, JSONArray newJSONNodes) {
+    network = new Graph(w, h, res, JSONnetwork, newJSONNodes);
     refresh();
   }
   
@@ -219,7 +219,7 @@ class Graph {
   }
   
   // Using the canvas width and height in pixels, a gridded graph is generated with a pixel spacing of 'scale' according to a JSON array.
-  Graph (int w, int h, float scale, JSONArray JSONnetwork) {
+  Graph (int w, int h, float scale, JSONArray JSONnetwork, JSONArray newJSONNodes) {
     U = int(w/scale);
     V = int(h/scale);
     SCALE = scale;
@@ -232,10 +232,18 @@ class Graph {
     String type;
     float distancePenalty;
     
-    for (int k=0; k<JSONnetwork.size(); k++) {
-      u = JSONnetwork.getJSONObject(k).getInt("u") - gridPanU - gridU/2;
-      v = JSONnetwork.getJSONObject(k).getInt("v") - gridPanV - gridV/2;
-      type = JSONnetwork.getJSONObject(k).getString("type");
+    for (int k=0; k<JSONnetwork.size() + newJSONNodes.size(); k++) {
+      
+      if (k < JSONnetwork.size()) {
+        u = JSONnetwork.getJSONObject(k).getInt("u") - gridPanU - gridU/2;
+        v = JSONnetwork.getJSONObject(k).getInt("v") - gridPanV - gridV/2;
+        type = JSONnetwork.getJSONObject(k).getString("type");
+      } else {
+        u = newJSONNodes.getJSONObject(k-JSONnetwork.size()).getInt("u") - gridPanU - gridU/2;
+        v = newJSONNodes.getJSONObject(k-JSONnetwork.size()).getInt("v") - gridPanV - gridV/2;
+        type = newJSONNodes.getJSONObject(k-JSONnetwork.size()).getString("type");
+        println( "Node added at ", u, v, type);
+      }
       
       // positive penalty makes effective distance x-times longer
       // negative penalty makes effective distance x-times shorter
