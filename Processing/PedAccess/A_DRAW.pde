@@ -13,6 +13,47 @@ int background = 0;
 int textColor = 255;
 int grayColor = int(abs(background - (255.0/2)*schemeScaler));
 
+color road = #D6D6D6;
+color ped_ground = #FFFA95;
+color ped_xing = #FF9A3B;
+color ped_linkway = #3BFFF4;
+color ped_bridge = #FF453B;
+color ped_2nd = #4BCB2F;
+
+void pedColor(PGraphics p, String type) {
+  int pedAlpha = 100;
+  color stroke = color(255);
+  color fill = color(255);
+  
+  if (type.equals("road")) {
+    stroke = road;
+    fill = road;
+  }
+  if (type.equals("ped_ground")) {
+    stroke = ped_ground;
+    fill = ped_ground;
+  }
+  if (type.equals("ped_xing")) {
+    stroke = ped_xing;
+    fill = ped_xing;
+  }
+  if (type.equals("ped_linkway")) {
+    stroke = ped_linkway;
+    fill = ped_linkway;
+  }
+  if (type.equals("ped_bridge")) {
+    stroke = ped_bridge;
+    fill = ped_bridge;
+  }
+  if (type.equals("ped_2nd")) {
+    stroke = ped_2nd;
+    fill = ped_2nd;
+  }
+  
+  p.stroke(stroke);
+  p.fill(fill, pedAlpha);
+}
+
 // temp variable that holds coordinate location for a point to render
 PVector coord;
 

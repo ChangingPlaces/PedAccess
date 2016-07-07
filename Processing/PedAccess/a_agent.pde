@@ -373,9 +373,9 @@ class Swarm {
           v.display(p, fill, 255);
         } else if(colorMode.equals("grayscale")) {
           // Draws grayscaled agents
-          v.display(p, #333333, 100);
+          v.display(p, #FFFFFF, 255);
         } else {
-          v.display(p, fill, 100);
+          v.display(p, fill, 255);
         }
       }
     }
@@ -579,7 +579,8 @@ class Horde {
   
   void display(PGraphics p) {
     for (int i=0; i<horde.size(); i++) {
-        horde.get(i).display(p, "color");
+      //horde.get(i).display(p, "color");
+      horde.get(i).display(p, "grayscale");
     }
   }
   

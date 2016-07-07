@@ -229,13 +229,28 @@ class Graph {
     nodes = new ArrayList<Node>();
     
     int u, v;
+    String type;
+    float distancePenalty;
+    
     for (int k=0; k<JSONnetwork.size(); k++) {
       u = JSONnetwork.getJSONObject(k).getInt("u") - gridPanU - gridU/2;
       v = JSONnetwork.getJSONObject(k).getInt("v") - gridPanV - gridV/2;
+      type = JSONnetwork.getJSONObject(k).getString("type");
+      
+      // positive penalty makes effective distance x-times longer
+      // negative penalty makes effective distance x-times shorter
+      distancePenalty = 0.0;
+      
+      if (type.equals("road")) distancePenalty = 100.0;
+      if (type.equals("ped_ground")) distancePenalty = 0.0;
+      if (type.equals("ped_xing")) distancePenalty = 0.5;
+      if (type.equals("ped_linkway")) distancePenalty = -0.25;
+      if (type.equals("ped_bridge")) distancePenalty = 1.0;
+      if (type.equals("ped_2nd")) distancePenalty = 50000;
       
       if (u >= 0 && u < U && 
           v >= 0 && v < V) {
-        nodes.add(new Node(u*SCALE + scale/2, v*SCALE + scale/2));
+        nodes.add(new Node(u*SCALE + scale/2, v*SCALE + scale/2, type, distancePenalty));
       }
     }
     
@@ -342,10 +357,12 @@ class Graph {
     int base = 155;
     //p.stroke(abs( background - base*schemeScaler ), 255);
     p.stroke(abs( 255 - background - base*schemeScaler ), 255);
-    p.strokeWeight(1);
+    
+    p.strokeWeight(2);
     
     // Draws Tangent Circles Centered at pathfinding nodes
     for (int i=0; i<nodes.size(); i++) {
+      pedColor(p, nodes.get(i).type);
       p.ellipse(nodes.get(i).node.x, nodes.get(i).node.y, SCALE, SCALE);
     }
     
@@ -364,21 +381,37 @@ class Graph {
 
 class Node {
   PVector node;
+  String type;
+  
+  // positive penalty makes effective distance longer
+  // negative penalty makes effective distance shorter
+  float distancePenalty;
   
   // Variables to describe relationship to neighbors
   ArrayList<Integer> neighbors;
   ArrayList<Float> distance;
   
-  
   Node (float x, float y) {
     node = new PVector(x,y);
     neighbors = new ArrayList<Integer>();
     distance = new ArrayList<Float>();
+    type = "";
+    distancePenalty = 0.0;
+  }
+  
+  Node (float x, float y, String type, float distancePenalty) {
+    node = new PVector(x,y);
+    neighbors = new ArrayList<Integer>();
+    distance = new ArrayList<Float>();
+    this.type = type;
+    this.distancePenalty = distancePenalty;
   }
   
   void addNeighbor(int n, float d) {
     neighbors.add(n);
-    distance.add(d);
+    // positive penalty makes effective distance longer
+    // negative penalty makes effective distance shorter
+    distance.add(d*(1 + distancePenalty));
   }
   
   void clearNeighbors() {
