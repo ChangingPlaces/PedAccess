@@ -84,7 +84,7 @@ void sanjoseMode() {
   MAX_GRID_SIZE = 2.0;
 }
 
-// Sets Default Paramters for San Jose Area
+// Sets Default Paramters for Singapore
 void singaporeMode() {
   centerLatitude = 1.3342;
   centerLongitude = 103.74234;

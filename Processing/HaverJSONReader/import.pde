@@ -17,20 +17,8 @@ void importNodes() {
   
   println("Number of nodes: " + nodes.size());
   
-//  // Loads Nina's exported nodes
-//  nodes40 = loadJSONArray("data/nodes40_meters_72_by_88.json");
-//  println("Number of 40m nodes: " + nodes40.size());
-//  
-//  nodes20 = loadJSONArray("data/nodes20_meters_144_by_176.json");
-//  println("Number of 20m nodes: " + nodes20.size());
-//  
-//  nodes10 = loadJSONArray("data/nodes10_meters_288_by_352.json");
-//  println("Number of 10m nodes: " + nodes10.size());
-  
-//  // Cleans nodes such that u, v are in grid units, not pixels
-//  cleanNodes(nodes40, 72);
-//  cleanNodes(nodes20, 144);
-//  cleanNodes(nodes10, 288);
+  amenity = loadJSONArray("data/ammenities_" + scale + "m.json");
+  transit = loadJSONArray("data/transitStops_" + scale + "m.json");
   
 }
 

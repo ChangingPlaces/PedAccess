@@ -2,7 +2,7 @@
 // The script has the effect of pixelating the data such that each grid square has metadata associated with it.
 
 PImage map;
-JSONArray nodes;
+JSONArray nodes, amenity, transit;
 
 // Change this number to 5, 10, 20, or 40m per grid unit
 int scale = 20;
@@ -26,8 +26,11 @@ void setup() {
     processRaster(networkRaster[i], gridU, gridV, i);
   }
   
+  // Resamples each lat-lon point in a CSV file and converts into grid of nodes
+  processPointsOfInterest();
+      
   // saves the JSONArray to file
-    switch(scale) {
+  switch(scale) {
     case 5:
       saveJSONArray(rasterNodes, "data/" + data5);
       break;
@@ -42,6 +45,9 @@ void setup() {
       break;
   }
   
+  saveJSONArray(ammenities, "data/ammenities_" + scale + "m.json");
+  saveJSONArray(transitStops, "data/transitStops_" + scale + "m.json");
+  
   // Loads Node Network from JSON
   importNodes();
   
@@ -53,6 +59,9 @@ void setup() {
   // Draws the Node Network
   drawNodes(nodes, gridU);
   
+  // Draws the Ammenities and Bus Stops
+  drawNodes(amenity, gridU);
+  drawNodes(transit, gridU);
 }
 
 void drawNodes(JSONArray nodes, int arrayWidth) {
@@ -77,6 +86,9 @@ void drawNodes(JSONArray nodes, int arrayWidth) {
     color ped_bridge = #FF453B;
     color ped_2nd = #4BCB2F;
     
+    color amenity = #1E9D16;
+    color transit = #FF0000;
+    
     if (node.getString("type").equals("road")) {
       stroke(road);
     }
@@ -94,6 +106,14 @@ void drawNodes(JSONArray nodes, int arrayWidth) {
     }
     if (node.getString("type").equals("ped_2nd")) {
       stroke(ped_2nd);
+    }
+    if (node.getString("type").equals("amenity")) {
+      stroke(amenity);
+      fill(amenity);
+    }
+    if (node.getString("type").equals("transit")) {
+      stroke(transit);
+      fill(transit);
     }
     
     ellipse (u*gridWidth, v*gridWidth, gridWidth, gridWidth);
