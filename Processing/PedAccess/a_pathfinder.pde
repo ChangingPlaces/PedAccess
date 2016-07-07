@@ -246,7 +246,7 @@ class Graph {
       if (type.equals("ped_xing")) distancePenalty = 0.5;
       if (type.equals("ped_linkway")) distancePenalty = -0.25;
       if (type.equals("ped_bridge")) distancePenalty = 1.0;
-      if (type.equals("ped_2nd")) distancePenalty = 50000;
+      if (type.equals("ped_2nd")) distancePenalty = -0.5;
       
       if (u >= 0 && u < U && 
           v >= 0 && v < V) {
