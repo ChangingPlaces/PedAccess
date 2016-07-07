@@ -142,16 +142,3 @@ void renderTableCanvas() {
   image(tableCanvas, TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
 }  
 
-// Method that opens a folder
-String folderPath;
-void folderSelected(File selection) {
-  if (selection == null) { // Notifies console and closes program
-    println("User did not select a folder");
-    exit();
-  } else { // intitates the rest of the software
-    println("User selected " + selection.getAbsolutePath());
-    folderPath = selection.getAbsolutePath() + "/";
-    // some other startup function
-  }
-}
-

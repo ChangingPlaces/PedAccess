@@ -21,6 +21,9 @@ void initCanvas() {
 }
 
 void initContent(PGraphics p) {
+  
+  importPointsOfInterest();
+  
   finderMode = 4;
   finderResolution = p.width/(18*4);
   initObstacles(p);

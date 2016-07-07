@@ -318,3 +318,54 @@
       else if (gridSize == 0.02) pedNetwork = loadJSONArray("data/nodes20_meters_144_by_176.json");
       println("Number of nodes: " + pedNetwork.size());
     }
+    
+// Initialize Ammenity and Bus Stop Data
+
+    JSONArray ammenities, transitStops;
+    Table POI_CSV, pointsOfInterest;
+    
+    void importPointsOfInterest() {
+      pointsOfInterest = new Table();
+      pointsOfInterest.addColumn("Lat");
+      pointsOfInterest.addColumn("Lon");
+      pointsOfInterest.addColumn("Type"); // Ammenity or Bus Stop
+      pointsOfInterest.addColumn("SubType"); // Type of Ammenity or Bus Stop
+
+      String[] fileNames = {     
+        "JE AquaticSG.csv",
+        "JE Busstop.csv",
+        "JE childcare.csv",
+        "JE clinic.csv",
+        "JE communityclubs.csv",
+        "JE eldercare.csv",
+        "JE hawkercenter.csv",
+        "JE Hospitals.csv",
+        "JE hotels.csv",
+        "JE kindergartens.csv",
+        "JE library.csv",
+        "JE Malls.csv",
+        "JE MRTs.csv",
+        "JE museum.csv",
+        "JE PrivateEducationInstitution.csv",
+        "JE Religious Places.csv",
+        "JE schools.csv"
+      };
+      
+      for (int i=0; i<fileNames.length; i++) {
+        POI_CSV = loadTable("data/POI/" + fileNames[i]);
+      }
+      
+    }
+    
+// Method that opens a folder
+String folderPath;
+void folderSelected(File selection) {
+  if (selection == null) { // Notifies console and closes program
+    println("User did not select a folder");
+    exit();
+  } else { // intitates the rest of the software
+    println("User selected " + selection.getAbsolutePath());
+    folderPath = selection.getAbsolutePath() + "/";
+    // some other startup function
+  }
+}
