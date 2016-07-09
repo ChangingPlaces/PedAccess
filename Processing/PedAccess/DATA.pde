@@ -119,7 +119,7 @@
       initializeBaseMap();
       
       // Initialize PEdestrian Netowrk Rasters
-      importNetworkRaster();
+      //importNetworkRaster();
       
       // Loads Basemap from subset of file
       loadBasemap();

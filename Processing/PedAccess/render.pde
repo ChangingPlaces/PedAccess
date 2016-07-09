@@ -62,7 +62,7 @@ void renderTable() {
 
   // Draws a Google Satellite Image
   renderBasemap(table);
-  renderNetworkRaster(table);
+  //renderNetworkRaster(table);
   
   if (showPopulationData){
     table.image(p, 0, 0);

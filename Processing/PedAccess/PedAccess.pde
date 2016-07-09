@@ -43,11 +43,11 @@ int modeIndex = 2;
 int randomType = 2;
 
 int projectorWidth = 1920;
-int projectorHeight = 1200;
-int projectorOffset = 1800;
+int projectorHeight = 1080;
+int projectorOffset = 1882;
 
-int screenWidth = 1800;
-int screenHeight = 1000;
+int screenWidth = 1882;
+int screenHeight = 1058;
 
 boolean hideWallyWorld = true;
 boolean implementMenu = true;
