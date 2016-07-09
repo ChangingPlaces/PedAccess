@@ -55,7 +55,7 @@ boolean implementAgents = true;
 
 // Set this to true to display the main menu upon start
 boolean showMainMenu = true;
-boolean showFrameRate = true;
+boolean showFrameRate = false;
 
 boolean showStores = false;
 boolean showDeliveryData = false;
@@ -231,5 +231,14 @@ void draw() {
     UDPdelay--;
     if (UDPdelay == 0) allowUDP = true;
   }
+  
+  drawSideBar();
 
+}
+
+void drawSideBar() {
+  fill(#FF0000);
+  int barWidth = 4*TABLE_IMAGE_WIDTH/22;
+  int barHeight = TABLE_IMAGE_HEIGHT;
+  rect(TABLE_IMAGE_OFFSET - barWidth, STANDARD_MARGIN, barWidth, barHeight);
 }
