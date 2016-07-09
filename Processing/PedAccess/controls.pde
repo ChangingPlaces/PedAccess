@@ -540,10 +540,10 @@ void keyPressed() {
         alignLeft();
         switched = true;
         break;
-      case 'r': // "Align Right (r)"        // 8
-        alignRight();
-        switched = true;
-        break;
+//      case 'r': // "Align Right (r)"        // 8
+//        alignRight();
+//        switched = true;
+//        break;
   //    case 'c': // "Align Center (c)"       // 9
   //      alignCenter();
   //      break;
@@ -613,6 +613,56 @@ void keyPressed() {
         projH++;
         saveProjectorLocation();
         projectorMoved = true;
+        break;
+      case 'k': //show sources and sinks for agents
+        showSource = toggle(showSource);
+        break;
+      case 'r': //reset agents and simulation
+        setLoader("New Agents");
+        // runs key_r() next frame
+        break;
+      case 'f': //print framerate to console
+        showFrameRate = toggle(showFrameRate);
+        break;
+      case 'S': //toggles display of swarms of agents
+        showSwarm = toggle(showSwarm);
+        break;
+      case 'e': //shows network edges of motion
+        showEdges = toggle(showEdges);
+        break;
+      case 'b': //toggle background between black and white
+        background = toggleBW(background);
+        textColor = toggleBW(textColor);
+        grayColor = int(abs(background - (255.0/2)*schemeScaler));
+        pFinderGrid_Viz(tableCanvas);
+        break;
+      case 'P': //toggle display of shortest paths
+        showPaths = toggle(showPaths);
+        break;
+      case 'G': //toggle display for pathing grip
+        showGrid = toggle(showGrid);
+        break;
+      case '>': // Toggle network for pathfinding
+        setLoader("Pathfinder Mode " + nextMode(finderMode, 3));
+        // runs key_RightCarrot() next frame
+        break;
+      case '<': // Enable/Disable Pathfinding
+        setLoader("Pathfinder: " + toggle(enablePathfinding));
+        // runs key_LeftCarrot() next frame
+        break;
+      case '{': // Decrease Alpha
+        adjustAlpha(-10);
+        pFinderGrid_Viz(tableCanvas);
+        grayColor = int(abs(background - (255.0/2)*schemeScaler));
+        println("schemeScaler: " + schemeScaler);
+        println("masterAlpha: " + masterAlpha);
+        break;
+      case '}': // Increase Alpha
+        adjustAlpha(+10);
+        pFinderGrid_Viz(tableCanvas);
+        grayColor = int(abs(background - (255.0/2)*schemeScaler));
+        println("schemeScaler: " + schemeScaler);
+        println("masterAlpha: " + masterAlpha);
         break;
     }
     
