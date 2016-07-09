@@ -152,7 +152,7 @@ void drawTableCanvas(PGraphics p) {
       }
     
       // Renders Agent 'dots' and corresponding obstacles and heatmaps
-      if (showSwarm) {
+      if (showSwarm && changeClock == 0) {
           swarmHorde.display(p);
       }
       

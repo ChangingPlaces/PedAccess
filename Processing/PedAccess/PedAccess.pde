@@ -180,6 +180,7 @@ void draw() {
       sendCTLData();
     }
     renderDynamicTableLayers(input);
+    
     changeDetected = false;
   }
 
@@ -245,6 +246,13 @@ void draw() {
     drawPOIs();
     drawSideBar();
   }
+  
+  if (changeClock > 0) {
+    changeClock--;
+    if (changeClock == 0) changeDetected = true;
+  }
+  
+  println("changeClock " + changeClock);
 
 }
 

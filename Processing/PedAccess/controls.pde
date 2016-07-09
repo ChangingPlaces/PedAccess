@@ -839,6 +839,7 @@ void mouseReleased() {
   scroll_x_0 = scroll_x;
   scroll_y_0 = scroll_y;
   changeDetected = true;
+  changeClock = changeClockTime;
   refreshFinder(tableCanvas);
   initAgents(tableCanvas);
   reRender();
@@ -1023,6 +1024,7 @@ void toggleRandomPieces() {
   renderDynamicTableLayers(input);
   reRenderMiniMap(miniMap);
   changeDetected = true;
+  changeClock = changeClockTime;
   println("randomType = " + randomType);
 }
 

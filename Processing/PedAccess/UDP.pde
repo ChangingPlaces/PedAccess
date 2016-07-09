@@ -12,8 +12,11 @@ boolean busyImporting = false;
 boolean changeDetected = false;
 boolean outputReady = false;
 
+int changeClock = 0;
+int changeClockTime = 10;
+
 boolean allowUDP = false;
-int UDPdelay = 10;
+int UDPdelay = 20;
 
 void initUDP() {
   udp = new UDP( this, portIN );
@@ -131,6 +134,7 @@ void parseColortizerStrings(String data[]) {
             // Sets ID
             tablePieceInput[v_temp][u_temp][0] = int(split[0]);
             changeDetected = true;
+            changeClock = changeClockTime;
           }
         }
 
@@ -144,6 +148,7 @@ void parseColortizerStrings(String data[]) {
             //Identifies rotation vector of piece [WARNING: Colortizer supplies rotation in degrees (0, 90, 180, and 270)]
             tablePieceInput[v_temp][u_temp][1] = int(split[3])/90;
             changeDetected = true;
+            changeClock = changeClockTime;
           }
         }
       }
