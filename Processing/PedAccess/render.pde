@@ -19,6 +19,7 @@ color blueBrick =  #0000FF;
 color redBrick =   #FF0000;
 color blackBrick = #000000;
 color greenBrick = #00FF00;
+color whiteBrick = #FFFFFF;
 color walmart_yellow = #ffc220;
 color walmart_light_green = #76c043;
 color walmart_dark_blue = #004c91;
@@ -452,6 +453,8 @@ void renderNetworkRaster(PGraphics graphic) {
         input.fill(blackBrick);
       } else if (ID == 5) {
         input.fill(greenBrick);
+      } else if (ID == 6) {
+        input.fill(whiteBrick);
       }
     }
 

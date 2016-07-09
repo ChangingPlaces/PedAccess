@@ -162,8 +162,8 @@ void draw() {
   if (changeDetected) {
     decodePieces();
     println("New Pieces: " + newPOIs.size());
-    refreshFinder(tableCanvas);
-    initAgents(tableCanvas);
+    //refreshFinder(tableCanvas);
+    //initAgents(tableCanvas);
     if (!enableCTL) {
       updateFacilitiesList();
       updateOutput();

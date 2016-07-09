@@ -1,6 +1,6 @@
 // Arrays that holds ID information of rectilinear tile arrangement.
 int tablePieceInput[][][] = new int[displayU/4][displayV/4][2];
-int rotationMod = 0;
+int rotationMod = 1;
 
 JSONArray newPOIs, newNodes;
 
@@ -47,18 +47,18 @@ void setupPieces() {
   inputForm.add(form_0);
   
   // 1: Childcare
-  Integer[][] data_1 = {
+  Integer[][] data_3 = {
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 },
     { 0, 3, 0, 0 },
     { 0, 0, 0, 0 } };
-  Integer[][] form_1 = {
+  Integer[][] form_3 = {
     { 0, 0, 0, 0 },
     { 0, 3, 3, 0 },
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 } };
-  inputData.add(data_1);
-  inputForm.add(form_1);
+  inputData.add(data_3);
+  inputForm.add(form_3);
   
   // 2: Healthcare
   Integer[][] data_2 = {
@@ -75,32 +75,32 @@ void setupPieces() {
   inputForm.add(form_2);
   
   // 3: Eldercare
-  Integer[][] data_3 = {
+  Integer[][] data_1 = {
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 },
     { 0, 4, 0, 0 },
     { 0, 0, 0, 0 } };
-  Integer[][] form_3 = {
-    { 0, 0, 0, 0 },
+  Integer[][] form_1 = {
     { 0, 0, 0, 0 },
     { 0, 3, 3, 0 },
+    { 0, 0, 0, 0 },
     { 0, 0, 0, 0 } };
-  inputData.add(data_3);
-  inputForm.add(form_3);
+  inputData.add(data_1);
+  inputForm.add(form_1);
   
-  // 4: Transit Stop
+  // 4: Retail
   Integer[][] data_4 = {
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 },
-    { 0, 5, 0, 0 },
+    { 0, 7, 0, 0 },
     { 0, 0, 0, 0 } };
   Integer[][] form_4 = {
-    { 0, 4, 0, 0 },
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 } };
+    { 2, 2, 2, 2 },
+    { 2, 2, 2, 2 },
+    { 0, 0, 2, 2 },
+    { 0, 0, 2, 2 } };
   inputData.add(data_4);
-  inputForm.add(form_4);
+  inputForm.add(form_4);  
   
   // 5: Park
   Integer[][] data_5 = {
@@ -116,129 +116,129 @@ void setupPieces() {
   inputData.add(data_5);
   inputForm.add(form_5);
   
-  // 6: Retail
+  // 6: Transit Stop
   Integer[][] data_6 = {
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 },
-    { 0, 7, 0, 0 },
+    { 0, 5, 0, 0 },
     { 0, 0, 0, 0 } };
   Integer[][] form_6 = {
-    { 2, 2, 2, 2 },
-    { 2, 2, 2, 2 },
-    { 0, 0, 2, 2 },
-    { 0, 0, 2, 2 } };
+    { 0, 6, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 } };
   inputData.add(data_6);
-  inputForm.add(form_6);
+  inputForm.add(form_6);  
   
   // 7: Ped - Path
   Integer[][] data_7 = {
     { 0, 0, 0, 0 },
-    { 1, 1, 1, 1 },
+    { 6, 6, 6, 6 },
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 } };
   Integer[][] form_7 = {
     { 0, 0, 0, 0 },
-    { 1, 1, 1, 1 },
+    { 6, 6, 6, 6 },
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 } };
   inputData.add(data_7);
   inputForm.add(form_7);
-  
-  // 8: Elevated Path
+
+  // 8: No Definition
   Integer[][] data_8 = {
     { 0, 0, 0, 0 },
-    { 5, 5, 5, 5 },
+    { 0, 0, 0, 0 },
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 } };
   Integer[][] form_8 = {
-    { 2, 0, 0, 2 },
-    { 1, 1, 1, 1 },
-    { 2, 0, 0, 2 },
-    { 2, 0, 0, 2 } };
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 } };
   inputData.add(data_8);
   inputForm.add(form_8);
-  
-  // 9: POB
+
+  // 9: Housing
   Integer[][] data_9 = {
-    { 0, 0, 0, 4 },
-    { 4, 4, 4, 4 },
-    { 4, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
     { 0, 0, 0, 0 } };
   Integer[][] form_9 = {
-    { 0, 0, 0, 2 },
-    { 1, 1, 1, 1 },
-    { 2, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 1, 1, 0 },
+    { 0, 1, 1, 0 },
     { 0, 0, 0, 0 } };
   inputData.add(data_9);
   inputForm.add(form_9);
   
-  // 10: Delete
+  // 10: POB
   Integer[][] data_10 = {
+    { 0, 0, 0, 4 },
+    { 4, 4, 4, 4 },
+    { 4, 0, 0, 0 },
+    { 0, 0, 0, 0 } };
+  Integer[][] form_10 = {
+    { 0, 0, 0, 6 },
+    { 6, 6, 6, 6 },
+    { 6, 0, 0, 0 },
+    { 0, 0, 0, 0 } };
+  inputData.add(data_10);
+  inputForm.add(form_10);
+
+  // 11: No Definition
+  Integer[][] data_11 = {
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 } };
-  Integer[][] form_10 = {
-    { 4, 4, 4, 4 },
-    { 4, 4, 4, 4 },
-    { 4, 4, 4, 4 },
-    { 4, 4, 4, 4 } };
-  inputData.add(data_10);
-  inputForm.add(form_10);
+  Integer[][] form_11 = {
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 } };
+  inputData.add(data_11);
+  inputForm.add(form_11);
   
-  // 11: Crossing
-  Integer[][] data_11 = {
+  // 12: Elevated Path
+  Integer[][] data_12 = {
+    { 0, 0, 0, 0 },
+    { 5, 5, 5, 5 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 } };
+  Integer[][] form_12 = {
+    { 2, 0, 0, 2 },
+    { 6, 6, 6, 6 },
+    { 2, 0, 0, 2 },
+    { 2, 0, 0, 2 } };
+  inputData.add(data_12);
+  inputForm.add(form_12);
+  
+  // 13: Crossing
+  Integer[][] data_13 = {
     { 0, 2, 0, 0 },
     { 2, 2, 2, 2 },
     { 0, 2, 0, 0 },
     { 0, 2, 0, 0 } };
-  Integer[][] form_11 = {
-    { 0, 1, 0, 0 },
-    { 1, 1, 1, 1 },
-    { 0, 1, 0, 0 },
-    { 0, 1, 0, 0 } };
-  inputData.add(data_11);
-  inputForm.add(form_11);
-
-  // 12: Housing
-  Integer[][] data_12 = {
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 } };
-  Integer[][] form_12 = {
-    { 0, 0, 0, 0 },
-    { 0, 1, 1, 0 },
-    { 0, 1, 1, 0 },
-    { 0, 0, 0, 0 } };
-  inputData.add(data_12);
-  inputForm.add(form_12);
-  
-  // 13: No Definition
-  Integer[][] data_13 = {
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 } };
   Integer[][] form_13 = {
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 } };
+    { 0, 6, 0, 0 },
+    { 6, 6, 6, 6 },
+    { 0, 6, 0, 0 },
+    { 0, 6, 0, 0 } };
   inputData.add(data_13);
   inputForm.add(form_13);
   
-  // 14: No Definition
+  // 14: Delete
   Integer[][] data_14 = {
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 } };
   Integer[][] form_14 = {
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 },
-    { 0, 0, 0, 0 } };
+    { 4, 4, 4, 4 },
+    { 4, 4, 4, 4 },
+    { 4, 4, 4, 4 },
+    { 4, 4, 4, 4 } };
   inputData.add(data_14);
   inputForm.add(form_14);
   

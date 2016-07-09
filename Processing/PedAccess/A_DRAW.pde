@@ -2,7 +2,7 @@ boolean showPaths = true;
 boolean showGrid = true;
 boolean showSource = false;
 boolean showEdges = false;
-boolean showSwarm = true;
+boolean showSwarm = false;
 boolean showInfo = false;
 boolean showDemoMap = false;
 

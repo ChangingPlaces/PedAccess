@@ -1,7 +1,7 @@
 // click-based menu buttons are deactivated for "PedAccess" Singapore demo to increase framerate ... To re-activate:
 // 1. Set boolean implementMenu to true
 
-String layerSelected = "agents";
+String layerSelected = "pixelizer";
 // Options:
 // "agents"
 // "pixelizer"
