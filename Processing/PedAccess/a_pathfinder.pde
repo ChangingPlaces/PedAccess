@@ -108,14 +108,20 @@ class Pathfinder {
           if (current == b) {
             //println("Total Distance to Distination: " + totalDist[current]);
             
+            PVector currentVector = getNode(b);
+            findNodeType(currentVector, b);
+            
             // Working backward from destination, rebuilds optimal path to origin from parentNode data
             path.add(0, B); //Canvas Coordinate of destination
-            path.add(0, getNode(b) ); //PAthfinding node closest to destination
+            path.add(0, currentVector ); //PAthfinding node closest to destination
             current = b;
             while (!complete) {
-              path.add(0, getNode(parentNode[current]) );
+              currentVector = getNode(parentNode[current]);
+              findNodeType(currentVector, parentNode[current]);
+              path.add(0, currentVector );
               current = parentNode[current];
               
+            
               if (current == a) {
                 complete = true;
                 path.add(0, A); //Canvas Coordinate of origin
@@ -137,6 +143,15 @@ class Pathfinder {
     }
     
     return path;
+  }
+  
+  void findNodeType(PVector node, int i) {
+    if (getNodeType(i).equals("road")) node.z = 0;
+    if (getNodeType(i).equals("ped_ground")) node.z = 1;
+    if (getNodeType(i).equals("ped_xing")) node.z = 2;
+    if (getNodeType(i).equals("ped_linkway")) node.z = 3;
+    if (getNodeType(i).equals("ped_bridge")) node.z = 4;
+    if (getNodeType(i).equals("ped_2nd")) node.z = 5;
   }
   
   ArrayList<PVector> getVisited() {
@@ -178,6 +193,14 @@ class Pathfinder {
     }
     
     return node;
+  }
+  
+  String getNodeType(int i) {
+    if (i < networkSize) {
+      return network.nodes.get(i).type;
+    } else {
+      return "";
+    }
   }
   
   PVector getNode(int i) {
@@ -292,7 +315,7 @@ class Graph {
         dist = sqrt(sq(nodes.get(i).node.x - nodes.get(j).node.x) + sq(nodes.get(i).node.y - nodes.get(j).node.y));
         
         if (dist < 2*SCALE && dist != 0) {
-          nodes.get(i).addNeighbor(j, dist);
+          nodes.get(i).addNeighbor(j, dist, nodes.get(j).type);
         }
       }
     }
@@ -315,6 +338,16 @@ class Graph {
     }
     
     return neighbor;
+  }
+  
+  String getNeighborType(int i, int j) {
+    String type = "";
+    
+    if (getNeighborCount(i) > 0) {
+      type = nodes.get(i).neighborType.get(j);
+    }
+    
+    return type;
   }
   
   float getNeighborDistance (int i, int j) {
@@ -370,20 +403,23 @@ class Graph {
     
     // Draws Tangent Circles Centered at pathfinding nodes
     for (int i=0; i<nodes.size(); i++) {
-      pedColor(p, nodes.get(i).type);
-      p.ellipse(nodes.get(i).node.x, nodes.get(i).node.y, SCALE/2, SCALE/2);
+      pedColorbyString(p, nodes.get(i).type);
+      p.noFill();
+      p.ellipse(nodes.get(i).node.x, nodes.get(i).node.y, 0.75*SCALE, 0.75*SCALE);
+      //p.rect(nodes.get(i).node.x - SCALE/4, nodes.get(i).node.y - SCALE/4, SCALE/2, SCALE/2);
     }
     
-    // Draws Edges that Connect Nodes
-    int neighbor;
-    for (int i=0; i<nodes.size(); i++) {
-      for (int j=0; j<nodes.get(i).neighbors.size(); j++) {
-        neighbor = nodes.get(i).neighbors.get(j);
-        //println(neighbor);
-        pedColor(p, nodes.get(i).type);
-        p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
-      }
-    }
+//    // Draws Edges that Connect Nodes
+//    int neighbor;
+//    for (int i=0; i<nodes.size(); i++) {
+//      for (int j=0; j<nodes.get(i).neighbors.size(); j++) {
+//        neighbor = nodes.get(i).neighbors.get(j);
+//        //println(neighbor);
+//        pedColorbyString(p, nodes.get(i).type);
+//        p.line(nodes.get(i).node.x, nodes.get(i).node.y, nodes.get(neighbor).node.x, nodes.get(neighbor).node.y);
+//      }
+//    }
+
   }
   
 }
@@ -398,11 +434,13 @@ class Node {
   
   // Variables to describe relationship to neighbors
   ArrayList<Integer> neighbors;
+  ArrayList<String> neighborType;
   ArrayList<Float> distance;
   
   Node (float x, float y) {
     node = new PVector(x,y);
     neighbors = new ArrayList<Integer>();
+    neighborType = new ArrayList<String>();
     distance = new ArrayList<Float>();
     type = "";
     distancePenalty = 0.0;
@@ -411,13 +449,15 @@ class Node {
   Node (float x, float y, String type, float distancePenalty) {
     node = new PVector(x,y);
     neighbors = new ArrayList<Integer>();
+    neighborType = new ArrayList<String>();
     distance = new ArrayList<Float>();
     this.type = type;
     this.distancePenalty = distancePenalty;
   }
   
-  void addNeighbor(int n, float d) {
+  void addNeighbor(int n, float d, String type) {
     neighbors.add(n);
+    neighborType.add(type);
     // positive penalty makes effective distance longer
     // negative penalty makes effective distance shorter
     distance.add(d*(1 + distancePenalty));
@@ -425,6 +465,7 @@ class Node {
   
   void clearNeighbors() {
     neighbors.clear();
+    neighborType.clear();
     distance.clear();
   }
   

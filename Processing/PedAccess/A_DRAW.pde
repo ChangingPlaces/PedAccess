@@ -1,5 +1,5 @@
 boolean showPaths = true;
-boolean showGrid = true;
+boolean showGrid = false;
 boolean showSource = false;
 boolean showEdges = false;
 boolean showSwarm = false;
@@ -20,8 +20,31 @@ color ped_linkway = #3BFFF4;
 color ped_bridge = #FF453B;
 color ped_2nd = #4BCB2F;
 
-void pedColor(PGraphics p, String type) {
-  int pedAlpha = 50;
+void pedColorbyInt(PGraphics p, int type) {
+  switch (type) {
+    case 0:
+      pedColorbyString(p, "road");
+      break;
+    case 1:
+      pedColorbyString(p, "ped_ground");
+      break;
+    case 2:
+      pedColorbyString(p, "ped_xing");
+      break;
+    case 3:
+      pedColorbyString(p, "ped_linkway");
+      break;
+    case 4:
+      pedColorbyString(p, "ped_bridge");
+      break;
+    case 5:
+      pedColorbyString(p, "ped_2nd");
+      break;
+  }
+}
+
+void pedColorbyString(PGraphics p, String type) {
+  int pedAlpha = 255;
   color stroke = color(255);
   color fill = color(255);
   

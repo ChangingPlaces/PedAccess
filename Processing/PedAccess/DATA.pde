@@ -61,12 +61,12 @@
        * 5 = 2nd Level Pedestrian Causeway
        */
       networkRaster = new PImage[6];
-      networkRaster[0] = loadImage("data/ped_network/network_roads.png");
-      networkRaster[1] = loadImage("data/ped_network/network_groundped.png");
-      networkRaster[2] = loadImage("data/ped_network/network_crossingped.png");
-      networkRaster[3] = loadImage("data/ped_network/network_linkway.png");
-      networkRaster[4] = loadImage("data/ped_network/network_bridgeped.png");
-      networkRaster[5] = loadImage("data/ped_network/network_2ndped.png");
+//      networkRaster[0] = loadImage("data/ped_network/network_roads.png");
+//      networkRaster[1] = loadImage("data/ped_network/network_groundped.png");
+//      networkRaster[2] = loadImage("data/ped_network/network_crossingped.png");
+//      networkRaster[3] = loadImage("data/ped_network/network_linkway.png");
+//      networkRaster[4] = loadImage("data/ped_network/network_bridgeped.png");
+//      networkRaster[5] = loadImage("data/ped_network/network_2ndped.png");
       
       // Crop network raster to 1/2 area
     }
