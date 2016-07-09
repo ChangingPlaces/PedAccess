@@ -674,6 +674,11 @@ void keyPressed() {
           setStores(getButtonIndex(buttonNames[6]));
           switched = true;
           break;
+          
+        case ' ': // Change Age Demographic
+          ageDemographic = nextMode(ageDemographic, 2);
+          calcWalkAccess(ageDemographic);
+          break;
       }
     }
     

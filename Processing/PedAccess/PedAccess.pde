@@ -147,6 +147,13 @@ void setup() {
       println(systemOS);
       
       if (implementAgents) setup_Agents();
+      
+      importPedNetwork();
+      importPointsOfInterest();
+      initWalkAccess();
+      calcWalkAccess(0);
+      calcWalkAccess(1);
+      calcWalkAccess(2);
 }
 
 void draw() {
@@ -164,6 +171,7 @@ void draw() {
     println("New Pieces: " + newPOIs.size());
     refreshFinder(tableCanvas);
     initAgents(tableCanvas);
+    calcWalkAccess(ageDemographic);
     if (!enableCTL) {
       updateFacilitiesList();
       updateOutput();
@@ -233,6 +241,7 @@ void draw() {
   }
   
   if (allowUDP) {
+    drawWalkAccess();
     drawPOIs();
     drawSideBar();
   }
