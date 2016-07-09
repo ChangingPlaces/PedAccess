@@ -2,9 +2,10 @@ boolean showPaths = true;
 boolean showGrid = false;
 boolean showSource = false;
 boolean showEdges = false;
-boolean showSwarm = false;
+boolean showSwarm = true;
 boolean showInfo = false;
 boolean showDemoMap = false;
+boolean showWalkAccess = true;
 
 // Makes darker colors more visible when projecting
 int masterAlpha;

@@ -678,6 +678,11 @@ void keyPressed() {
         case ' ': // Change Age Demographic
           ageDemographic = nextMode(ageDemographic, 2);
           calcWalkAccess(ageDemographic);
+          initAgents(tableCanvas);
+          break;
+          
+        case 'w': // toggle heatmap
+          showWalkAccess = toggle(showWalkAccess);
           break;
       }
     }

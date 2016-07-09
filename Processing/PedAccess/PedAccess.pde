@@ -241,7 +241,7 @@ void draw() {
   }
   
   if (allowUDP) {
-    drawWalkAccess();
+    if (showWalkAccess) drawWalkAccess();
     drawPOIs();
     drawSideBar();
   }
@@ -255,7 +255,7 @@ void drawSideBar() {
   translate(TABLE_IMAGE_OFFSET - barWidth, STANDARD_MARGIN);
   
   stroke(textColor);
-  rect(0, 0, barWidth, barHeight);
+  //rect(0, 0, barWidth, barHeight);
   strokeWeight(1);
   
   fill(textColor);
@@ -284,6 +284,102 @@ void drawSideBar() {
     text(pieceNames[i], 4*gridSpace + 3*gridSpace, (i*5)*gridSpace + 10);
     drawIcon(4*gridSpace + gridSpace, (i*5)*gridSpace, i, gridSpace);
   }
+  
+//  float webScale = 1.25;
+  translate(0, TABLE_IMAGE_HEIGHT - 350);
+//  stroke(#CCCCCC);
+//  strokeWeight(1);
+//  line(barWidth/2, 0, barWidth/2, webScale*50);
+//  line(barWidth/2-webScale*50, webScale*86, barWidth/2, webScale*50);
+//  line(barWidth/2+webScale*50, webScale*86, barWidth/2, webScale*50);
+
+  color red = #FF0000;
+  color green = #00FF00;
+  int barH = 22;
+  noStroke();
+  for (int i=0; i<10; i++) {
+    fill(lerpColor(green, red, i/9.0));
+    rect(barWidth/2, -50+i*barH, 0.3*barWidth, barH);
+  }
+  fill(textColor);
+  rect(barWidth/2-5, -50 + barH*10*(1-avgWalkAccess[ageDemographic]), 0.3*barWidth+10, barH/4);
+  
+  // Walk Access
+  textSize(16);
+  fill(textColor);
+  text("WALK", 0, -60);
+  text("ACCESS", 0, -40);
+  text("Young", 0, 0);
+  text("Working", 0, 70);
+  text("Senior", 0, 140);
+  textSize(20);
+  
+  for (int i=0; i<3; i++) {
+    fill(lerpColor(red, green, avgWalkAccess[0]));
+    text(int(100*avgWalkAccess[0]) + "%", 0, 30);
+    fill(lerpColor(red, green, avgWalkAccess[1]));
+    text(int(100*avgWalkAccess[1]) + "%", 0, 100);
+    fill(lerpColor(red, green, avgWalkAccess[2]));
+    text(int(100*avgWalkAccess[2]) + "%", 0, 170);
+  }
+  
+  fill(0, 175);
+  noStroke();
+  switch(ageDemographic) {
+    case 0:
+      rect(-5, 55, barWidth/2-10, 130);
+      break;
+    case 1:
+      rect(-5, -15, barWidth/2-10, 60);
+      rect(-5, 105, barWidth/2-10, 70);
+      break;
+    case 2:
+      rect(-5, -15, barWidth/2-10, 130);
+      break;
+  }
+  
+  
+//  // Walk Quality
+//  textSize(12);
+//  
+//  int marg = 30;
+//  textSize(16);
+//  textAlign(RIGHT);
+//  fill(textColor);
+//  
+//  text("QUALITY", barWidth-marg, -40);
+//  text("Young",barWidth-marg, 0);
+//  text("Working",barWidth-marg, 70);
+//  text("Senior",barWidth-marg, 140);
+//  textSize(20);
+//  
+//  fill(lerpColor(red, green, avgWalkAccess[0]));
+//  text(int(100*avgWalkAccess[0]) + "%",barWidth-marg, 30);
+//  fill(lerpColor(red, green, avgWalkAccess[1]));
+//  text(int(100*avgWalkAccess[1]) + "%",barWidth-marg, 100);
+//  fill(lerpColor(red, green, avgWalkAccess[2]));
+//  text(int(100*avgWalkAccess[2]) + "%",barWidth-marg, 170);
+//  
+  fill(textColor);
+  stroke(textColor);
+  textSize(12);
+  textAlign(LEFT);
+  
+  // Draw Scale
+  translate(20, TABLE_IMAGE_WIDTH/3.0 + TABLE_IMAGE_HEIGHT/22.0);
+  float w = mapRatio*TABLE_IMAGE_WIDTH;
+  int scale_0 = 20;
+  int scale_1 = int(w + STANDARD_MARGIN);
+  translate(-scale_0, 0);
+  float scalePix = float(TABLE_IMAGE_HEIGHT)/displayV;
+  translate(0, -4*scalePix);
+  strokeWeight(1);
+  line(scale_0, 0, scale_1, 0);
+  line(scale_0, -4*scalePix, scale_1, -4*scalePix);
+  line(2*scale_0, 0, 2*scale_0, -scalePix);
+  line(2*scale_0, -3*scalePix, 2*scale_0, -4*scalePix);
+  text(int(1000*4*gridSize) + " m", 30, -1.5*scalePix);
+  translate(scale_0, 0);
 }
 
 void drawPOIs() {

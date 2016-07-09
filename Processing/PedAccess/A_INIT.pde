@@ -45,6 +45,7 @@ void initContent(PGraphics p) {
 Horde swarmHorde;
 
 PVector[] origin, destination, nodes;
+String[] subtype;
 float[] weight;
 
 int textSize = 8;
@@ -116,18 +117,21 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
   numSwarm = numEdges;
   
   nodes = new PVector[numNodes];
+  subtype = new String[numNodes];
   origin = new PVector[numSwarm];
   destination = new PVector[numSwarm];
   weight = new float[numSwarm];
   swarmHorde.clearHorde();
-
+  
   
   for (int i=0; i<amenity.size(); i++) {
     int u = amenity.getJSONObject(i).getInt("u") - gridPanU - gridU/2;
     int v = amenity.getJSONObject(i).getInt("v") - gridPanV - gridV/2;
     int x = int( u*(float(p.width )/displayU)  );
     int y = int( v*(float(p.height)/displayV) );
-    nodes[i] = new PVector(x, y, 0); // z=0 for ammenity
+    subtype[i] = amenity.getJSONObject(i).getString("subtype");
+    nodes[i] = new PVector(x, y, getAmenityID(subtype[i]));
+    
   }
   
   for (int i=0; i<transit.size(); i++) {
@@ -135,7 +139,8 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
     int v = transit.getJSONObject(i).getInt("v") - gridPanV - gridV/2;
     int x = int( u*(float(p.width )/displayU)  );
     int y = int( v*(float(p.height)/displayV) );
-    nodes[amenity.size() + i] = new PVector(x, y, 1); // z=1 for transit
+    subtype[amenity.size() + i] = transit.getJSONObject(i).getString("subtype");
+    nodes[amenity.size() + i] = new PVector(x, y, getAmenityID(subtype[amenity.size() + i]));
   }
   
   for (int i=0; i<newPOIs.size(); i++) {
@@ -144,12 +149,8 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
     int x = int( u*(float(p.width )/displayU)  );
     int y = int( v*(float(p.height)/displayV) );
     int z;
-    if (newPOIs.getJSONObject(i).getString("type").equals("transit")) {
-      z = 1;
-    } else {
-      z = 0;
-    }
-    nodes[amenity.size() + transit.size() + i] = new PVector(x, y, z);
+    subtype[amenity.size() + transit.size() + i] = newPOIs.getJSONObject(i).getString("subtype");
+    nodes[amenity.size() + transit.size() + i] = new PVector(x, y, getAmenityID(subtype[amenity.size() + transit.size() + i]));
   }
   
   for (int i=0; i<numNodes; i++) {
@@ -168,13 +169,34 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
     // rate, life, origin, destination
   colorMode(HSB);
   for (int i=0; i<numSwarm; i++) {
+//      if (subtype.equals("school"))     
+//        ID = 0;
+//      if (subtype.equals("child_care")) 
+//        ID = 1;
+//      if (subtype.equals("health"))     
+//        ID = 2;
+//      if (subtype.equals("eldercare"))  
+//        ID = 3;
+//      if (subtype.equals("retail"))
+//        ID = 4;
+//      if (subtype.equals("park"))
+//        ID = 5;
+//      if (subtype.equals("transit"))
+//        ID = 6;
+//      if (subtype.equals("housing"))
+//        ID = 7;
     
     boolean walkingDist = (abs(origin[i].x - destination[i].x) + abs(origin[i].y - destination[i].y) ) < 0.3/(gridSize/(p.width/displayU)) ;
     boolean origin_tableArea = origin[i].x > 0 && origin[i].x < p.width && origin[i].y > 0 && origin[i].y < p.height;
     boolean destination_tableArea = destination[i].x > 0 && destination[i].x < p.width && destination[i].y > 0 && destination[i].y < p.height;
-    boolean transitToAmenity = destination[i].z != origin[i].z;
+    boolean transitToAmenity = destination[i].z <= 5 && origin[i].z > 5 || destination[i].z > 5 && origin[i].z <= 5;
     
-    if (walkingDist && (origin_tableArea || destination_tableArea) && transitToAmenity) {
+    boolean[] validForAge = new boolean[3];
+    validForAge[0] = destination[i].z != 3 && origin[i].z != 3 && destination[i].z != 4 && origin[i].z != 4;
+    validForAge[1] = destination[i].z != 0 && origin[i].z != 0 && destination[i].z != 3 && origin[i].z != 3;
+    validForAge[2] = destination[i].z != 0 && origin[i].z != 0 && destination[i].z != 1 && origin[i].z != 1;
+    
+    if (walkingDist && (origin_tableArea || destination_tableArea) && transitToAmenity && validForAge[ageDemographic]) {
     
       // delay, origin, destination, speed, color
       swarmHorde.addSwarm(weight[i], origin[i], destination[i], 1, color(255.0*i/numSwarm, 255, 255));
@@ -186,6 +208,31 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
   colorMode(RGB);
   
   swarmHorde.popScaler(1.0);
+}
+
+int getAmenityID(String subtype) {
+  int ID = -1;
+  
+  if (subtype.equals("school"))     
+    ID = 0;
+  if (subtype.equals("child_care")) 
+    ID = 1;
+  if (subtype.equals("health"))     
+    ID = 2;
+  if (subtype.equals("eldercare"))  
+    ID = 3;
+  if (subtype.equals("retail"))
+    ID = 4;
+  if (subtype.equals("park"))
+    ID = 5;
+  if (subtype.equals("mrt"))
+    ID = 6;
+  if (subtype.equals("bus_stop"))
+    ID = 6;
+  if (subtype.equals("housing"))
+    ID = 7;
+  
+  return ID;
 }
 
 void testNetwork_Random(PGraphics p, int _numNodes) {

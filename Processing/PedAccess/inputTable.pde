@@ -149,7 +149,7 @@ void setupPieces() {
   // 7: Ped - Path
   Integer[][] data_7 = {
     { 0, 0, 0, 0 },
-    { 6, 6, 6, 6 },
+    { 1, 1, 1, 1 },
     { 0, 0, 0, 0 },
     { 0, 0, 0, 0 } };
   Integer[][] form_7 = {
@@ -325,7 +325,7 @@ void decodePieces() {
               break;
             case 1:
               type = "amenity";
-              subtype = "childcare";
+              subtype = "child_care";
               break;
             case 2:
               type = "amenity";
@@ -362,7 +362,7 @@ void decodePieces() {
           
         }
         
-        else if (ID >= 7 && ID <= 11) {
+        else if (ID == 7 || ID == 10 || ID == 12 || ID == 13) {
         
           // Update Pedestrian Network
           Integer[][] data = inputData.get(ID);

@@ -1,6 +1,6 @@
 float WALK_DISTANCE = 0.2; // 200 m
-int IDEAL_POI_ACCESS = 5; // #POIs
-  
+int IDEAL_POI_ACCESS = 2; // #POIs
+
 int ageDemographic = 0;
 // 0 = young
 // 1 = working
@@ -8,6 +8,8 @@ int ageDemographic = 0;
 
 float[][][] walkAccess = new float[3][displayU][displayV];
 float[] avgWalkAccess = new float[3];
+
+float[][] walkQuality = new float[displayU][displayV];
 
 void initWalkAccess() {
   for (int i=0; i<walkAccess.length; i++) {
@@ -69,7 +71,7 @@ void addWalkAccess(JSONObject poi, int ageDemo) {
         valid = u_temp>=0 && u_temp<displayU && v_temp>=0 && v_temp<displayV;
         if (valid && WALK_DISTANCE > dist) {
           walkAccess[ageDemo][u_temp][v_temp] += (WALK_DISTANCE - dist) / WALK_DISTANCE;
-          println(walkAccess[ageDemo][u_temp][v_temp]);
+          //println(walkAccess[ageDemo][u_temp][v_temp]);
         }
         
       }
@@ -97,10 +99,11 @@ void drawWalkAccess() {
   noStroke();
   float cellW = TABLE_IMAGE_WIDTH/(4.0*18);
   float cellH = TABLE_IMAGE_HEIGHT/(4.0*22);
+  float cellGap = 0.1;
   for (int u=0; u<walkAccess[ageDemographic].length; u++) {
     for (int v=0; v<walkAccess[ageDemographic][0].length; v++) {
       fill(lerpColor(red, green, walkAccess[ageDemographic][u][v]/IDEAL_POI_ACCESS), 100);
-      rect(TABLE_IMAGE_OFFSET + u*cellW, STANDARD_MARGIN + v*cellH, cellW, cellH);
+      rect(TABLE_IMAGE_OFFSET + (u-cellGap)*cellW, STANDARD_MARGIN + (v-cellGap)*cellH, (1 - 2*cellGap)*cellW, 0.9*cellH);
     }
   }
 }
