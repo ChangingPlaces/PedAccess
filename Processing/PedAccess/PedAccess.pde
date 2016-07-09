@@ -227,5 +227,9 @@ void draw() {
 //    }
 //  }
   
+  if (UDPdelay > 0) {
+    UDPdelay--;
+    if (UDPdelay == 0) allowUDP = true;
+  }
 
 }
