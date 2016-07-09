@@ -62,6 +62,7 @@ void renderTable() {
 
   // Draws a Google Satellite Image
   renderBasemap(table);
+  renderNetworkRaster(table);
   
   if (showPopulationData){
     table.image(p, 0, 0);
@@ -172,6 +173,16 @@ void initDataGraphics() {
 void renderBasemap(PGraphics graphic) {
   if (showBasemap) {
     graphic.image(basemap, 0, 0, table.width, table.height);
+  }
+}
+
+
+// Draws Network Rasters
+void renderNetworkRaster(PGraphics graphic) {
+  if (showNetworkRaster) {
+    for (int i=0; i<networkRaster.length; i++) {
+      graphic.image(networkRaster[i], 0, 0, table.width, table.height);
+    }
   }
 }
 

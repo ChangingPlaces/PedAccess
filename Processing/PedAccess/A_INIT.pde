@@ -172,9 +172,9 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
     boolean walkingDist = (abs(origin[i].x - destination[i].x) + abs(origin[i].y - destination[i].y) ) < 0.3/(gridSize/(p.width/displayU)) ;
     boolean origin_tableArea = origin[i].x > 0 && origin[i].x < p.width && origin[i].y > 0 && origin[i].y < p.height;
     boolean destination_tableArea = destination[i].x > 0 && destination[i].x < p.width && destination[i].y > 0 && destination[i].y < p.height;
-    boolean transitTransfer = destination[i].z == 1 && origin[i].z == 1;
+    boolean transitToAmenity = destination[i].z != origin[i].z;
     
-    if (walkingDist && (origin_tableArea || destination_tableArea) && !transitTransfer) {
+    if (walkingDist && (origin_tableArea || destination_tableArea) && transitToAmenity) {
     
       // delay, origin, destination, speed, color
       swarmHorde.addSwarm(weight[i], origin[i], destination[i], 1, color(255.0*i/numSwarm, 255, 255));

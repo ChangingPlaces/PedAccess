@@ -59,8 +59,9 @@ boolean showFrameRate = true;
 
 boolean showStores = false;
 boolean showDeliveryData = false;
-boolean showPopulationData = true;
+boolean showPopulationData = false;
 boolean showBasemap = true;
+boolean showNetworkRaster = true;
 
 boolean showInputData = true;
 boolean showFacilities = false;
@@ -208,23 +209,23 @@ void draw() {
 
 
 
-  // CTL Stuff
-  fill(textColor, 80);
-  text("CTL Optimization = " + enableCTL, 20, 35);
-  text("(Press Spacebar to Toggle)", 20, 50);
-  fill(textColor);
-  
-  if (waitingForCTL){
-    if(waiting_blink){
-      fill(walmart_light_green);
-      text("** OPTIMIZING **", 20, 65);
-      fill(textColor);
-      waiting_blink = false;
-    }
-    else{
-      waiting_blink = true;
-    }
-  }
+//  // CTL Stuff
+//  fill(textColor, 80);
+//  text("CTL Optimization = " + enableCTL, 20, 35);
+//  text("(Press Spacebar to Toggle)", 20, 50);
+//  fill(textColor);
+//  
+//  if (waitingForCTL){
+//    if(waiting_blink){
+//      fill(walmart_light_green);
+//      text("** OPTIMIZING **", 20, 65);
+//      fill(textColor);
+//      waiting_blink = false;
+//    }
+//    else{
+//      waiting_blink = true;
+//    }
+//  }
   
 
 }

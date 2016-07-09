@@ -50,6 +50,27 @@
       wholeMap = loadImage("data/" + mapColor + "/" + fileName + ".png");
     }
     
+    // Pedestrian Network Rasters
+    PImage[] networkRaster;
+    void importNetworkRaster() {
+      /* 0 = Vehicle Road Network
+       * 1 = Surface Level Pedestrian Pathways
+       * 2 = Surface Level Pedestrian Street Crossing
+       * 3 = Covered Linkway Redestrian Pathway
+       * 4 = Ground-Bridge-Ground Street Crossing
+       * 5 = 2nd Level Pedestrian Causeway
+       */
+      networkRaster = new PImage[6];
+      networkRaster[0] = loadImage("data/ped_network/network_roads.png");
+      networkRaster[1] = loadImage("data/ped_network/network_groundped.png");
+      networkRaster[2] = loadImage("data/ped_network/network_crossingped.png");
+      networkRaster[3] = loadImage("data/ped_network/network_linkway.png");
+      networkRaster[4] = loadImage("data/ped_network/network_bridgeped.png");
+      networkRaster[5] = loadImage("data/ped_network/network_2ndped.png");
+      
+      // Crop network raster to 1/2 area
+    }
+    
     // Loads subset of wholemap onto basemap
     void loadBasemap() {
       float w = (float)wholeMap.width/gridU;
@@ -96,6 +117,9 @@
       
       // Initializes Basemap file
       initializeBaseMap();
+      
+      // Initialize PEdestrian Netowrk Rasters
+      importNetworkRaster();
       
       // Loads Basemap from subset of file
       loadBasemap();

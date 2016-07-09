@@ -242,7 +242,6 @@ class Graph {
         u = newJSONNodes.getJSONObject(k-JSONnetwork.size()).getInt("u") - gridPanU - gridU/2;
         v = newJSONNodes.getJSONObject(k-JSONnetwork.size()).getInt("v") - gridPanV - gridV/2;
         type = newJSONNodes.getJSONObject(k-JSONnetwork.size()).getString("type");
-        println( "Node added at ", u, v, type);
       }
       
       // positive penalty makes effective distance x-times longer
@@ -257,7 +256,8 @@ class Graph {
       if (type.equals("ped_2nd")) distancePenalty = -0.5;
       
       if (u >= 0 && u < U && 
-          v >= 0 && v < V) {
+          v >= 0 && v < V &&
+          !type.equals("road")) {
         nodes.add(new Node(u*SCALE + scale/2, v*SCALE + scale/2, type, distancePenalty));
       }
     }
@@ -326,37 +326,37 @@ class Graph {
     
     return dist;
   }
-  
-  int getClosestNeighbor(int i) {
-    int closest = -1;
-    float dist = Float.MAX_VALUE;
-    float currentDist;
-    
-    if (getNeighborCount(i) > 0) {
-      for (int j=0; j<getNeighborCount(i); j++) {
-        currentDist = nodes.get(i).distance.get(j);
-        if (dist > currentDist) {
-          dist = currentDist;
-          closest = nodes.get(i).neighbors.get(j);
-        }
-      }
-    }
-    
-    return closest;
-  }
-  
-  float getClosestNeighborDistance(int i) {
-    float dist = Float.MAX_VALUE;
-    int n = getClosestNeighbor(i);
-    
-    for (int j=0; j<getNeighborCount(i); j++) {
-      if (nodes.get(i).neighbors.get(j) == n) {
-        dist = nodes.get(i).distance.get(j);
-      }
-    }
-    
-    return dist;
-  }
+
+//  int getClosestNeighbor(int i) {
+//    int closest = -1;
+//    float dist = Float.MAX_VALUE;
+//    float currentDist;
+//    
+//    if (getNeighborCount(i) > 0) {
+//      for (int j=0; j<getNeighborCount(i); j++) {
+//        currentDist = nodes.get(i).distance.get(j);
+//        if (dist > currentDist) {
+//          dist = currentDist;
+//          closest = nodes.get(i).neighbors.get(j);
+//        }
+//      }
+//    }
+//    
+//    return closest;
+//  }
+//
+//  float getClosestNeighborDistance(int i) {
+//    float dist = Float.MAX_VALUE;
+//    int n = getClosestNeighbor(i);
+//    
+//    for (int j=0; j<getNeighborCount(i); j++) {
+//      if (nodes.get(i).neighbors.get(j) == n) {
+//        dist = nodes.get(i).distance.get(j);
+//      }
+//    }
+//    
+//    return dist;
+//  }
   
   void display(PGraphics p) {
     
