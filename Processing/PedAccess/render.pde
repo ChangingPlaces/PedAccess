@@ -20,6 +20,7 @@ color redBrick =   #FF0000;
 color blackBrick = #000000;
 color greenBrick = #00FF00;
 color whiteBrick = #FFFFFF;
+color brownBrick = #8B5F07;
 color walmart_yellow = #ffc220;
 color walmart_light_green = #76c043;
 color walmart_dark_blue = #004c91;
@@ -455,6 +456,26 @@ void renderNetworkRaster(PGraphics graphic) {
         input.fill(greenBrick);
       } else if (ID == 6) {
         input.fill(whiteBrick);
+      } else if (ID == 7) {
+        input.fill(brownBrick);
+      }
+    }
+    
+    void findFormFill(int ID) {
+      if (ID == 0) {
+        noFill();
+      } else if (ID == 1) {
+        fill(tanBrick);
+      } else if (ID == 2) {
+        fill(blueBrick);
+      } else if (ID == 3) {
+        fill(redBrick);
+      } else if (ID == 4) {
+        fill(blackBrick);
+      } else if (ID == 5) {
+        fill(greenBrick);
+      } else if (ID == 6) {
+        fill(whiteBrick);
       }
     }
 

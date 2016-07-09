@@ -430,7 +430,7 @@ class Swarm {
   }
   
   void displayPath(PGraphics p) {
-    p.strokeWeight(5);
+    p.strokeWeight(4);
     
 //    // Draw Path Nodes
 //    for (int i=0; i<testPath.size(); i++) {
@@ -446,13 +446,13 @@ class Swarm {
       p.line(path.get(i).x, path.get(i).y, path.get(i+1).x, path.get(i+1).y);
     }
     
-    //Draw Origin
-    p.stroke(#FF0000);
-    p.ellipse(origin.x, origin.y, finderResolution, finderResolution);
-    
-    //Draw Destination
-    p.stroke(#0000FF);
-    p.ellipse(destination.x, destination.y, finderResolution, finderResolution);
+//    //Draw Origin
+//    p.stroke(#FF0000);
+//    p.ellipse(origin.x, origin.y, finderResolution, finderResolution);
+//    
+//    //Draw Destination
+//    p.stroke(#0000FF);
+//    p.ellipse(destination.x, destination.y, finderResolution, finderResolution);
   }
   
 }

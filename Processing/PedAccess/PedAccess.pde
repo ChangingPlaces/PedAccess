@@ -232,13 +232,180 @@ void draw() {
     if (UDPdelay == 0) allowUDP = true;
   }
   
-  drawSideBar();
+  if (allowUDP) {
+    drawPOIs();
+    drawSideBar();
+  }
 
 }
 
 void drawSideBar() {
-  fill(#FF0000);
-  int barWidth = 4*TABLE_IMAGE_WIDTH/22;
+  fill(0);
+  int barWidth = int(4.0*TABLE_IMAGE_WIDTH/18);
   int barHeight = TABLE_IMAGE_HEIGHT;
-  rect(TABLE_IMAGE_OFFSET - barWidth, STANDARD_MARGIN, barWidth, barHeight);
+  translate(TABLE_IMAGE_OFFSET - barWidth, STANDARD_MARGIN);
+  
+  stroke(textColor);
+  rect(0, 0, barWidth, barHeight);
+  strokeWeight(1);
+  
+  fill(textColor);
+  text("LEGEND", 10, 20);
+  
+  translate(10, 30);
+  int gridSpace = 8; // pixels
+  Integer[][] currentForm;
+  for (int i=0; i<14; i++) {
+    currentForm = inputForm.get(i);
+    for (int u=0; u<currentForm.length; u++) {
+      for (int v=0; v<currentForm[0].length; v++) {
+        fill(#666666);
+        if (currentForm[u][v] > 0) findFormFill(currentForm[u][v]);
+        if (i != 8 && i != 11) {
+          if (i < 8) rect(v*gridSpace, (i*5+u)*gridSpace, gridSpace, gridSpace);
+          else if (i < 11) rect(v*gridSpace, ((i-1)*5+u)*gridSpace, gridSpace, gridSpace);
+          else rect(v*gridSpace, ((i-2)*5+u)*gridSpace, gridSpace, gridSpace);
+        }
+      }
+    }
+  }
+  
+  for (int i=0; i<pieceNames.length; i++) {
+    fill(textColor);
+    text(pieceNames[i], 4*gridSpace + 3*gridSpace, (i*5)*gridSpace + 10);
+    drawIcon(4*gridSpace + gridSpace, (i*5)*gridSpace, i, gridSpace);
+  }
+}
+
+void drawPOIs() {
+  JSONObject poi;
+  int u, v;
+  String subtype;
+  boolean inBounds;
+  
+  for (int i=0; i<amenity.size(); i++) {
+    poi = amenity.getJSONObject(i);
+    u = amenity.getJSONObject(i).getInt("u") - gridPanU - gridU/2;
+    v = amenity.getJSONObject(i).getInt("v") - gridPanV - gridV/2;;
+    subtype = amenity.getJSONObject(i).getString("subtype");
+    inBounds = u>0 && u<4*18 && v>0 && v<4*22;
+    
+    if (inBounds) drawIcon(int(TABLE_IMAGE_OFFSET + u*TABLE_IMAGE_WIDTH/(4.0*18)), int(STANDARD_MARGIN + v*TABLE_IMAGE_HEIGHT/(4.0*22)), subtype, 10);
+  }
+  
+  for (int i=0; i<transit.size(); i++) {
+    poi = transit.getJSONObject(i);
+    u = transit.getJSONObject(i).getInt("u") - gridPanU - gridU/2;
+    v = transit.getJSONObject(i).getInt("v") - gridPanV - gridV/2;;
+    subtype = transit.getJSONObject(i).getString("subtype");
+    inBounds = u>0 && u<4*18 && v>0 && v<4*22;
+    
+    if (inBounds) drawIcon(int(TABLE_IMAGE_OFFSET + u*TABLE_IMAGE_WIDTH/(4.0*18)), int(STANDARD_MARGIN + v*TABLE_IMAGE_HEIGHT/(4.0*22)), subtype, 12);
+  }
+  
+  for (int i=0; i<newPOIs.size(); i++) {
+    poi = newPOIs.getJSONObject(i);
+    u = newPOIs.getJSONObject(i).getInt("u") - gridPanU - gridU/2;
+    v = newPOIs.getJSONObject(i).getInt("v") - gridPanV - gridV/2;;
+    subtype = newPOIs.getJSONObject(i).getString("subtype");
+    inBounds = u>0 && u<4*18 && v>0 && v<4*22;
+    
+    if (inBounds) drawIcon(int(TABLE_IMAGE_OFFSET + u*TABLE_IMAGE_WIDTH/(4.0*18)), int(STANDARD_MARGIN + v*TABLE_IMAGE_HEIGHT/(4.0*22)), subtype, 12);
+  }
+}
+
+void drawIcon(int x, int y, int type, int dim) {
+  
+  strokeWeight(2);
+  
+//  color road = #D6D6D6;
+//  color ped_ground = #FFFA95;
+//  color ped_xing = #FF9A3B;
+//  color ped_linkway = #3BFFF4;
+//  color ped_bridge = #FF453B;
+//  color ped_2nd = #4BCB2F;
+  
+  switch (type) {
+    case 0: // School
+      fill(tanBrick);
+      stroke(textColor);
+      rect(x, y, dim, dim);
+      break;
+    case 1: // Childcare
+      fill(greenBrick);
+      stroke(textColor);
+      rect(x, y, dim, dim);
+      break;
+    case 2: // Healthcare
+      fill(redBrick);
+      stroke(textColor);
+      rect(x, y, dim, dim);
+      break;
+    case 3: // Eldercare
+      fill(brownBrick);
+      stroke(textColor);
+      rect(x, y, dim, dim);
+      break;
+    case 4: // Retail
+      fill(blueBrick);
+      stroke(textColor);
+      ellipse(x+dim/2, y+dim/2, dim, dim);
+      break;
+    case 5: // Park
+      fill(greenBrick);
+      stroke(textColor);
+      triangle(x+dim/2, y, x+dim+3, y+dim+3, x-3, y+dim+3);
+      break;
+    case 6: // Transit
+      fill(redBrick);
+      stroke(textColor);
+      ellipse(x+dim/2, y+dim/2, dim, dim);
+      break;
+    case 7: // Ped Path
+      stroke(ped_ground);
+      strokeWeight(4);
+      line(x-2, y+dim/2, x+dim+2, y+dim/2);
+      break;
+    case 8: // Housing
+      fill(tanBrick);
+      stroke(textColor);
+      ellipse(x+dim/2, y+dim/2, dim, dim);
+      break;
+    case 9: // Ped Bridge
+      stroke(ped_bridge);
+      strokeWeight(4);
+      line(x-2, y+dim/2, x+dim+2, y+dim/2);
+      break;
+    case 10: // elevated path
+      stroke(ped_2nd);
+      strokeWeight(4);
+      line(x-2, y+dim/2, x+dim+2, y+dim/2);
+      break;
+    case 11: // Ped Crossing
+      stroke(ped_xing);
+      strokeWeight(4);
+      line(x-2, y+dim/2, x+dim+2, y+dim/2);
+      break;
+  }
+}
+
+void drawIcon(int x, int y, String subtype, int dim) {
+  if (subtype.equals("school"))
+    drawIcon(x, y, 0, dim);
+  if (subtype.equals("child_care"))
+    drawIcon(x, y, 1, dim);
+  if (subtype.equals("health"))
+    drawIcon(x, y, 2, dim);
+  if (subtype.equals("eldercare"))
+    drawIcon(x, y, 3, dim);
+  if (subtype.equals("retail"))
+    drawIcon(x, y, 4, dim);
+  if (subtype.equals("park"))
+    drawIcon(x, y, 5, dim);
+  if (subtype.equals("bus_stop"))
+    drawIcon(x, y, 6, dim);
+  if (subtype.equals("mrt"))
+    drawIcon(x, y, 6, dim);
+  if (subtype.equals("housing"))
+    drawIcon(x, y, 8, dim);
 }

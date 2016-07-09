@@ -49,7 +49,7 @@ float[] weight;
 
 int textSize = 8;
 
-boolean enablePathfinding = false;
+boolean enablePathfinding = true;
 
 
 PGraphics sources_Viz, edges_Viz;

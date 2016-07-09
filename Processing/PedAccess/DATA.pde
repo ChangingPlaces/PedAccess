@@ -345,7 +345,8 @@
 
 // Initialize Ammenity and Bus Stop Data
     
-    JSONArray amenity, transit;
+    JSONArray amenity = new JSONArray();
+    JSONArray transit = new JSONArray();
     void importPointsOfInterest(){
       amenity = loadJSONArray("data/ammenities_" + int(gridSize*1000) + "m.json");
       transit = loadJSONArray("data/transitStops_" + int(gridSize*1000) + "m.json");

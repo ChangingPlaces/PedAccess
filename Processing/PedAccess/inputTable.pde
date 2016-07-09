@@ -2,7 +2,8 @@
 int tablePieceInput[][][] = new int[displayU/4][displayV/4][2];
 int rotationMod = 1;
 
-JSONArray newPOIs, newNodes;
+JSONArray newPOIs = new JSONArray();
+JSONArray newNodes = new JSONArray();
 
 // Input Piece Types
 ArrayList<Integer[][]> inputData;
@@ -15,6 +16,8 @@ ArrayList<Integer[][]> inputForm;
 // 3 = red brick
 // 4 = black brick
 // 5 = green brick
+// 6 = white brick
+// 7 = brown brick
   
   // Data Type
   /* 0 = Vehicle Road Network
@@ -25,7 +28,20 @@ ArrayList<Integer[][]> inputForm;
    * 5 = 2nd Level Pedestrian Causeway
    */
    
-   
+String[] pieceNames = {
+  "SCHOOL",
+  "CHILDCARE",
+  "HEALTHCARE",
+  "ELDERCARE",
+  "RETAIL",
+  "PARK",
+  "TRANSIT STOP",
+  "PED. PATH",
+  "HOUSING",
+  "PED. BRIDGE",
+  "ELEVATED PATH",
+  "PED-X'ING"
+};
 
 void setupPieces() {
   
@@ -55,7 +71,7 @@ void setupPieces() {
   Integer[][] form_3 = {
     { 0, 0, 0, 0 },
     { 0, 3, 3, 0 },
-    { 0, 0, 0, 0 },
+    { 0, 5, 5, 5 },
     { 0, 0, 0, 0 } };
   inputData.add(data_3);
   inputForm.add(form_3);
@@ -83,7 +99,7 @@ void setupPieces() {
   Integer[][] form_1 = {
     { 0, 0, 0, 0 },
     { 0, 3, 3, 0 },
-    { 0, 0, 0, 0 },
+    { 0, 1, 1, 1 },
     { 0, 0, 0, 0 } };
   inputData.add(data_1);
   inputForm.add(form_1);
@@ -300,7 +316,7 @@ void decodePieces() {
         boolean crossing = false;
         int z = 0;
         
-        if (ID >= 0 && ID <= 6) {
+        if (ID >= 0 && ID <= 6 || ID == 9) {
           
           switch (ID) {
             case 0:
@@ -320,16 +336,20 @@ void decodePieces() {
               subtype = "eldercare";
               break;
             case 4:
-              type = "transit";
-              subtype = "bus_stop";
+              type = "amenity";
+              subtype = "retail";
               break;
             case 5:
               type = "amenity";
               subtype = "park";
               break;
             case 6:
-              type = "amenity";
-              subtype = "retail";
+              type = "transit";
+              subtype = "bus_stop";
+              break;
+            case 9: // Transit
+              type = "transit";
+              subtype = "housing";
               break;
           }
           
@@ -410,7 +430,7 @@ void decodePieces() {
                 newNode.setBoolean("crossing", crossing);
                 newNodes.setJSONObject(newNodes.size(), newNode);
                 
-                println(newNode.getInt("u"), newNode.getInt("v"));
+                //println(newNode.getInt("u"), newNode.getInt("v"));
               }
               
   //            if (ID >= 0 && ID <= 6) {
