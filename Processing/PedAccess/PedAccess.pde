@@ -254,7 +254,7 @@ void draw() {
     image(projector, margin.width, 0);
   }
   
-  println("changeClock " + changeClock);
+  //println("changeClock " + changeClock);
 
 }
 

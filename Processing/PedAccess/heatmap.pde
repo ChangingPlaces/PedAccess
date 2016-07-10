@@ -106,8 +106,8 @@ void drawWalkAccess() {
   float cellGap = 0.2;
   for (int u=0; u<walkAccess[ageDemographic].length; u++) {
     for (int v=0; v<walkAccess[ageDemographic][0].length; v++) {
-      fill(lerpColor(red, green, walkAccess[ageDemographic][u][v]/IDEAL_POI_ACCESS), 100);
-      rect(TABLE_IMAGE_OFFSET + (u-cellGap)*cellW, STANDARD_MARGIN + (v-cellGap)*cellH, (1 - 2*cellGap)*cellW, (1 - 2*cellGap)*cellH);
+      fill(lerpColor(red, green, walkAccess[ageDemographic][u][v]/IDEAL_POI_ACCESS), 200);
+      rect(TABLE_IMAGE_OFFSET + (u-cellGap)*cellW + 0.5*cellW, STANDARD_MARGIN + (v-cellGap)*cellH + 0.5*cellH, (1 - 2*cellGap)*cellW, (1 - 2*cellGap)*cellH);
     }
   }
 }
