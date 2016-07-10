@@ -691,10 +691,10 @@ void keyPressed() {
         case 'D': // "Show Delivery Data (D)",  // 16
           toggleDeliveryData(getButtonIndex(buttonNames[16]));
           break;
-        case 'P': // "Show Population Data (P)",  // 17
-          togglePopulationData(getButtonIndex(buttonNames[17]));
-          switched = true;
-          break;
+//        case 'P': // "Show Population Data (P)",  // 17
+//          togglePopulationData(getButtonIndex(buttonNames[17]));
+//          switched = true;
+//          break;
         case 'u': // "Population Counts (u)",   // 18
           setPop(getButtonIndex(buttonNames[18]));
           switched = true;

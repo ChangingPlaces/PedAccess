@@ -1,5 +1,5 @@
-float WALK_DISTANCE = 0.2; // 200 m
-int IDEAL_POI_ACCESS = 2; // #POIs
+float WALK_DISTANCE = 0.3; // 300 m
+int IDEAL_POI_ACCESS = 6; // #POIs
 
 int ageDemographic = 0;
 // 0 = young
@@ -86,7 +86,11 @@ void calcAvgWalkAccess() {
         avgWalkAccess[i] += walkAccess[i][u][v];
       }
     }
-    avgWalkAccess[i] /= (walkAccess[0].length*walkAccess[0][0].length*IDEAL_POI_ACCESS);
+    int IDEAL;
+    if (i == 0) IDEAL = IDEAL_POI_ACCESS - 2;
+    else IDEAL = IDEAL_POI_ACCESS;
+      
+    avgWalkAccess[i] /= (walkAccess[0].length*walkAccess[0][0].length*IDEAL);
     println("avgWalkAccess(" + i + "): " + avgWalkAccess[i]);
   }
 }
@@ -99,11 +103,11 @@ void drawWalkAccess() {
   noStroke();
   float cellW = TABLE_IMAGE_WIDTH/(4.0*18);
   float cellH = TABLE_IMAGE_HEIGHT/(4.0*22);
-  float cellGap = 0.1;
+  float cellGap = 0.2;
   for (int u=0; u<walkAccess[ageDemographic].length; u++) {
     for (int v=0; v<walkAccess[ageDemographic][0].length; v++) {
       fill(lerpColor(red, green, walkAccess[ageDemographic][u][v]/IDEAL_POI_ACCESS), 100);
-      rect(TABLE_IMAGE_OFFSET + (u-cellGap)*cellW, STANDARD_MARGIN + (v-cellGap)*cellH, (1 - 2*cellGap)*cellW, 0.9*cellH);
+      rect(TABLE_IMAGE_OFFSET + (u-cellGap)*cellW, STANDARD_MARGIN + (v-cellGap)*cellH, (1 - 2*cellGap)*cellW, (1 - 2*cellGap)*cellH);
     }
   }
 }

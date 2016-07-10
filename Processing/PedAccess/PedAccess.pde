@@ -75,6 +75,10 @@ boolean showTotalCost = false;
 boolean showAllocation = false;
 boolean showVehicle = false;
 
+boolean sketchFullScreen() {
+  return false;
+}
+
 //Walmart Logo
 PImage wmt_logo;
 
@@ -201,20 +205,6 @@ void draw() {
 //  // Renders everything else drawn to Screen
 //  renderScreen();
 //  image(screen, 0, 0);
-  
-  
-  
-  // Exports table Graphic to Projector
-  projector = get(TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
-  margin = get(TABLE_IMAGE_OFFSET - STANDARD_MARGIN - int(mapRatio*TABLE_IMAGE_HEIGHT), STANDARD_MARGIN, int(mapRatio*TABLE_IMAGE_HEIGHT) + STANDARD_MARGIN, TABLE_IMAGE_HEIGHT);
-  margin.resize(int(mapRatio*TABLE_IMAGE_HEIGHT), margin.height);
-  
-  // In Lieu of Projection creates the square table on main canvas for testing when on mac
-  if (systemOS.equals("Mac") && testProjectorOnMac) {
-    background(textColor);
-    image(margin, 0, 0);
-    image(projector, margin.width, 0);
-  }
 
 
 
@@ -250,6 +240,18 @@ void draw() {
   if (changeClock > 0) {
     changeClock--;
     if (changeClock == 0) changeDetected = true;
+  }
+  
+  // Exports table Graphic to Projector
+  projector = get(TABLE_IMAGE_OFFSET, STANDARD_MARGIN, TABLE_IMAGE_WIDTH, TABLE_IMAGE_HEIGHT);
+  margin = get(TABLE_IMAGE_OFFSET - STANDARD_MARGIN - int(mapRatio*TABLE_IMAGE_HEIGHT), STANDARD_MARGIN, int(mapRatio*TABLE_IMAGE_HEIGHT) + STANDARD_MARGIN, TABLE_IMAGE_HEIGHT);
+  margin.resize(int(mapRatio*TABLE_IMAGE_HEIGHT), margin.height);
+  
+  // In Lieu of Projection creates the square table on main canvas for testing when on mac
+  if (systemOS.equals("Mac") && testProjectorOnMac) {
+    background(textColor);
+    image(margin, 0, 0);
+    image(projector, margin.width, 0);
   }
   
   println("changeClock " + changeClock);
@@ -324,11 +326,11 @@ void drawSideBar() {
   
   for (int i=0; i<3; i++) {
     fill(lerpColor(red, green, avgWalkAccess[0]));
-    text(int(100*avgWalkAccess[0]) + "%", 0, 30);
+    text(int(1000*avgWalkAccess[0])/10.0 + "%", 0, 30);
     fill(lerpColor(red, green, avgWalkAccess[1]));
-    text(int(100*avgWalkAccess[1]) + "%", 0, 100);
+    text(int(1000*avgWalkAccess[1])/10.0 + "%", 0, 100);
     fill(lerpColor(red, green, avgWalkAccess[2]));
-    text(int(100*avgWalkAccess[2]) + "%", 0, 170);
+    text(int(1000*avgWalkAccess[2])/10.0 + "%", 0, 170);
   }
   
   fill(0, 175);
@@ -388,6 +390,15 @@ void drawSideBar() {
   line(2*scale_0, -3*scalePix, 2*scale_0, -4*scalePix);
   text(int(1000*4*gridSize) + " m", 30, -1.5*scalePix);
   translate(scale_0, 0);
+  
+  //reverse all translations
+  
+  translate(-TABLE_IMAGE_OFFSET + barWidth, -STANDARD_MARGIN);
+  translate(-10, -30);
+  translate(0, -TABLE_IMAGE_HEIGHT + 350);
+  translate(-20, -TABLE_IMAGE_WIDTH/3.0 - TABLE_IMAGE_HEIGHT/22.0);
+  translate(0, 4*scalePix);
+  translate(-scale_0, 0);
 }
 
 void drawPOIs() {
