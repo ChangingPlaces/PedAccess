@@ -30,7 +30,7 @@ void initWalkAccess(int ageDemo) {
 }
 
 void calcWalkAccess(int ageDemo) {
-  initWalkAccess(ageDemo);
+  initWalkAccess();
   
   for (int i=0; i<amenity.size(); i++) {
     addWalkAccess(amenity.getJSONObject(i), ageDemo);
@@ -87,8 +87,11 @@ void calcAvgWalkAccess() {
       }
     }
     int IDEAL;
-    if (i == 0) IDEAL = IDEAL_POI_ACCESS - 2;
-    else IDEAL = IDEAL_POI_ACCESS;
+    if (i == 0) {
+      IDEAL = IDEAL_POI_ACCESS - 2;
+    } else {
+      IDEAL = IDEAL_POI_ACCESS;
+    }
       
     avgWalkAccess[i] /= (walkAccess[0].length*walkAccess[0][0].length*IDEAL);
     println("avgWalkAccess(" + i + "): " + avgWalkAccess[i]);

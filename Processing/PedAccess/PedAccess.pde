@@ -156,8 +156,6 @@ void setup() {
       importPointsOfInterest();
       initWalkAccess();
       calcWalkAccess(0);
-      calcWalkAccess(1);
-      calcWalkAccess(2);
 }
 
 void draw() {
