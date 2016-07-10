@@ -199,6 +199,8 @@ void draw() {
   
   if (implementAgents) draw_Agents();
   
+  text("Ira Winder, MIT Media Lab", width-350, height - 50);
+  text("Yimin Zhou, Centre for Livable Cities", width-350, height - 30);
 
 //  // Renders everything else drawn to Screen
 //  renderScreen();
