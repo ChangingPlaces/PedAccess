@@ -75,6 +75,8 @@ boolean showTotalCost = false;
 boolean showAllocation = false;
 boolean showVehicle = false;
 
+boolean enableDock = true;
+
 boolean sketchFullScreen() {
   return false;
 }
@@ -170,6 +172,7 @@ void draw() {
   // Decode pieces only if there is a change in Colortizer input
   if (changeDetected) {
     decodePieces();
+    if (enableDock) updateDock();
     println("New Pieces: " + newPOIs.size());
     refreshFinder(tableCanvas);
     initAgents(tableCanvas);
@@ -235,6 +238,7 @@ void draw() {
     if (showWalkAccess) drawWalkAccess();
     drawPOIs();
     drawSideBar();
+    if (enableDock) drawDock();
   }
   
   if (changeClock > 0) {
@@ -376,7 +380,7 @@ void drawSideBar() {
   textAlign(LEFT);
   
   // Draw Scale
-  translate(20, TABLE_IMAGE_WIDTH/3.0 + TABLE_IMAGE_HEIGHT/22.0);
+  translate(0, TABLE_IMAGE_WIDTH/3.0 + TABLE_IMAGE_HEIGHT/22.0 - 8*TABLE_IMAGE_HEIGHT / 22.0);
   float w = mapRatio*TABLE_IMAGE_WIDTH;
   int scale_0 = 20;
   int scale_1 = int(w + STANDARD_MARGIN);
@@ -396,9 +400,10 @@ void drawSideBar() {
   translate(-TABLE_IMAGE_OFFSET + barWidth, -STANDARD_MARGIN);
   translate(-10, -30);
   translate(0, -TABLE_IMAGE_HEIGHT + 350);
-  translate(-20, -TABLE_IMAGE_WIDTH/3.0 - TABLE_IMAGE_HEIGHT/22.0);
+  translate(0, -TABLE_IMAGE_WIDTH/3.0 - TABLE_IMAGE_HEIGHT/22.0 + 8*TABLE_IMAGE_HEIGHT / 22.0);
   translate(0, 4*scalePix);
   translate(-scale_0, 0);
+  
 }
 
 void drawPOIs() {
@@ -406,15 +411,18 @@ void drawPOIs() {
   int u, v;
   String subtype;
   boolean inBounds;
+  int dockV = 0;
+  
+  if (enableDock) dockV = 12;
   
   for (int i=0; i<amenity.size(); i++) {
     poi = amenity.getJSONObject(i);
     u = amenity.getJSONObject(i).getInt("u") - gridPanU - gridU/2;
     v = amenity.getJSONObject(i).getInt("v") - gridPanV - gridV/2;;
     subtype = amenity.getJSONObject(i).getString("subtype");
-    inBounds = u>0 && u<4*18 && v>0 && v<4*22;
+    inBounds = u>0 && u<4*18 && v>0 && v<4*22-dockV;
     
-    if (inBounds) drawIcon(int(TABLE_IMAGE_OFFSET + u*TABLE_IMAGE_WIDTH/(4.0*18)), int(STANDARD_MARGIN + v*TABLE_IMAGE_HEIGHT/(4.0*22)), subtype, 10);
+    if (inBounds) drawIcon(int(TABLE_IMAGE_OFFSET + u*TABLE_IMAGE_WIDTH/(4.0*18)), int(STANDARD_MARGIN + v*TABLE_IMAGE_HEIGHT/(4.0*22)), subtype, 12);
   }
   
   for (int i=0; i<transit.size(); i++) {
@@ -422,7 +430,7 @@ void drawPOIs() {
     u = transit.getJSONObject(i).getInt("u") - gridPanU - gridU/2;
     v = transit.getJSONObject(i).getInt("v") - gridPanV - gridV/2;;
     subtype = transit.getJSONObject(i).getString("subtype");
-    inBounds = u>0 && u<4*18 && v>0 && v<4*22;
+    inBounds = u>0 && u<4*18 && v>0 && v<4*22-dockV;
     
     if (inBounds) drawIcon(int(TABLE_IMAGE_OFFSET + u*TABLE_IMAGE_WIDTH/(4.0*18)), int(STANDARD_MARGIN + v*TABLE_IMAGE_HEIGHT/(4.0*22)), subtype, 12);
   }
@@ -432,7 +440,7 @@ void drawPOIs() {
     u = newPOIs.getJSONObject(i).getInt("u") - gridPanU - gridU/2;
     v = newPOIs.getJSONObject(i).getInt("v") - gridPanV - gridV/2;;
     subtype = newPOIs.getJSONObject(i).getString("subtype");
-    inBounds = u>0 && u<4*18 && v>0 && v<4*22;
+    inBounds = u>0 && u<4*18 && v>0 && v<4*22-dockV;
     
     if (inBounds) drawIcon(int(TABLE_IMAGE_OFFSET + u*TABLE_IMAGE_WIDTH/(4.0*18)), int(STANDARD_MARGIN + v*TABLE_IMAGE_HEIGHT/(4.0*22)), subtype, 12);
   }
@@ -532,4 +540,129 @@ void drawIcon(int x, int y, String subtype, int dim) {
     drawIcon(x, y, 6, dim);
   if (subtype.equals("housing"))
     drawIcon(x, y, 8, dim);
+}
+
+int amenityFilter = 1;
+
+void drawDock() {
+  
+  translate(TABLE_IMAGE_OFFSET + 20, STANDARD_MARGIN + TABLE_IMAGE_HEIGHT*(19.0/22.0));
+  
+  fill(0);
+  noStroke();
+  float x = TABLE_IMAGE_WIDTH;
+  float y = TABLE_IMAGE_HEIGHT*(3.0/22.0);
+  rect(0, 0, x, y);
+  
+  stroke(textColor);
+  noFill();
+  float pieceW = TABLE_IMAGE_WIDTH / 18.0;
+  float pieceH = TABLE_IMAGE_HEIGHT / 22.0;
+  for (int u=0; u<18; u++) {
+    for (int v=0; v<3; v++) {
+      rect(u*pieceW + 5, v*pieceH + 5, pieceW - 10, pieceH - 10);
+    }
+  }
+  
+  // Draw Ammenity Dock Border
+  fill(#CCCCCC);
+  stroke(textColor);
+  rect(0.25*pieceW, 0.25*pieceH, 2.5*pieceW, 2.5*pieceH);
+  fill(0);
+  stroke(textColor);
+  rect(0.75*pieceW, 0.75*pieceH, 1.5*pieceW, 1.5*pieceH);
+  fill(textColor);
+  
+  x = 3.0*pieceW;
+  y = 1.1*pieceH;
+  textAlign(CENTER);
+  for (int i=0; i<3; i++) text("DOCK", x + 0.5*pieceW, y + 0.5*pieceH);
+  textAlign(LEFT);
+  
+  // draw dockInfo
+  x = - 1.5*pieceW;
+  y = pieceH;
+  if (amenityFilter >=0) {
+    fill(textColor);
+    rect(pieceW, pieceH, pieceW, pieceH);
+    textAlign(RIGHT);
+    text(pieceNames[amenityFilter], x + 0.5*pieceW, y + 0.5*pieceH);
+    textAlign(LEFT);
+    drawIcon(int(x + 0.75*pieceW), int(y + 0.5*pieceH - 10), amenityFilter, 12);
+  }
+  
+  // Draw Age Dock Border
+  fill(#CCCCCC);
+  stroke(textColor);
+  rect(13.25*pieceW, 0.25*pieceH, 4.5*pieceW, 2.5*pieceH);
+  fill(0);
+  stroke(textColor);
+  rect(13.75*pieceW, 0.75*pieceH, 3.5*pieceW, 1.5*pieceH);
+  fill(textColor);
+  
+  // Draw Dock Labels
+  x = 12.0*pieceW;
+  y = 1.1*pieceH;
+  textAlign(CENTER);
+  for (int i=0; i<3; i++) text("AGE", x + 0.5*pieceW, y + 0.5*pieceH);
+  textAlign(LEFT);
+  
+  x = 14.0*pieceW;
+  y = 0.1*pieceH;
+  String age = "";
+  fill(background);
+  
+  for (int k=0; k<3; k++) {
+    textAlign(CENTER);
+    switch (k) {
+      case 0:
+        age = "0-16";
+        x = 14.0*pieceW;
+        break;
+      case 1:
+        age = "17-64";
+        x = 15.0*pieceW;
+        break;
+      case 2:
+        age = "65+";
+        x = 16.0*pieceW;
+        break;
+    }
+    for (int i=0; i<3; i++) text(age, x + 0.5*pieceW, y + 0.5*pieceH);
+    textAlign(LEFT);
+  }
+  
+  // draw dockInfo
+  x = 14*pieceW;
+  y = pieceH;
+  fill(textColor);
+  noStroke();
+  
+  switch (ageDemographic) {
+    case 0:
+      x = 14.0*pieceW;
+      break;
+    case 1:
+      x = 15.0*pieceW;
+      break;
+    case 2:
+      x = 16.0*pieceW;
+      break;
+  }
+  rect(x, y, pieceW, pieceH);
+  
+  translate(-TABLE_IMAGE_OFFSET - 20, -STANDARD_MARGIN - TABLE_IMAGE_HEIGHT*(19.0/22.0));
+}
+
+void updateDock() {
+  
+  // Update Age
+  if (tablePieceInput[14][20][0] >= 0) ageDemographic = 0;
+  if (tablePieceInput[15][20][0] >= 0) ageDemographic = 1;
+  if (tablePieceInput[16][20][0] >= 0) ageDemographic = 2;
+  
+  // Update Amenity Filter
+  amenityFilter = -1;
+  if (tablePieceInput[1][20][0] >= 0) amenityFilter = tablePieceInput[1][20][0];
+  if (tablePieceInput[1][20][0] == 9) amenityFilter = 8;
 }

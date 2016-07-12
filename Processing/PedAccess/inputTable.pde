@@ -477,8 +477,8 @@ void fauxPieces(int code, int[][][] pieces, int maxID) {
     // Sets grids to be alternating one of each N piece types (0-N) with no rotation (0)
     for (int i=0; i<pieces.length; i++) {
       for (int j=0; j<pieces[0].length; j++) {
-        //pieces[i][j][0] = i  % maxID+1;
-        pieces[i][j][0] = -1; // set to -1 since laggy
+        pieces[i][j][0] = i  % maxID+1;
+        //pieces[i][j][0] = -1; // set to -1 since laggy
         pieces[i][j][1] = 0;
       }
     }
