@@ -570,11 +570,11 @@ void drawDock() {
   noFill();
   float pieceW = TABLE_IMAGE_WIDTH / 18.0;
   float pieceH = TABLE_IMAGE_HEIGHT / 22.0;
-  for (int u=0; u<18; u++) {
-    for (int v=0; v<3; v++) {
-      rect(u*pieceW + 5, v*pieceH + 5, pieceW - 10, pieceH - 10);
-    }
-  }
+//  for (int u=0; u<18; u++) {
+//    for (int v=0; v<3; v++) {
+//      rect(u*pieceW + 5, v*pieceH + 5, pieceW - 10, pieceH - 10);
+//    }
+//  }
   
   // Draw Ammenity Dock Border
   fill(#CCCCCC);
