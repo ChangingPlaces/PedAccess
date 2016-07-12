@@ -734,6 +734,10 @@ void keyPressed() {
         case 'w': // toggle heatmap
           showWalkAccess = toggle(showWalkAccess);
           break;
+          
+        case 'k': // toggle heatmap
+          enableDock = toggle(enableDock);
+          break;
       }
     }
     
