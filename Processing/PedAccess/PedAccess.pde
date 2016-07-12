@@ -277,7 +277,8 @@ void drawSideBar() {
   strokeWeight(1);
 
   fill(textColor);
-  text("LEGEND", 10, 20);
+  textSize(14);
+  for (int i=0; i<3; i++) text("LEGEND", 10, 20);
 
   translate(10, 30);
   int gridSpace = 8; // pixels
@@ -299,9 +300,10 @@ void drawSideBar() {
 
   for (int i=0; i<pieceNames.length; i++) {
     fill(textColor);
-    text(pieceNames[i], 4*gridSpace + 3*gridSpace, (i*5)*gridSpace + 10);
+    for (int j=0; j<3; j++) text(pieceNames[i], 4*gridSpace + 3*gridSpace, (i*5)*gridSpace + 10);
     drawIcon(4*gridSpace + gridSpace, (i*5)*gridSpace, i, gridSpace, -1);
   }
+  textSize(12);
 
   //  float webScale = 1.25;
   translate(0, TABLE_IMAGE_HEIGHT - 350);

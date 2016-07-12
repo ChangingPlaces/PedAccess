@@ -39,7 +39,7 @@ String[] pieceNames = {
   "PED. PATH",
   "HOUSING",
   "PED. BRIDGE",
-  "ELEVATED PATH",
+  "ELEV. PATH",
   "PED-X'ING"
 };
 
