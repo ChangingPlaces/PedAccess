@@ -363,6 +363,11 @@ void keyPressed() {
       if (layerSelected.equals("agents")) layerSelected = "pixelizer";
       else if (layerSelected.equals("pixelizer")) layerSelected = "agents";
       break;
+      
+   case 'c':
+    ks.toggleCalibration();
+    break;
+     
   }
   
   if (layerSelected.equals("agents")) {
