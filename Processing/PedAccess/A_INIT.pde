@@ -196,7 +196,9 @@ void amenityNetwork(PGraphics p, JSONArray amenity, JSONArray transit, JSONArray
     validForAge[1] = destination[i].z != 0 && origin[i].z != 0 && destination[i].z != 3 && origin[i].z != 3;
     validForAge[2] = destination[i].z != 0 && origin[i].z != 0 && destination[i].z != 1 && origin[i].z != 1;
     
-    if (walkingDist && (origin_tableArea || destination_tableArea) && transitToAmenity && validForAge[ageDemographic]) {
+    boolean filtered = (amenityFilter == -1) || origin[i].z == amenityFilter || destination[i].z == amenityFilter;
+    
+    if (walkingDist && (origin_tableArea || destination_tableArea) && transitToAmenity && validForAge[ageDemographic] && filtered) {
     
       // delay, origin, destination, speed, color
       swarmHorde.addSwarm(weight[i], origin[i], destination[i], 1, color(255.0*i/numSwarm, 255, 255));

@@ -78,7 +78,7 @@ boolean showVehicle = false;
 boolean enableDock = true;
 
 boolean sketchFullScreen() {
-  return false;
+  return true;
 }
 
 //Walmart Logo
@@ -202,8 +202,10 @@ void draw() {
   
   if (implementAgents) draw_Agents();
   
-  text("Ira Winder, MIT Media Lab", width-350, height - 50);
-  text("Yimin Zhou, Centre for Livable Cities", width-350, height - 30);
+  textSize(16);
+  text("Ira Winder, MIT Media Lab", width-450, height - 60);
+  text("Yimin Zhou, Centre for Liveable Cities", width-450, height - 30);
+  textSize(12);
 
 //  // Renders everything else drawn to Screen
 //  renderScreen();
@@ -459,7 +461,9 @@ void drawIcon(int x, int y, int type, int dim, int filter) {
   
   int switchValue;
   
-  if (filter == -1) {
+  if (type == 6) {
+    switchValue = type;
+  } else if (filter == -1) {
     switchValue = type;
   } else if (type == filter) {
     switchValue = filter;

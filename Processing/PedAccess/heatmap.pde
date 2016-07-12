@@ -71,7 +71,7 @@ void addWalkAccess(JSONObject poi, int ageDemo) {
     validForFilter = false;
   if (amenityFilter == 5 && !subtype.equals("park") )
     validForFilter = false;
-  if (amenityFilter == 6 && !subtype.equals("transit") )
+  if (amenityFilter == 6 && !type.equals("transit") )
     validForFilter = false;
   if (amenityFilter == 8 && !subtype.equals("housing") )
     validForFilter = false;
@@ -131,9 +131,18 @@ void drawWalkAccess() {
   float cellW = TABLE_IMAGE_WIDTH/(4.0*18);
   float cellH = TABLE_IMAGE_HEIGHT/(4.0*22);
   float cellGap = 0.2;
+  int IDEAL = 1;
+  if (amenityFilter >= 0) {
+    IDEAL = 1;
+  } else if (ageDemographic == 0) {
+    IDEAL = IDEAL_POI_ACCESS - 2;
+  } else {
+    IDEAL = IDEAL_POI_ACCESS;
+  }
+  
   for (int u=0; u<walkAccess[ageDemographic].length; u++) {
     for (int v=0; v<walkAccess[ageDemographic][0].length; v++) {
-      fill(lerpColor(red, green, walkAccess[ageDemographic][u][v]/IDEAL_POI_ACCESS), 200);
+      fill(lerpColor(red, green, walkAccess[ageDemographic][u][v]/IDEAL), 200);
       rect(TABLE_IMAGE_OFFSET + (u-cellGap)*cellW + 0.5*cellW, STANDARD_MARGIN + (v-cellGap)*cellH + 0.5*cellH, (1 - 2*cellGap)*cellW, (1 - 2*cellGap)*cellH);
     }
   }
