@@ -58,7 +58,25 @@ void addWalkAccess(JSONObject poi, int ageDemo) {
   validForAge[1] = !subtype.equals("school") && !subtype.equals("eldercare");
   validForAge[2] = !subtype.equals("school") && !subtype.equals("childcare");
   
-  if (validForAge[ageDemo]) {
+  boolean validForFilter = true;
+  if (amenityFilter == 0 && !subtype.equals("school") )
+    validForFilter = false;
+  if (amenityFilter == 1 && !subtype.equals("child_care") )
+    validForFilter = false;
+  if (amenityFilter == 2 && !subtype.equals("health") )
+    validForFilter = false;
+  if (amenityFilter == 3 && !subtype.equals("eldercare") )
+    validForFilter = false;
+  if (amenityFilter == 4 && !subtype.equals("retail") )
+    validForFilter = false;
+  if (amenityFilter == 5 && !subtype.equals("park") )
+    validForFilter = false;
+  if (amenityFilter == 6 && !subtype.equals("transit") )
+    validForFilter = false;
+  if (amenityFilter == 8 && !subtype.equals("housing") )
+    validForFilter = false;
+  
+  if (validForAge[ageDemo] && validForFilter) {
     int area = int(WALK_DISTANCE/gridSize);
     int u_temp, v_temp;
     float dist;
@@ -80,19 +98,25 @@ void addWalkAccess(JSONObject poi, int ageDemo) {
 }
 
 void calcAvgWalkAccess() {
+    
   for (int i=0; i<walkAccess.length; i++) {
+    int IDEAL = 1;
     for (int u=0; u<walkAccess[0].length; u++) {
       for (int v=0; v<walkAccess[0][0].length; v++) {
+
+        if (amenityFilter >= 0) {
+          IDEAL = 1;
+        } else if (i == 0) {
+          IDEAL = IDEAL_POI_ACCESS - 2;
+        } else {
+          IDEAL = IDEAL_POI_ACCESS;
+        }
+  
+        if (walkAccess[i][u][v] > IDEAL) walkAccess[i][u][v] = IDEAL;
         avgWalkAccess[i] += walkAccess[i][u][v];
       }
     }
-    int IDEAL;
-    if (i == 0) {
-      IDEAL = IDEAL_POI_ACCESS - 2;
-    } else {
-      IDEAL = IDEAL_POI_ACCESS;
-    }
-      
+    
     avgWalkAccess[i] /= (walkAccess[0].length*walkAccess[0][0].length*IDEAL);
     println("avgWalkAccess(" + i + "): " + avgWalkAccess[i]);
   }

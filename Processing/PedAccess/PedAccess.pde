@@ -296,7 +296,7 @@ void drawSideBar() {
   for (int i=0; i<pieceNames.length; i++) {
     fill(textColor);
     text(pieceNames[i], 4*gridSpace + 3*gridSpace, (i*5)*gridSpace + 10);
-    drawIcon(4*gridSpace + gridSpace, (i*5)*gridSpace, i, gridSpace);
+    drawIcon(4*gridSpace + gridSpace, (i*5)*gridSpace, i, gridSpace, -1);
   }
   
 //  float webScale = 1.25;
@@ -446,7 +446,7 @@ void drawPOIs() {
   }
 }
 
-void drawIcon(int x, int y, int type, int dim) {
+void drawIcon(int x, int y, int type, int dim, int filter) {
   
   strokeWeight(2);
   
@@ -457,7 +457,19 @@ void drawIcon(int x, int y, int type, int dim) {
 //  color ped_bridge = #FF453B;
 //  color ped_2nd = #4BCB2F;
   
-  switch (type) {
+  int switchValue;
+  
+  if (filter == -1) {
+    switchValue = type;
+  } else if (type == filter) {
+    switchValue = filter;
+  } else if (type != filter) {
+    switchValue = -1;
+  } else {
+    switchValue = type;
+  }
+  
+  switch (switchValue) {
     case 0: // School
       fill(tanBrick);
       stroke(textColor);
@@ -523,26 +535,26 @@ void drawIcon(int x, int y, int type, int dim) {
 
 void drawIcon(int x, int y, String subtype, int dim) {
   if (subtype.equals("school"))
-    drawIcon(x, y, 0, dim);
+    drawIcon(x, y, 0, dim, amenityFilter);
   if (subtype.equals("child_care"))
-    drawIcon(x, y, 1, dim);
+    drawIcon(x, y, 1, dim, amenityFilter);
   if (subtype.equals("health"))
-    drawIcon(x, y, 2, dim);
+    drawIcon(x, y, 2, dim, amenityFilter);
   if (subtype.equals("eldercare"))
-    drawIcon(x, y, 3, dim);
+    drawIcon(x, y, 3, dim, amenityFilter);
   if (subtype.equals("retail"))
-    drawIcon(x, y, 4, dim);
+    drawIcon(x, y, 4, dim, amenityFilter);
   if (subtype.equals("park"))
-    drawIcon(x, y, 5, dim);
+    drawIcon(x, y, 5, dim, amenityFilter);
   if (subtype.equals("bus_stop"))
-    drawIcon(x, y, 6, dim);
+    drawIcon(x, y, 6, dim, amenityFilter);
   if (subtype.equals("mrt"))
-    drawIcon(x, y, 6, dim);
+    drawIcon(x, y, 6, dim, amenityFilter);
   if (subtype.equals("housing"))
-    drawIcon(x, y, 8, dim);
+    drawIcon(x, y, 8, dim, amenityFilter);
 }
 
-int amenityFilter = 1;
+int amenityFilter = -1;
 
 void drawDock() {
   
@@ -588,7 +600,7 @@ void drawDock() {
     textAlign(RIGHT);
     text(pieceNames[amenityFilter], x + 0.5*pieceW, y + 0.5*pieceH);
     textAlign(LEFT);
-    drawIcon(int(x + 0.75*pieceW), int(y + 0.5*pieceH - 10), amenityFilter, 12);
+    drawIcon(int(x + 0.75*pieceW), int(y + 0.5*pieceH - 10), amenityFilter, 12, amenityFilter);
   }
   
   // Draw Age Dock Border
